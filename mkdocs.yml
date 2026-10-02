@@ -1,0 +1,9 @@
+site_name: md-forecast
+site_description: Forecasting molecular dynamics observables from partial trajectories
+repo_url: https://github.com/fabiobove-dr/md-forecast
+nav:
+  - Home: index.md
+  - Scientific contract: SCIENTIFIC_CONTRACT.md
+  - Implementation plan: IMPLEMENTATION_PLAN.md
+  - Engineering standards: ENGINEERING_STANDARDS.md
+  - Development: DEVELOPMENT.md

@@ -1,0 +1,40 @@
+name: Quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.22"
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run --locked ruff format --check .
+      - run: uv run --locked ruff check .
+      - run: uv run --locked mypy
+      - run: uv run --locked pytest
+      - run: uv run --locked xenon --max-absolute A --max-modules A --max-average A src
+      - run: uv build --no-sources
+      - name: Install and smoke-test the wheel outside the checkout
+        run: |
+          uv venv /tmp/md-forecast-wheel --python 3.14
+          uv pip install --python /tmp/md-forecast-wheel/bin/python dist/*.whl
+          cd /tmp
+          /tmp/md-forecast-wheel/bin/python -c 'from md_forecast import __version__; from md_forecast.core.config import Settings; assert __version__; Settings()'
+          /tmp/md-forecast-wheel/bin/md-forecast --version
+          /tmp/md-forecast-wheel/bin/md-forecast --help
+      - run: uv run --locked mkdocs build --strict
