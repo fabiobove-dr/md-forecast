@@ -10,6 +10,7 @@ readme = "README.md"
 requires-python = ">=3.14,<3.15"
 license = "MIT"
 dependencies = [
+    "h5py>=3.15,<4",
     "httpx>=0.28,<1",
     "numpy>=2.3,<3",
     "pyarrow>=22,<26",
@@ -62,7 +63,7 @@ files = ["src", "tests"]
 plugins = ["pydantic.mypy"]
 
 [[tool.mypy.overrides]]
-module = ["pyarrow", "pyarrow.*"]
+module = ["h5py", "h5py.*", "pyarrow", "pyarrow.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]

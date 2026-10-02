@@ -15,9 +15,10 @@ The project deliberately supports the 3.14 minor series only at this stage.
 CI pins the uv release used to validate the lockfile; use that release or newer
 locally. No system Python upgrade is required.
 
-Core dependencies are Pydantic v2, pydantic-settings, HTTPX, PyYAML, NumPy, and
-PyArrow. NumPy/Arrow are runtime dependencies of canonical series storage;
-their Python 3.14 wheels are verified by CI and the outside-checkout wheel
+Core dependencies are Pydantic v2, pydantic-settings, HTTPX, PyYAML, NumPy,
+PyArrow, and h5py. NumPy/Arrow are runtime dependencies of canonical series storage;
+h5py is used by the MISATO adapter. Their Python 3.14 wheels are verified by
+CI and the outside-checkout wheel
 smoke test. `dev` contains lint,
 typing, testing, coverage, complexity, and pre-commit tooling; `docs` contains
 MkDocs. Additional analysis and ML/GPU groups are deferred until their implementing
@@ -41,7 +42,8 @@ src/md_forecast/
 │   ├── acquisition.py # bounded, validated artifact acquisition
 │   ├── schemas.py     # versioned metadata boundaries
 │   ├── registry.py    # trajectory-level JSON index
-│   └── series.py      # vector-validated Arrow/Parquet trajectories
+│   ├── series.py      # vector-validated Arrow/Parquet trajectories
+│   └── public/misato.py # lazy native-observable extraction
 └── core/
     ├── config.py     # Pydantic settings
     ├── constants.py  # stable typed defaults
@@ -135,6 +137,11 @@ does not delete potentially valuable local data.
 No training or forecasting commands are implemented yet. See the
 [MISATO audit](datasets/MISATO.md) for scientific timing and license limitations,
 and [canonical schema](datasets/CANONICAL_SCHEMA.md) for registry/storage APIs.
+The [MISATO adapter](datasets/MISATO_ADAPTER.md) documents selected-system
+extraction, real-sample verification, QC outputs, and failure safety. Run
+`uv run --locked md-forecast extract-misato --help` for required local paths and
+selection arguments. It does not download HDF5, infer missing physical time,
+or install a model dependency.
 
 ## Quality gates
 

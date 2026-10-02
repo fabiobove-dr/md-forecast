@@ -36,6 +36,7 @@ jobs:
           cd /tmp
           /tmp/md-forecast-wheel/bin/python -c 'from md_forecast import __version__; from md_forecast.core.config import Settings; assert __version__; Settings()'
           /tmp/md-forecast-wheel/bin/python -c 'import numpy; import pyarrow; from md_forecast.data.schemas import TimeAxis; from md_forecast.data.series import read_series; assert TimeAxis(frame_count=3).frame_interval_ps is None'
+          /tmp/md-forecast-wheel/bin/python -c 'import h5py; from md_forecast.data.public.misato import ExtractionConfig, extract_misato'
           /tmp/md-forecast-wheel/bin/md-forecast --version
           /tmp/md-forecast-wheel/bin/md-forecast --help
       - run: uv run --locked mkdocs build --strict
