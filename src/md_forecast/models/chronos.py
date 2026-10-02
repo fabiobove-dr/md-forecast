@@ -47,7 +47,13 @@ class Chronos2Adapter:
         """Pin complete checkpoint and inference settings in benchmark manifests."""
         return metadata_hash(self.settings)
 
-    def __init__(self, settings: ChronosConfig, *, cache_dir: Path) -> None:
+    def __init__(
+        self,
+        settings: ChronosConfig,
+        *,
+        cache_dir: Path,
+        _snapshot: Path | None = None,
+    ) -> None:
         """Load only an exact local snapshot and verify the requested GPU placement."""
         self.settings = ChronosConfig.model_validate_json(settings.model_dump_json())
         self.config = ModelConfig(
@@ -63,11 +69,15 @@ class Chronos2Adapter:
             self._torch.cuda.synchronize(settings.device)
             self._torch.cuda.reset_peak_memory_stats(settings.device)
             start = perf_counter()
-            snapshot = hub.snapshot_download(
-                repo_id=settings.model_name,
-                revision=settings.revision,
-                cache_dir=str(cache_dir),
-                allow_patterns=["config.json", "model.safetensors"],
+            snapshot = (
+                str(_snapshot)
+                if _snapshot is not None
+                else hub.snapshot_download(
+                    repo_id=settings.model_name,
+                    revision=settings.revision,
+                    cache_dir=str(cache_dir),
+                    allow_patterns=["config.json", "model.safetensors"],
+                )
             )
             self._pipeline: Any = backend.Chronos2Pipeline.from_pretrained(
                 snapshot,

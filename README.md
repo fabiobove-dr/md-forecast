@@ -46,6 +46,8 @@ a context-only forecast contract. The optional [Chronos-2 adapter](docs/models/C
 provides revision-pinned, synchronous GPU zero-shot inference with native quantiles.
 The [benchmark API](docs/models/BENCHMARK.md) adds frozen context/horizon grids,
 native point/probabilistic metrics and paired dependency-group uncertainty.
+The [fine-tuning API](docs/models/FINETUNING.md) supports single-GPU full training,
+validation-selected checkpoints and provenance-checked resume with that benchmark.
 Development-only [MISATO QC](docs/datasets/MISATO_QC.md) is available through
 `uv run md-forecast qc-misato --help`, including complete autocorrelation curves.
 Versioned [structural geometry](docs/datasets/STRUCTURAL_FEATURES.md) can also be

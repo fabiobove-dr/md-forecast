@@ -26,7 +26,8 @@ uses `uv sync --locked --extra chronos`, with Python 3.14-compatible pinned
 `chronos-forecasting==2.3.2` and `torch==2.14.1`. This is a multi-GB CUDA-enabled
 installation on Linux; check disk and NVIDIA driver compatibility first.
 The [Chronos-2 API](models/CHRONOS2.md) requires an explicitly selected GPU;
-no implicit CPU fallback or fine-tuning is included.
+no implicit CPU fallback is included. The [fine-tuning API](models/FINETUNING.md)
+uses upstream full training with validation selection and verified resume.
 The [benchmark API](models/BENCHMARK.md) evaluates all adapters on frozen grids,
 with columnar predictions/metrics, grouped uncertainty and atomic report bundles.
 

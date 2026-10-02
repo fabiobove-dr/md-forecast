@@ -1,0 +1,27 @@
+# Development-only official-TRAIN holdout, frozen before checkpoint selection.
+[split]
+mode = "grouped"
+seed = 42
+ratios = [0.7, 0.3, 0.0]
+
+[grid]
+contexts = [40.0]
+horizons = [10.0]
+stride_frames = 10
+
+[evaluation]
+seed = 42
+bootstrap_samples = 1000
+confidence_level = 0.95
+min_groups = 5
+min_tail_samples = 10
+bootstrap_unit = "split-group"
+correction = "bonferroni"
+# Seven model-vs-persistence and seven fine-tuned-vs-alternative families.
+comparison_family_size = 616
+intervals = [[0.1, 0.9]]
+max_prediction_rows = 1000000
+max_bootstrap_bytes = 134217728
+
+[chronos]
+max_vram_bytes = 7516192768
