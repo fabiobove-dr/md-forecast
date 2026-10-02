@@ -44,6 +44,8 @@ splits, lazy forecast windows, and scoped preprocessing. Six synchronous
 [CPU baselines](docs/models/BASELINES.md), including train-only NLinear, share
 a context-only forecast contract. The optional [Chronos-2 adapter](docs/models/CHRONOS2.md)
 provides revision-pinned, synchronous GPU zero-shot inference with native quantiles.
+The [benchmark API](docs/models/BENCHMARK.md) adds frozen context/horizon grids,
+native point/probabilistic metrics and paired dependency-group uncertainty.
 Development-only [MISATO QC](docs/datasets/MISATO_QC.md) is available through
 `uv run md-forecast qc-misato --help`, including complete autocorrelation curves.
 Versioned [structural geometry](docs/datasets/STRUCTURAL_FEATURES.md) can also be

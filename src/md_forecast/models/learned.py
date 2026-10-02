@@ -135,6 +135,11 @@ class NLinearModel:
         """Recorded seed and NLinear regularization."""
         return self.state.config
 
+    @property
+    def artifact_hash(self) -> str:
+        """Include fitted coefficients and train-only preprocessing provenance."""
+        return metadata_hash(self.state)
+
     def predict(self, batch: ForecastBatch) -> FloatArray:
         """Map last-level-centered contexts to H steps and restore native units."""
         if batch.spec != self.state.spec:

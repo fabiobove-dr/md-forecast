@@ -59,6 +59,11 @@ class ForecastModel(Protocol):
         """Recorded adapter configuration."""
         ...
 
+    @property
+    def artifact_hash(self) -> str:
+        """Identity of fitted weights or the complete pretrained settings."""
+        ...
+
     def predict(self, batch: ForecastBatch) -> FloatArray:
         """Predict the entire requested horizon without access to target labels."""
         ...

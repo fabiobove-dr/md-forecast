@@ -1,0 +1,26 @@
+# Development-only integration; never a validation-selected scientific claim.
+partition = "train"
+window_selection = "first-per-trajectory"
+batch_size = 32
+
+[grid]
+contexts = [20.0, 40.0, 60.0]
+horizons = [1.0, 5.0, 10.0, 20.0]
+unit = "frame"
+stride_frames = 1
+
+[chronos]
+quantile_levels = [0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.95]
+
+[evaluation]
+seed = 42
+bootstrap_samples = 1000
+confidence_level = 0.95
+min_groups = 5
+min_tail_samples = 10
+bootstrap_unit = "split-group"
+correction = "bonferroni"
+comparison_family_size = 2880
+intervals = [[0.25, 0.75], [0.1, 0.9], [0.05, 0.95]]
+max_prediction_rows = 1000000
+max_bootstrap_bytes = 134217728
