@@ -1,0 +1,35 @@
+# Illustrative CPU settings, not a validation-selected benchmark specification.
+[training]
+seed = 42
+batch_size = 16
+max_windows = 10000
+max_design_bytes = 134217728
+
+[[models]]
+model_id = "persistence"
+seed = 42
+
+[[models]]
+model_id = "context-mean"
+seed = 42
+
+[[models]]
+model_id = "linear-extrapolation"
+seed = 42
+
+[[models]]
+model_id = "autoregression"
+seed = 42
+lags = 1
+ridge = 0.0
+
+[[models]]
+model_id = "var"
+seed = 42
+lags = 1
+ridge = 0.0
+
+[[models]]
+model_id = "nlinear"
+seed = 42
+ridge = 0.0

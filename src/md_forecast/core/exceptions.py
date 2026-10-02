@@ -11,3 +11,7 @@ class AcquisitionError(MDForecastError):
 
 class DataContractError(MDForecastError):
     """Canonical registry or numerical series violates the data contract."""
+
+
+class ForecastError(MDForecastError):
+    """Forecast configuration, fitting or prediction cannot be completed safely."""

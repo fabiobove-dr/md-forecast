@@ -138,7 +138,9 @@ artifact is finalized, retrying validates the file and repairs the receipt.
 Move an invalid `.part`/existing file aside before retrying; the downloader
 does not delete potentially valuable local data.
 
-No training or forecasting commands are implemented yet. See the
+CPU forecasting and training are available through the Python
+[baseline API](models/BASELINES.md), with explicit versioned settings in
+`configs/models/baselines.toml`; there is no training/forecasting CLI yet. See the
 [MISATO audit](datasets/MISATO.md) for scientific timing and license limitations,
 and [canonical schema](datasets/CANONICAL_SCHEMA.md) for registry/storage APIs.
 The [MISATO adapter](datasets/MISATO_ADAPTER.md) documents selected-system
