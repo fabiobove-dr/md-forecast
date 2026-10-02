@@ -134,7 +134,7 @@ calibration-success claim is authorized by this smoke specification.
 
 ## Actual development evidence — 2026-10-02
 
-Clean implementation revision `3ee469fabd29b4e2a6ad028ea6556259077b15bf` ran the
+Clean implementation revision `ebedfb3c4e86f66a66f50f0885d83c942675788f` ran the
 above 12 cells on the 19 official TRAIN systems. Each cell has 19 first windows,
 19 trajectories/systems/independent groups: 228 cell-windows and seven models
 (1,596 window/model forecasts), 57,456 scalar prediction rows and 946,560 metric
@@ -155,21 +155,23 @@ The input manifest, baseline configs, pretrained settings and all 12 fitted
 NLinear states were saved as separate hash-addressed metadata artifacts under
 ignored `data/processed/benchmark-inputs`. Retain these model inputs beside the
 report; the generic evaluator intentionally does not reconstruct model objects.
-Verified outputs are ignored `misato-benchmark-verified` and `misato-benchmark-repeat`.
+Verified outputs are ignored `misato-benchmark-final-verified` and
+`misato-benchmark-final-repeat`; earlier verification bundles are retained too.
 
-- Manifest: `sha256:7d9153240d45df86c87bf4bc83e17d72512b6bfb09a83a9c62e2555c5aa9f358`.
-- Report: `sha256:b315b1906b5d393a3be91ebb38d55e36f148906d39e4b0dadff57071ec82e78a`.
+- Manifest: `sha256:d3d8a682943075086181949e747c394948c491e302469deb8e663c3227d155f0`.
+- Report: `sha256:3e37c14dd654ce58cd2056642cfa8f7856dad7fdc7666255c2f9c002deb03183`.
 - Lockfile: `sha256:6114c9b8d23e5e8b2bf890dcedacfca4d5569bb9d1e6958a498d29d10d40681b`.
 
 Workstation: i7-13700HX, RTX 4070 Laptop 8 GB, Python 3.14.8, Torch 2.14.1+cu130.
-The complete fit/evaluate/publish/repeat/check run took 20.49 s, peak RSS
-2,251,704 KiB and peak reserved VRAM 511,705,088 bytes (~488 MiB). These are
+The complete fit/evaluate/publish/repeat/check run took 19.59 s, peak RSS
+2,242,892 KiB and peak reserved VRAM 511,705,088 bytes (~488 MiB). These are
 small-subset integration measurements, not full-data throughput estimates.
 The local verification helper used the documented API/configs:
 
 ```sh
 /usr/bin/time -v uv run --locked python /tmp/md-forecast-issue11-smoke.py \
-  data/processed/misato-benchmark-verified data/processed/misato-benchmark-repeat
+  data/processed/misato-benchmark-final-verified \
+  data/processed/misato-benchmark-final-repeat
 ```
 
 That helper is workstation-local, not a bundled CLI; use fresh output paths
