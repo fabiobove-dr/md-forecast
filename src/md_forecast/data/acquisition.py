@@ -115,7 +115,8 @@ async def _file_job[T](
         raise
 
 
-def _validate_file(path: Path, artifact: SourceArtifact) -> None:
+def validate_artifact(path: Path, artifact: SourceArtifact) -> None:
+    """Verify complete local bytes against the audited artifact contract."""
     if path.is_symlink() or not path.is_file():
         raise AcquisitionError(f"Expected a regular artifact file at {path}")
     if path.stat().st_size != artifact.size_bytes:
@@ -280,7 +281,7 @@ async def _acquire_one(
 ) -> Path:
     final = destination / name
     if await _file_job(final.exists):
-        await _file_job(_validate_file, final, artifact)
+        await _file_job(validate_artifact, final, artifact)
         await _file_job(_write_receipt, final, artifact, source)
         return final
     partial = final.with_name(final.name + constants.PARTIAL_SUFFIX)
@@ -295,7 +296,7 @@ async def _acquire_one(
                     f"retained partial bytes for restart: {error}"
                 ) from error
             await asyncio.sleep(settings.retry_delay * (attempt + 1))
-    await _file_job(_validate_file, partial, artifact)
+    await _file_job(validate_artifact, partial, artifact)
     await _file_job(partial.replace, final)
     await _file_job(_write_receipt, final, artifact, source)
     logger.info("Verified artifact %s", name)

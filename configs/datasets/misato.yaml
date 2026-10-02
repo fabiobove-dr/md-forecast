@@ -1,6 +1,7 @@
 schema_version: 1
 dataset_id: misato
 dataset_version: 1.0.0
+feature_set_version: misato-native-v1
 source_record: "7711953"
 doi: 10.5281/zenodo.7711953
 metadata_url: https://zenodo.org/api/records/7711953
@@ -74,6 +75,8 @@ time_axis:
   policy: frame-index-only-until-physical-spacing-is-verified-or-explicitly-configured
 features:
   ligand_rmsd:
+    description: Native ligand RMSD
+    definition: Source-native RMSD; exact alignment mask and reference unpublished.
     source_key: frames_rmsd_ligand
     shape: [100]
     dtype: float64
@@ -82,6 +85,8 @@ features:
     alignment_status: protein-fit-and-reference-unverified
     admission: raw-native-rmsd-only-no-protein-aligned-claim
   ligand_receptor_com_distance:
+    description: Native ligand-receptor center-of-mass distance
+    definition: Author-described COM distance; exact atom and mass selections unpublished.
     source_key: frames_distance
     shape: [100]
     dtype: float64
@@ -89,6 +94,8 @@ features:
     time_resolved: true
     definition_status: author-described-com-distance-exact-mask-unpublished
   buried_sasa:
+    description: Native buried solvent-accessible surface area
+    definition: Author-described buried SASA; exact probe and atom selections unpublished.
     source_key: frames_bSASA
     shape: [100]
     dtype: float64
@@ -96,6 +103,8 @@ features:
     time_resolved: true
     definition_status: author-described-buried-sasa-exact-probe-and-masks-unpublished
   interaction_energy:
+    description: Native MM/GBSA-related interaction energy
+    definition: Author-described interaction energy, not measured affinity or validated binding free energy.
     source_key: frames_interaction_energy
     shape: [100]
     dtype: float64

@@ -408,7 +408,7 @@ def test_retry_limit_and_hashing_off_event_loop(
         )
     assert calls == 2
 
-    original = acquisition._validate_file
+    original = acquisition.validate_artifact
 
     async def scenario() -> None:
         loop_thread = threading.get_ident()
@@ -417,7 +417,7 @@ def test_retry_limit_and_hashing_off_event_loop(
             assert threading.get_ident() != loop_thread
             original(path, artifact)
 
-        monkeypatch.setattr(acquisition, "_validate_file", checked)
+        monkeypatch.setattr(acquisition, "validate_artifact", checked)
         await acquire(
             source_for(),
             settings_for(tmp_path),
