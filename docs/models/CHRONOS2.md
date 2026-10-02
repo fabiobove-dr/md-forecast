@@ -2,7 +2,8 @@
 
 Install with `uv sync --locked --extra chronos`. The default CPU installation
 and tests do not import Torch, download weights, or require CUDA. Inference
-is synchronous; fine-tuning, covariates and a forecasting CLI are out of scope.
+is synchronous; covariates and a forecasting CLI are out of scope.
+The separate [fine-tuning API](FINETUNING.md) reuses this inference contract.
 
 ## Configuration and loading
 
