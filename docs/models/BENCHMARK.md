@@ -131,3 +131,48 @@ not be loaded for this integration proof. The 1,000-resample budget resolves
 marginal 95% intervals but not the 2,880-comparison corrected tails: corrected
 intervals must be flagged unavailable. No physical-time, held-out-skill or
 calibration-success claim is authorized by this smoke specification.
+
+## Actual development evidence — 2026-10-02
+
+Clean implementation revision `3ee469fabd29b4e2a6ad028ea6556259077b15bf` ran the
+above 12 cells on the 19 official TRAIN systems. Each cell has 19 first windows,
+19 trajectories/systems/independent groups: 228 cell-windows and seven models
+(1,596 window/model forecasts), 57,456 scalar prediction rows and 946,560 metric
+rows. Quantile/calibration outputs retain 50/80/90% intervals. Every horizon
+figure includes persistence; unknown physical sampling stays labeled frames.
+
+A guarded loader asserted TRAIN membership and rejected TEST 16PK. NLinear and
+scalers fit only TRAIN data; no validation selection was possible or claimed.
+All native point/quantile predictions were finite/noncrossing. Marginal group
+intervals were produced; all multiplicity-corrected comparisons were explicitly
+`insufficient-bootstrap-resolution`, as required by the predeclared pilot budget.
+No conclusions about held-out accuracy or calibration success were drawn.
+
+Two independent calls of `evaluate_grid` with the same frozen manifest/adapters
+produced equal prediction, metric and comparison tables and identical report
+IDs. Both persisted bundles passed full scientific-table checksum verification.
+The input manifest, baseline configs, pretrained settings and all 12 fitted
+NLinear states were saved as separate hash-addressed metadata artifacts under
+ignored `data/processed/benchmark-inputs`. Retain these model inputs beside the
+report; the generic evaluator intentionally does not reconstruct model objects.
+Verified outputs are ignored `misato-benchmark-verified` and `misato-benchmark-repeat`.
+
+- Manifest: `sha256:7d9153240d45df86c87bf4bc83e17d72512b6bfb09a83a9c62e2555c5aa9f358`.
+- Report: `sha256:b315b1906b5d393a3be91ebb38d55e36f148906d39e4b0dadff57071ec82e78a`.
+- Lockfile: `sha256:6114c9b8d23e5e8b2bf890dcedacfca4d5569bb9d1e6958a498d29d10d40681b`.
+
+Workstation: i7-13700HX, RTX 4070 Laptop 8 GB, Python 3.14.8, Torch 2.14.1+cu130.
+The complete fit/evaluate/publish/repeat/check run took 20.49 s, peak RSS
+2,251,704 KiB and peak reserved VRAM 511,705,088 bytes (~488 MiB). These are
+small-subset integration measurements, not full-data throughput estimates.
+The local verification helper used the documented API/configs:
+
+```sh
+/usr/bin/time -v uv run --locked python /tmp/md-forecast-issue11-smoke.py \
+  data/processed/misato-benchmark-verified data/processed/misato-benchmark-repeat
+```
+
+That helper is workstation-local, not a bundled CLI; use fresh output paths
+on reruns. Synthetic numerical/reference and every-adapter tests provide the
+portable CI reproduction without external data or a GPU. Full experiment
+automation remains separately scoped.

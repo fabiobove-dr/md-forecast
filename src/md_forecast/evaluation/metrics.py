@@ -73,11 +73,19 @@ def point_losses(
 def _validate_point_inputs(
     points: FloatArray, targets: FloatArray, scale: FloatArray
 ) -> None:
-    if points.shape != targets.shape or scale.shape != (points.shape[-1],):
-        raise ForecastError("metric dimensions differ")
+    _validate_point_shapes(points, targets, scale)
     _validate_scale(scale)
     if not np.isfinite(points).all() or not np.isfinite(targets).all():
         raise ForecastError("point metrics require finite inputs")
+
+
+def _validate_point_shapes(
+    points: FloatArray, targets: FloatArray, scale: FloatArray
+) -> None:
+    if points.ndim != 3 or min(points.shape) < 1:
+        raise ForecastError("point metrics expect nonempty (B,H,F) arrays")
+    if points.shape != targets.shape or scale.shape != (points.shape[-1],):
+        raise ForecastError("metric dimensions differ")
 
 
 def _validate_scale(scale: FloatArray) -> None:
@@ -103,13 +111,21 @@ def quantile_losses(
 def _validate_quantile_inputs(
     values: FloatArray, targets: FloatArray, levels: tuple[float, ...]
 ) -> None:
-    if values.shape != (*targets.shape, len(levels)):
-        raise ForecastError("quantile metric dimensions differ")
+    _validate_quantile_shapes(values, targets, levels)
     _validate_level_range(levels)
     if not np.isfinite(values).all() or np.any(np.diff(values, axis=-1) < 0):
         raise ForecastError("nonfinite or crossing quantiles cannot define intervals")
     if not np.isfinite(targets).all():
         raise ForecastError("quantile targets must be finite")
+
+
+def _validate_quantile_shapes(
+    values: FloatArray, targets: FloatArray, levels: tuple[float, ...]
+) -> None:
+    if targets.ndim != 3 or min(targets.shape) < 1:
+        raise ForecastError("quantile metrics expect nonempty (B,H,F) targets")
+    if values.shape != (*targets.shape, len(levels)):
+        raise ForecastError("quantile metric dimensions differ")
 
 
 def _validate_level_range(levels: tuple[float, ...]) -> None:

@@ -158,6 +158,16 @@ def test_point_failures(failure: str) -> None:
         point_losses(points, targets, scale)
 
 
+def test_empty_and_scalar_metric_inputs() -> None:
+    for values in (np.array(1.0), np.empty((0, 1, 1))):
+        with pytest.raises(ForecastError, match="nonempty"):
+            point_losses(values, values, np.ones(1))
+        with pytest.raises(ForecastError, match="nonempty"):
+            quantile_losses(
+                np.ones((*values.shape, 3)), values, (0.1, 0.5, 0.9), ((0.1, 0.9),)
+            )
+
+
 @pytest.mark.parametrize(
     "failure", ["shape", "crossing", "level", "endpoint", "nan", "overflow"]
 )
@@ -433,3 +443,59 @@ def test_replica_grouping_not_window_independence(
     )
     assert row["value"] == 1.96875
     assert {r["independent_groups"] for r in result.comparisons.to_pylist()} == {2}
+
+
+def test_explicit_first_window_selector_and_point_only_bundle(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    models, original, pairs = setup(monkeypatch, tmp_path)
+    models = models[:1]
+    manifest = CellManifest.model_validate(
+        original.model_dump()
+        | dict(
+            models=[models[0].config],
+            model_artifacts=[models[0].artifact_hash],
+            window_selection="first-per-trajectory",
+        )
+    )
+    selected = []
+    for batch, targets in pairs:
+        assert targets is not None
+        if batch.indices[0].start == 0:
+            selected.append(
+                (
+                    ForecastBatch(batch.spec, batch.indices[:1], batch.context[:1]),
+                    targets[:1],
+                )
+            )
+    result = evaluate_cell(models, selected, manifest)
+    assert result.window_count == result.trajectory_count == 3
+    assert set(result.predictions["start"].to_pylist()) == {0}
+    frozen = GridManifest(cells=(manifest,))
+    write_benchmark(tmp_path / "point", frozen, (result,))
+    assert not (tmp_path / "point/cell-0/calibration-0.svg").exists()
+
+
+def test_overflow_and_incompatible_probabilistic_output(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    models, manifest, pairs = setup(monkeypatch, tmp_path)
+    monkeypatch.setattr(models[-1], "forecast", lambda batch: None)
+    with pytest.raises(ForecastError, match="canonical output"):
+        evaluate_cell(models, pairs, manifest)
+
+    def huge(self: StatisticalBaseline, batch: ForecastBatch) -> FloatArray:
+        return np.full(
+            (
+                len(batch.indices),
+                batch.spec.horizon_frames,
+                len(batch.spec.feature_ids),
+            ),
+            1e154,
+        )
+
+    monkeypatch.setattr(StatisticalBaseline, "predict", huge)
+    with pytest.raises(ForecastError, match="aggregation overflowed"):
+        evaluate_cell(models, pairs, manifest)
