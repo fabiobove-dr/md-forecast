@@ -138,6 +138,29 @@ invariance, analytic SASA, invalid topology fields, linked datasets, overflow,
 nonfinite coordinates, budgets and CLI/canonical publication. Optional SASA tests
 skip without the extra; CI installs it and executes them.
 
+Real-data verification on clean implementation commit
+`969bba7046b21b22394bf57acc36175f1b56b7af` exported all 19 TRAIN systems,
+1,900 frames and four finite channels, with zero exclusions. Instrumented HDF5
+reads rejected TEST `16PK` and confirmed the 4-frame bound (494 coordinate reads).
+Six frames from `10GS`, `11GS`, and peptide-ligand system `1A3E` independently
+matched standard-library `math.dist` contact counts, reference fractions and
+minima. Analytic SASA and chunk invariance are synthetic checks, not independent
+ground-truth SASA measurements on the real sample. No forecast skill is claimed.
+
+Feature identity:
+`misato-geometry-v1-54218bac06a9db9cf528f7fbc081c4ea6ab61e97c1200f43cc2e83da9e899259`.
+Registry SHA-256:
+`f1ee553ca0fe4331035d9b038b6422388a2ab3b62bf7224b5b421775c30930dd`;
+QC SHA-256:
+`9de62bd4b7fcc167279b09be5392c6b22b15f678676aa36e70d5e5e109db49a1`.
+The local guarded verification command
+`OMP_NUM_THREADS=1 /usr/bin/time -v uv run --locked --extra structural python /tmp/md-forecast-issue15-smoke.py`
+took 10.47 seconds, peak RSS 159,352 KiB on i7-13700HX, Python 3.14.8,
+MDTraj 1.11.1.post2 and NumPy 2.4.6. The CLI above reproduces extraction without
+the additional local verification script. Lockfile SHA-256:
+`d99aec10df653bda34d98dcfbe71938c5adc950adffffa580fe974652a8b079a`.
+This is small-sample verification, not a full-dataset performance estimate.
+
 ## Channels not admitted
 
 Pocket **backbone** RMSD, hydrogen-bond count and chemically hydrophobic contacts
