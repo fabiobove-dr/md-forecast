@@ -36,4 +36,9 @@ configuration, all quality checks, and the documentation site.
 
 Verified MISATO acquisition is available with `uv run md-forecast download`
 (small split files by default; `--mode md` explicitly includes the large MD
-artifact). Feature extraction and forecasting models arrive in later issues.
+artifact). Selected native observables can be exported with
+`uv run md-forecast extract-misato --help`; see the
+[MISATO adapter](docs/datasets/MISATO_ADAPTER.md) for verified source requirements.
+The [data preparation contract](docs/datasets/PREPARATION.md) covers leak-free
+splits, lazy forecast windows, and scoped preprocessing. Forecasting models
+arrive in later issues; no Chronos integration is included yet.

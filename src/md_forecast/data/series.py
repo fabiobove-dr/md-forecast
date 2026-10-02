@@ -66,7 +66,23 @@ def series_metadata(table: pa.Table) -> Registry:
 
 def validate_series(table: pa.Table) -> Registry:
     """Reject malformed tables, nonfinite observables, and inconsistent times."""
+    registry = validate_series_structure(table)
+    _validate_columns(table)
+    time = cast(FloatArray, table[TIME_COLUMN].to_numpy())
+    _validate_time(time, registry.trajectories[0])
+    return registry
+
+
+def validate_series_structure(table: pa.Table) -> Registry:
+    """Validate metadata and layout without inspecting unobserved values."""
     registry = series_metadata(table)
+    _validate_layout(table, registry)
+    if any(column.type != pa.float64() for column in table.columns):
+        raise DataContractError("series columns must be float64")
+    return registry
+
+
+def _validate_layout(table: pa.Table, registry: Registry) -> None:
     manifest = registry.trajectories[0]
     names = [
         TIME_COLUMN,
@@ -74,10 +90,6 @@ def validate_series(table: pa.Table) -> Registry:
     ]
     if table.column_names != names or table.num_rows != manifest.frame_count:
         raise DataContractError("series columns or frame count differ from metadata")
-    _validate_columns(table)
-    time = cast(FloatArray, table[TIME_COLUMN].to_numpy())
-    _validate_time(time, manifest)
-    return registry
 
 
 def _validate_columns(table: pa.Table) -> None:

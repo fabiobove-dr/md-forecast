@@ -37,6 +37,10 @@ TIME_RTOL: Final = 1e-9
 TIME_ATOL: Final = 1e-10
 SERIES_METADATA_KEY: Final = b"md_forecast.series"
 TIME_COLUMN: Final = "time"
+RATIO_ATOL: Final = 1e-12
+DEFAULT_GROUP_FIELD: Final = "system_id"
+SHA256_PATTERN: Final = r"^sha256:[0-9a-f]{64}$"
+CONSTANT_FEATURE_SCALE: Final = 1.0
 
 
 class DatasetId(StrEnum):

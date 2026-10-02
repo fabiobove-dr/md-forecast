@@ -43,6 +43,10 @@ src/md_forecast/
 │   ├── schemas.py     # versioned metadata boundaries
 │   ├── registry.py    # trajectory-level JSON index
 │   ├── series.py      # vector-validated Arrow/Parquet trajectories
+│   ├── splits.py      # official/grouped pre-window partitions
+│   ├── windows.py     # lazy indices and physical-grid validation
+│   ├── preprocessing.py # scoped, provenance-bearing scaler statistics
+│   ├── artifacts.py   # atomic, hashed experiment metadata
 │   └── public/misato.py # lazy native-observable extraction
 └── core/
     ├── config.py     # Pydantic settings
@@ -142,6 +146,8 @@ extraction, real-sample verification, QC outputs, and failure safety. Run
 `uv run --locked md-forecast extract-misato --help` for required local paths and
 selection arguments. It does not download HDF5, infer missing physical time,
 or install a model dependency.
+The [data preparation contract](datasets/PREPARATION.md) describes split/window
+configuration, scoped scaling, stable metadata hashes, and experiment linkage.
 
 ## Quality gates
 
