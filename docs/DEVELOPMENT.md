@@ -148,6 +148,11 @@ selection arguments. It does not download HDF5, infer missing physical time,
 or install a model dependency.
 The [data preparation contract](datasets/PREPARATION.md) describes split/window
 configuration, scoped scaling, stable metadata hashes, and experiment linkage.
+The [development QC](datasets/MISATO_QC.md) documents `qc-misato`, its explicit
+versioned configuration, training-only group selection, complete ACF curves,
+real-sample diagnostics and frame-grid justification. Run
+`uv run --locked md-forecast qc-misato --help` for required paths/provenance.
+No analysis dependency or physical-time assumption is added.
 
 ## Quality gates
 

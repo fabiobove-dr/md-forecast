@@ -42,3 +42,5 @@ artifact). Selected native observables can be exported with
 The [data preparation contract](docs/datasets/PREPARATION.md) covers leak-free
 splits, lazy forecast windows, and scoped preprocessing. Forecasting models
 arrive in later issues; no Chronos integration is included yet.
+Development-only [MISATO QC](docs/datasets/MISATO_QC.md) is available through
+`uv run md-forecast qc-misato --help`, including complete autocorrelation curves.
