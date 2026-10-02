@@ -164,3 +164,54 @@ checkpoint selection further limit interpretation. The apparently favorable
 energy marginal interval is not confirmatory evidence. Eight updates prove the
 training path, not sufficient domain adaptation. No reproducible superiority,
 official TEST success, calibrated-success or full-corpus throughput claim.
+
+## Verified artifacts — 2026-10-02
+
+Clean implementation `e82856cab951092fb06240d797c261fb0624bb8a` ran the documented
+example in separate processes: two uninterrupted runs and an intentional pause
+at step 4 followed by resume to step 8. All three selected step 8 with identical
+VAL loss `6.184868335723877` and bitwise-identical final weights. Every checkpoint
+file passed checksum verification. HF's aggregate resumed `train_loss` is not
+comparable to the uninterrupted aggregate because it accounts only for updates
+in that invocation; resumed VAL loss and final weights agree exactly.
+
+The first run measured 5.6192 s training/VAL/checkpoint time, 1.4237 optimizer
+steps/s, 2,399,809,536 allocated and 2,642,411,520 reserved CUDA bytes (2.46 GiB).
+Whole process wall time was 9.78 s, peak RSS 2,859,148 KiB, `/usr/bin/time -v`.
+Repeat: 5.5838 s; resumed remaining four updates: 3.8270 s, 2,621,440,000
+reserved bytes. Hardware: RTX 4070 Laptop 8 GB, i7-13700HX, driver 580.173.02,
+Python 3.14.8, Torch 2.14.1+cu130. This proves a budget smaller than 24 GB,
+not access to a physical 24 GB card. CUDA emitted a workspace-capacity warning;
+it did not invalidate determinism or cause a budget failure on this stack.
+
+- Training manifest: `sha256:671facac5f8227a792bc0c69ce60944bf1505f9addd7dc16be7ffe1c73879d64`.
+- Dataset: `sha256:dc6a7c2e4c13687b79b87af40697e53fbdc1f7859153e3327898a09887edb098`.
+- Split: `sha256:816e3422e0fa5719d6c4336dc1abe30ae1fb4127cb21981148f78a628caede05`.
+- Ordered feature set: `sha256:1c53ed57aa5981ad134050fd7556402d0ff50cb414700eb70c3700e96c04597c`.
+- Training config: `sha256:a53e0c3133d15241a6e11dd62d3b1c8938a0bfe348e5fa11334b881009d51c45`.
+- Weights: `sha256:a5bbd648ce6abcbe4171043abef29aceb4203363d0adb4412b9fd30907d91355`.
+- Lockfile: `sha256:6114c9b8d23e5e8b2bf890dcedacfca4d5569bb9d1e6958a498d29d10d40681b`.
+- Benchmark grid: `sha256:ac45d9f82f074ac9a2882008de2bca262775a7d9e5914480587e7c7bed8e00c0`.
+- Benchmark report: `sha256:46102dd3012feb8426308cf4322c0e142dd1ead4a8e263e61779c67272b68498`.
+
+Ignored outputs: `data/processed/chronos12-final-manifest.json`, training runs
+`chronos12-final-full`, `-repeat`, `-resume`, and equal verified reports
+`chronos12-final-benchmark`, `chronos12-final-benchmark-repeat`. Selected model
+provenance and fitted NLinear state remain beside those reports/runs; checkpoints
+and data are not committed or redistributed. All scientific tables were bitwise
+equal on repeated evaluation with the same frozen model inputs. The local helper
+used the unchanged evaluator and group-metric API described above:
+
+```sh
+uv run --locked python /tmp/md-forecast-issue12-evaluate.py \
+  data/processed/chronos12-final-manifest.json data/processed/chronos12-final-full \
+  data/processed/chronos12-final-benchmark data/processed/chronos12-final-benchmark-repeat
+```
+
+The evaluation helper is workstation-local, not a bundled CLI; training
+reproduction is the committed example. General experiment automation remains
+separately scoped. A fresh CPU-only wheel installed outside the checkout
+verified the real checkpoint and both report bundles without importing Torch
+or Chronos. Synthetic tests cover typed configs, source/split leakage, canonical
+inputs, budgets before reads, invalid/corrupt state, checkpoint callback/pause/
+resume/selection, wrong revision/features, GPU/precision/OOM failures and identity.
