@@ -137,11 +137,22 @@ def write_series(path: Path, table: pa.Table) -> None:
         raise DataContractError(f"cannot write series {path}: {error}") from error
 
 
-def read_series(path: Path) -> pa.Table:
-    """Read and validate one trajectory, never the full dataset at once."""
+def read_series(path: Path, expected: Registry | None = None) -> pa.Table:
+    """Read one trajectory, optionally checking source metadata before payload I/O."""
     try:
-        table = cast(pa.Table, pq.ParquetFile(path).read())
+        file = pq.ParquetFile(path)
+        _check_expected_metadata(file.schema_arrow, expected)
+        table = cast(pa.Table, file.read())
     except (OSError, pa.ArrowException) as error:
         raise DataContractError(f"cannot read series {path}: {error}") from error
     validate_series(table)
     return table
+
+
+def _check_expected_metadata(schema: pa.Schema, expected: Registry | None) -> None:
+    if expected is not None:
+        actual = series_metadata(pa.Table.from_batches([], schema=schema))
+        if actual != expected:
+            raise DataContractError(
+                "series source metadata differs before payload read"
+            )

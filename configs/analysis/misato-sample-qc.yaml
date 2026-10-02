@@ -1,0 +1,20 @@
+# Exploratory development-only protocol, not a frozen final-test benchmark.
+schema_version: 1
+development:
+  seed: 42
+  max_groups: 19
+# Conservative numerical near-constant cutoffs in each native feature's units.
+# These are QC flags, not claims about biological significance or exclusions.
+near_constant_std:
+  ligand_rmsd: 0.000001              # angstrom
+  ligand_receptor_com_distance: 0.000001  # angstrom
+  buried_sasa: 0.0001               # angstrom_squared
+  interaction_energy: 0.00001       # kcal_per_mol
+max_lag_frames: 40
+event_sigma: 3.0
+windows:
+  contexts: [20, 40, 60]
+  horizons: [1, 5, 10, 20]
+  unit: frame
+  stride_frames: 1
+  allow_assumed_time: false

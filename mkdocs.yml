@@ -12,3 +12,4 @@ nav:
       - Canonical schema: datasets/CANONICAL_SCHEMA.md
       - MISATO adapter: datasets/MISATO_ADAPTER.md
       - Data preparation: datasets/PREPARATION.md
+      - Development QC: datasets/MISATO_QC.md
