@@ -10,6 +10,7 @@ from md_forecast.core.constants import (
     CANONICAL_SCHEMA_VERSION,
     CHECKSUM_PATTERN,
     PS_PER_NS,
+    SHA256_PATTERN,
     TIME_ATOL,
     TIME_COLUMN,
     TIME_RTOL,
@@ -24,6 +25,7 @@ type Identifier = Annotated[str, Field(min_length=1)]
 type SchemaVersion = Annotated[
     int, Field(strict=True, ge=CANONICAL_SCHEMA_VERSION, le=CANONICAL_SCHEMA_VERSION)
 ]
+type ArtifactHash = Annotated[str, Field(pattern=SHA256_PATTERN)]
 
 
 class BoundaryModel(BaseModel):
@@ -166,6 +168,9 @@ class ExperimentConfig(BoundaryModel):
     dataset: DatasetConfig
     seed: Annotated[int, Field(strict=True, ge=0)]
     trajectory_ids: tuple[Identifier, ...] = ()
+    split_hash: ArtifactHash | None = None
+    window_config_hash: ArtifactHash | None = None
+    preprocessing_hash: ArtifactHash | None = None
 
     @model_validator(mode="after")
     def unique_selection(self) -> Self:

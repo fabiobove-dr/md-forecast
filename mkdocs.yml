@@ -11,3 +11,4 @@ nav:
       - MISATO audit: datasets/MISATO.md
       - Canonical schema: datasets/CANONICAL_SCHEMA.md
       - MISATO adapter: datasets/MISATO_ADAPTER.md
+      - Data preparation: datasets/PREPARATION.md
