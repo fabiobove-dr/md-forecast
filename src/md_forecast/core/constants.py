@@ -1,5 +1,6 @@
 """Stable defaults shared by configuration and runtime helpers."""
 
+from enum import StrEnum
 from pathlib import Path
 from typing import Final, Literal
 
@@ -29,3 +30,51 @@ CONTENT_RANGE_PATTERN: Final = r"bytes (\d+)-(\d+)/(\d+)"
 CHECKSUM_PATTERN: Final = r"(?:md5:[0-9a-f]{32}|sha256:[0-9a-f]{64})"
 ARTIFACT_NAME_PATTERN: Final = r"[A-Za-z0-9][A-Za-z0-9_.-]*"
 ACQUISITION_LOCK: Final = ".acquisition.lock"
+
+CANONICAL_SCHEMA_VERSION: Final = 1
+PS_PER_NS: Final = 1000.0
+TIME_RTOL: Final = 1e-9
+TIME_ATOL: Final = 1e-10
+SERIES_METADATA_KEY: Final = b"md_forecast.series"
+TIME_COLUMN: Final = "time"
+
+
+class DatasetId(StrEnum):
+    """Supported public dataset namespaces."""
+
+    MISATO = "misato"
+    MDBIND = "mdbind"
+
+
+class Split(StrEnum):
+    """Closed vocabulary for dataset partitions."""
+
+    TRAIN = "train"
+    VALIDATION = "validation"
+    TEST = "test"
+
+
+class TimeUnit(StrEnum):
+    """Frame indices are explicitly not physical time."""
+
+    FRAME = "frame"
+    PS = "ps"
+    NS = "ns"
+
+
+class SamplingStatus(StrEnum):
+    """Distinguish confirmed sampling from assumptions or missing metadata."""
+
+    VERIFIED = "verified"
+    ASSUMED = "assumed"
+    UNAVAILABLE = "unavailable"
+
+
+class FeatureUnit(StrEnum):
+    """Units admitted by the initial observable contract."""
+
+    ANGSTROM = "angstrom"
+    ANGSTROM_SQUARED = "angstrom_squared"
+    KCAL_PER_MOL = "kcal_per_mol"
+    DIMENSIONLESS = "dimensionless"
+    COUNT = "count"

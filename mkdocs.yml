@@ -9,3 +9,4 @@ nav:
   - Development: DEVELOPMENT.md
   - Datasets:
       - MISATO audit: datasets/MISATO.md
+      - Canonical schema: datasets/CANONICAL_SCHEMA.md

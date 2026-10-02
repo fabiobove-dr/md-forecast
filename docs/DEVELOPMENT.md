@@ -15,9 +15,12 @@ The project deliberately supports the 3.14 minor series only at this stage.
 CI pins the uv release used to validate the lockfile; use that release or newer
 locally. No system Python upgrade is required.
 
-Core dependencies are Pydantic v2, pydantic-settings, HTTPX, and PyYAML. `dev` contains lint,
+Core dependencies are Pydantic v2, pydantic-settings, HTTPX, PyYAML, NumPy, and
+PyArrow. NumPy/Arrow are runtime dependencies of canonical series storage;
+their Python 3.14 wheels are verified by CI and the outside-checkout wheel
+smoke test. `dev` contains lint,
 typing, testing, coverage, complexity, and pre-commit tooling; `docs` contains
-MkDocs. Data/analysis and ML/GPU groups are deferred until their implementing
+MkDocs. Additional analysis and ML/GPU groups are deferred until their implementing
 issues establish dependencies and Python compatibility. No Chronos or GPU
 package is installed by the scaffold.
 
@@ -34,7 +37,11 @@ The layout is intentionally shallow:
 src/md_forecast/
 ├── __init__.py       # authoritative version, also used by Hatchling
 ├── cli/__init__.py   # argparse help/version and acquisition
-├── data/acquisition.py # bounded, validated artifact acquisition
+├── data/
+│   ├── acquisition.py # bounded, validated artifact acquisition
+│   ├── schemas.py     # versioned metadata boundaries
+│   ├── registry.py    # trajectory-level JSON index
+│   └── series.py      # vector-validated Arrow/Parquet trajectories
 └── core/
     ├── config.py     # Pydantic settings
     ├── constants.py  # stable typed defaults
@@ -126,7 +133,8 @@ Move an invalid `.part`/existing file aside before retrying; the downloader
 does not delete potentially valuable local data.
 
 No training or forecasting commands are implemented yet. See the
-[MISATO audit](datasets/MISATO.md) for scientific timing and license limitations.
+[MISATO audit](datasets/MISATO.md) for scientific timing and license limitations,
+and [canonical schema](datasets/CANONICAL_SCHEMA.md) for registry/storage APIs.
 
 ## Quality gates
 

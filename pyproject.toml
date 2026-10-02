@@ -11,6 +11,8 @@ requires-python = ">=3.14,<3.15"
 license = "MIT"
 dependencies = [
     "httpx>=0.28,<1",
+    "numpy>=2.3,<3",
+    "pyarrow>=22,<26",
     "pydantic>=2.12,<3",
     "pydantic-settings>=2.11,<3",
     "pyyaml>=6,<7",
@@ -58,6 +60,10 @@ python_version = "3.14"
 strict = true
 files = ["src", "tests"]
 plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["pyarrow", "pyarrow.*"]
+ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

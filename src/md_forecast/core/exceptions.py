@@ -7,3 +7,7 @@ class MDForecastError(Exception):
 
 class AcquisitionError(MDForecastError):
     """Source metadata, transport, storage, or integrity prevents acquisition."""
+
+
+class DataContractError(MDForecastError):
+    """Canonical registry or numerical series violates the data contract."""
