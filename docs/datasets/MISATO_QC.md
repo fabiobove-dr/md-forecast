@@ -165,6 +165,17 @@ writer, as does extraction. Analyze one trajectory at a time; only summaries
 and bounded ACF curves accumulate. ACF work is O(T × requested lag count),
 sufficient for 100-frame exports; longer admitted series may require FFT.
 
+The verified clean-tree run used code revision
+`8e33fc5b48d21c6c9bee30266979f9f155b22b15` and lockfile hash
+`sha256:dc4739179336e8268eac6a08b95448a87e218e4ad1da3b9c473f048066bff56d`.
+Its report hash is
+`sha256:7318713098d752025da921421886ef20725098365c67a4ab733b28f90634a67d`.
+A second run explicitly guarded/logged all 19 training file reads, rejected
+`16PK`, and reproduced JSON and all **3,116 CSV curve points byte-identically**.
+The measured CLI run took 0.56 seconds and 114,320 KiB peak RSS on the local
+24-logical-CPU workstation (Python 3.14.8, NumPy 2.5.3). This is small-sample
+runtime evidence, not a throughput estimate for the complete MISATO dataset.
+
 Generated reports/source bytes stay ignored and local. This page is the reviewed
 project methodology and curated result summary, not a committed dataset or raw
 generated report. Passing implementation tests proves boundary/numerical behavior,
