@@ -16,6 +16,27 @@ A stronger secondary hypothesis is:
 
 For that extension we use the term **predictive coupling**, not causality or proven signal transfer.
 
+
+---
+
+## Engineering constraints
+
+Implementation must follow [ENGINEERING_STANDARDS.md](./ENGINEERING_STANDARDS.md).
+
+In particular:
+
+- Python 3.14 by default, subject to verified dependency compatibility;
+- Pydantic v2 and pydantic-settings at configuration/data boundaries;
+- Google-style docstrings and modern typing;
+- uv + PEP 621 `pyproject.toml` + committed lockfile;
+- centralized typed configuration and constants; no magic values in scientific/business logic;
+- async for I/O/orchestration, not fake async around CPU/GPU numerical work;
+- Ruff, mypy, pytest, coverage, Xenon, pre-commit, and MkDocs strict build as quality gates;
+- split-before-windowing and train-only/context-local preprocessing to prevent leakage;
+- trajectory/system-level statistical uncertainty rather than treating overlapping windows as independent samples;
+- small adapters around external datasets/models, without leaking Chronos-specific types into canonical data contracts;
+- KISS, YAGNI, and Boy Scout Rule throughout the codebase.
+
 ---
 
 ## 2. Core strategy: public-data-first
