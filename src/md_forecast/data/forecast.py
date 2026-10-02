@@ -59,7 +59,7 @@ class ForecastBatch:
     def __post_init__(self) -> None:
         """Validate once and detach read-only numerical inputs from their caller."""
         spec = ForecastSpec.model_validate_json(self.spec.model_dump_json())
-        _validate_indices(self.indices, spec)
+        validate_forecast_indices(self.indices, spec)
         validate_array(
             self.context,
             (len(self.indices), spec.context_frames, len(spec.feature_ids)),
@@ -70,7 +70,10 @@ class ForecastBatch:
         object.__setattr__(self, "context", context)
 
 
-def _validate_indices(indices: tuple[WindowIndex, ...], spec: ForecastSpec) -> None:
+def validate_forecast_indices(
+    indices: tuple[WindowIndex, ...], spec: ForecastSpec
+) -> None:
+    """Validate shared window identities for contexts and forecast outputs."""
     if not indices:
         raise DataContractError("forecast batch must contain windows")
     expected = (

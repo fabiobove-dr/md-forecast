@@ -93,3 +93,4 @@ class ModelId(StrEnum):
     AR = "autoregression"
     VAR = "var"
     NLINEAR = "nlinear"
+    CHRONOS2 = "chronos-2"

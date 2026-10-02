@@ -47,6 +47,8 @@ class StatisticalBaseline:
             raise ForecastError(
                 "NLinear requires trained weights, not a statistical adapter"
             )
+        if self.config.model_id == ModelId.CHRONOS2:
+            raise ForecastError("Chronos-2 requires its pretrained adapter")
 
     def predict(self, batch: ForecastBatch) -> FloatArray:
         """Fit only observed values and recursively forecast AR/VAR if requested."""

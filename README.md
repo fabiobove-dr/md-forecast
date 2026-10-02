@@ -42,7 +42,8 @@ artifact). Selected native observables can be exported with
 The [data preparation contract](docs/datasets/PREPARATION.md) covers leak-free
 splits, lazy forecast windows, and scoped preprocessing. Six synchronous
 [CPU baselines](docs/models/BASELINES.md), including train-only NLinear, share
-a context-only forecast contract. No Chronos integration is included yet.
+a context-only forecast contract. The optional [Chronos-2 adapter](docs/models/CHRONOS2.md)
+provides revision-pinned, synchronous GPU zero-shot inference with native quantiles.
 Development-only [MISATO QC](docs/datasets/MISATO_QC.md) is available through
 `uv run md-forecast qc-misato --help`, including complete autocorrelation curves.
 Versioned [structural geometry](docs/datasets/STRUCTURAL_FEATURES.md) can also be

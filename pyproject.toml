@@ -26,6 +26,11 @@ md-forecast = "md_forecast.cli:main"
 structural = [
     "mdtraj==1.11.1.post2",
 ]
+chronos = [
+    "chronos-forecasting==2.3.2",
+    "huggingface-hub==1.33.0",
+    "torch==2.14.1",
+]
 
 [dependency-groups]
 dev = [

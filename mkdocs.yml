@@ -16,3 +16,4 @@ nav:
       - Structural features: datasets/STRUCTURAL_FEATURES.md
   - Models:
       - CPU baselines: models/BASELINES.md
+      - Chronos-2 zero-shot: models/CHRONOS2.md
