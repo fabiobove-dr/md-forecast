@@ -82,3 +82,14 @@ class FeatureUnit(StrEnum):
     KCAL_PER_MOL = "kcal_per_mol"
     DIMENSIONLESS = "dimensionless"
     COUNT = "count"
+
+
+class ModelId(StrEnum):
+    """Baseline identities; persistence is the mandatory reference."""
+
+    PERSISTENCE = "persistence"
+    CONTEXT_MEAN = "context-mean"
+    LINEAR = "linear-extrapolation"
+    AR = "autoregression"
+    VAR = "var"
+    NLINEAR = "nlinear"

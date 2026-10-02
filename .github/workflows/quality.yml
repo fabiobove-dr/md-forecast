@@ -39,6 +39,7 @@ jobs:
           /tmp/md-forecast-wheel/bin/python -c 'import h5py; from md_forecast.data.public.misato import ExtractionConfig, extract_misato'
           /tmp/md-forecast-wheel/bin/python -c 'from md_forecast.data.splits import SplitConfig; from md_forecast.data.windows import WindowConfig; from md_forecast.data.preprocessing import fit_training_scaler; SplitConfig(mode="official", seed=42); WindowConfig(contexts=(2,), horizons=(1,), stride_frames=1)'
           /tmp/md-forecast-wheel/bin/md-forecast --version
+          /tmp/md-forecast-wheel/bin/python -c 'from md_forecast.models.base import ModelConfig; from md_forecast.models.baselines import StatisticalBaseline; from md_forecast.models.learned import fit_nlinear, select_nlinear; from md_forecast.evaluation.baselines import evaluate_baselines; StatisticalBaseline(ModelConfig(model_id="persistence", seed=42))'
           /tmp/md-forecast-wheel/bin/md-forecast --help
           /tmp/md-forecast-wheel/bin/md-forecast qc-misato --help
       - run: uv run --locked mkdocs build --strict

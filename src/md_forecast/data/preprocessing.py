@@ -147,17 +147,20 @@ def _validate_source(
         )
 
 
-def _region_values(
+def observed_values(
     table: pa.Table,
     record: TrajectoryManifest,
     region: FitRegion,
     features: tuple[str, ...],
 ) -> FloatArray:
+    """Read only an interval from a source-validated canonical table."""
+    if not 0 <= region.start < region.stop <= record.frame_count:
+        raise DataContractError("observed interval exceeds source bounds")
     observed = table.slice(region.start, region.stop - region.start)
     time = observed[TIME_COLUMN].to_numpy()
     values = np.column_stack([observed[feature].to_numpy() for feature in features])
     if not np.isfinite(time).all() or not np.isfinite(values).all():
-        raise DataContractError("observed fitting values must be finite")
+        raise DataContractError("observed values must be finite")
     _validate_observed_grid(time, record, region)
     return values
 
@@ -250,7 +253,7 @@ def _fit_moments(
                 table = loader(record)
                 _validate_source(table, record, dataset)
                 for region in intervals:
-                    values = _region_values(table, record, region, config.feature_ids)
+                    values = observed_values(table, record, region, config.feature_ids)
                     count, mean, m2 = _combine_moments(values, count, mean, m2)
             scale = np.sqrt(m2 / count)
     except FloatingPointError as error:
