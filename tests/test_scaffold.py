@@ -67,7 +67,7 @@ def test_cli_help(
 
 @pytest.mark.parametrize(
     ("argument", "exit_code", "output"),
-    [("--help", 0, "usage:"), ("--version", 0, __version__), ("download", 2, "")],
+    [("--help", 0, "usage:"), ("--version", 0, __version__), ("unknown", 2, "")],
 )
 def test_cli_arguments(
     argument: str,
@@ -83,4 +83,4 @@ def test_cli_arguments(
     captured = capsys.readouterr()
     assert output in captured.out
     if exit_code:
-        assert "unrecognized arguments" in captured.err
+        assert "invalid choice" in captured.err

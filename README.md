@@ -19,4 +19,6 @@ Python 3.14, the package, and development/documentation tools are provisioned
 by the first command. See [development guidance](docs/DEVELOPMENT.md) for
 configuration, all quality checks, and the documentation site.
 
-Dataset ingestion and forecasting models are not implemented yet.
+Verified MISATO acquisition is available with `uv run md-forecast download`
+(small split files by default; `--mode md` explicitly includes the large MD
+artifact). Feature extraction and forecasting models arrive in later issues.
