@@ -1,0 +1,8 @@
+model_name = "amazon/chronos-2"
+revision = "29ec3766d36d6f73f0696f85560a422f50e8498c"
+device = "cuda:0"
+dtype = "float32"
+seed = 42
+batch_size = 32
+quantile_levels = [0.1, 0.5, 0.9]
+max_vram_bytes = 25769803776

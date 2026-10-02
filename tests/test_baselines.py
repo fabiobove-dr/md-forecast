@@ -45,7 +45,7 @@ def test_versioned_baseline_configuration() -> None:
         Path("configs/models/baselines.toml").read_text(encoding="utf-8")
     )
     models = tuple(ModelConfig.model_validate(item) for item in settings["models"])
-    assert {model.model_id for model in models} == set(ModelId)
+    assert {model.model_id for model in models} == set(ModelId) - {ModelId.CHRONOS2}
     assert TrainingConfig.model_validate(settings["training"]).max_windows == 10000
 
 
@@ -160,7 +160,7 @@ def test_all_adapters_common_evaluator_and_selection(tmp_path: Path) -> None:
         if model in (ModelId.AR, ModelId.VAR)
         else StatisticalBaseline(config(model))
         for model in ModelId
-        if model != ModelId.NLINEAR
+        if model not in (ModelId.NLINEAR, ModelId.CHRONOS2)
     ) + (learned,)
     result = evaluate_baselines(models, pairs(Split.VALIDATION))
     assert len(result.scores) == 6 and result.partition == Split.VALIDATION

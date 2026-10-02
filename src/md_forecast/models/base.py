@@ -6,7 +6,7 @@ from pydantic import Field, model_validator
 
 from md_forecast.core.constants import CANONICAL_SCHEMA_VERSION, ModelId
 from md_forecast.data.forecast import ForecastBatch
-from md_forecast.data.schemas import BoundaryModel, SchemaVersion
+from md_forecast.data.schemas import ArtifactHash, BoundaryModel, SchemaVersion
 from md_forecast.data.series import FloatArray
 
 
@@ -18,17 +18,29 @@ class ModelConfig(BoundaryModel):
     seed: Annotated[int, Field(strict=True, ge=0)]
     lags: Annotated[int, Field(strict=True, gt=0)] | None = None
     ridge: Annotated[float, Field(ge=0)] = 0.0
+    adapter_config_hash: ArtifactHash | None = Field(
+        default=None, exclude_if=lambda value: value is None
+    )
 
     @model_validator(mode="after")
     def validate_hyperparameters(self) -> Self:
         """Reject silently ignored options rather than mislabeling model variants."""
         _validate_lags(self)
+        _validate_adapter_identity(self)
         if (
             self.model_id in (ModelId.PERSISTENCE, ModelId.CONTEXT_MEAN, ModelId.LINEAR)
             and self.ridge != 0
         ):
             raise ValueError("this baseline does not accept ridge regularization")
         return self
+
+
+def _validate_adapter_identity(config: ModelConfig) -> None:
+    if config.model_id == ModelId.CHRONOS2:
+        if config.adapter_config_hash is None or config.ridge != 0:
+            raise ValueError("Chronos-2 requires adapter settings hash and no ridge")
+    elif config.adapter_config_hash is not None:
+        raise ValueError("adapter settings hash is not applicable to this baseline")
 
 
 def _validate_lags(config: ModelConfig) -> None:

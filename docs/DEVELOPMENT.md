@@ -21,9 +21,12 @@ h5py is used by the MISATO adapter. Their Python 3.14 wheels are verified by
 CI and the outside-checkout wheel
 smoke test. `dev` contains lint,
 typing, testing, coverage, complexity, and pre-commit tooling; `docs` contains
-MkDocs. Additional analysis and ML/GPU groups are deferred until their implementing
-issues establish dependencies and Python compatibility. No Chronos or GPU
-package is installed by the scaffold.
+MkDocs. The default installation includes no GPU package. Optional Chronos-2
+uses `uv sync --locked --extra chronos`, with Python 3.14-compatible pinned
+`chronos-forecasting==2.3.2` and `torch==2.14.1`. This is a multi-GB CUDA-enabled
+installation on Linux; check disk and NVIDIA driver compatibility first.
+The [Chronos-2 API](models/CHRONOS2.md) requires an explicitly selected GPU;
+no implicit CPU fallback or fine-tuning is included.
 
 For a runtime-only environment, use `uv sync --locked --no-default-groups`.
 Use `uv add` / `uv add --group <group>` for deliberate dependency updates and
