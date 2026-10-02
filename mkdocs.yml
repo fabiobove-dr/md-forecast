@@ -13,5 +13,6 @@ nav:
       - MISATO adapter: datasets/MISATO_ADAPTER.md
       - Data preparation: datasets/PREPARATION.md
       - Development QC: datasets/MISATO_QC.md
+      - Structural features: datasets/STRUCTURAL_FEATURES.md
   - Models:
       - CPU baselines: models/BASELINES.md

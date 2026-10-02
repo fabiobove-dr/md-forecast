@@ -155,6 +155,11 @@ versioned configuration, training-only group selection, complete ACF curves,
 real-sample diagnostics and frame-grid justification. Run
 `uv run --locked md-forecast qc-misato --help` for required paths/provenance.
 No analysis dependency or physical-time assumption is added.
+Coordinate-derived [structural features](datasets/STRUCTURAL_FEATURES.md) reuse
+`extract-misato --structural-config`. Install the optional pinned SASA backend
+with `uv sync --locked --extra structural`; geometric channels with
+`ligand_sasa: null` need no extra. Run full acceptance/CI checks with that extra
+installed so optional SASA regressions execute, not skip.
 
 ## Quality gates
 

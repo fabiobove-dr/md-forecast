@@ -1,0 +1,18 @@
+# Geometry-only definition. Cutoff is illustrative, not validation-selected.
+algorithm_version: misato-geometry-v1
+coordinate_unit: angstrom
+distance_policy: raw-cartesian-no-pbc
+reference_frame: 0
+contact_cutoff_angstrom: 4.5
+frame_chunk_size: 4
+atom_tile_size: 128
+max_atoms: 100000
+max_frames: 100000
+max_working_bytes: 67108864
+regions: []
+ligand_sasa:
+  backend: mdtraj-1.11.1.post2
+  radii: mdtraj-defaults-1.11.1.post2
+  probe_radius_angstrom: 1.4
+  sphere_points: 960
+  max_atoms: 512
