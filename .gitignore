@@ -216,3 +216,37 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# MD source data and generated experiment artifacts
+data/*
+!data/README.md
+!data/manifests/
+data/manifests/*
+!data/manifests/*.json
+!data/manifests/*.toml
+checkpoints/
+reports/
+outputs/
+runs/
+wandb/
+*.h5
+*.hdf5
+*.parquet
+*.arrow
+*.xtc
+*.trr
+*.dcd
+*.nc
+*.pdb
+*.gro
+*.tpr
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Local settings and credentials (portable examples may be committed)
+.env.*
+!.env.example
+.aws/
+.secrets/
