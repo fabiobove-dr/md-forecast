@@ -22,6 +22,11 @@ dependencies = [
 [project.scripts]
 md-forecast = "md_forecast.cli:main"
 
+[project.optional-dependencies]
+structural = [
+    "mdtraj==1.11.1.post2",
+]
+
 [dependency-groups]
 dev = [
     "mypy>=1.18,<2",
@@ -63,7 +68,7 @@ files = ["src", "tests"]
 plugins = ["pydantic.mypy"]
 
 [[tool.mypy.overrides]]
-module = ["h5py", "h5py.*", "pyarrow", "pyarrow.*"]
+module = ["h5py", "h5py.*", "pyarrow", "pyarrow.*", "mdtraj", "mdtraj.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]

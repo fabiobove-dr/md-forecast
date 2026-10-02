@@ -45,6 +45,11 @@ from md_forecast.data.schemas import (
     stable_trajectory_id,
 )
 from md_forecast.data.series import FloatArray, to_arrow, write_series
+from md_forecast.features.structural import (
+    StructuralConfig,
+    structural_values,
+    validate_sasa_backend,
+)
 
 logger = logging.getLogger(__name__)
 NATIVE_BINDINGS = {
@@ -169,6 +174,7 @@ class ExtractionReport(BoundaryModel):
     requested: tuple[str, ...]
     exported: dict[str, str]
     issues: tuple[ExtractionIssue, ...]
+    structural_config: StructuralConfig | None = None
 
 
 def load_misato_source(path: Path = MISATO_CONFIG) -> MisatoSource:
@@ -181,7 +187,9 @@ def load_misato_source(path: Path = MISATO_CONFIG) -> MisatoSource:
         raise DataContractError(f"cannot load MISATO source {path}: {error}") from error
 
 
-def _dataset_config(source: MisatoSource) -> DatasetConfig:
+def _dataset_config(
+    source: MisatoSource, structural: StructuralConfig | None = None
+) -> DatasetConfig:
     features = tuple(
         FeatureDefinition(
             feature_id=name,
@@ -194,8 +202,10 @@ def _dataset_config(source: MisatoSource) -> DatasetConfig:
     return DatasetConfig(
         dataset_id=DatasetId.MISATO,
         dataset_version=source.dataset_version,
-        feature_set_version=source.feature_set_version,
-        features=features,
+        feature_set_version=source.feature_set_version
+        if structural is None
+        else structural.feature_set_version,
+        features=features if structural is None else structural.feature_definitions(),
     )
 
 
@@ -285,6 +295,7 @@ def _extract_one(
     source: MisatoSource,
     dataset: DatasetConfig,
     manifest: TrajectoryManifest,
+    structural: StructuralConfig | None = None,
 ) -> pa.Table:
     if not isinstance(file.get(system, getlink=True), h5py.HardLink):
         raise DataContractError("source system is linked rather than a local group")
@@ -292,7 +303,12 @@ def _extract_one(
     if not isinstance(group, h5py.Group):
         raise DataContractError("source system is not a group")
     time = np.arange(manifest.frame_count, dtype=np.float64)
-    return to_arrow(manifest, dataset, time, _native_values(group, source))
+    values = (
+        _native_values(group, source)
+        if structural is None
+        else structural_values(group, system, manifest.frame_count, structural)
+    )
+    return to_arrow(manifest, dataset, time, values)
 
 
 def _export(
@@ -302,14 +318,15 @@ def _export(
     splits: dict[str, Split],
     provenance: Provenance,
     staging: Path,
+    structural: StructuralConfig | None = None,
 ) -> ExtractionReport:
-    dataset = _dataset_config(source)
+    dataset = _dataset_config(source, structural)
     records: list[TrajectoryManifest] = []
     issues: list[ExtractionIssue] = []
     exported: dict[str, str] = {}
     for system in sorted(config.system_ids):
         entry = _export_system(
-            file, system, source, dataset, splits, provenance, staging
+            file, system, source, dataset, splits, provenance, staging, structural
         )
         if isinstance(entry, ExtractionIssue):
             issues.append(entry)
@@ -328,6 +345,7 @@ def _export(
         requested=tuple(sorted(config.system_ids)),
         exported=exported,
         issues=tuple(issues),
+        structural_config=structural,
     )
 
 
@@ -339,6 +357,7 @@ def _export_system(
     splits: dict[str, Split],
     provenance: Provenance,
     staging: Path,
+    structural: StructuralConfig | None = None,
 ) -> TrajectoryManifest | ExtractionIssue:
     if system not in splits:
         return ExtractionIssue(
@@ -349,8 +368,11 @@ def _export_system(
             source_system_id=system, status="missing", reason="absent from input HDF5"
         )
     record = _manifest(system, splits[system], source, provenance)
+    record = TrajectoryManifest.model_validate(
+        record.model_dump() | {"feature_set_version": dataset.feature_set_version}
+    )
     try:
-        table = _extract_one(file, system, source, dataset, record)
+        table = _extract_one(file, system, source, dataset, record, structural)
     except DataContractError as error:
         return ExtractionIssue(
             source_system_id=system, status="dropped", reason=str(error)
@@ -366,13 +388,22 @@ def _check_output(path: Path) -> None:
         )
 
 
-def extract_misato(source: MisatoSource, config: ExtractionConfig) -> ExtractionReport:
-    """Verify inputs, extract native arrays, and publish a complete directory.
+def extract_misato(
+    source: MisatoSource,
+    config: ExtractionConfig,
+    *,
+    structural: StructuralConfig | None = None,
+) -> ExtractionReport:
+    """Verify inputs, extract native or explicit structural series, and publish.
 
     Scientific invalidity excludes that system with a QC reason. Storage/input
     integrity failures abort publication; an existing output is never overwritten.
     """
     _check_output(config.output_dir)
+    if structural is not None:
+        structural = StructuralConfig.model_validate_json(structural.model_dump_json())
+        if structural.ligand_sasa is not None:
+            validate_sasa_backend()
     try:
         artifact = _input_artifact(source, config.artifact)
         validate_artifact(config.input_path, artifact)
@@ -392,7 +423,9 @@ def extract_misato(source: MisatoSource, config: ExtractionConfig) -> Extraction
             staging = Path(directory) / "output"
             staging.mkdir()
             with h5py.File(config.input_path, "r") as file:
-                report = _export(file, config, source, splits, provenance, staging)
+                report = _export(
+                    file, config, source, splits, provenance, staging, structural
+                )
             with atomic_output(staging / QC_FILE) as temporary:
                 temporary.write_text(
                     report.model_dump_json(indent=2) + "\n", encoding="utf-8"

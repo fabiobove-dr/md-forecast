@@ -22,7 +22,7 @@ jobs:
         with:
           version: "0.12.22"
           enable-cache: true
-      - run: uv sync --locked
+      - run: uv sync --locked --extra structural
       - run: uv run --locked ruff format --check .
       - run: uv run --locked ruff check .
       - run: uv run --locked mypy
@@ -33,6 +33,7 @@ jobs:
         run: |
           uv venv /tmp/md-forecast-wheel --python 3.14
           uv pip install --python /tmp/md-forecast-wheel/bin/python dist/*.whl
+          uv pip install --python /tmp/md-forecast-wheel/bin/python 'mdtraj==1.11.1.post2'
           cd /tmp
           /tmp/md-forecast-wheel/bin/python -c 'from md_forecast import __version__; from md_forecast.core.config import Settings; assert __version__; Settings()'
           /tmp/md-forecast-wheel/bin/python -c 'import numpy; import pyarrow; from md_forecast.data.schemas import TimeAxis; from md_forecast.data.series import read_series; assert TimeAxis(frame_count=3).frame_interval_ps is None'
@@ -42,4 +43,5 @@ jobs:
           /tmp/md-forecast-wheel/bin/python -c 'from md_forecast.models.base import ModelConfig; from md_forecast.models.baselines import StatisticalBaseline; from md_forecast.models.learned import fit_nlinear, select_nlinear; from md_forecast.evaluation.baselines import evaluate_baselines; StatisticalBaseline(ModelConfig(model_id="persistence", seed=42))'
           /tmp/md-forecast-wheel/bin/md-forecast --help
           /tmp/md-forecast-wheel/bin/md-forecast qc-misato --help
+          /tmp/md-forecast-wheel/bin/python -c 'from md_forecast.features.structural import validate_sasa_backend; validate_sasa_backend()'
       - run: uv run --locked mkdocs build --strict

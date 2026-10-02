@@ -63,6 +63,11 @@ def _add_extraction_parser(
     extract.add_argument("--splits", type=Path, required=True)
     extract.add_argument("--artifact", choices=("md", "sample"), default="md")
     extract.add_argument("--systems", nargs="+", required=True)
+    extract.add_argument(
+        "--structural-config",
+        type=Path,
+        help="Export reviewed coordinate-derived geometry instead of native channels",
+    )
 
 
 def _extract(args: argparse.Namespace) -> None:
@@ -71,6 +76,7 @@ def _extract(args: argparse.Namespace) -> None:
         extract_misato,
         load_misato_source,
     )
+    from md_forecast.features.structural import load_structural_config
 
     settings = Settings()
     configure_logging(settings.log_level)
@@ -81,7 +87,12 @@ def _extract(args: argparse.Namespace) -> None:
         artifact=args.artifact,
         system_ids=tuple(args.systems),
     )
-    extract_misato(load_misato_source(args.source), config)
+    structural = (
+        None
+        if args.structural_config is None
+        else load_structural_config(args.structural_config)
+    )
+    extract_misato(load_misato_source(args.source), config, structural=structural)
 
 
 def _add_qc_parser(

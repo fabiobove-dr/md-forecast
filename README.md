@@ -45,3 +45,6 @@ splits, lazy forecast windows, and scoped preprocessing. Six synchronous
 a context-only forecast contract. No Chronos integration is included yet.
 Development-only [MISATO QC](docs/datasets/MISATO_QC.md) is available through
 `uv run md-forecast qc-misato --help`, including complete autocorrelation curves.
+Versioned [structural geometry](docs/datasets/STRUCTURAL_FEATURES.md) can also be
+extracted with `extract-misato --structural-config`, including optional isolated
+ligand SASA. No residue/bond identities are guessed from atom codes.
