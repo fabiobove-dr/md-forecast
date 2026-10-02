@@ -27,6 +27,8 @@ uses `uv sync --locked --extra chronos`, with Python 3.14-compatible pinned
 installation on Linux; check disk and NVIDIA driver compatibility first.
 The [Chronos-2 API](models/CHRONOS2.md) requires an explicitly selected GPU;
 no implicit CPU fallback or fine-tuning is included.
+The [benchmark API](models/BENCHMARK.md) evaluates all adapters on frozen grids,
+with columnar predictions/metrics, grouped uncertainty and atomic report bundles.
 
 For a runtime-only environment, use `uv sync --locked --no-default-groups`.
 Use `uv add` / `uv add --group <group>` for deliberate dependency updates and

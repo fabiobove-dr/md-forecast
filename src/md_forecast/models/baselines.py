@@ -6,6 +6,7 @@ import numpy as np
 
 from md_forecast.core.constants import ModelId
 from md_forecast.core.exceptions import ForecastError
+from md_forecast.data.artifacts import metadata_hash
 from md_forecast.data.forecast import ForecastBatch, validate_array
 from md_forecast.data.series import FloatArray
 from md_forecast.models.base import ModelConfig
@@ -35,6 +36,11 @@ class StatisticalBaseline:
     """Context-local deterministic adapter; no dataset-level fitting or fallback."""
 
     config: ModelConfig
+
+    @property
+    def artifact_hash(self) -> str:
+        """Stateless adapter identity equals its complete configuration hash."""
+        return metadata_hash(self.config)
 
     def __post_init__(self) -> None:
         """Reject learned-model configurations at the statistical boundary."""
