@@ -1,0 +1,132 @@
+schema_version: 1
+dataset_id: misato
+dataset_version: 1.0.0
+source_record: "7711953"
+doi: 10.5281/zenodo.7711953
+metadata_url: https://zenodo.org/api/records/7711953
+provenance_uri: https://zenodo.org/records/7711953
+audit_date: "2026-10-02"
+paper_doi: 10.1038/s43588-024-00627-2
+paper_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11136668/
+upstream:
+  repository: https://github.com/t7morgen/misato-dataset
+  revision: 7b06d532e2ed0719411fcc1b3ac39743db4ca10d
+  code_license: LGPL-2.1-or-later
+license:
+  id: CC-BY-4.0
+  evidence: https://zenodo.org/api/records/7711953
+  upstream_dataset: PDBbind v2020
+  upstream_terms_status: legacy-terms-not-retrieved
+  redistribution_policy: no-source-bytes-in-repository
+artifacts:
+  MD.hdf5:
+    mode: md
+    url: https://zenodo.org/api/records/7711953/files/MD.hdf5/content
+    size_bytes: 132841014019
+    checksum: md5:9bc6446922cd80e0f2f3f69349bf88ed
+  train_MD.txt:
+    mode: metadata
+    url: https://zenodo.org/api/records/7711953/files/train_MD.txt/content
+    size_bytes: 68825
+    checksum: md5:0eff7e1729307f9d773353382fbb1f1e
+    verified_sha256: 78a2d6f3ab7c4d2eb6792f50c897def8f69af3d9d133d3b4c55965f7330f4368
+    systems: 13765
+  val_MD.txt:
+    mode: metadata
+    url: https://zenodo.org/api/records/7711953/files/val_MD.txt/content
+    size_bytes: 7975
+    checksum: md5:a37f0dfead91accfe089b3555e0d9e33
+    verified_sha256: 7fee6b3594dcbf2c30ffcb048cc22f6d55eb3ffd24b8b42ca50df54dabad2bf0
+    systems: 1595
+  test_MD.txt:
+    mode: metadata
+    url: https://zenodo.org/api/records/7711953/files/test_MD.txt/content
+    size_bytes: 8060
+    checksum: md5:a3f8ada0c6562ff3d8e53653816a36ba
+    verified_sha256: f5c5eafbb4bb53cfb5c17ca34458c34ae6b76778a1e6146e192a143f48756ce7
+    systems: 1612
+  QM.hdf5:
+    mode: qm
+    url: https://zenodo.org/api/records/7711953/files/QM.hdf5/content
+    size_bytes: 343064967
+    checksum: md5:1199f0af1eac684da3a6c2ddd0f321df
+  densities_gfn2w_mrc.tar.gz:
+    mode: densities
+    url: https://zenodo.org/api/records/7711953/files/densities_gfn2w_mrc.tar.gz/content
+    size_bytes: 5722720477
+    checksum: md5:52f1fd282d5da90f54641eddacbb70a0
+  parameter_restart_files_MD.tar.gz:
+    mode: restart
+    url: https://zenodo.org/api/records/7711953/files/parameter_restart_files_MD.tar.gz/content
+    size_bytes: 54282031299
+    checksum: md5:cdedc66f99f2514b84aefc103e4868a8
+time_axis:
+  frame_count: 100
+  reported_production_duration_ns: 10
+  reported_discarded_duration_ns: 2
+  reported_retained_duration_ns: 8
+  timestamp_key: null
+  verified_frame_interval_ps: null
+  nominal_frame_interval_ps: 80
+  interval_status: inferred-from-reported-duration-and-frame-count
+  absolute_origin_ps: null
+  endpoint_convention: unverified
+  policy: frame-index-only-until-physical-spacing-is-verified-or-explicitly-configured
+features:
+  ligand_rmsd:
+    source_key: frames_rmsd_ligand
+    shape: [100]
+    dtype: float64
+    unit: angstrom
+    time_resolved: true
+    alignment_status: protein-fit-and-reference-unverified
+    admission: raw-native-rmsd-only-no-protein-aligned-claim
+  ligand_receptor_com_distance:
+    source_key: frames_distance
+    shape: [100]
+    dtype: float64
+    unit: angstrom
+    time_resolved: true
+    definition_status: author-described-com-distance-exact-mask-unpublished
+  buried_sasa:
+    source_key: frames_bSASA
+    shape: [100]
+    dtype: float64
+    unit: angstrom_squared
+    time_resolved: true
+    definition_status: author-described-buried-sasa-exact-probe-and-masks-unpublished
+  interaction_energy:
+    source_key: frames_interaction_energy
+    shape: [100]
+    dtype: float64
+    unit: kcal_per_mol
+    time_resolved: true
+    definition_status: author-described-mmgbsa-interaction-energy-not-binding-free-energy
+coordinates:
+  source_key: trajectory_coordinates
+  axes: [frame, atom, xyz]
+  dtype: float64
+  unit: angstrom
+  unit_evidence: upstream-pdb-export-and-angstrom-pocket-cutoff
+  alignment: unverified
+  periodic_box_key: null
+unavailable_candidates:
+  - complex_or_protein_rmsd
+  - explicit_timestamps
+  - per_frame_velocities
+audit_evidence:
+  sample_url: https://raw.githubusercontent.com/t7morgen/misato-dataset/7b06d532e2ed0719411fcc1b3ac39743db4ca10d/data/MD/h5_files/tiny_md.hdf5
+  sample_size_bytes: 96598231
+  sample_sha256: 554d20ea0822949e1a5b0dc1826f50b87e71de5a7ed83ac1fb5a2e68c64547de
+  sample_system_count: 20
+  sample_numeric_nonfinite_count: 0
+  full_artifact_groups_inspected: [10GS, 11GS, 1A3E]
+  full_artifact_range_requests: 11
+  full_artifact_range_bytes: 5309187
+  full_artifact_checksum_verified_locally: false
+  supplement_url: https://raw.githubusercontent.com/t7morgen/misato-dataset/7b06d532e2ed0719411fcc1b3ac39743db4ca10d/Supplementary_Information_MISATO.pdf
+  supplement_sha256: 1fab8c40ff0679a32d9af1a22dd0dde35fa8edd9dac2905b6f0c2eea2319a47f
+  units_evidence: supplement-page-5-observable-heatmap-axis-labels
+  split_union_systems: 16972
+  split_duplicate_count: 0
+  split_pairwise_overlap_count: 0
