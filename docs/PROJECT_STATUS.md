@@ -6,7 +6,7 @@ For live task tracking, see [GitHub issue #32 — Project Roadmap](https://githu
 
 ## Progress
 
-**14 / 17 planned implementation issues complete (~82%).**
+**15 / 17 planned implementation issues complete (~88%).**
 
 The foundational engineering and ML work is complete. The remaining work is primarily scientific validation, external generalization, and final reporting.
 
@@ -31,17 +31,12 @@ The foundational engineering and ML work is complete. The remaining work is prim
 - #11 Reproducible grouped context × horizon benchmark
 - #12 Chronos-2 fine-tuning within the <=24 GB GPU target
 - #13 Controlled input ablations on the development holdout; repeated results agree, with inconclusive paired input-set benefit
+- #14 Audited common geometric MDbind subset, equivalent-feature adapter, untouched external and seen-system replica benchmarks; repeated results agree, without confirmed external superiority
 
 ## Next
 
 ### MVP scientific validation
-1. **#14 — MDbind external validation**
-   - build the external adapter and semantic-equivalence checks;
-   - evaluate transfer without MDbind fine-tuning first;
-   - report unseen-replica and unseen-complex results separately;
-   - the [source audit](datasets/MDBIND.md) is prepared, but native feature equivalence remains unresolved; no external result is available.
-
-2. **#17 — Reproducible MVP report**
+1. **#17 — Reproducible MVP report**
    - consolidate held-out results, uncertainty, calibration, ablations, external validation, hardware/runtime, and limitations into a paper-ready artifact.
 
 ## Research extension
@@ -74,9 +69,14 @@ The repository now supports:
 
 The software stack is mature enough to run the intended experiments, but the final scientific claim is **not yet established**.
 
-The current experiments demonstrate implementation correctness and development/validation behavior. The decisive evidence still needs to come from:
+The common geometric MDbind benchmark is complete and reproducible on six exact
+PDB-disjoint complexes and 60 replicas. No lead beats both persistence and the
+MISATO-selected statistical baseline under the frozen corrected comparison
+policy. The replica task is separate, with its local baseline fit disclosed.
+See [external validation](models/EXTERNAL_VALIDATION.md) for the full negative /
+inconclusive result and sampling limits. The input ablation findings remain
+small-development evidence; larger independent confirmation is still needed.
 
-- an independent confirmation of the small development ablation findings (#13), and
-- external generalization on MDbind (#14).
-
-Only after those are complete should the final MVP conclusion be frozen in #17.
+Issue #17 can now consolidate engineering completion, measured outcomes and
+unsupported claims without assuming that successful infrastructure proves the
+scientific hypothesis. Native MISATO/MDbind equivalence remains blocked.

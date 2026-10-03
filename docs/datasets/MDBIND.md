@@ -153,8 +153,8 @@ because another quantity has the same name.
 | Native ligand/receptor COM distance (Å) | Exact atom/mass selection unpublished | Tracking lacks receptor/masses; raw topology is available but uninspected | Block existing native equivalence |
 | Native buried SASA (Å²) | Probe, atom selections and normalization unpublished | Raw analyses named `sasa` do not establish matching buried SASA | Block; isolated ligand SASA is a different quantity |
 | Native interaction energy (kcal/mol) | Exact energy decomposition/settings unresolved | An `energies` analysis name is not an MM/GBSA equivalence table | Block existing native equivalence |
-| Minimum receptor/ligand heavy distance (Å) | All source receptor/ligand heavy atoms, raw Cartesian, no PBC correction | Raw full-system coordinates and ligand metadata offer a candidate | Candidate for a new common structural benchmark; verify every selected topology and image policy first |
-| Contact count / reference-contact fraction | Inclusive 4.5-Å heavy pair contacts, first stored frame reference | Same candidate raw source | Candidate; preserve receptor extent, cutoff, reference and zero-reference exclusions |
+| Minimum receptor/ligand heavy distance (Å) | All source receptor/ligand heavy atoms, raw Cartesian, no PBC correction | Reviewed dry-source topology and all 60 XTC/PDB/AMBER selections are verified | Admit for the new common dry-system benchmark; raw Cartesian policy, no PBC repair |
+| Contact count / reference-contact fraction | Inclusive 4.5-Å heavy pair contacts, first stored frame reference | Same verified raw source | Admit with matching dry receptor extent, cutoff, reference and zero-reference exclusions |
 
 MISATO's unresolved native definitions are recorded in its existing audit;
 structural definitions are explicit and versioned. AMBER simulation protocols,
