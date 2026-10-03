@@ -99,3 +99,10 @@ def test_exact_future_label_pairing_ignores_order_and_auxiliary_channels() -> No
     assert not target_rows(pa.Table.from_pylist(rows), "ligand_rmsd", "model").equals(
         expected
     )
+
+
+def test_multiple_grid_cells_are_rejected() -> None:
+    data = budget().model_dump()
+    data["grid"]["contexts"] = (20.0, 40.0)
+    with pytest.raises(ValidationError, match="one frozen"):
+        AblationConfig.model_validate(data)
