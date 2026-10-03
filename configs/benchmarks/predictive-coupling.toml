@@ -1,0 +1,55 @@
+# New common geometric experiment, independent of the native MISATO checkpoint.
+batch_size = 4
+target = "distal_rg"
+regions_hash = "sha256:5fc231b7559c0dad9b42a67db03e0ebf3cc524ed145ea64b7f1aca3c896b3f21"
+lag_order = 1
+ridge = 0.000001
+max_correlation_lag = 5
+
+[split]
+mode = "unseen-replica"
+seed = 42
+
+[split.replica_partitions]
+"1" = "train"
+"2" = "train"
+"3" = "train"
+"4" = "train"
+"5" = "train"
+"6" = "train"
+"7" = "train"
+"8" = "train"
+"9" = "test"
+"10" = "test"
+
+[grid]
+contexts = [40.0]
+horizons = [10.0]
+stride_frames = 10
+
+[evaluation]
+seed = 42
+bootstrap_samples = 100000
+confidence_level = 0.95
+min_groups = 5
+min_tail_samples = 10
+# 165 within-cell comparisons + 22 paired regional effects.
+comparison_family_size = 200
+intervals = [[0.1, 0.9]]
+max_prediction_rows = 1000000
+max_bootstrap_bytes = 134217728
+
+[chronos]
+model_name = "amazon/chronos-2"
+revision = "29ec3766d36d6f73f0696f85560a422f50e8498c"
+device = "cuda:0"
+dtype = "float32"
+seed = 42
+batch_size = 32
+quantile_levels = [0.1, 0.5, 0.9]
+max_vram_bytes = 7516192768
+
+
+[variants]
+b_only = ["distal_rg"]
+a_b = ["distal_rg", "pocket_rg"]

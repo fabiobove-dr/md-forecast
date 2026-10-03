@@ -168,6 +168,13 @@ def _topology_selection(directory: Path, source: ReplicaSource) -> tuple[Any, At
     return topology, _heavy_selection(topology, source)
 
 
+def verified_replica_topology(directory: Path, source: ReplicaSource) -> Any:
+    """Verify frozen bytes/metadata and return the admitted dry-source topology."""
+    verify_files(directory, source)
+    _verify_metadata(directory, source)
+    return _topology_selection(directory, source)[0]
+
+
 def _verify_topologies(topology: Any, amber: Any, atoms: int) -> None:
     if topology.n_atoms != atoms or amber.n_atoms != atoms:
         raise DataContractError("MDbind PDB/AMBER atom counts differ")

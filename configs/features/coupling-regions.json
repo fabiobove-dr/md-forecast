@@ -1,0 +1,8 @@
+{
+  "pocket_cutoff_angstrom": 6.0,
+  "distal_cutoff_angstrom": 12.0,
+  "min_region_atoms": 3,
+  "max_atoms": 25000,
+  "max_frames": 50,
+  "frame_chunk_size": 10
+}
