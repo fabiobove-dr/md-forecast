@@ -103,10 +103,10 @@ With the audited source bytes already acquired and the reviewed selections
 committed, run from the repository root:
 
 ```sh
-OMP_NUM_THREADS=1 uv run --locked --extra structural --extra ml \
+OMP_NUM_THREADS=1 uv run --locked --extra structural --extra chronos \
   python examples/prepare_coupling.py extract \
   --output data/processed/mdbind-coupling-regions
-OMP_NUM_THREADS=1 uv run --locked --extra structural --extra ml \
+OMP_NUM_THREADS=1 uv run --locked --extra structural --extra chronos \
   python examples/run_predictive_coupling.py \
   data/processed/predictive-coupling-v1
 ```
@@ -129,3 +129,100 @@ uv run --locked --extra structural python examples/prepare_coupling.py freeze \
 The freeze operation reads source PDB coordinates and topology/byte identities,
 with no XTC value decoding. Compare its envelope identity with the reviewed
 region hash. No downloads or GPU are needed for this operation.
+
+## Verified real-data results
+
+Two complete runs (`predictive-coupling-v1` and `predictive-coupling-repeat`)
+produced identical source/input/config identities, benchmark reports, prediction
+labels/values, metrics, comparisons, paired effects and context diagnostics.
+Every scored cell has 12 held-out windows/replicas and six complex groups.
+
+**No corrected interval for added-A gain excludes zero at any lead 1–10,
+for either Chronos or the conventional restricted/unrestricted VAR control.**
+This does not confirm predictive coupling for these regions. At lead 6, a
+Chronos marginal interval is negative, but its corrected upper bound remains
+positive; it is not corrected evidence of gain.
+
+Whole-H10 target B MAE in Å, from the aggregate `distal_rg`, `mae`, `step=0`
+rows in each saved `cell-0/metrics.parquet`:
+
+| Model | B-only | B+A |
+| --- | ---: | ---: |
+| persistence | 0.083592438 | 0.083592438 |
+| context-mean | 0.070958494 | 0.070958494 |
+| linear-extrapolation | 0.089039253 | 0.089039253 |
+| autoregression | 0.068956921 | 0.068956921 |
+| var | 0.068956921 | 0.068950470 |
+| chronos-2 | 0.075643994 | 0.074495776 |
+
+Paired whole-H10 effects from `effects.parquet`; negative differences favor
+B+A, but all reported corrected intervals include zero:
+
+| Model | B+A minus B MAE (Å) | Corrected 95% CI (Å) |
+| --- | ---: | --- |
+| chronos-2 | -0.001148218 | [-0.005484923, 0.000913366] |
+| var | -0.000006451 | [-0.001063604, 0.000939969] |
+
+Complete leadwise added-A effects (Å), with corrected intervals:
+
+| Lead (ps) | Chronos delta / CI | VAR delta / CI |
+| --- | --- | --- |
+| 200 | 0.0023069 [-0.0024341, 0.0078842] | -0.0018294 [-0.0136643, 0.0056059] |
+| 400 | 0.0010184 [-0.0054092, 0.0109868] | 0.0006002 [-0.0050553, 0.0062403] |
+| 600 | -0.0021441 [-0.0065369, 0.0016047] | 0.0008623 [-0.0018916, 0.0042906] |
+| 800 | 0.0023355 [-0.0058139, 0.0084943] | 0.0000572 [-0.0011341, 0.0012928] |
+| 1000 | -0.0008434 [-0.0086579, 0.0052145] | 0.0000349 [-0.0009415, 0.0010340] |
+| 1200 | -0.0040728 [-0.0120961, 0.0000014] | 0.0002122 [-0.0006871, 0.0013490] |
+| 1400 | -0.0035895 [-0.0118925, 0.0020866] | 0.0001655 [-0.0007608, 0.0012831] |
+| 1600 | -0.0021484 [-0.0062589, 0.0031657] | 0.0001043 [-0.0007451, 0.0011476] |
+| 1800 | -0.0017566 [-0.0121543, 0.0048173] | -0.0001283 [-0.0008058, 0.0009322] |
+| 2000 | -0.0025881 [-0.0122300, 0.0030642] | -0.0001435 [-0.0008245, 0.0008533] |
+
+Observed-context lag diagnostics are descriptive. For each lag, correlations
+are averaged over the two replicas within each complex, then the median over
+six complex means is displayed. No correlation confidence/p-value or preferred
+lag is inferred. Complete per-replica values remain in the saved table.
+
+| A-leading-B lag (ps) | Median complex-mean Pearson correlation |
+| --- | ---: |
+| -1000 | -0.0345065 |
+| -800 | 0.0122209 |
+| -600 | 0.0381302 |
+| -400 | -0.0151363 |
+| -200 | 0.0614961 |
+| 0 | 0.0203539 |
+| 200 | 0.0159695 |
+| 400 | -0.0445981 |
+| 600 | 0.0117385 |
+| 800 | 0.0379952 |
+| 1000 | -0.0517109 |
+
+Median complex-mean **in-context** SSE gain fraction is 0.0162817.
+This training-fit description does not replace the held-out error comparison.
+
+Frozen provenance and artifact identities:
+
+- Experiment commit: `41e45f17e74a75b4f3968c8352c142ff316a3d85`.
+- Experiment configuration: `sha256:a03e14eed0db843ec51974a12ef2d4c9a52963e0d3b5b9179fb7133d43839401`.
+- b_only benchmark: `sha256:d2bee5da81fc5a4ee3653a9406fdca687106aae32a8f7eb2a6baf23db4f8498f`.
+- a_b benchmark: `sha256:2d763653430bebe591897b092e5b3bdb0099cd3ce68b8065b7e640c2526b6717`.
+- effects.parquet: `sha256:f7e242995c9138d9989b636855e0da5e9fea78d549db748d3eeb10bdc1958914`.
+- context-lag-diagnostics.parquet: `sha256:dfee846c8ea4a2f5cba8317745bfe66ed90cc3e346d432fab027035e9309653a`.
+
+Regenerated horizon/calibration figures are saved with each benchmark.
+The original runtime tables record adapter inference/host conversion and peak
+GPU allocation rather than full extraction/experiment runtime.
+For `b_only`, Chronos adapter total is 0.6744 s,
+peak allocated 486658048 bytes and
+peak reserved 503316480 bytes.
+For `a_b`, Chronos adapter total is 0.1303 s,
+peak allocated 486864384 bytes and
+peak reserved 503316480 bytes.
+The run used Python 3.14.8, MDTraj 1.11.1.post2 and the locked Torch/Chronos
+stack on the RTX 4070 Laptop GPU (8 GB); exact code/lock/model/hardware
+identities reside in the saved cell manifests.
+
+These measurements cover a small reused six-complex cohort and coarse regional
+radius proxies. Null results do not establish lack of molecular communication.
+Software tests are synthetic integrity/geometry/leakage checks and do not
+constitute biological evidence.

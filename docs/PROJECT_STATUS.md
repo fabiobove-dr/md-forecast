@@ -6,9 +6,9 @@ For live task tracking, see [GitHub issue #32 — Project Roadmap](https://githu
 
 ## Progress
 
-**16 / 17 planned implementation issues complete (~94%).**
+**17 / 17 planned implementation issues complete (100%).**
 
-The foundational engineering and ML work is complete. The remaining implementation is the predictive-coupling research extension; independent confirmation of the scientific hypothesis remains open.
+The foundational engineering and ML work is complete. The planned software and experiment deliverables are complete. Independent confirmation of the scientific hypothesis remains open.
 
 ## Completed
 
@@ -32,18 +32,8 @@ The foundational engineering and ML work is complete. The remaining implementati
 - #12 Chronos-2 fine-tuning within the <=24 GB GPU target
 - #13 Controlled input ablations on the development holdout; repeated results agree, with inconclusive paired input-set benefit
 - #14 Audited common geometric MDbind subset, equivalent-feature adapter, untouched external and seen-system replica benchmarks; repeated results agree, without confirmed external superiority
-
 - #17 Reproducible immutable MVP synthesis from saved experiments; evidence-linked tables/figures and explicit null results ([workflow](models/MVP_REPORT.md))
-
-## Next
-
-## Research extension
-
-- **#16 — Predictive coupling / allosteric-region forecasting**
-  - compare `B_past -> B_future` with `[A_past, B_past] -> B_future`;
-  - treat improved prediction as predictive coupling, not causality.
-
-This is valuable research work but is not required to establish the core MVP.
+- #16 Frozen pocket/distal predictive-coupling experiment on held-out MDbind replicas; repeated results agree, without corrected added-region benefit ([experiment](models/PREDICTIVE_COUPLING.md))
 
 ## What has been achieved technically
 
@@ -74,6 +64,10 @@ policy. The replica task is separate, with its local baseline fit disclosed.
 See [external validation](models/EXTERNAL_VALIDATION.md) for the full negative /
 inconclusive result and sampling limits. The input ablation findings remain
 small-development evidence; larger independent confirmation is still needed.
+
+The predictive-coupling extension is also complete on independently frozen
+geometric regions and held-out replicas; added-region gain remains
+inconclusive for Chronos and its conventional autoregressive comparator.
 
 The final MVP report consolidates measured outcomes and unsupported claims
 without assuming that successful infrastructure proves the scientific
