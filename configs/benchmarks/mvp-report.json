@@ -1,0 +1,163 @@
+{
+  "report_version": "development-and-external-v1",
+  "benchmarks": [
+    {
+      "key": "integration-grid",
+      "path": "data/processed/misato-benchmark-final-verified",
+      "expected_hash": "sha256:3e37c14dd654ce58cd2056642cfa8f7856dad7fdc7666255c2f9c002deb03183",
+      "role": "integration-train",
+      "model_labels": {}
+    },
+    {
+      "key": "native-finetuning",
+      "path": "data/processed/chronos12-final-benchmark",
+      "expected_hash": "sha256:46102dd3012feb8426308cf4322c0e142dd1ead4a8e263e61779c67272b68498",
+      "role": "development-validation",
+      "model_labels": {
+        "sha256:dabb141e99126714ef4f7b7937c2e4a30c84b47c702512e1f39de98470da7829": "Chronos zero-shot",
+        "sha256:5e8d7594ab52dff67b6591166c9af974beb74c38e84ad87b74d7aec54e538210": "Chronos fine-tuned"
+      }
+    },
+    {
+      "key": "ablation-rmsd",
+      "path": "data/processed/input-ablations-issue13/rmsd",
+      "expected_hash": "sha256:4a212ae5c94d06e98b196d44845c126259fddbc3596a8dd94c3debe080343774",
+      "role": "development-validation",
+      "model_labels": {},
+      "headline_features": [
+        "ligand_rmsd"
+      ]
+    },
+    {
+      "key": "ablation-com",
+      "path": "data/processed/input-ablations-issue13/rmsd_com",
+      "expected_hash": "sha256:a60f18f12268cf30f2fdd7ada544671b2ce1ea21bb4a38448a397cf156784543",
+      "role": "development-validation",
+      "model_labels": {},
+      "headline_features": [
+        "ligand_rmsd"
+      ]
+    },
+    {
+      "key": "ablation-native",
+      "path": "data/processed/input-ablations-issue13/native",
+      "expected_hash": "sha256:e8c3b2f466f29451e5e939614808d179b2ef51988333b1b298fff63d6e43926d",
+      "role": "development-validation",
+      "model_labels": {},
+      "headline_features": [
+        "ligand_rmsd"
+      ]
+    },
+    {
+      "key": "ablation-geometry",
+      "path": "data/processed/input-ablations-issue13/native_geometry",
+      "expected_hash": "sha256:3f9804ba5b27b4e757efff996083aab73ef9d3b13ff9d9d5b8f79753e3d88f9b",
+      "role": "development-validation",
+      "model_labels": {},
+      "headline_features": [
+        "ligand_rmsd"
+      ]
+    },
+    {
+      "key": "common-misato",
+      "path": "data/processed/mdbind-common-benchmark/misato-validation",
+      "expected_hash": "sha256:e338844399e9d481ae36548227bc27f8500b3ea510e50f36ae7e5290b6ca21ec",
+      "role": "development-validation",
+      "model_labels": {}
+    },
+    {
+      "key": "mdbind-complex",
+      "path": "data/processed/mdbind-common-benchmark/mdbind-unseen-complex",
+      "expected_hash": "sha256:a4eeaa3a156a0138c6ba11abdffd871b8d081cfa82df2519f50d98469b6b1ecb",
+      "role": "external-complex",
+      "model_labels": {}
+    },
+    {
+      "key": "mdbind-replica",
+      "path": "data/processed/mdbind-common-benchmark/mdbind-unseen-replica",
+      "expected_hash": "sha256:4e0a82b4da786c62cb7a4661bf07e9723e6b642766658c7270c6dff2bd8a82fc",
+      "role": "replica-test",
+      "model_labels": {}
+    }
+  ],
+  "metadata": [
+    {
+      "key": "integration-chronos",
+      "path": "data/processed/benchmark-inputs/6eb7160be2a5cf556d75d359693d150f4a8789afd42f232be517c0bbcc352fa9.json",
+      "expected_hash": "sha256:6eb7160be2a5cf556d75d359693d150f4a8789afd42f232be517c0bbcc352fa9",
+      "kind": "chronos"
+    },
+    {
+      "key": "fine-training",
+      "path": "data/processed/chronos12-final-manifest.json",
+      "expected_hash": "sha256:671facac5f8227a792bc0c69ce60944bf1505f9addd7dc16be7ffe1c73879d64",
+      "kind": "training"
+    },
+    {
+      "key": "fine-training-result",
+      "path": "data/processed/chronos12-final-full/result.json",
+      "expected_hash": "sha256:2b2f764fd49d018253e8095e15ce28a29b09532545f7ce4989a78c49f96f1146",
+      "kind": "training-result"
+    },
+    {
+      "key": "fine-selected-checkpoint",
+      "path": "data/processed/chronos12-final-full/checkpoint-8/provenance.json",
+      "expected_hash": "sha256:a6da2f131874c7eafb5e385ffc6ba5c50b6096b01d78b5a93360380e5a153ca0",
+      "kind": "checkpoint"
+    },
+    {
+      "key": "native-training-qc",
+      "path": "data/processed/misato-development-qc/report.json",
+      "expected_hash": "sha256:7318713098d752025da921421886ef20725098365c67a4ab733b28f90634a67d",
+      "kind": "qc"
+    },
+    {
+      "key": "ablation-config",
+      "path": "data/processed/input-ablations-issue13/config.json",
+      "expected_hash": "sha256:27c21f4a83ea3245fa8dfffecc8e5b4761a57a5e1935cdaa1afab3c6402b4e0d",
+      "kind": "ablations"
+    },
+    {
+      "key": "external-config",
+      "path": "data/processed/mdbind-common-benchmark/config.json",
+      "expected_hash": "sha256:40229376afd537bf44cbdda3889d23ff1918b96ea5c848a393e1ffdca91a829b",
+      "kind": "external-config"
+    },
+    {
+      "key": "external-baseline-selection",
+      "path": "data/processed/mdbind-common-benchmark/baseline-selection.json",
+      "expected_hash": "sha256:067797de387f1d584545ade6660573271bf6229cde6baf8139bb6786da13aa60",
+      "kind": "external-selection"
+    }
+  ],
+  "effects": [
+    {
+      "key": "input-ablation-effects",
+      "path": "data/processed/input-ablations-issue13/effects.parquet",
+      "expected_hash": "sha256:8eab395faac92ded6202f627b7ab125f6ee2d419386ac9c0adbdf06b38b2c88d"
+    },
+    {
+      "key": "external-selected-effects",
+      "path": "data/processed/mdbind-common-benchmark/unseen-complex-selected-effects.parquet",
+      "expected_hash": "sha256:cd62a61b09d9086d6095f1446f1dec33a02d33b1c94a6528dca7f5f5cc524ce4"
+    },
+    {
+      "key": "replica-selected-effects",
+      "path": "data/processed/mdbind-common-benchmark/unseen-replica-selected-effects.parquet",
+      "expected_hash": "sha256:b31985f118807076f1a0aa4be262f4e304478fa4ee2daa0de07e8f3c09238c86"
+    }
+  ],
+  "limitations": [
+    "No official MISATO TEST result is included. TRAIN integration, development VAL selection and external TEST evidence are separate.",
+    "MISATO physical timestamps and native alignment/mass/SASA/energy definitions remain unresolved; cross-dataset native transfer is blocked.",
+    "Native/fine-tuning/ablation corrected confidence tails are unavailable at their frozen 1000-resample budgets; marginal intervals are descriptive.",
+    "Fine-tuning used eight updates and reused VAL for checkpoint selection. This pilot does not establish independent fine-tuning benefit.",
+    "Six PDB-disjoint MDbind complexes and ten replicas each support only this small geometric cohort; no target/chemotype/pretraining independence is established.",
+    "No external lead >=2 beats both persistence and the MISATO-selected statistical baseline under the frozen corrected policy.",
+    "The replica task includes a fixed local NLinear fit after the untouched external report; Chronos remains zero-shot.",
+    "Probabilistic baseline comparisons and confirmatory calibrated superiority are absent. Negative/null effects are retained.",
+    "Forecasts are observable series, not physically valid atomistic trajectories, free energies, mechanistic causality, or a replacement MD engine."
+  ],
+  "max_metadata_bytes": 33554432,
+  "max_table_rows": 1000000
+}

@@ -351,16 +351,7 @@ class FineTunedChronos2Adapter(Chronos2Adapter):
     @property
     def artifact_hash(self) -> str:
         """Checkpoint weights/state and inference settings both affect identity."""
-        combined = hashlib.sha256(
-            (
-                metadata_hash(self.checkpoint.manifest)
-                + self.checkpoint.files["model.safetensors"]
-                + self.checkpoint.files["config.json"]
-                + str(self.checkpoint.step)
-                + metadata_hash(self.settings)
-            ).encode()
-        ).hexdigest()
-        return "sha256:" + combined
+        return checkpoint_artifact_hash(self.checkpoint, self.settings)
 
     def forecast(self, batch: ForecastBatch) -> QuantileForecast:
         """Reject a different scientific feature/split protocol before inference."""
@@ -620,3 +611,19 @@ def _result(
         optimizer_steps_per_second=(trainer.state.global_step - initial)
         / runtime.seconds,
     )
+
+
+def checkpoint_artifact_hash(
+    checkpoint: TrainingCheckpoint, settings: ChronosConfig
+) -> str:
+    """Identify weights/config, training provenance, step and inference settings."""
+    combined = hashlib.sha256(
+        (
+            metadata_hash(checkpoint.manifest)
+            + checkpoint.files["model.safetensors"]
+            + checkpoint.files["config.json"]
+            + str(checkpoint.step)
+            + metadata_hash(settings)
+        ).encode()
+    ).hexdigest()
+    return "sha256:" + combined
