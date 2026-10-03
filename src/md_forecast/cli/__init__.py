@@ -27,17 +27,19 @@ def main() -> None:
     download.add_argument("--mode", choices=("metadata", "md"), default="metadata")
     _add_extraction_parser(commands)
     _add_qc_parser(commands)
+    _add_report_parser(commands)
     args = parser.parse_args()
     if args.command is None:
         parser.print_help()
         return
     try:
-        if args.command == "download":
-            _download(args)
-        elif args.command == "qc-misato":
-            _qc(args)
-        else:
-            _extract(args)
+        handlers = {
+            "download": _download,
+            "qc-misato": _qc,
+            "extract-misato": _extract,
+            "report-mvp": _report,
+        }
+        handlers[args.command](args)
     except (MDForecastError, ValidationError) as error:
         parser.exit(2, f"md-forecast: {error}\n")
 
@@ -118,4 +120,31 @@ def _qc(args: argparse.Namespace) -> None:
         load_qc_config(args.config),
         code_commit=args.code_commit,
         lockfile=args.lockfile,
+    )
+
+
+def _add_report_parser(
+    commands: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> None:
+    report = commands.add_parser(
+        "report-mvp", help="Regenerate immutable MVP report from saved artifacts"
+    )
+    report.add_argument("--config", type=Path, required=True)
+    report.add_argument("--output", type=Path, required=True)
+    report.add_argument("--code-commit", required=True)
+    report.add_argument("--lockfile", type=Path, default=Path("uv.lock"))
+
+
+def _report(args: argparse.Namespace) -> None:
+    import logging
+
+    from md_forecast.evaluation.mvp import generate_mvp, load_mvp_config
+
+    configure_logging(Settings().log_level)
+    config = load_mvp_config(args.config)
+    snapshot = generate_mvp(
+        config, args.output, code_commit=args.code_commit, lockfile=args.lockfile
+    )
+    logging.getLogger(__name__).info(
+        "MVP snapshot %s written to %s", snapshot.artifact_id, args.output
     )

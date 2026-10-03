@@ -171,11 +171,16 @@ def _verify_tables(root: Path, summary: CellSummary) -> None:
 
 
 def _write_figures(root: Path, result: CellResult) -> None:
-    rows = cast(list[PlotRow], result.metrics.to_pylist())
-    units = {f.feature_id: f.unit.value for f in result.manifest.spec.dataset.features}
-    for index, feature in enumerate(result.manifest.spec.feature_ids):
-        curves = _horizon_curves(rows, feature, result.manifest)
-        multiplier, unit = _horizon_axis(result.manifest)
+    write_metric_figures(root, result.manifest, result.metrics)
+
+
+def write_metric_figures(root: Path, manifest: CellManifest, metrics: pa.Table) -> None:
+    """Regenerate native SVG figures from saved metrics without running a model."""
+    rows = cast(list[PlotRow], metrics.to_pylist())
+    units = {f.feature_id: f.unit.value for f in manifest.spec.dataset.features}
+    for index, feature in enumerate(manifest.spec.feature_ids):
+        curves = _horizon_curves(rows, feature, manifest)
+        multiplier, unit = _horizon_axis(manifest)
         path = root / f"horizon-{index}.svg"
         path.write_text(
             _svg(
@@ -186,7 +191,7 @@ def _write_figures(root: Path, result: CellResult) -> None:
             ),
             encoding="utf-8",
         )
-        calibration = _calibration_curves(rows, feature, result.manifest)
+        calibration = _calibration_curves(rows, feature, manifest)
         if calibration:
             calibration["ideal coverage"] = [(0, 0), (1, 1)]
             (root / f"calibration-{index}.svg").write_text(

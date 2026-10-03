@@ -22,3 +22,4 @@ nav:
       - Benchmark and metrics: models/BENCHMARK.md
       - Input ablations: models/INPUT_ABLATIONS.md
       - External validation: models/EXTERNAL_VALIDATION.md
+      - MVP report: models/MVP_REPORT.md

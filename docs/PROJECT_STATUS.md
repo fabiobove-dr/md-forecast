@@ -6,9 +6,9 @@ For live task tracking, see [GitHub issue #32 — Project Roadmap](https://githu
 
 ## Progress
 
-**15 / 17 planned implementation issues complete (~88%).**
+**16 / 17 planned implementation issues complete (~94%).**
 
-The foundational engineering and ML work is complete. The remaining work is primarily scientific validation, external generalization, and final reporting.
+The foundational engineering and ML work is complete. The remaining implementation is the predictive-coupling research extension; independent confirmation of the scientific hypothesis remains open.
 
 ## Completed
 
@@ -33,11 +33,9 @@ The foundational engineering and ML work is complete. The remaining work is prim
 - #13 Controlled input ablations on the development holdout; repeated results agree, with inconclusive paired input-set benefit
 - #14 Audited common geometric MDbind subset, equivalent-feature adapter, untouched external and seen-system replica benchmarks; repeated results agree, without confirmed external superiority
 
-## Next
+- #17 Reproducible immutable MVP synthesis from saved experiments; evidence-linked tables/figures and explicit null results ([workflow](models/MVP_REPORT.md))
 
-### MVP scientific validation
-1. **#17 — Reproducible MVP report**
-   - consolidate held-out results, uncertainty, calibration, ablations, external validation, hardware/runtime, and limitations into a paper-ready artifact.
+## Next
 
 ## Research extension
 
@@ -77,6 +75,6 @@ See [external validation](models/EXTERNAL_VALIDATION.md) for the full negative /
 inconclusive result and sampling limits. The input ablation findings remain
 small-development evidence; larger independent confirmation is still needed.
 
-Issue #17 can now consolidate engineering completion, measured outcomes and
-unsupported claims without assuming that successful infrastructure proves the
-scientific hypothesis. Native MISATO/MDbind equivalence remains blocked.
+The final MVP report consolidates measured outcomes and unsupported claims
+without assuming that successful infrastructure proves the scientific
+hypothesis. Native MISATO/MDbind equivalence remains blocked.

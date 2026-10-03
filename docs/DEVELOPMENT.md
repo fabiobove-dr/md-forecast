@@ -218,3 +218,9 @@ The ignored `data/` tree holds local source/cache/processed data; only its
 README and reviewed small JSON/TOML files under `data/manifests/` are eligible
 for commits. Common trajectory and checkpoint formats are also ignored
 globally. Secrets, generated reports, and local environments stay untracked.
+
+## Final MVP synthesis
+
+Run `uv run --locked md-forecast report-mvp --help` for the immutable report
+command. The [MVP report workflow](models/MVP_REPORT.md) documents the exact
+one-command regeneration, frozen inputs, integrity checks and scientific limits.
