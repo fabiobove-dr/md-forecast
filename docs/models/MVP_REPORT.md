@@ -95,3 +95,23 @@ physical molecular timescales or independently estimated external ACFs.
 Runtime tables cover adapter inference and host conversion; training telemetry
 is separate. None of the outputs establish atomistic validity, free energies,
 mechanistic causality or replacement of molecular dynamics simulation.
+
+## Verified real-artifact synthesis
+
+Two complete runs (`data/reports/mvp-v1-frozen` and `mvp-v1-repeat`) from the
+persisted real-data experiments produced identical manifests and generated
+contents. All Markdown links resolved and all 215 output checksums verified.
+The manifest contains 2,138 metric evidence rows across nine reports/20 cells.
+These counts describe report completeness, not independent sample size.
+
+- Generator commit: `b5d52c6405b61d72296a45cbe987c10f0e89a5cc`.
+- Frozen input specification: `sha256:4a3366a1cd654ef19470f1a8234424779593961fcd40ad263fe727fbdc70553e`.
+- Final snapshot: `sha256:8084e9a846ecae45808e907014b7a494b9a337e9a7a6771007ba888621eaafc9`.
+
+The subsequent documentation-only commit does not change the frozen generator.
+Recreate this exact snapshot with `--code-commit` set to the generator commit
+above and the original environment/lock. Other reporting environments receive
+new manifest identities; scientific source report identities remain pinned.
+Synthetic regression tests separately verify exact source-row linkage,
+deterministic repetition, output immutability, corruption rejection, missing
+model provenance, role/config errors, resource budgets and the CLI boundary.
