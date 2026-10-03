@@ -1,11 +1,13 @@
 # MDbind feasibility and semantic audit
 
-Retrieved **2026-10-03** for issue #14. This is an audit and handoff, not a
-completed adapter or external benchmark. No MDbind forecasts, model selection,
-fine-tuning or scientific test result have been produced. Cross-dataset scoring
-of the existing native MISATO checkpoint remains blocked by the equivalence
-requirements below. `configs/datasets/mdbind-audit.json` records portable evidence;
-it is audit metadata, not an executable acquisition/adapter configuration.
+Retrieved **2026-10-03** for issue #14. The raw adapter now admits a new
+**common dry-system geometric experiment**, with reviewed atom identities,
+content checksums and actual XTC timestamps. The existing native MISATO
+checkpoint remains blocked by the equivalence requirements below.
+`configs/datasets/mdbind-audit.json` preserves the initial audit;
+`configs/datasets/mdbind-common.json` freezes the executable raw subset.
+The [external protocol and results](../models/EXTERNAL_VALIDATION.md) distinguish
+engineering completion from scientific skill.
 
 ## Sources, access and terms
 
@@ -133,9 +135,9 @@ For unseen-complex evaluation, split complexes before windows and average window
 within each replica, replicas within each complex, and bootstrap complexes.
 For unseen-replica evaluation, retain original system identity and hold out named
 replicas while the system remains seen. Report that task separately. The current
-split implementation unions all records sharing `system_id`; a dedicated,
-validated replica protocol is required. Do not bypass its checks by inventing new
-system IDs. Nested complex/replica dependence still governs uncertainty.
+split implementation unions all records sharing `system_id`; the explicit `unseen-replica` protocol now holds named replicas out while
+keeping the true system identity and complex uncertainty group. It rejects
+incomplete replica sets and overriding existing official splits. Nested complex/replica dependence still governs uncertainty.
 [Scientific contract](../SCIENTIFIC_CONTRACT.md),
 [preparation contract](PREPARATION.md).
 
@@ -161,24 +163,48 @@ common geometric quantity; these must be stated as irreducible source difference
 [Native audit](MISATO.md#observable-admission-and-units),
 [structural definitions](STRUCTURAL_FEATURES.md).
 
-## Remaining acceptance and handoff
+## Frozen common geometric cohort
 
-Issue #14 stays open. No adapter schema with guessed channels or times has been
-created, and no test result or issue closure is implied by this audit.
+All 4,960 catalog records were retrieved in 50 pages (the API caps pages at 100).
+The snapshot SHA-256 is
+`1b3e6e36cddf552bfbe550c774b02f59f8926d9c5b1051193e955034dfd373af`.
+After excluding **every ID in all three official MISATO splits**, and the
+already inspected 4DPY audit complex, 402 records had one PDB ID, ten replicas
+and a CC-BY-4.0 catalog declaration. Sort `(PDB ID, accession)`, keep the first
+accession per PDB, and take the first six distinct PDBs; the second 1A0T record
+is not another independent complex. Selection used metadata, before forecasts.
+The snapshot is a dated collection observation, not global paper coverage.
+[Paginated API](https://mdposit.mddbr.eu/api/rest/current/projects?search=MDBind&limit=100&page=1).
 
-To transfer the existing native checkpoint, authoritative native definitions
-and a matching MDbind computation are required. Alternatively, freeze a new
-common geometric feature set and run its MISATO benchmark/model selection before
-untouched MDbind scoring; that changes the evaluated feature/model experiment.
-The latter route also requires per-system topology/selection checks, deterministic
-accession/replica selection with overlap exclusions, content-verified acquisition,
-the explicit replica split protocol, complex-level uncertainty and separate
-unseen-complex/unseen-replica reports. No MDbind fine-tuning may precede the first
-external result.
+| PDB | Base accession | Reviewed final ligand | Zero-based residue index | Source atoms |
+| --- | --- | --- | ---: | ---: |
+| 1A0T | MD-A006HS | SUC | 1242 | 18618 |
+| 1AVP | MD-A00651 | GLY (merged peptide ligand) | 204 | 3388 |
+| 1BXR | MD-A007I9 | ANP | 1076 | 16626 |
+| 1CSH | MD-A005NF | AMX | 870 | 13616 |
+| 1D4W | MD-A005YY | SER (merged peptide ligand) | 104 | 1825 |
+| 1D4Y | MD-A003Q4 | TPV | 198 | 3213 |
 
-Local ignored evidence is under `data/external/mdbind-audit/`. It includes the
-Zenodo API snapshot, pinned generator/split/license files, complete tracking ZIP
-and shape inspection, raw metadata/file descriptors, one PDB/XTC, and the paper
-BioC text. Portable hashes, observed dimensions and admission status are in the
-audit manifest. This is schema and feasibility evidence, not proof of forecast
-skill, scientific null results or global data quality.
+Each of the 60 replicas has a frozen raw-record/PDB/PRMTOP/XTC URL, byte count
+and SHA-256. Total source bytes: **403,312,830**. Each raw record declares
+CC-BY-4.0 and zero solvent atoms. PDB and AMBER atom names, residue membership,
+elements and ordering agree; the source interaction selection identifies exactly
+the reviewed final ligand residue. The receptor is **all dry-source atoms
+outside that ligand**, including retained ions/cofactors, matching MISATO's
+pre-final-segment extent. It is not a new protein-only mask.
+[First selected source](https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006HS).
+
+The three admitted quantities use atomic number >1, inclusive 4.5 Å contact
+cutoff, the first retained frame as reference, and raw Cartesian distances with
+no periodic repair. The adapter reuses MISATO's tiled geometry kernel. Initial
+zero contacts reject a replica. Isolated/buried SASA, RMSD, COM and energy are
+excluded. Same formulas/units do not erase force-field, coordinate precision,
+imaging, simulation length or cadence differences.
+
+`examples/prepare_mdbind_common.py` uses the existing bounded checksum downloader
+and publishes the complete processed cohort atomically; failure never promotes
+a partial registry. MDTraj's pinned structural extra is required. Every source
+is hash-verified again before extraction. Native arrays remain ignored locally.
+The physical axis comes from each XTC: 50 samples, interval 200 ps, retained
+span 9.8 ns, stored origin retained in provenance and subtracted for canonical
+relative time. No timestamp is derived by dividing nominal simulation duration.

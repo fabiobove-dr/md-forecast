@@ -645,3 +645,44 @@ def test_disjoint_training_contexts() -> None:
         (2, 3),
         (4, 5),
     ]
+
+
+def test_replica_protocol_preserves_system_identity_and_dependence() -> None:
+    records = tuple(
+        record(
+            system,
+            trajectory_id=f"s{system}-r{replica}",
+            replicate_id=str(replica),
+            split=None,
+        )
+        for system in range(2)
+        for replica in range(1, 4)
+    )
+    source = Registry(dataset=dataset(), trajectories=records)
+    config = SplitConfig(
+        mode="unseen-replica",
+        seed=42,
+        replica_partitions={"1": Split.TRAIN, "2": Split.TRAIN, "3": Split.TEST},
+    )
+    split = build_split(source, config)
+    assert split.registry.trajectories == records
+    for system in range(2):
+        selected = [
+            a for a in split.assignments if a.trajectory_id.startswith(f"s{system}-")
+        ]
+        assert len({a.group_id for a in selected}) == 1
+        assert {a.split for a in selected} == {Split.TRAIN, Split.TEST}
+    with pytest.raises(DataContractError, match="named replicas"):
+        build_split(Registry(dataset=dataset(), trajectories=records[:-1]), config)
+    with pytest.raises(DataContractError, match="official"):
+        build_split(
+            Registry(
+                dataset=dataset(),
+                trajectories=tuple(
+                    r.model_copy(update={"split": Split.TRAIN}) for r in records
+                ),
+            ),
+            config,
+        )
+    with pytest.raises(ValidationError, match="replica partitions"):
+        SplitConfig(mode="official", seed=42, replica_partitions={"1": Split.TRAIN})

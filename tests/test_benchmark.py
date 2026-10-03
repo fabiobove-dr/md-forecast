@@ -499,3 +499,77 @@ def test_overflow_and_incompatible_probabilistic_output(
     monkeypatch.setattr(StatisticalBaseline, "predict", huge)
     with pytest.raises(ForecastError, match="aggregation overflowed"):
         evaluate_cell(models, pairs, manifest)
+
+
+def test_external_scaler_requires_audited_source_and_equivalent_features(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    from md_forecast.core.constants import DatasetId
+
+    _, original, _ = setup(monkeypatch, tmp_path)
+    dataset = original.spec.dataset.model_copy(update={"dataset_id": DatasetId.MDBIND})
+    records = tuple(
+        r.model_copy(
+            update={
+                "dataset_id": DatasetId.MDBIND,
+                "trajectory_id": "external-" + r.trajectory_id,
+                "split": Split.TEST,
+            }
+        )
+        for r in original.split.registry.trajectories
+    )
+    split = build_split(
+        Registry(dataset=dataset, trajectories=records),
+        SplitConfig(mode="official", seed=42),
+    )
+    spec = original.spec.model_copy(
+        update={"dataset": dataset, "split_hash": metadata_hash(split)}
+    )
+    payload = original.model_dump() | {
+        "spec": spec,
+        "split": split,
+        "partition": Split.TEST,
+    }
+    with pytest.raises(ValidationError, match="scaling must match"):
+        CellManifest.model_validate(payload)
+    external = CellManifest.model_validate(
+        payload | {"scaler_source_split": original.split}
+    )
+    assert external.scaler == original.scaler
+    bad = dataset.model_copy(
+        update={
+            "features": tuple(
+                f.model_copy(update={"definition": "different physical quantity"})
+                for f in dataset.features
+            )
+        }
+    )
+    bad_registry = Registry(dataset=bad, trajectories=records)
+    bad_split = build_split(bad_registry, SplitConfig(mode="official", seed=42))
+    with pytest.raises(ValidationError, match="equivalent feature"):
+        CellManifest.model_validate(
+            payload
+            | {
+                "spec": spec.model_copy(
+                    update={"dataset": bad, "split_hash": metadata_hash(bad_split)}
+                ),
+                "split": bad_split,
+                "scaler_source_split": original.split,
+            }
+        )
+    bad_scaler = original.scaler.model_copy(
+        update={
+            "fit_regions": tuple(
+                r.model_copy(
+                    update={
+                        "trajectory_id": original.split.assignments[-1].trajectory_id
+                    }
+                )
+                for r in original.scaler.fit_regions
+            )
+        }
+    )
+    with pytest.raises(ValidationError):
+        CellManifest.model_validate(
+            payload | {"scaler_source_split": original.split, "scaler": bad_scaler}
+        )

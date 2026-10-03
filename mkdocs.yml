@@ -21,3 +21,4 @@ nav:
       - Chronos-2 fine-tuning: models/FINETUNING.md
       - Benchmark and metrics: models/BENCHMARK.md
       - Input ablations: models/INPUT_ABLATIONS.md
+      - External validation: models/EXTERNAL_VALIDATION.md

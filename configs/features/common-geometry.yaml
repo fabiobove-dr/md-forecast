@@ -1,0 +1,12 @@
+# Frozen common dry-system geometry; same tiled numerical kernel as MISATO.
+algorithm_version: misato-geometry-v1
+coordinate_unit: angstrom
+distance_policy: raw-cartesian-no-pbc
+reference_frame: 0
+contact_cutoff_angstrom: 4.5
+frame_chunk_size: 4
+atom_tile_size: 128
+max_atoms: 100000
+max_frames: 100000
+max_working_bytes: 67108864
+regions: []

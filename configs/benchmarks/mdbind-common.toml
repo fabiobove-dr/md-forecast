@@ -1,0 +1,57 @@
+# New common geometric experiment, independent of the native MISATO checkpoint.
+batch_size = 4
+calibration_tolerance = 0.1
+
+[misato_split]
+mode = "grouped"
+seed = 42
+ratios = [0.7, 0.3, 0.0]
+
+[replica_split]
+mode = "unseen-replica"
+seed = 42
+
+[replica_split.replica_partitions]
+"1" = "train"
+"2" = "train"
+"3" = "train"
+"4" = "train"
+"5" = "train"
+"6" = "train"
+"7" = "train"
+"8" = "train"
+"9" = "test"
+"10" = "test"
+
+[grid]
+contexts = [40.0]
+horizons = [10.0]
+stride_frames = 10
+
+[evaluation]
+seed = 42
+bootstrap_samples = 300000
+confidence_level = 0.95
+min_groups = 5
+min_tail_samples = 10
+# 165 development + 165 external + 198 replica + 66 selected-baseline effects.
+comparison_family_size = 600
+intervals = [[0.1, 0.9]]
+max_prediction_rows = 1000000
+max_bootstrap_bytes = 134217728
+
+[chronos]
+model_name = "amazon/chronos-2"
+revision = "29ec3766d36d6f73f0696f85560a422f50e8498c"
+device = "cuda:0"
+dtype = "float32"
+seed = 42
+batch_size = 32
+quantile_levels = [0.1, 0.5, 0.9]
+max_vram_bytes = 7516192768
+
+[training]
+seed = 42
+batch_size = 16
+max_windows = 10000
+max_design_bytes = 134217728

@@ -15,10 +15,21 @@ from md_forecast.data.artifacts import metadata_hash
 from md_forecast.data.forecast import ForecastBatch, ForecastSpec, validate_array
 from md_forecast.data.predictions import QuantileForecast
 from md_forecast.data.preprocessing import ScalerMetadata
-from md_forecast.data.schemas import ArtifactHash, BoundaryModel, SchemaVersion
+from md_forecast.data.schemas import (
+    ArtifactHash,
+    BoundaryModel,
+    DatasetConfig,
+    FeatureDefinition,
+    SchemaVersion,
+)
 from md_forecast.data.series import FloatArray
 from md_forecast.data.splits import SplitManifest
-from md_forecast.data.windows import WindowConfig, WindowIndex, iter_windows
+from md_forecast.data.windows import (
+    WindowConfig,
+    WindowIndex,
+    iter_context_regions,
+    iter_windows,
+)
 from md_forecast.evaluation.baselines import _reference_key
 from md_forecast.evaluation.metrics import (
     BenchmarkConfig,
@@ -44,6 +55,9 @@ class CellManifest(BoundaryModel):
     partition: Split
     config: BenchmarkConfig
     scaler: ScalerMetadata
+    scaler_source_split: SplitManifest | None = Field(
+        default=None, exclude_if=lambda value: value is None
+    )
     models: Annotated[tuple[ModelConfig, ...], Field(min_length=1)]
     model_artifacts: tuple[ArtifactHash, ...]
     window_selection: Literal["all", "first-per-trajectory"] = "all"
@@ -84,12 +98,9 @@ def _validate_manifest_links(manifest: CellManifest) -> None:
 
 def _validate_scaler_links(manifest: CellManifest) -> None:
     spec, scaler = manifest.spec, manifest.scaler
-    expected = (
-        spec.dataset,
-        spec.feature_ids,
-        spec.split_hash,
-        spec.window_config_hash,
-    )
+    source = manifest.scaler_source_split
+    dataset, split_hash = _scaler_source(manifest)
+    expected = (dataset, spec.feature_ids, split_hash, spec.window_config_hash)
     actual = (
         scaler.dataset,
         scaler.config.feature_ids,
@@ -100,6 +111,51 @@ def _validate_scaler_links(manifest: CellManifest) -> None:
         raise ValueError(
             "benchmark scaling must match this cell and use TRAIN contexts"
         )
+    if source is not None:
+        _validate_scaler_transfer(manifest, source)
+
+
+def _scaler_source(manifest: CellManifest) -> tuple[DatasetConfig, str]:
+    source = manifest.scaler_source_split
+    if source is None:
+        return manifest.spec.dataset, manifest.spec.split_hash
+    return source.registry.dataset, metadata_hash(source)
+
+
+def _validate_scaler_transfer(manifest: CellManifest, source: SplitManifest) -> None:
+    """Allow explicit frozen training-source moments only for equivalent features."""
+    target = manifest.spec.dataset
+    original = source.registry.dataset
+    if target.dataset_id == original.dataset_id:
+        raise ValueError("transfer scaling requires a distinct source dataset")
+    _validate_transfer_definitions(manifest)
+    _validate_transfer_overlap(manifest, source)
+
+
+def _validate_transfer_definitions(manifest: CellManifest) -> None:
+    target, original = manifest.spec.dataset, manifest.scaler.dataset
+    selected = set(manifest.spec.feature_ids)
+    target_definitions = _selected_definitions(target, selected)
+    original_definitions = _selected_definitions(original, selected)
+    if target_definitions != original_definitions:
+        raise ValueError(
+            "transfer scaling requires equivalent feature definitions/units"
+        )
+
+
+def _selected_definitions(
+    dataset: DatasetConfig, selected: set[str]
+) -> tuple[FeatureDefinition, ...]:
+    return tuple(f for f in dataset.features if f.feature_id in selected)
+
+
+def _pdb_ids(split: SplitManifest) -> set[str]:
+    return {r.pdb_id for r in split.registry.trajectories if r.pdb_id}
+
+
+def _validate_transfer_overlap(manifest: CellManifest, source: SplitManifest) -> None:
+    if _pdb_ids(source) & _pdb_ids(manifest.split):
+        raise ValueError("external scaling source overlaps target complex identities")
 
 
 def _validate_source_links(manifest: CellManifest) -> None:
@@ -114,14 +170,31 @@ def _validate_source_links(manifest: CellManifest) -> None:
 
 
 def _validate_training_regions(manifest: CellManifest) -> None:
-    train_ids = {
-        a.trajectory_id for a in manifest.split.assignments if a.split == Split.TRAIN
-    }
+    source = manifest.split
+    if manifest.scaler_source_split is not None:
+        source = manifest.scaler_source_split
+    train_ids = _train_ids(source)
     if (
         not {region.trajectory_id for region in manifest.scaler.fit_regions}
         <= train_ids
     ):
         raise ValueError("normalization includes held-out trajectories")
+    _validate_fit_regions(manifest, source)
+
+
+def _validate_fit_regions(manifest: CellManifest, source: SplitManifest) -> None:
+    expected = tuple(iter_context_regions(source, manifest.grid, Split.TRAIN))
+    actual = tuple(
+        (r.trajectory_id, r.start, r.stop) for r in manifest.scaler.fit_regions
+    )
+    if actual != expected:
+        raise ValueError(
+            "normalization differs from the declared TRAIN context regions"
+        )
+
+
+def _train_ids(source: SplitManifest) -> set[str]:
+    return {a.trajectory_id for a in source.assignments if a.split == Split.TRAIN}
 
 
 class ModelRuntime(BoundaryModel):
@@ -159,6 +232,7 @@ def _grid_signature(cell: CellManifest) -> tuple[object, ...]:
         cell.lockfile_hash,
         cell.hardware,
         cell.batch_size,
+        cell.scaler_source_split,
     )
 
 
