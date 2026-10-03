@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/protein-ligand-complex.webp" alt="Protein–ligand complex" width="900" />
+  <img src="docs/assets/protein-ligand-complex.png" alt="Protein–ligand complex" width="900" />
 </p>
 
 md-forecast explores whether time-series foundation models can forecast future **molecular-dynamics-derived observables** from partial protein–ligand trajectories with useful accuracy and calibrated uncertainty.
