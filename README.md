@@ -16,6 +16,8 @@ md-forecast explores whether time-series foundation models can forecast future *
 
 The project is deliberately conservative in scope: it does **not** claim to reconstruct future atomistic coordinates or replace a molecular dynamics engine. The initial goal is to establish whether pretrained time-series models can outperform persistence, statistical baselines, and compact models trained from scratch on physically meaningful MD observables.
 
+**Project progress:** [status summary](docs/PROJECT_STATUS.md) · [live roadmap issue](https://github.com/fabiobove-dr/md-forecast/issues/32)
+
 Start with the [scientific contract](docs/SCIENTIFIC_CONTRACT.md),
 [implementation plan](docs/IMPLEMENTATION_PLAN.md), and
 [engineering standards](docs/ENGINEERING_STANDARDS.md).
