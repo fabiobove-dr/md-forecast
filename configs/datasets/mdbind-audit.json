@@ -1,0 +1,83 @@
+{
+  "audit_date": "2026-10-03",
+  "status": "native-equivalence-unresolved",
+  "source": {
+    "dataset_id": "mdbind",
+    "dataset_version": "zenodo-record-10390550",
+    "source_record": "10390550",
+    "source_checksum": "md5:4f72c4306748f79dfe7616fb9d399d10",
+    "license_id": "etalab-2.0",
+    "provenance_uri": "https://zenodo.org/api/records/10390550/files/4D_only_ligand_tracking_test_set.zip/content"
+  },
+  "paper_doi": "10.1093/bioinformatics/btaf429",
+  "upstream_revision": "227f8d7ef6f719695ecd23a7d787be06249bb464",
+  "code_license": "BSD-3-Clause",
+  "processed_artifact": {
+    "filename": "4D_only_ligand_tracking_test_set.zip",
+    "size_bytes": 15815806,
+    "checksum": "md5:4f72c4306748f79dfe7616fb9d399d10",
+    "array_count": 830,
+    "complex_count": 83,
+    "replicas_per_complex": 10,
+    "shape": [
+      "50",
+      "variable-ligand-atom-count",
+      "22"
+    ],
+    "dtype": "float64",
+    "stored_timestamps": false,
+    "representation": "per-frame-ligand-centroid-tracking"
+  },
+  "raw_sample": {
+    "accession": "MD-A003OP",
+    "pdb_id": "4DPY",
+    "replica_number": 1,
+    "md_index": 0,
+    "license_id": "CC-BY-4.0",
+    "frame_count": 50,
+    "atom_count": 5137,
+    "protein_atom_count": 5108,
+    "ligand_residue_number": 331,
+    "ligand_atom_count": 29,
+    "timestamp_unit": "ps",
+    "stored_origin_ps": 210.0,
+    "last_timestamp_ps": 10010.0,
+    "frame_interval_ps": 200.0,
+    "retained_span_ps": 9800.0,
+    "files": [
+      {
+        "filename": "structure.pdb",
+        "size_bytes": 416132,
+        "checksum": "sha256:e5fdcf8f22be6dace19af1e46a74f7f8813ebd76287689e3344cb9732bf852b2",
+        "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003OP/files/structure.pdb"
+      },
+      {
+        "filename": "trajectory.xtc",
+        "size_bytes": 979772,
+        "checksum": "sha256:ad61bdfb22e5bb48e5c99bfce0ea33be735e981c41c86dc3e839339395f0c565",
+        "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003OP/files/trajectory.xtc"
+      }
+    ]
+  },
+  "split_counts": {
+    "train": 4753,
+    "validation": 1179,
+    "test": 83
+  },
+  "split_pairwise_overlap_count": 0,
+  "test_overlap_with_misato_official_splits": {
+    "train": 79,
+    "validation": 0,
+    "test": 0
+  },
+  "test_overlap_with_local_misato_sample_count": 0,
+  "native_features_admitted_for_cross_dataset_scoring": [],
+  "unresolved": [
+    "Native MISATO fit/reference/mass/probe/energy definitions",
+    "Per-system raw topology/selection and imaging equivalence",
+    "Frozen common-feature MISATO model/evaluation if native semantics are unavailable",
+    "Deterministic untouched external subset with full training overlap checks",
+    "Explicit seen-complex unseen-replica split and nested uncertainty",
+    "Real external forecast/effect/calibration results"
+  ]
+}

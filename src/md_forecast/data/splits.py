@@ -31,21 +31,43 @@ type GroupLabels = dict[str, str]
 class SplitConfig(BoundaryModel):
     """Explicit seed and ratios; custom group fields use supplied identity labels."""
 
-    mode: Literal["official", "grouped"]
+    mode: Literal["official", "grouped", "unseen-replica"]
     schema_version: SchemaVersion = CANONICAL_SCHEMA_VERSION
     seed: Annotated[int, Field(strict=True, ge=0)]
     group_field: Identifier = DEFAULT_GROUP_FIELD
     ratios: tuple[float, float, float] | None = None
+    replica_partitions: dict[str, Split] | None = Field(
+        default=None, exclude_if=lambda value: value is None
+    )
 
     @model_validator(mode="after")
     def validate_ratios(self) -> Self:
         """Official assignments must not be silently resampled with ratios."""
-        if self.mode == "official":
-            if self.ratios is not None:
-                raise ValueError("official splits do not accept ratios")
-        else:
-            _validate_ratios(self.ratios)
+        _validate_split_config(self)
         return self
+
+
+def _validate_split_config(config: SplitConfig) -> None:
+    if config.mode == "unseen-replica":
+        _validate_replica_config(config)
+        return
+    if config.replica_partitions is not None:
+        raise ValueError("replica partitions require unseen-replica mode")
+    if config.mode == "official":
+        if config.ratios is not None:
+            raise ValueError("official splits do not accept ratios")
+    else:
+        _validate_ratios(config.ratios)
+    return
+
+
+def _validate_replica_config(config: SplitConfig) -> None:
+    if config.ratios is not None or not config.replica_partitions:
+        raise ValueError("replica protocol requires named partitions, no ratios")
+    if set(config.replica_partitions.values()) != {Split.TRAIN, Split.TEST}:
+        raise ValueError("replica protocol requires TRAIN and TEST replicas")
+    if config.group_field != DEFAULT_GROUP_FIELD:
+        raise ValueError("replica protocol groups uncertainty by original system")
 
 
 def _validate_ratios(ratios: tuple[float, float, float] | None) -> None:
@@ -205,6 +227,14 @@ def _official_partition(records: list[TrajectoryManifest]) -> Split:
 def _assignments(
     registry: Registry, config: SplitConfig, labels: GroupLabels
 ) -> tuple[SplitAssignment, ...]:
+    if config.mode == "unseen-replica":
+        return _replica_assignments(_components(registry, labels), config)
+    return _complex_assignments(registry, config, labels)
+
+
+def _complex_assignments(
+    registry: Registry, config: SplitConfig, labels: GroupLabels
+) -> tuple[SplitAssignment, ...]:
     groups = _components(registry, labels)
     if config.mode == "official":
         partitions = {
@@ -222,6 +252,47 @@ def _assignments(
     return tuple(sorted(assignments, key=lambda item: item.trajectory_id))
 
 
+def _replica_assignments(
+    groups: dict[str, list[TrajectoryManifest]], config: SplitConfig
+) -> tuple[SplitAssignment, ...]:
+    """Hold out named replicas while retaining the true uncertainty component."""
+    assert config.replica_partitions is not None
+    assignments: list[SplitAssignment] = []
+    for key, records in groups.items():
+        _validate_replica_group(records, config.replica_partitions)
+        assignments.extend(
+            SplitAssignment(
+                trajectory_id=record.trajectory_id,
+                group_id=key,
+                split=config.replica_partitions[record.replicate_id],
+            )
+            for record in records
+        )
+    return tuple(sorted(assignments, key=lambda item: item.trajectory_id))
+
+
+def _validate_replica_group(
+    records: list[TrajectoryManifest], partitions: dict[str, Split]
+) -> None:
+    if len({record.system_id for record in records}) != 1:
+        raise ValueError("replica protocol cannot pool distinct dependent systems")
+    _validate_replica_coverage(records, partitions)
+    _reject_official_replicas(records)
+
+
+def _validate_replica_coverage(
+    records: list[TrajectoryManifest], partitions: dict[str, Split]
+) -> None:
+    replicas = [record.replicate_id for record in records]
+    if set(replicas) != set(partitions) or len(replicas) != len(set(replicas)):
+        raise ValueError("every system must contain exactly the named replicas")
+
+
+def _reject_official_replicas(records: list[TrajectoryManifest]) -> None:
+    if any(record.split is not None for record in records):
+        raise ValueError("replica protocol cannot override official source splits")
+
+
 def build_split(
     registry: Registry,
     config: SplitConfig,
@@ -230,7 +301,9 @@ def build_split(
     """Bind official or seeded grouped partitions to the entire canonical registry.
 
     A custom group field requires an explicit trajectory-to-family mapping.
-    System and source split-group dependencies remain enforced under every field.
+    Unseen-complex modes keep source/system dependencies indivisible. Explicit
+    unseen-replica mode holds out named replicas and preserves those dependencies
+    as uncertainty groups; it never changes the biological system identity.
     """
     ordered = Registry(
         dataset=registry.dataset,

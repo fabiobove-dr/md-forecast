@@ -344,6 +344,48 @@ def _region_geometry(
     return minimum
 
 
+def contact_geometry(
+    values: FloatArray,
+    reference: FloatArray,
+    selections: AtomPair,
+    config: StructuralConfig,
+) -> FloatArray:
+    """Compute the three core channels on reviewed, disjoint heavy-atom sets.
+
+    Coordinates and reference are float64 Angstrom arrays. Callers establish
+    source atom identity/elements; this boundary validates geometry and budgets.
+    The reference contains exactly the first retained source frame.
+    """
+    config = StructuralConfig.model_validate_json(config.model_dump_json())
+    selections = AtomPair.model_validate_json(selections.model_dump_json())
+    _validate_geometry_arrays(values, reference, config)
+    _validate_budget(values.shape[1], len(values), config)
+    if max((*selections.left, *selections.right)) >= values.shape[1]:
+        raise DataContractError("geometry atom index exceeds source bounds")
+    try:
+        with np.errstate(over="raise", invalid="raise"):
+            return _contact_geometry(
+                values,
+                reference,
+                np.asarray(selections.left, dtype=np.int64),
+                np.asarray(selections.right, dtype=np.int64),
+                config,
+            )
+    except FloatingPointError as error:
+        raise DataContractError("structural distance calculation overflowed") from error
+
+
+def _validate_geometry_arrays(
+    values: FloatArray, reference: FloatArray, config: StructuralConfig
+) -> None:
+    if values.ndim != 3 or values.shape[2] != 3:
+        raise DataContractError("geometry requires (frames,atoms,3) coordinates")
+    if len(values) > config.frame_chunk_size:
+        raise DataContractError("geometry chunk exceeds configured frame budget")
+    validate_array(values, values.shape)
+    validate_array(reference, (1, values.shape[1], 3))
+
+
 def _finite_coordinates(coordinates: h5py.Dataset, start: int, stop: int) -> FloatArray:
     values = np.asarray(coordinates[start:stop], dtype=np.float64)
     if not np.isfinite(values).all():

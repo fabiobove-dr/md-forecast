@@ -9,6 +9,7 @@ nav:
   - Development: DEVELOPMENT.md
   - Datasets:
       - MISATO audit: datasets/MISATO.md
+      - MDbind audit: datasets/MDBIND.md
       - Canonical schema: datasets/CANONICAL_SCHEMA.md
       - MISATO adapter: datasets/MISATO_ADAPTER.md
       - Data preparation: datasets/PREPARATION.md
@@ -20,3 +21,4 @@ nav:
       - Chronos-2 fine-tuning: models/FINETUNING.md
       - Benchmark and metrics: models/BENCHMARK.md
       - Input ablations: models/INPUT_ABLATIONS.md
+      - External validation: models/EXTERNAL_VALIDATION.md
