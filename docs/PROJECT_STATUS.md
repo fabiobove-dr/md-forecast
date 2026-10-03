@@ -6,7 +6,7 @@ For live task tracking, see [GitHub issue #32 — Project Roadmap](https://githu
 
 ## Progress
 
-**13 / 17 planned implementation issues complete (~76%).**
+**14 / 17 planned implementation issues complete (~82%).**
 
 The foundational engineering and ML work is complete. The remaining work is primarily scientific validation, external generalization, and final reporting.
 
@@ -30,20 +30,18 @@ The foundational engineering and ML work is complete. The remaining work is prim
 - #10 Chronos-2 zero-shot integration
 - #11 Reproducible grouped context × horizon benchmark
 - #12 Chronos-2 fine-tuning within the <=24 GB GPU target
+- #13 Controlled input ablations on the development holdout; repeated results agree, with inconclusive paired input-set benefit
 
 ## Next
 
 ### MVP scientific validation
-1. **#13 — Multivariate and metadata/covariate ablations**
-   - determine which observable combinations contribute useful forecast skill;
-   - compare RMSD-only, native multivariate features, and structural features under the same frozen evaluation protocol.
-
-2. **#14 — MDbind external validation**
+1. **#14 — MDbind external validation**
    - build the external adapter and semantic-equivalence checks;
    - evaluate transfer without MDbind fine-tuning first;
-   - report unseen-replica and unseen-complex results separately.
+   - report unseen-replica and unseen-complex results separately;
+   - the [source audit](datasets/MDBIND.md) is prepared, but native feature equivalence remains unresolved; no external result is available.
 
-3. **#17 — Reproducible MVP report**
+2. **#17 — Reproducible MVP report**
    - consolidate held-out results, uncertainty, calibration, ablations, external validation, hardware/runtime, and limitations into a paper-ready artifact.
 
 ## Research extension
@@ -78,7 +76,7 @@ The software stack is mature enough to run the intended experiments, but the fin
 
 The current experiments demonstrate implementation correctness and development/validation behavior. The decisive evidence still needs to come from:
 
-- controlled feature ablations (#13), and
+- an independent confirmation of the small development ablation findings (#13), and
 - external generalization on MDbind (#14).
 
 Only after those are complete should the final MVP conclusion be frozen in #17.
