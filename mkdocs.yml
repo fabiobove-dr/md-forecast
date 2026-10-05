@@ -28,6 +28,7 @@ nav:
       - Geometric fine-tuning: models/FOLLOWUP_FINETUNING.md
       - Input ablations: models/INPUT_ABLATIONS.md
       - Geometric observed inputs: models/FOLLOWUP_INPUTS.md
+      - Probabilistic follow-up: models/FOLLOWUP_PROBABILITY.md
       - External validation: models/EXTERNAL_VALIDATION.md
       - MVP report: models/MVP_REPORT.md
       - Predictive coupling: models/PREDICTIVE_COUPLING.md
