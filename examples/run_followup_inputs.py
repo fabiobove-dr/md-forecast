@@ -45,7 +45,9 @@ class InputConfig(BoundaryModel):
 
     grid: WindowConfig
     learning_rate: Annotated[float, Field(gt=0)]
-    seeds: Annotated[tuple[int, ...], Field(min_length=2)]
+    seeds: Annotated[
+        tuple[Annotated[int, Field(strict=True, ge=0)], ...], Field(min_length=2)
+    ]
     representative_seed: int
     shift_frames: Annotated[int, Field(strict=True, gt=0)]
     lag_orders: tuple[Annotated[int, Field(strict=True, gt=0)], ...]
@@ -312,6 +314,15 @@ def predictions(
         "groups": groups(lead),
         "runtime": runtimes,
     }
+    if isinstance(model, FineTunedChronos2Adapter):
+        result["training_identity"] = {
+            "manifest_hash": metadata_hash(model.checkpoint.manifest),
+            "feature_set_hash": model.checkpoint.feature_set_hash,
+            "input_hash": model.checkpoint.manifest.input_hash,
+            "checkpoint_hash": metadata_hash(model.checkpoint),
+            "selected_step": model.checkpoint.step,
+            "budget": model.checkpoint.manifest.training.model_dump(mode="json"),
+        }
     del model
     gc.collect()
     return lead.select(
@@ -402,6 +413,39 @@ def score(args: argparse.Namespace) -> None:
                 )
                 for condition in ("target-only", "joint", "shifted")
             }
+            seed_groups = {
+                condition: {
+                    group: float(
+                        np.mean(
+                            [
+                                results[target][f"fine-{seed}"][condition]["groups"][
+                                    group
+                                ]
+                                for seed in plan.config.seeds
+                            ]
+                        )
+                    )
+                    for group in results[target]["zero-shot"]["target-only"]["groups"]
+                }
+                for condition in ("target-only", "joint", "shifted")
+            }
+            effects[target]["fine-seed-mean"] = {}
+            for condition in ("joint", "shifted"):
+                delta = np.asarray(
+                    [
+                        seed_groups[condition][group]
+                        - seed_groups["target-only"][group]
+                        for group in sorted(seed_groups["target-only"])
+                    ],
+                    dtype=np.float64,
+                )
+                effects[target]["fine-seed-mean"][condition] = {
+                    "mae_difference": float(delta.mean()),
+                    "marginal_ci": group_interval(delta, plan.config.uncertainty),
+                    "groups": len(delta),
+                    "independent_unit": "system",
+                    "corrected_claim": False,
+                }
             choices[target] = {
                 "condition": "joint"
                 if means["joint"] < min(means["target-only"], means["shifted"])

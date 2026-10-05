@@ -88,8 +88,8 @@ checkpoint is reused as a geometric model.
 ## Matched real validation results
 
 MAE and RMSE retain native units: contact pairs, reference fraction 0–1 and
-minimum distance Å. RMSE averages trajectory mean-squared errors within systems
-before taking the root. Spread is forecast temporal standard deviation divided
+minimum distance Å. RMSE takes the root of each trajectory’s mean-squared error
+before averaging trajectories within systems and then systems equally. Spread is forecast temporal standard deviation divided
 by future temporal standard deviation, averaged over defined window ratios.
 Undefined constant-truth ratios are exported as null and excluded explicitly.
 Each model has 1,680 windows across the four cells and 60 independent systems.
