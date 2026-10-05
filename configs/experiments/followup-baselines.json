@@ -176,6 +176,16 @@
       "model_id": "nlinear",
       "seed": 42,
       "ridge": 100.0
+    },
+    {
+      "model_id": "nlinear",
+      "seed": 42,
+      "ridge": 1000.0
+    },
+    {
+      "model_id": "nlinear",
+      "seed": 42,
+      "ridge": 10000.0
     }
   ]
 }
