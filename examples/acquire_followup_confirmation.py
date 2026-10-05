@@ -97,39 +97,39 @@ async def run(args: argparse.Namespace) -> None:
             ):
                 uri = url if name == "record.json" else url + "/files/" + name
                 files[name] = await fetch(client, uri, directory / name)
-            record = RawRecord.model_validate_json(
-                (directory / "record.json").read_bytes()
-            )
-            if record.metadata.PDBIDS != (pdb,) or record.mdNumber != number:
-                raise DataContractError(
-                    "external replica metadata differs from selection"
-                )
-            topology = await asyncio.to_thread(
-                mdtraj.load_topology, str(directory / "structure.pdb")
-            )
-            ligand = topology.residue(topology.n_residues - 1)
-            interactions = [
-                item
-                for item in record.metadata.INTERACTIONS
-                if item["type"] == "protein-ligand"
-            ]
-            if len(interactions) != 1:
-                raise DataContractError(
-                    "external selection requires one protein-ligand interaction"
-                )
-            source = ReplicaSource(
-                accession=accession,
-                pdb_id=pdb,
-                replica=number,
-                atoms=record.metadata.SYSTATS,
-                ligand_residue_index=ligand.index,
-                ligand_name=ligand.name,
-                interaction_selection=interactions[0]["selection_2"],
-                files=files,
-            )
             try:
+                record = RawRecord.model_validate_json(
+                    (directory / "record.json").read_bytes()
+                )
+                if record.metadata.PDBIDS != (pdb,) or record.mdNumber != number:
+                    raise DataContractError(
+                        "external replica metadata differs from selection"
+                    )
+                topology = await asyncio.to_thread(
+                    mdtraj.load_topology, str(directory / "structure.pdb")
+                )
+                ligand = topology.residue(topology.n_residues - 1)
+                interactions = [
+                    item
+                    for item in record.metadata.INTERACTIONS
+                    if item["type"] == "protein-ligand"
+                ]
+                if len(interactions) != 1:
+                    raise DataContractError(
+                        "external selection requires one protein-ligand interaction"
+                    )
+                source = ReplicaSource(
+                    accession=accession,
+                    pdb_id=pdb,
+                    replica=number,
+                    atoms=record.metadata.SYSTATS,
+                    ligand_residue_index=ligand.index,
+                    ligand_name=ligand.name,
+                    interaction_selection=interactions[0]["selection_2"],
+                    files=files,
+                )
                 await asyncio.to_thread(verified_replica_topology, directory, source)
-            except DataContractError as error:
+            except (DataContractError, ValueError, IndexError) as error:
                 failures.append(
                     {"pdb_id": pdb, "accession": accession, "reason": str(error)}
                 )
