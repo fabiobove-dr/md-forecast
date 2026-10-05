@@ -3,6 +3,7 @@
 import argparse
 import asyncio
 import json
+from itertools import groupby
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -50,6 +51,7 @@ def prepare(
     output: Path,
     reserve: ExternalReserve | None = None,
     purpose: CohortPurpose = "tuning",
+    source_qc: dict | None = None,
 ) -> None:
     """Reject partial cohorts; commit the complete registry and exports together."""
     if output.exists():
@@ -60,15 +62,47 @@ def prepare(
     with TemporaryDirectory(dir=output.parent, prefix=".mdbind-") as temporary:
         staging = Path(temporary) / "complete"
         staging.mkdir()
-        records, exports = [], {}
-        for source in sources:
-            table = extract_replica(raw / source.accession, source, config)
-            registry = series_metadata(table)
-            record = registry.trajectories[0]
-            name = source.accession + ".parquet"
-            write_series(staging / name, table)
-            records.append(record)
-            exports[record.trajectory_id] = name
+        records, exports, issues = [], {}, []
+        if source_qc is not None:
+            issues.extend(
+                {
+                    "source_system_id": pdb,
+                    "status": "dropped",
+                    "reason": "static selection contract failed",
+                    "phase": "static",
+                }
+                for pdb in source_qc["excluded_pdb_ids"]
+            )
+        ordered = sorted(sources, key=lambda source: (source.pdb_id, source.replica))
+        for pdb, group in groupby(ordered, key=lambda source: source.pdb_id):
+            replicas = tuple(group)
+            try:
+                tables = [
+                    (source, extract_replica(raw / source.accession, source, config))
+                    for source in replicas
+                ]
+            except DataContractError as error:
+                if purpose != "confirmation":
+                    raise
+                issues.append(
+                    {
+                        "source_system_id": pdb,
+                        "status": "dropped",
+                        "reason": str(error),
+                        "phase": "geometry",
+                    }
+                )
+                print(pdb, "GEOMETRY QC REJECTED", error, flush=True)
+                continue
+            for source, table in tables:
+                registry = series_metadata(table)
+                record = registry.trajectories[0]
+                name = source.accession + ".parquet"
+                write_series(staging / name, table)
+                records.append(record)
+                exports[record.trajectory_id] = name
+        if not records:
+            raise DataContractError("confirmation has no admissible complex groups")
         write_registry(
             staging / "registry.json",
             Registry(dataset=registry.dataset, trajectories=tuple(records)),
@@ -78,7 +112,11 @@ def prepare(
         if reserve is not None:
             write_metadata(staging / "reserve.json", reserve)
         (staging / "qc.json").write_text(
-            json.dumps({"exported": exports}, indent=2) + "\n"
+            json.dumps(
+                {"exported": exports, "issues": issues, "static_qc": source_qc},
+                indent=2,
+            )
+            + "\n"
         )
         staging.rename(output)
 
@@ -102,6 +140,7 @@ def main() -> None:
     parser.add_argument("--reserve", type=Path)
     parser.add_argument("--purpose", choices=tuple(PURPOSE_ROLES), default="tuning")
     parser.add_argument("--confirmation-plan", type=Path)
+    parser.add_argument("--source-qc", type=Path)
     args = parser.parse_args()
     subset = MDBindSubset.model_validate_json(args.source.read_text())
     if args.download:
@@ -120,7 +159,26 @@ def main() -> None:
             plan.seen_reserve_hash,
         ):
             raise DataContractError("confirmation reserve differs from the frozen plan")
-    prepare(subset, args.raw, args.geometry, args.output, reserve, args.purpose)
+    source_qc = json.loads(args.source_qc.read_text()) if args.source_qc else None
+    if source_qc is not None:
+        if args.purpose != "confirmation" or source_qc["reserve_hash"] != metadata_hash(
+            reserve
+        ):
+            raise DataContractError(
+                "source QC requires its frozen confirmation reserve"
+            )
+        excluded = set(source_qc["excluded_pdb_ids"])
+        if set(dict(subset.selection.selected)) | excluded != set(
+            dict(reserve.confirmation)
+        ):
+            raise DataContractError(
+                "source QC does not cover exactly the selected cohort"
+            )
+        if set(dict(subset.selection.selected)) & excluded:
+            raise DataContractError("source QC excludes an admitted complex")
+    prepare(
+        subset, args.raw, args.geometry, args.output, reserve, args.purpose, source_qc
+    )
 
 
 if __name__ == "__main__":
