@@ -301,7 +301,10 @@ def predictions(
         "feature_ids": batch.spec.feature_ids,
         "source_split_hash": batch.spec.split_hash,
         "window_config_hash": batch.spec.window_config_hash,
-        "preprocessing": "Chronos observed-context local normalization; statistical native-unit context fit",
+        "preprocessing": (
+            "Chronos observed-context local normalization; "
+            "statistical native-unit context fit"
+        ),
         "config": model.config.model_dump(mode="json"),
         "errors": error_summary(lead, leads=False),
         "per_lead": error_summary(lead, leads=True),
