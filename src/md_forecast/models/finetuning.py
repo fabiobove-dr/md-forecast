@@ -14,7 +14,12 @@ from pydantic import Field, model_validator
 from md_forecast.core.constants import ModelId, Split, TimeUnit
 from md_forecast.core.exceptions import ForecastError
 from md_forecast.data.artifacts import metadata_hash, read_metadata, write_metadata
-from md_forecast.data.forecast import ForecastBatch, ForecastSpec, iter_forecasts
+from md_forecast.data.forecast import (
+    ForecastBatch,
+    ForecastSpec,
+    bind_evaluation_spec,
+    iter_forecasts,
+)
 from md_forecast.data.predictions import QuantileForecast, RuntimeStats
 from md_forecast.data.preprocessing import SeriesLoader
 from md_forecast.data.schemas import ArtifactHash, BoundaryModel
@@ -398,9 +403,22 @@ def _verify_file(path: Path, digest: str) -> None:
 class FineTunedChronos2Adapter(Chronos2Adapter):
     """Load verified local safetensors using the unchanged forecast implementation."""
 
-    def __init__(self, settings: ChronosConfig, *, checkpoint_dir: Path) -> None:
+    def __init__(
+        self,
+        settings: ChronosConfig,
+        *,
+        checkpoint_dir: Path,
+        evaluation_spec: ForecastSpec | None = None,
+    ) -> None:
         """Verify provenance/state before loading local model weights."""
         self.checkpoint = read_checkpoint(checkpoint_dir)
+        self.evaluation_spec = (
+            None
+            if evaluation_spec is None
+            else bind_evaluation_spec(
+                self.checkpoint.manifest.spec, evaluation_spec, fixed_grid=False
+            )
+        )
         trained = self.checkpoint.manifest.settings
         if (settings.model_name, settings.revision) != (
             trained.model_name,
@@ -423,6 +441,12 @@ class FineTunedChronos2Adapter(Chronos2Adapter):
 
     def forecast(self, batch: ForecastBatch) -> QuantileForecast:
         """Reject a different scientific feature/split protocol before inference."""
+        if self.evaluation_spec is not None:
+            if batch.spec != self.evaluation_spec:
+                raise ForecastError(
+                    "fine-tuned forecast differs from explicit evaluation binding"
+                )
+            return super().forecast(batch)
         trained = self.checkpoint.manifest.spec
         expected = (trained.dataset, trained.feature_ids, trained.split_hash)
         if (

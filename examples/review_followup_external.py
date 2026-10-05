@@ -79,10 +79,17 @@ def verify_selection(args: argparse.Namespace, reserve: ExternalReserve) -> None
             f"{reserve.seed}|mdbind-unseen|{pdb}".encode()
         ).digest(),
     )
-    selected = reserve.confirmation + reserve.development_seen_replica
-    expected = tuple((pdb, candidates[pdb]) for pdb in ranked[: len(selected)])
+    original = reserve.original_confirmation_count or len(reserve.confirmation)
+    seen_end = original + len(reserve.development_seen_replica)
+    added = len(reserve.confirmation) - original
+    expected_confirmation = tuple(
+        (pdb, candidates[pdb])
+        for pdb in ranked[:original] + ranked[seen_end : seen_end + added]
+    )
+    expected_seen = tuple((pdb, candidates[pdb]) for pdb in ranked[original:seen_end])
     if (
-        selected != expected
+        reserve.confirmation != expected_confirmation
+        or reserve.development_seen_replica != expected_seen
         or len(candidates) != reserve.eligible_unique_complexes
         or len(official) != reserve.all_official_misato_identity_excluded
     ):

@@ -218,3 +218,43 @@ def _targets(
     )
     validate_array(values, (len(indices), spec.horizon_frames, len(features)))
     return values
+
+
+def bind_evaluation_spec(
+    fitted: ForecastSpec, evaluation: ForecastSpec, *, fixed_grid: bool
+) -> ForecastSpec:
+    """Explicitly bind a new evaluation domain without changing fitted provenance.
+
+    Dataset and split identities may differ only in this opt-in path. Ordered
+    selected feature definitions and feature-set versions must be identical.
+    Fixed temporal mappings additionally require the fitted context/horizon.
+    The returned target specification must match inference batches exactly.
+    """
+    target = ForecastSpec.model_validate_json(evaluation.model_dump_json())
+    if target.feature_ids != fitted.feature_ids:
+        raise DataContractError("evaluation transfer changes fitted feature order")
+    if target.dataset.feature_set_version != fitted.dataset.feature_set_version:
+        raise DataContractError("evaluation transfer changes feature-set version")
+    _check_transfer_definitions(fitted, target)
+    if fixed_grid:
+        _check_transfer_grid(fitted, target)
+    return target
+
+
+def _check_transfer_definitions(fitted: ForecastSpec, target: ForecastSpec) -> None:
+    source = {f.feature_id: f for f in fitted.dataset.features}
+    destination = {f.feature_id: f for f in target.dataset.features}
+    if any(source[name] != destination[name] for name in fitted.feature_ids):
+        raise DataContractError(
+            "evaluation transfer changes admitted definitions/units"
+        )
+
+
+def _check_transfer_grid(fitted: ForecastSpec, target: ForecastSpec) -> None:
+    if (fitted.context_frames, fitted.horizon_frames) != (
+        target.context_frames,
+        target.horizon_frames,
+    ):
+        raise DataContractError(
+            "evaluation transfer changes fitted temporal dimensions"
+        )

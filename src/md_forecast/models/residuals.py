@@ -12,7 +12,12 @@ from pydantic import Field, model_validator
 from md_forecast.core.constants import Split, TimeUnit
 from md_forecast.core.exceptions import ForecastError
 from md_forecast.data.artifacts import metadata_hash
-from md_forecast.data.forecast import ForecastBatch, ForecastSpec, iter_forecasts
+from md_forecast.data.forecast import (
+    ForecastBatch,
+    ForecastSpec,
+    bind_evaluation_spec,
+    iter_forecasts,
+)
 from md_forecast.data.predictions import (
     QuantileForecast,
     RuntimeStats,
@@ -204,6 +209,7 @@ class ResidualBaseline:
     """Statistical points plus TRAIN-fitted offsets and strict source/grid binding."""
 
     state: ResidualState
+    evaluation_spec: ForecastSpec | None = None
 
     def __post_init__(self) -> None:
         """Validate loaded state at the adapter boundary without filesystem effects."""
@@ -212,6 +218,17 @@ class ResidualBaseline:
             "state",
             ResidualState.model_validate_json(self.state.model_dump_json()),
         )
+        self._bind_evaluation()
+
+    def _bind_evaluation(self) -> None:
+        if self.evaluation_spec is not None:
+            object.__setattr__(
+                self,
+                "evaluation_spec",
+                bind_evaluation_spec(
+                    self.state.spec, self.evaluation_spec, fixed_grid=True
+                ),
+            )
 
     @property
     def config(self) -> ModelConfig:
@@ -225,7 +242,7 @@ class ResidualBaseline:
 
     def forecast(self, batch: ForecastBatch) -> QuantileForecast:
         """Use context-only points and fixed offsets without on-the-fly calibration."""
-        if batch.spec != self.state.spec:
+        if batch.spec != (self.evaluation_spec or self.state.spec):
             raise ForecastError(
                 "residual forecast differs from fitted source/features/grid"
             )

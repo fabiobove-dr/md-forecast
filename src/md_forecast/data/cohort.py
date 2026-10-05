@@ -58,6 +58,12 @@ class ExternalReserve(BoundaryModel):
     seen_replica_roles: dict[
         CohortRole, tuple[Annotated[int, Field(strict=True, ge=1, le=10)], ...]
     ]
+    original_confirmation_count: Annotated[int, Field(strict=True, gt=0)] | None = (
+        Field(default=None, exclude_if=lambda value: value is None)
+    )
+    parent_reserve_hash: ArtifactHash | None = Field(
+        default=None, exclude_if=lambda value: value is None
+    )
     payload_status: Identifier
 
     @model_validator(mode="after")
@@ -69,9 +75,23 @@ class ExternalReserve(BoundaryModel):
             raise ValueError(
                 "external tasks overlap or contain previously used systems"
             )
+        self._validate_extension()
         self._validate_population()
         self._validate_replicas()
         return self
+
+    def _validate_extension(self) -> None:
+        if (self.original_confirmation_count is None) != (
+            self.parent_reserve_hash is None
+        ):
+            raise ValueError(
+                "reserve extension requires original count and parent hash"
+            )
+        if (
+            self.original_confirmation_count is not None
+            and self.original_confirmation_count >= len(self.confirmation)
+        ):
+            raise ValueError("reserve extension must add confirmation identities")
 
     def _validate_population(self) -> None:
         if (
