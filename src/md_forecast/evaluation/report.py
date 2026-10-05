@@ -253,7 +253,11 @@ def _calibration_curves(
 
 
 def _horizon_axis(manifest: CellManifest) -> tuple[float, str]:
-    records = _evaluation_records(manifest)
+    return _records_axis(_evaluation_records(manifest))
+
+
+def _records_axis(records: tuple[TrajectoryManifest, ...]) -> tuple[float, str]:
+    """Select a physical lead axis only for uniformly verified sampling."""
     if not all(r.sampling_status == SamplingStatus.VERIFIED for r in records):
         return _interval_axis(None)
     intervals = {r.frame_interval_ps for r in records}

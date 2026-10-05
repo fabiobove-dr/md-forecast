@@ -12,7 +12,6 @@ import numpy as np
 import pyarrow.parquet as pq
 from pydantic import Field, model_validator
 
-from md_forecast.core.constants import SamplingStatus
 from md_forecast.core.exceptions import DataContractError
 from md_forecast.data.artifacts import metadata_hash, read_metadata
 from md_forecast.data.registry import atomic_output
@@ -20,7 +19,12 @@ from md_forecast.data.schemas import ArtifactHash, BoundaryModel, DatasetConfig
 from md_forecast.data.splits import SplitManifest
 from md_forecast.evaluation.benchmark import CellManifest, _expected_windows
 from md_forecast.evaluation.mvp import read_mvp
-from md_forecast.evaluation.report import _horizon_axis, _interval_axis, read_benchmark
+from md_forecast.evaluation.report import (
+    _horizon_axis,
+    _interval_axis,
+    _records_axis,
+    read_benchmark,
+)
 from md_forecast.models.residuals import ResidualState
 
 
@@ -340,11 +344,7 @@ def _followup_axis(
     split = read_metadata(source.root / "split.json", SplitManifest)
     _same(metadata_hash(split), summary["split_hash"], "confirmation split hash")
     _same(split.registry.dataset, source.dataset, "confirmation split dataset")
-    records = split.registry.trajectories
-    if not all(record.sampling_status == SamplingStatus.VERIFIED for record in records):
-        return _interval_axis(None)
-    intervals = {record.frame_interval_ps for record in records}
-    return _interval_axis(intervals.pop() if len(intervals) == 1 else None)
+    return _records_axis(split.registry.trajectories)
 
 
 def _followup_reference(models: dict[str, Any]) -> str | None:
