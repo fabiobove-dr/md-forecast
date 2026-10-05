@@ -9,7 +9,7 @@ from tempfile import TemporaryDirectory
 from md_forecast.core.config import DownloadSettings
 from md_forecast.core.exceptions import DataContractError
 from md_forecast.data.acquisition import AcquisitionSource, acquire
-from md_forecast.data.artifacts import write_metadata
+from md_forecast.data.artifacts import metadata_hash, write_metadata
 from md_forecast.data.cohort import (
     PURPOSE_ROLES,
     CohortPurpose,
@@ -19,6 +19,7 @@ from md_forecast.data.cohort import (
 from md_forecast.data.public.mdbind import MDBindSubset, ReplicaSource, extract_replica
 from md_forecast.data.registry import Registry, write_registry
 from md_forecast.data.series import series_metadata, write_series
+from md_forecast.evaluation.confirmation import read_confirmation_plan
 from md_forecast.features.structural import load_structural_config
 
 
@@ -100,6 +101,7 @@ def main() -> None:
     parser.add_argument("--download", action="store_true")
     parser.add_argument("--reserve", type=Path)
     parser.add_argument("--purpose", choices=tuple(PURPOSE_ROLES), default="tuning")
+    parser.add_argument("--confirmation-plan", type=Path)
     args = parser.parse_args()
     subset = MDBindSubset.model_validate_json(args.source.read_text())
     if args.download:
@@ -109,6 +111,15 @@ def main() -> None:
         if args.reserve is not None
         else None
     )
+    if args.purpose == "confirmation":
+        if args.confirmation_plan is None or reserve is None:
+            raise DataContractError("confirmation requires its frozen plan and reserve")
+        plan = read_confirmation_plan(args.confirmation_plan)
+        if metadata_hash(reserve) not in (
+            plan.external_reserve_hash,
+            plan.seen_reserve_hash,
+        ):
+            raise DataContractError("confirmation reserve differs from the frozen plan")
     prepare(subset, args.raw, args.geometry, args.output, reserve, args.purpose)
 
 

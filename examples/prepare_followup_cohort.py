@@ -29,6 +29,7 @@ from md_forecast.data.public.misato import (
 )
 from md_forecast.data.registry import Registry, read_registry, write_registry
 from md_forecast.data.series import read_series, to_arrow, write_series
+from md_forecast.evaluation.confirmation import read_confirmation_plan
 from md_forecast.features.structural import BASE_FEATURE_IDS, load_structural_config
 
 
@@ -75,6 +76,12 @@ def freeze(args: argparse.Namespace) -> None:
 def prepare(args: argparse.Namespace) -> None:
     """Decode permitted roles only, retaining official VAL labels for calibration."""
     manifest = read_metadata(args.manifest, CohortManifest)
+    if args.purpose == "confirmation":
+        if args.confirmation_plan is None:
+            raise DataContractError("confirmation requires the frozen plan")
+        plan = read_confirmation_plan(args.confirmation_plan)
+        if plan.native_cohort_hash != metadata_hash(manifest):
+            raise DataContractError("confirmation cohort differs from the frozen plan")
     source = load_misato_source(args.source)
     geometry = load_structural_config(args.geometry)
     if (metadata_hash(source), metadata_hash(geometry)) != (
@@ -146,12 +153,12 @@ def prepare_staging(
     (staging / "PREPARED").write_text(metadata_hash(manifest) + "\n")
     print(
         f"exported={len(records)}; exclusions={len(report.issues)}; "
-        "confirmation untouched"
+        f"purpose={args.purpose}"
     )
 
 
 def main() -> None:
-    """Require explicit freeze or preparation; confirmation decoding is excluded."""
+    """Require explicit preparation and a verified plan for confirmation decoding."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=("freeze", "prepare"))
     parser.add_argument(
@@ -178,9 +185,8 @@ def main() -> None:
     parser.add_argument(
         "--output", type=Path, default=Path("data/processed/followup-development")
     )
-    parser.add_argument(
-        "--purpose", choices=("tuning", "calibration"), default="tuning"
-    )
+    parser.add_argument("--purpose", choices=tuple(PURPOSE_ROLES), default="tuning")
+    parser.add_argument("--confirmation-plan", type=Path)
     args = parser.parse_args()
     (freeze if args.command == "freeze" else prepare)(args)
 
