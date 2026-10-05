@@ -170,3 +170,10 @@ evidence. The saved prediction bundles retain their original identities.
 Three-observable QC failures exclude an entire complex without ID replacement;
 actual group counts and reasons remain visible. Development and historical
 results remain separate from the independent confirmation panels.
+
+Explicitly tagged crossed quantiles are retained as failed scientific output.
+A tag must agree with the raw ordering; untagged crossings still fail loading.
+Affected windows have no shaded interval, and exact leads show raw failed
+quantiles. Error CSV downloads distinguish `INVALID_CROSSING` from the separate
+user tolerance rule. Entire affected-cell probabilistic scores remain
+unavailable; median point errors retain every window.

@@ -67,6 +67,17 @@ replacement. Any replica failure excludes its whole complex from the matched
 three-observable comparison. Acquisition and preparation retain static and
 geometric rejection reasons separately.
 
+Static admission rejects 12/80 selected external complexes: 1EX8, 1GUI,
+1SQQ, 2BZ8, 2JG8, 2VPG, 2WIJ, 2WOQ, 4ORY, 5MB1, 6EE3 and 6G46.
+Their reviewed selections are ambiguous or contain no single protein–ligand
+interaction matching the admitted final segment. All raw failure artifacts
+are checksum-pinned in `followup-external80-rejections.json`; no XTC outcomes
+were used for this selection. Subsequent frozen geometric QC rejects 1TJP
+and 3DXJ for incompatible XTC frame counts. **66 complexes / 660 replicas /
+33,000 frames** remain, below the prospective 80-system precision target.
+The original 80 IDs are retained and exclusions are disclosed, without
+replacement or changing the corrected family.
+
 The seen-system task reads only replica 10 of each of six previously examined
 MDbind systems. It is **seen by development analysis**, while the models,
 compact scaler and residual distributions remain fitted on MISATO TRAIN.
@@ -146,6 +157,25 @@ reference. Its per-window tolerance ratings remain user-controlled
 retrospective error checks, independent of the frozen scientific decision.
 An unset tolerance remains UNRATED; scalar predictions do not imply valid
 atomistic trajectories.
+
+## Failed probability forecasts
+
+The initial external scorer aborted on crossed fine-tuned quantiles. A target-
+only check reproduced five contact-count crossings in 4NNI at C20/H10,
+plus five auxiliary-channel crossings; these are actual model outputs, not
+assumed valid intervals. The scorer now evaluates only the declared target
+and preserves **every median and raw quantile**, tagging exact crossing points.
+No sorting, clipping, checkpoint change, data replacement or point-error
+exclusion occurs. An affected target/cell has unavailable probabilistic
+metrics rather than metrics averaged over the remaining valid points.
+
+All primary comparisons remain in the original family, including unavailable
+intervals. Such a cell cannot pass useful-uncertainty criteria. The report
+shows the failed quantile values, suppresses affected-window shaded bands,
+and exports probability-invalid flags separately from application tolerance
+ratings. Initial failure logs and the reproduced crossing audit remain local
+ignored report artifacts. This handling is an experiment reporting correction;
+it does not repair or retune the model after confirmation.
 
 ## Measured results
 

@@ -92,16 +92,17 @@ def _validate_synthesis(payload: dict[str, Any], plan: ConfirmationPlan) -> None
 
 def _bind_sources(config: OverviewConfig, payload: dict[str, Any]) -> None:
     pinned = {
-        str(source.root / "summary.json"): source.expected_hash
+        source.expected_hash: source.root / "summary.json"
         for source in config.sources
         if source.kind == "probability"
     }
-    for path, expected in payload["source_summaries"].items():
-        _check_synthesis_source(path, expected, pinned)
+    for expected in payload["source_summaries"].values():
+        _check_synthesis_source(expected, pinned)
 
 
-def _check_synthesis_source(path: str, expected: str, pinned: dict[str, str]) -> None:
-    if pinned.get(path) != expected or file_hash(Path(path)) != expected:
+def _check_synthesis_source(expected: str, pinned: dict[str, Path]) -> None:
+    path = pinned.get(expected)
+    if path is None or file_hash(path) != expected:
         raise DataContractError("confirmation synthesis source differs")
 
 
