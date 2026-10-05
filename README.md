@@ -9,14 +9,18 @@
 </p>
 
 <p align="center">
-  <img src="docs/assets/protein-ligand-complex.png" alt="Protein–ligand complex" width="900" />
+  <img src="docs/assets/protein-ligand-complex.png" alt="3Dmol.js rendering of HIV-1 protease bound to inhibitor XK2 (PDB 1HVR)" width="900" />
 </p>
+
+[Experimental structure 1HVR](https://www.rcsb.org/structure/1HVR), rendered with
+[3Dmol.js](https://3dmol.org). Static illustration;
+[source and reproduction](docs/VISUALIZATIONS.md).
 
 md-forecast explores whether time-series foundation models can forecast future **molecular-dynamics-derived observables** from partial protein–ligand trajectories with useful accuracy and calibrated uncertainty.
 
 The project is deliberately conservative in scope: it does **not** claim to reconstruct future atomistic coordinates or replace a molecular dynamics engine. The initial goal is to establish whether pretrained time-series models can outperform persistence, statistical baselines, and compact models trained from scratch on physically meaningful MD observables.
 
-**Project progress:** [status summary](docs/PROJECT_STATUS.md) · [live roadmap issue](https://github.com/fabiobove-dr/md-forecast/issues/32)
+**Project progress:** [status summary](docs/PROJECT_STATUS.md) · [prediction-quality roadmap](https://github.com/fabiobove-dr/md-forecast/issues/46) · [completed MVP roadmap](https://github.com/fabiobove-dr/md-forecast/issues/32)
 
 Start with the [scientific contract](docs/SCIENTIFIC_CONTRACT.md),
 [implementation plan](docs/IMPLEMENTATION_PLAN.md), and

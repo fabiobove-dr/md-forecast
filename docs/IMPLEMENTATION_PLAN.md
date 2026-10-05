@@ -506,3 +506,14 @@ Out of scope for the MVP:
 - production deployment/UI/API.
 
 Controlled prospective MD generation can be reintroduced later as an independent validation phase if the public-data results justify it.
+
+## 17. Prediction-quality follow-up
+
+The historical MVP deliverables are complete. Follow-up scope and dependency
+order are tracked in [roadmap #46](https://github.com/fabiobove-dr/md-forecast/issues/46)
+and the [current status](PROJECT_STATUS.md#prediction-quality-follow-up).
+Resolve admission assumptions and reserve fresh systems before development
+selection; compare regularized baselines and meaningful geometric fine-tuning
+before a separately frozen independent benchmark. Offline report packaging can
+proceed independently. Historical tested cohorts remain development evidence
+for these new hypotheses.

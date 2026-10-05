@@ -2,7 +2,9 @@
 
 This page is the repository-level status summary for `md-forecast`.
 
-For live task tracking, see [GitHub issue #32 — Project Roadmap](https://github.com/fabiobove-dr/md-forecast/issues/32).
+For current work, see [prediction-quality roadmap #46](https://github.com/fabiobove-dr/md-forecast/issues/46).
+The [original MVP roadmap #32](https://github.com/fabiobove-dr/md-forecast/issues/32)
+remains the completed historical record.
 
 ## Progress
 
@@ -72,3 +74,34 @@ inconclusive for Chronos and its conventional autoregressive comparator.
 The final MVP report consolidates measured outcomes and unsupported claims
 without assuming that successful infrastructure proves the scientific
 hypothesis. Native MISATO/MDbind equivalence remains blocked.
+
+## Prediction-quality follow-up
+
+Nine new implementation/experiment issues are open; their acceptance criteria
+are tracked in [roadmap #46](https://github.com/fabiobove-dr/md-forecast/issues/46).
+They do not change the completed MVP count or establish better predictions yet.
+
+1. [#37](https://github.com/fabiobove-dr/md-forecast/issues/37): admit follow-up
+   feature semantics, timing and structural preprocessing.
+2. [#38](https://github.com/fabiobove-dr/md-forecast/issues/38): expand development
+   cohorts and reserve genuinely untouched confirmation systems.
+3. [#39](https://github.com/fabiobove-dr/md-forecast/issues/39): diagnose forecast
+   flattening and choose development context/horizon grids.
+4. [#40](https://github.com/fabiobove-dr/md-forecast/issues/40): validation-select
+   regularized compact/statistical baselines using existing implementations.
+5. [#41](https://github.com/fabiobove-dr/md-forecast/issues/41): run meaningful
+   geometric fine-tuning with matched zero-shot comparisons.
+6. [#42](https://github.com/fabiobove-dr/md-forecast/issues/42): test added observed
+   inputs with lagged comparators and negative-input controls.
+7. [#43](https://github.com/fabiobove-dr/md-forecast/issues/43): add probabilistic
+   references and prospectively resolvable grouped uncertainty.
+8. [#44](https://github.com/fabiobove-dr/md-forecast/issues/44): package the offline
+   HTML report workflow, including inline 3Dmol.js and per-point errors.
+9. [#45](https://github.com/fabiobove-dr/md-forecast/issues/45): run the frozen
+   independent benchmark and publish a useful-skill decision.
+
+Issue #44 can proceed independently. Model selection uses development only;
+confirmation follows the dependencies recorded in each issue. Smoother or
+noisier median curves alone do not determine accuracy. The existing eight-update
+native fine-tuning pilot is an integration result, not adequate evidence about
+the benefit of geometric domain adaptation.
