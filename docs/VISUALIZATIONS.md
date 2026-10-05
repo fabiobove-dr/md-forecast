@@ -46,9 +46,9 @@ the molecular selections and initial camera are fixed in the example:
 
 ## Forecast reports
 
-[Issue #44](https://github.com/fabiobove-dr/md-forecast/issues/44) tracks packaging
-the saved-result HTML report with inline 3Dmol.js, verified structure provenance,
-exact declared regions, PNG export and a static fallback when WebGL is absent.
+The [offline forecast overview](models/OFFLINE_OVERVIEW.md) packages saved-result
+HTML with inline 3Dmol.js, verified structure provenance, exact declared regions,
+PNG export and a static fallback when WebGL is absent.
 Reports must distinguish an illustrative structure, an observed reference and
 measured trajectory coordinates. Scalar observable forecasts must not be
 displayed as invented atomistic motion.

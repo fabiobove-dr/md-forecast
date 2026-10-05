@@ -108,8 +108,9 @@ They do not change the completed MVP count or establish better predictions yet.
    TRAIN-only residual probability references and freeze resolvable primary
    inference; fine-tuned contact/fraction intervals under-cover development
    ([full probability evidence](models/FOLLOWUP_PROBABILITY.md)).
-8. [#44](https://github.com/fabiobove-dr/md-forecast/issues/44): package the offline
-   HTML report workflow, including inline 3Dmol.js and per-point errors.
+8. [#44](https://github.com/fabiobove-dr/md-forecast/issues/44), complete: package
+   the checksum-verified offline HTML overview with per-point errors, explicit
+   tolerance rules, matched curves and inline 3Dmol.js ([workflow](models/OFFLINE_OVERVIEW.md)).
 9. [#45](https://github.com/fabiobove-dr/md-forecast/issues/45): run the frozen
    independent benchmark and publish a useful-skill decision.
 

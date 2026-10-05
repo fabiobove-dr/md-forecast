@@ -31,4 +31,5 @@ nav:
       - Probabilistic follow-up: models/FOLLOWUP_PROBABILITY.md
       - External validation: models/EXTERNAL_VALIDATION.md
       - MVP report: models/MVP_REPORT.md
+      - Offline forecast overview: models/OFFLINE_OVERVIEW.md
       - Predictive coupling: models/PREDICTIVE_COUPLING.md

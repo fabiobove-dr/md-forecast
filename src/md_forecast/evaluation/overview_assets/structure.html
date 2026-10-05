@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{margin:0;font:15px system-ui;color:#dce8ef;background:#091322;overflow-wrap:anywhere}main{padding:14px}#molecule{height:440px;position:relative}button{font:inherit;padding:9px;margin:5px}pre{white-space:pre-wrap;font-size:11px}#fallback{max-width:540px;margin:auto}summary{cursor:pointer}</style><main><p>__DESCRIPTION__</p><p>Observed reference coordinates. The scalar forecasts do not predict atom positions; no forecast atomistic motion is generated.</p><div id="molecule" role="img" aria-label="Observed protein, ligand and declared regions"></div><p id="status">Loading embedded structure…</p><button id="reset" disabled>Reset view</button><button id="save" disabled>Export PNG</button><label><input id="regions" type="checkbox" checked>Highlight exact declared regions</label><details id="fallback"><summary>Static fallback: xy projection of observed coordinates</summary>__STATIC__</details><details><summary>Provenance, source hashes and 3Dmol.js license</summary><pre>__PROVENANCE__</pre><pre>__LICENSE__</pre></details></main><script>__LIBRARY__</script><script>
+const SOURCE=__DATA__;
+try {
+ const probe=document.createElement('canvas');
+ if(!(probe.getContext('webgl2')||probe.getContext('webgl')||probe.getContext('experimental-webgl')))throw Error('WebGL context unavailable');
+ const viewer=$3Dmol.createViewer('molecule',{backgroundColor:'#091322',antialias:true});
+ const model=viewer.addModel(SOURCE.pdb,'pdb',{keepH:true});
+ const actual=new Set(model.selectedAtoms({}).map(a=>a.serial));
+ if([...SOURCE.protein,...SOURCE.ligand].some(s=>!actual.has(s)))throw Error('PDB atom serial selection mismatch');
+ const regionColors=['#65d099','#b39de8'];
+ function style(){viewer.setStyle({},{stick:{radius:.05,color:'#536775'}});viewer.setStyle({serial:SOURCE.protein},{cartoon:{color:'#9aafbd'}});viewer.setStyle({serial:SOURCE.ligand},{stick:{radius:.22,colorscheme:'yellowCarbon'},sphere:{scale:.25,colorscheme:'yellowCarbon'}});if(document.getElementById('regions').checked)Object.values(SOURCE.regions).forEach((serial,i)=>viewer.addStyle({serial},{sphere:{radius:.65,color:regionColors[i%2]}}));viewer.render()}
+ viewer.zoomTo();viewer.render();style();const initial=viewer.getView();window.moleculeViewer=viewer;
+ document.getElementById('reset').onclick=()=>{viewer.setView(initial);viewer.render()};
+ document.getElementById('save').onclick=()=>{viewer.render();const a=document.createElement('a');a.href=viewer.pngURI();a.download='observed-molecular-reference.png';a.click()};
+ document.getElementById('regions').onchange=style;document.getElementById('reset').disabled=false;document.getElementById('save').disabled=false;
+ document.getElementById('status').textContent='Embedded observed structure ready. Grey: protein; gold: ligand; green/purple: declared region atoms. Drag to rotate; scroll to zoom.';
+}catch(error){document.getElementById('molecule').hidden=true;document.getElementById('fallback').open=true;document.getElementById('status').textContent='3D view unavailable; static observed-coordinate projection shown. '+error.message}
+</script></html>

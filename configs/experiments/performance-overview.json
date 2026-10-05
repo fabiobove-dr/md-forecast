@@ -1,0 +1,142 @@
+{
+  "title": "MD Forecast Performance Overview",
+  "conclusion": "The larger development benchmark shows small point-error gains from fine-tuning, while forecasts remain almost flat. Its 80% intervals cover about 74% for contact count and retained fraction, and 80% for minimum distance. Added input channels have no demonstrated consistent advantage. Independent confirmation is still pending: these results support further controlled research, not practical deployment. Historical pilots below are kept separate.",
+  "sources": [
+    {
+      "title": "Follow-up geometric validation",
+      "role": "Development VAL \u2014 60 independent complexes",
+      "note": "Choices use validation; independent confirmation is pending. 512 training updates per trial; selected upstream quantile-loss checkpoints, fixed seed 42. Contacts use joint input; fraction and distance use target-only input. TRAIN-only residual references; native physical cadence remains unknown. Point improvement alone does not establish practical usefulness.",
+      "kind": "probability",
+      "root": "data/reports/followup-probability43-validation",
+      "expected_hash": "sha256:aa7f100de32e61f18b62bc40633ae1185285024a009e069305a6ca326945f830",
+      "dataset": {
+        "schema_version": 1,
+        "dataset_id": "misato",
+        "dataset_version": "1.0.0",
+        "feature_set_version": "common-dry-geometry-v1-5241af016ec40156f857d6524db008531b9c5c3bec7915c5d3f08558380e79e8",
+        "features": [
+          {
+            "feature_id": "protein_ligand_contact_count",
+            "unit": "count",
+            "description": "Heavy-atom pair contact count",
+            "definition": "Count receptor-ligand heavy atom pairs at distance <= 4.5 Angstrom. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+          },
+          {
+            "feature_id": "fraction_reference_contacts",
+            "unit": "dimensionless",
+            "description": "Initial contact retention",
+            "definition": "Fraction of first-retained-frame heavy atom-pair contacts remaining at distance <= 4.5 Angstrom; reject zero reference contacts. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+          },
+          {
+            "feature_id": "minimum_protein_ligand_heavy_distance",
+            "unit": "angstrom",
+            "description": "Minimum heavy-atom distance",
+            "definition": "Minimum receptor-ligand heavy atom-pair distance. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Historical native pilot",
+      "role": "Development VAL",
+      "note": "Development VAL: six complexes; eight-update fine-tuning pilot. Native definitions remain unresolved.",
+      "kind": "benchmark",
+      "root": "data/processed/chronos12-final-benchmark",
+      "expected_hash": "sha256:46102dd3012feb8426308cf4322c0e142dd1ead4a8e263e61779c67272b68498",
+      "model_labels": {
+        "sha256:38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f": "persistence",
+        "sha256:c843fae05f1dd5a3ac29cf3e78de7f520668440101ed1530ed6d71fd7650a591": "context-mean",
+        "sha256:0555cc39f6ffedfd78ec5199565f6261593acebb6183c9e90bdf9e0715aae389": "linear-extrapolation",
+        "sha256:5cc2d253e98a714f33f159ea19ff4d25538f0b14fa751be3a279e3dc7bc5fb87": "autoregression",
+        "sha256:830b7878280a034a622ec5498bd7a81002d049695f9df802da3382a2cd716321": "var",
+        "sha256:5e48bc05e84dc8b741d0522f5c06cba350f4c25897261be2a07e3e13b0940f85": "nlinear",
+        "sha256:dabb141e99126714ef4f7b7937c2e4a30c84b47c702512e1f39de98470da7829": "chronos-2 (zero-shot)",
+        "sha256:5e8d7594ab52dff67b6591166c9af974beb74c38e84ad87b74d7aec54e538210": "chronos-2 (fine-tuned)"
+      }
+    },
+    {
+      "title": "Historical geometric pilot",
+      "role": "Development VAL",
+      "note": "Development VAL: six complexes. Used to select external references.",
+      "kind": "benchmark",
+      "root": "data/processed/mdbind-common-benchmark/misato-validation",
+      "expected_hash": "sha256:e338844399e9d481ae36548227bc27f8500b3ea510e50f36ae7e5290b6ca21ec",
+      "model_labels": {
+        "sha256:38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f": "persistence",
+        "sha256:c843fae05f1dd5a3ac29cf3e78de7f520668440101ed1530ed6d71fd7650a591": "context-mean",
+        "sha256:0555cc39f6ffedfd78ec5199565f6261593acebb6183c9e90bdf9e0715aae389": "linear-extrapolation",
+        "sha256:5cc2d253e98a714f33f159ea19ff4d25538f0b14fa751be3a279e3dc7bc5fb87": "autoregression",
+        "sha256:830b7878280a034a622ec5498bd7a81002d049695f9df802da3382a2cd716321": "var",
+        "sha256:dabb141e99126714ef4f7b7937c2e4a30c84b47c702512e1f39de98470da7829": "chronos-2 (zero-shot)"
+      }
+    },
+    {
+      "title": "Historical external pilot",
+      "role": "External TEST",
+      "note": "External TEST: six PDB-disjoint complexes, 60 dependent replicas. Not the untouched follow-up reserve.",
+      "kind": "benchmark",
+      "root": "data/processed/mdbind-common-benchmark/mdbind-unseen-complex",
+      "expected_hash": "sha256:a4eeaa3a156a0138c6ba11abdffd871b8d081cfa82df2519f50d98469b6b1ecb",
+      "model_labels": {
+        "sha256:38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f": "persistence",
+        "sha256:c843fae05f1dd5a3ac29cf3e78de7f520668440101ed1530ed6d71fd7650a591": "context-mean",
+        "sha256:0555cc39f6ffedfd78ec5199565f6261593acebb6183c9e90bdf9e0715aae389": "linear-extrapolation",
+        "sha256:5cc2d253e98a714f33f159ea19ff4d25538f0b14fa751be3a279e3dc7bc5fb87": "autoregression",
+        "sha256:830b7878280a034a622ec5498bd7a81002d049695f9df802da3382a2cd716321": "var",
+        "sha256:dabb141e99126714ef4f7b7937c2e4a30c84b47c702512e1f39de98470da7829": "chronos-2 (zero-shot)"
+      }
+    },
+    {
+      "title": "Historical replica pilot",
+      "role": "Replica TEST",
+      "note": "Replica TEST: six seen complexes, 12 held-out replicas. Not independent complex generalization.",
+      "kind": "benchmark",
+      "root": "data/processed/mdbind-common-benchmark/mdbind-unseen-replica",
+      "expected_hash": "sha256:4e0a82b4da786c62cb7a4661bf07e9723e6b642766658c7270c6dff2bd8a82fc",
+      "model_labels": {
+        "sha256:38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f": "persistence",
+        "sha256:c843fae05f1dd5a3ac29cf3e78de7f520668440101ed1530ed6d71fd7650a591": "context-mean",
+        "sha256:0555cc39f6ffedfd78ec5199565f6261593acebb6183c9e90bdf9e0715aae389": "linear-extrapolation",
+        "sha256:5cc2d253e98a714f33f159ea19ff4d25538f0b14fa751be3a279e3dc7bc5fb87": "autoregression",
+        "sha256:830b7878280a034a622ec5498bd7a81002d049695f9df802da3382a2cd716321": "var",
+        "sha256:dabb141e99126714ef4f7b7937c2e4a30c84b47c702512e1f39de98470da7829": "chronos-2 (zero-shot)",
+        "sha256:5e48bc05e84dc8b741d0522f5c06cba350f4c25897261be2a07e3e13b0940f85": "nlinear"
+      }
+    },
+    {
+      "title": "Historical distal B only",
+      "role": "Replica TEST",
+      "note": "Replica TEST: six seen complexes. Corrected added-pocket effects span zero.",
+      "kind": "benchmark",
+      "root": "data/processed/predictive-coupling-v1/b_only",
+      "expected_hash": "sha256:d2bee5da81fc5a4ee3653a9406fdca687106aae32a8f7eb2a6baf23db4f8498f",
+      "model_labels": {
+        "sha256:38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f": "persistence",
+        "sha256:c843fae05f1dd5a3ac29cf3e78de7f520668440101ed1530ed6d71fd7650a591": "context-mean",
+        "sha256:0555cc39f6ffedfd78ec5199565f6261593acebb6183c9e90bdf9e0715aae389": "linear-extrapolation",
+        "sha256:87f1042425fd563338eaf94ede6df809b9d922fddffe9949e64277519508e225": "autoregression",
+        "sha256:b86c9b140124a51ebeed9d9c74ef17695d0c5abe2f18474705624c4d4ab21786": "var",
+        "sha256:dabb141e99126714ef4f7b7937c2e4a30c84b47c702512e1f39de98470da7829": "chronos-2 (zero-shot)"
+      }
+    },
+    {
+      "title": "Historical distal B plus pocket A",
+      "role": "Replica TEST",
+      "note": "Replica TEST: six seen complexes. Added history gives inconclusive predictive coupling; no causal claim.",
+      "kind": "benchmark",
+      "root": "data/processed/predictive-coupling-v1/a_b",
+      "expected_hash": "sha256:2d763653430bebe591897b092e5b3bdb0099cd3ce68b8065b7e640c2526b6717",
+      "model_labels": {
+        "sha256:38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f": "persistence",
+        "sha256:c843fae05f1dd5a3ac29cf3e78de7f520668440101ed1530ed6d71fd7650a591": "context-mean",
+        "sha256:0555cc39f6ffedfd78ec5199565f6261593acebb6183c9e90bdf9e0715aae389": "linear-extrapolation",
+        "sha256:87f1042425fd563338eaf94ede6df809b9d922fddffe9949e64277519508e225": "autoregression",
+        "sha256:b86c9b140124a51ebeed9d9c74ef17695d0c5abe2f18474705624c4d4ab21786": "var",
+        "sha256:dabb141e99126714ef4f7b7937c2e4a30c84b47c702512e1f39de98470da7829": "chronos-2 (zero-shot)"
+      }
+    }
+  ],
+  "structure_config": "configs/experiments/overview-structure.json",
+  "mvp_root": "data/reports/mvp-v1-frozen",
+  "default_panel": 9
+}
