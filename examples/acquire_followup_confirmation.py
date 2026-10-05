@@ -3,6 +3,7 @@
 import argparse
 import asyncio
 import hashlib
+import json
 from pathlib import Path
 
 import httpx
@@ -70,6 +71,7 @@ async def run(args: argparse.Namespace) -> None:
         )
     semaphore = asyncio.Semaphore(3)
     sources = []
+    failures = []
 
     async def replica(
         client: httpx.AsyncClient, pdb: str, base: str, number: int
@@ -125,7 +127,14 @@ async def run(args: argparse.Namespace) -> None:
                 interaction_selection=interactions[0]["selection_2"],
                 files=files,
             )
-            await asyncio.to_thread(verified_replica_topology, directory, source)
+            try:
+                await asyncio.to_thread(verified_replica_topology, directory, source)
+            except DataContractError as error:
+                failures.append(
+                    {"pdb_id": pdb, "accession": accession, "reason": str(error)}
+                )
+                print(accession, pdb, "STATIC QC REJECTED", error, flush=True)
+                return
             sources.append(source)
             print(accession, pdb, "static topology verified; XTC opaque", flush=True)
 
@@ -139,11 +148,24 @@ async def run(args: argparse.Namespace) -> None:
                 for number in range(1, 11)
             )
         )
+    excluded = {failure["pdb_id"] for failure in failures}
+    selected = tuple(pair for pair in reserve.confirmation if pair[0] not in excluded)
+    sources = [source for source in sources if source.pdb_id not in excluded]
+    qc = {
+        "plan_hash": metadata_hash(plan),
+        "reserve_hash": metadata_hash(reserve),
+        "selected_groups": len(reserve.confirmation),
+        "admitted_groups": len(selected),
+        "excluded_pdb_ids": sorted(excluded),
+        "failures": failures,
+        "rule": "existing static selection contract; reject entire complex if any replica fails; no replacement",
+    }
+    args.output.with_suffix(".qc.json").write_text(json.dumps(qc, indent=2) + "\n")
     subset = MDBindSubset(
         selection={
             "selection_rule": reserve.selection_rule,
             "catalog_sha256": reserve.catalog_sha256,
-            "selected": reserve.confirmation,
+            "selected": selected,
         },
         replicas=tuple(sorted(sources, key=lambda source: source.accession)),
         reserve_hash=metadata_hash(reserve),
