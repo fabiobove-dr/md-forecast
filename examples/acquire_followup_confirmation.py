@@ -2,7 +2,6 @@
 
 import argparse
 import asyncio
-import hashlib
 import json
 from pathlib import Path
 
@@ -20,6 +19,7 @@ from md_forecast.data.public.mdbind import (
     verified_replica_topology,
 )
 from md_forecast.evaluation.confirmation import read_confirmation_plan
+from md_forecast.evaluation.overview import file_hash
 
 MAX_FILE_BYTES = 100 * 1024**2
 
@@ -51,12 +51,8 @@ async def fetch(client: httpx.AsyncClient, url: str, path: Path) -> SourceArtifa
     size = path.stat().st_size
     if size > MAX_FILE_BYTES:
         raise DataContractError("cached external artifact exceeds budget")
-    digest = await asyncio.to_thread(
-        lambda: hashlib.file_digest(path.open("rb"), "sha256").hexdigest()
-    )
-    return SourceArtifact(
-        mode="metadata", url=url, size_bytes=size, checksum="sha256:" + digest
-    )
+    digest = await asyncio.to_thread(file_hash, path)
+    return SourceArtifact(mode="metadata", url=url, size_bytes=size, checksum=digest)
 
 
 async def run(args: argparse.Namespace) -> None:

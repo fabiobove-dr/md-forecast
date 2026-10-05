@@ -344,6 +344,12 @@ def _result_cells(results: dict[str, Any]) -> list[tuple[str, str, dict[str, Any
 
 
 def _followup_definitions(source: OverviewSource, summary: dict[str, Any]) -> None:
+    if "evaluation_dataset" in summary:
+        _same(
+            DatasetConfig.model_validate(summary["evaluation_dataset"]),
+            source.dataset,
+            "confirmation evaluation dataset",
+        )
     # TRAIN residual states preserve the actual dataset semantics and full spec.
     for cell, states in summary.get("residual_state_hashes", {}).items():
         _state_definitions(source, cell, states, summary["file_sha256"])

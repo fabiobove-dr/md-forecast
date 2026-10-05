@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from md_forecast.core.exceptions import DataContractError
+from md_forecast.data.artifacts import metadata_hash
 from md_forecast.evaluation.confirmation import ConfirmationPlan
 from md_forecast.evaluation.overview import OverviewConfig, file_hash
 
@@ -77,6 +78,8 @@ def _load_confirmation(config: OverviewConfig) -> dict[str, Any] | None:
 
 
 def _validate_synthesis(payload: dict[str, Any], plan: ConfirmationPlan) -> None:
+    if payload["config_hash"] != metadata_hash(plan):
+        raise DataContractError("confirmation synthesis plan identity differs")
     if payload["primary_family_size"] != plan.inference.comparison_family_size:
         raise DataContractError("confirmation comparison family differs")
     if set(payload["tasks"]) != {"native", "external", "replica"}:

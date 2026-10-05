@@ -232,3 +232,8 @@ Run `uv run --locked md-forecast report-forecast --help`. The
 saved results and writes standalone HTML with per-point errors, matched
 forecasts, native-unit tolerance rules and optional inline molecular reference.
 It requires no model inference, server or frontend dependencies.
+
+The [independent confirmation workflow](models/FOLLOWUP_CONFIRMATION.md) freezes
+source/model choices before reserved access and scores the three held-out
+tasks with corrected complex-level inference. Its saved synthesis can be
+embedded in the same offline overview through `confirmation_summary`.
