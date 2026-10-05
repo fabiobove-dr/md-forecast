@@ -45,14 +45,16 @@ from md_forecast.models.residuals import ResidualBaseline, ResidualState
 def load_task(root, task, plan):
     """Validate exact reserved identities before reading any canonical target table."""
     registry = read_registry(root / "registry.json")
-    exported = json.loads((root / "qc.json").read_text())["exported"]
+    qc = json.loads((root / "qc.json").read_text())
+    exported = qc["exported"]
+    excluded = {issue["source_system_id"] for issue in qc.get("issues", [])}
     if task == "native":
         cohort = read_metadata(root / "cohort.json", CohortManifest)
         if metadata_hash(cohort) != plan.native_cohort_hash:
             raise DataContractError("native confirmation cohort differs")
         if {record.pdb_id for record in registry.trajectories} != set(
             cohort.roles["confirmation"]
-        ):
+        ) - excluded:
             raise DataContractError(
                 "native registry is not exactly the reserved cohort"
             )
@@ -69,6 +71,11 @@ def load_task(root, task, plan):
         sources = {
             source.accession: source
             for source in permitted_external_sources(subset, reserve, "confirmation")
+        }
+        sources = {
+            key: source
+            for key, source in sources.items()
+            if source.pdb_id not in excluded
         }
         if {record.source_record for record in registry.trajectories} != set(sources):
             raise DataContractError(
@@ -95,9 +102,9 @@ def load_task(root, task, plan):
             registry, SplitConfig(mode="grouped", seed=42, ratios=(0.0, 0.0, 1.0))
         )
     count = len({assignment.group_id for assignment in split.assignments})
-    if count != plan.expected_groups[task]:
+    if count + len(excluded) != plan.expected_groups[task]:
         raise DataContractError("confirmation group count differs from the frozen plan")
-    return split, loader
+    return split, loader, qc.get("issues", [])
 
 
 def run(args):
@@ -111,7 +118,7 @@ def run(args):
     ).strip():
         raise DataContractError("commit experiment source before confirmation scoring")
     code = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
-    split, loader = load_task(args.input, args.task, plan)
+    split, loader, deviations = load_task(args.input, args.task, plan)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(
         dir=args.output.parent, prefix=".confirmation-"
@@ -330,12 +337,16 @@ def run(args):
                     "evaluation_dataset": split.registry.dataset.model_dump(
                         mode="json"
                     ),
-                    "independent_groups": plan.expected_groups[args.task],
+                    "independent_groups": len(
+                        {assignment.group_id for assignment in split.assignments}
+                    ),
+                    "planned_groups": plan.expected_groups[args.task],
                     "input_conditions": plan.input_conditions,
                     "frozen_residual_states": plan.residual_states,
                     "results": results,
                     "file_sha256": files,
-                    "deviations": [],
+                    "deviations": deviations,
+                    "input_qc_sha256": file_hash(args.input / "qc.json"),
                     "selection": (
                         "frozen before reserved outcomes; "
                         "no fitting or selection on TEST"
