@@ -48,13 +48,17 @@ def render_confirmation(config: OverviewConfig) -> str:
         '<div class="tablewrap"><table><thead><tr><th>Task</th><th>Observable</th>'
         "<th>Foundation model</th><th>Measurable MAE gain</th><th>≥10% MAE gain</th>"
         "<th>Coverage and corrected CI</th><th>Calibrated</th><th>Pinball gain</th>"
-        "<th>Width acceptable</th><th>Useful</th><th>Stronger</th></tr></thead><tbody>"
+        "<th>Width acceptable</th><th>Median spread ratio</th>"
+        "<th>Useful</th><th>Stronger</th></tr></thead><tbody>"
         + "".join(rows)
         + "</tbody></table></div>"
         "<h3>Primary errors in native units</h3><p>Lower MAE is better. "
         "Whiskers are descriptive 95% group intervals; decisions above use "
         "the separately corrected paired intervals. The axes differ by "
-        "observable; counts, fractions and Å cannot be compared numerically.</p>"
+        "observable; counts, fractions and Å cannot be compared numerically. "
+        "A median spread ratio of 10% means the predicted median curve contains "
+        "only about one tenth of the future fluctuation amplitude; it is not "
+        "an accuracy score. Constant actual futures have undefined ratios.</p>"
         '<div class="grid">' + "".join(plots) + "</div>"
         "<details><summary>Complete corrected effects, failed criteria and "
         "all-grid inference evidence</summary><pre>" + evidence + "</pre></details>"
@@ -160,12 +164,18 @@ def _decision_rows(task: str, feature: str, data: dict[str, Any]) -> list[str]:
                 "calibrated",
                 "pinball_gain",
                 "width_not_worse",
-                "useful_minimum",
-                "useful_stronger",
             )
         )
+        row += _spread_cell(data["methods"][method])
+        row += _flag(decision["useful_minimum"]) + _flag(decision["useful_stronger"])
         rows.append(row + "</tr>")
     return rows
+
+
+def _spread_cell(method: dict[str, Any]) -> str:
+    ratio = method.get("spread", {}).get("spread_ratio")
+    label = "unavailable" if ratio is None else f"{100 * ratio:.1f}%"
+    return "<td>" + escape(label) + "</td>"
 
 
 def _bars(task: str, feature: str, unit: str, methods: dict[str, Any]) -> str:

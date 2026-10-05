@@ -8,6 +8,7 @@ import subprocess
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from time import perf_counter
+from typing import Any
 
 import pyarrow as pa
 import pyarrow.compute as pc
@@ -26,12 +27,14 @@ from md_forecast.data.cohort import (
     permitted_external_sources,
 )
 from md_forecast.data.forecast import iter_forecasts
+from md_forecast.data.preprocessing import SeriesLoader
 from md_forecast.data.public.mdbind import MDBindSubset
 from md_forecast.data.registry import Registry, read_registry
+from md_forecast.data.schemas import TrajectoryManifest
 from md_forecast.data.series import read_series
-from md_forecast.data.splits import SplitConfig, build_split
+from md_forecast.data.splits import SplitConfig, SplitManifest, build_split
 from md_forecast.evaluation.ablations import observed_input
-from md_forecast.evaluation.confirmation import read_confirmation_plan
+from md_forecast.evaluation.confirmation import ConfirmationPlan, read_confirmation_plan
 from md_forecast.evaluation.metrics import quantile_losses
 from md_forecast.evaluation.overview import confined, file_hash
 from md_forecast.features.structural import BASE_FEATURE_IDS
@@ -42,7 +45,9 @@ from md_forecast.models.learned import NLinearModel, NLinearState
 from md_forecast.models.residuals import ResidualBaseline, ResidualState
 
 
-def load_task(root, task, plan):
+def load_task(
+    root: Path, task: str, plan: ConfirmationPlan
+) -> tuple[SplitManifest, SeriesLoader, list[dict[str, Any]]]:
     """Validate exact reserved identities before reading any canonical target table."""
     registry = read_registry(root / "registry.json")
     qc = json.loads((root / "qc.json").read_text())
@@ -92,7 +97,7 @@ def load_task(root, task, plan):
                     "confirmation record differs from frozen raw identity"
                 )
 
-        def loader(record):
+        def loader(record: TrajectoryManifest) -> pa.Table:
             return read_series(
                 confined(root, exported[record.trajectory_id]),
                 Registry(dataset=registry.dataset, trajectories=(record,)),
@@ -107,7 +112,7 @@ def load_task(root, task, plan):
     return split, loader, qc.get("issues", [])
 
 
-def run(args):
+def run(args: argparse.Namespace) -> None:
     """Publish all four cells and five fixed methods with aligned saved forecasts."""
     plan = read_confirmation_plan(args.plan)
     if args.output.exists():
@@ -360,7 +365,7 @@ def run(args):
         root.rename(args.output)
 
 
-def main():
+def main() -> None:
     """Keep native, untouched external and seen-system replica tasks separate."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(

@@ -3,12 +3,15 @@
 import argparse
 import json
 from pathlib import Path
+from typing import Any
 
 import pyarrow.parquet as pq
 
 from md_forecast.core.exceptions import DataContractError
 from md_forecast.data.artifacts import metadata_hash
+from md_forecast.data.series import FloatArray
 from md_forecast.evaluation.confirmation import (
+    ConfirmationPlan,
     confirmation_decision,
     paired_effect,
     read_confirmation_plan,
@@ -22,7 +25,11 @@ METHODS = ("persistence", "selected-statistic", "compact", "zero-shot", "fine-tu
 FOUNDATIONS = ("zero-shot", "fine-tuned")
 
 
-def primary_effects(groups, method, plan):
+def primary_effects(
+    groups: dict[str, tuple[tuple[str, ...], dict[str, FloatArray]]],
+    method: str,
+    plan: ConfirmationPlan,
+) -> dict[str, Any]:
     """Ten fixed intervals per foundation/feature/task; no selective omission."""
     effect = {"mae": {}, "worthwhile": {}, "pinball": {}}
     for reference in METHODS[:3]:
@@ -59,7 +66,7 @@ def primary_effects(groups, method, plan):
     return effect
 
 
-def summarize_task(root, plan):
+def summarize_task(root: Path, plan: ConfirmationPlan) -> dict[str, Any]:
     """Verify every saved table, then average replicas before system resampling."""
     summary = json.loads((root / "summary.json").read_text())
     if summary["config_hash"] != metadata_hash(plan):
@@ -148,7 +155,7 @@ def summarize_task(root, plan):
     }
 
 
-def main():
+def main() -> None:
     """Produce a separate hash-pinned synthesis; never alter saved forecast bundles."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
