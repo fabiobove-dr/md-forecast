@@ -1,15 +1,23 @@
 """Frozen confirmation provenance and corrected, independent-system decisions."""
 
 from pathlib import Path
-from typing import Annotated, Literal, Self
+from typing import Annotated, Any, Literal, Self
 
+import numpy as np
+import pyarrow as pa
+import pyarrow.compute as pc
 from pydantic import Field, model_validator
 
 from md_forecast.core.exceptions import DataContractError
 from md_forecast.data.artifacts import read_metadata
 from md_forecast.data.schemas import ArtifactHash, BoundaryModel, DatasetConfig
+from md_forecast.data.series import FloatArray
 from md_forecast.data.windows import WindowConfig
-from md_forecast.evaluation.metrics import BenchmarkConfig
+from md_forecast.evaluation.metrics import (
+    BenchmarkConfig,
+    group_interval,
+    interval_status,
+)
 from md_forecast.evaluation.overview import confined, file_hash
 from md_forecast.models.chronos import ChronosConfig
 
@@ -86,3 +94,120 @@ def read_confirmation_plan(path: Path, root: Path = Path(".")) -> ConfirmationPl
         if file_hash(confined(root, relative)) != expected:
             raise DataContractError("frozen confirmation source changed: " + relative)
     return plan
+
+
+def system_metrics(table: pa.Table) -> tuple[tuple[str, ...], dict[str, FloatArray]]:
+    """Equal trajectory then equal complex weights; dependent windows stay together."""
+    columns = _metric_columns(table)
+    trajectory = table.group_by(["group_id", "trajectory_id"]).aggregate(
+        [(name, "mean") for name in columns]
+    )
+    trajectory = trajectory.set_column(
+        trajectory.schema.get_field_index("lead_squared_error_mean"),
+        "lead_squared_error_mean",
+        pc.sqrt(trajectory["lead_squared_error_mean"]),
+    )
+    group = trajectory.group_by(["group_id"]).aggregate(
+        [(name + "_mean", "mean") for name in columns]
+    )
+    return _ordered_values(group, columns)
+
+
+def _metric_columns(table: pa.Table) -> list[str]:
+    return ["lead_absolute_error", "lead_squared_error", "lead_bias"] + [
+        name
+        for name in table.column_names
+        if name.startswith(("pinball-", "coverage-", "width-"))
+    ]
+
+
+def _ordered_values(
+    group: pa.Table, columns: list[str]
+) -> tuple[tuple[str, ...], dict[str, FloatArray]]:
+    rows = sorted(group.to_pylist(), key=lambda row: row["group_id"])
+    names: dict[str, str] = {
+        "lead_absolute_error": "mae",
+        "lead_squared_error": "rmse",
+        "lead_bias": "bias",
+    }
+    values = {
+        names.get(name, name): np.asarray(
+            [row[name + "_mean_mean"] for row in rows], dtype=np.float64
+        )
+        for name in columns
+    }
+    _add_mean_pinball(values)
+    return tuple(row["group_id"] for row in rows), values
+
+
+def _add_mean_pinball(values: dict[str, FloatArray]) -> None:
+    pinball = [value for name, value in values.items() if name.startswith("pinball-")]
+    if pinball:
+        values["mean-pinball"] = np.mean(pinball, axis=0)
+
+
+def paired_effect(
+    left: tuple[tuple[str, ...], dict[str, FloatArray]],
+    right: tuple[tuple[str, ...], dict[str, FloatArray]],
+    metric: str,
+    config: BenchmarkConfig,
+    *,
+    factor: float = 1.0,
+    corrected: bool = True,
+) -> dict[str, object]:
+    """Paired model-minus-reference effects with explicit group identity matching."""
+    if left[0] != right[0]:
+        raise DataContractError("paired confirmation groups differ")
+    values = left[1][metric] - factor * right[1][metric]
+    return {
+        "metric": metric,
+        "reference_factor": factor,
+        "difference": float(values.mean()),
+        "ci": group_interval(values, config, corrected=corrected),
+        "independent_groups": len(values),
+        "interval_status": interval_status(len(values), config, corrected=corrected),
+        "corrected": corrected,
+    }
+
+
+def upper_below(effect: dict[str, Any], boundary: float = 0.0) -> bool:
+    """Missing or unresolved intervals cannot establish superiority."""
+    upper = effect["ci"][1]
+    return upper is not None and bool(upper < boundary)
+
+
+def calibrated(effect: dict[str, Any], nominal: float, tolerance: float) -> bool:
+    """Require the entire coverage interval inside the frozen acceptable range."""
+    lower, upper = effect["ci"]
+    return (
+        lower is not None
+        and upper is not None
+        and bool(lower >= nominal - tolerance and upper <= nominal + tolerance)
+    )
+
+
+def confirmation_decision(
+    effects: dict[str, Any], nominal: float, tolerance: float
+) -> dict[str, bool]:
+    """Evaluate every frozen condition; point gains alone never imply useful skill."""
+    references = ("persistence", "selected-statistic")
+    point = all(upper_below(effects["mae"][name]) for name in references)
+    worthwhile = all(upper_below(effects["worthwhile"][name]) for name in references)
+    probability = all(upper_below(effects["pinball"][name]) for name in references)
+    coverage = calibrated(effects["coverage"], nominal, tolerance)
+    width = _width_not_worse(effects["width"])
+    useful = all((point, worthwhile, probability, coverage, width))
+    return {
+        "measurable_point_gain": point,
+        "worthwhile_point_gain": worthwhile,
+        "pinball_gain": probability,
+        "calibrated": coverage,
+        "width_not_worse": width,
+        "useful_minimum": useful,
+        "useful_stronger": useful and upper_below(effects["worthwhile"]["compact"]),
+    }
+
+
+def _width_not_worse(effect: dict[str, Any]) -> bool:
+    upper = effect["ci"][1]
+    return upper is not None and bool(upper <= 0)

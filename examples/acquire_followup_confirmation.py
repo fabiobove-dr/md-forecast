@@ -158,7 +158,10 @@ async def run(args: argparse.Namespace) -> None:
         "admitted_groups": len(selected),
         "excluded_pdb_ids": sorted(excluded),
         "failures": failures,
-        "rule": "existing static selection contract; reject entire complex if any replica fails; no replacement",
+        "rule": (
+            "existing static selection contract; reject entire complex "
+            "if any replica fails; no replacement"
+        ),
     }
     args.output.with_suffix(".qc.json").write_text(json.dumps(qc, indent=2) + "\n")
     subset = MDBindSubset(
