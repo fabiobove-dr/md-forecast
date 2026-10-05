@@ -224,3 +224,50 @@ def test_frozen_sources_and_confirmation_render(tmp_path: Path) -> None:
     synthesis.write_text("tampered")
     with pytest.raises(DataContractError, match="synthesis checksum differs"):
         render_confirmation(config)
+
+
+def test_confirmation_physical_lead_axis(tmp_path: Path) -> None:
+    """Physical lead units come from the pinned target split, never dataset labels."""
+    from test_baselines import source
+    from test_splits_windows import record
+
+    from md_forecast.data.artifacts import metadata_hash, write_metadata
+    from md_forecast.data.registry import Registry
+    from md_forecast.data.splits import SplitConfig, build_split
+    from md_forecast.evaluation.overview import OverviewSource, _followup_axis
+
+    dataset = source().registry.dataset
+    split = build_split(
+        Registry(
+            dataset=dataset,
+            trajectories=(
+                record(
+                    5,
+                    time_unit="ps",
+                    sampling_status="verified",
+                    frame_interval_ps=200.0,
+                    duration_ns=1.0,
+                ),
+            ),
+        ),
+        SplitConfig(mode="official", seed=42),
+    )
+    write_metadata(tmp_path / "split.json", split)
+    source_config = OverviewSource(
+        title="synthetic",
+        role="regression",
+        note="not evidence",
+        kind="probability",
+        dataset=dataset,
+        root=tmp_path,
+        expected_hash="sha256:" + "a" * 64,
+    )
+    summary = {
+        "file_sha256": {"split.json": "pinned by caller"},
+        "split_hash": metadata_hash(split),
+    }
+    assert _followup_axis(source_config, summary) == (200.0, "ps")
+    assert _followup_axis(source_config, {"file_sha256": {}})[0] == 1
+    summary["split_hash"] = "sha256:" + "b" * 64
+    with pytest.raises(DataContractError, match="split hash"):
+        _followup_axis(source_config, summary)

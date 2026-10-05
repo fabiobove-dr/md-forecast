@@ -52,7 +52,11 @@ def load_task(
     registry = read_registry(root / "registry.json")
     qc = json.loads((root / "qc.json").read_text())
     exported = qc["exported"]
-    excluded = {issue["source_system_id"] for issue in qc.get("issues", [])}
+    excluded = {
+        issue["source_system_id"]
+        for issue in qc.get("issues", [])
+        if issue["status"] == "dropped"
+    }
     if task == "native":
         cohort = read_metadata(root / "cohort.json", CohortManifest)
         if metadata_hash(cohort) != plan.native_cohort_hash:

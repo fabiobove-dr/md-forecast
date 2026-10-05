@@ -167,6 +167,10 @@ def main() -> None:
             raise DataContractError(
                 "source QC requires its frozen confirmation reserve"
             )
+        if source_qc["plan_hash"] != metadata_hash(plan):
+            raise DataContractError(
+                "source QC differs from the frozen confirmation plan"
+            )
         excluded = set(source_qc["excluded_pdb_ids"])
         if set(dict(subset.selection.selected)) | excluded != set(
             dict(reserve.confirmation)
