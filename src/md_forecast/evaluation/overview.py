@@ -116,6 +116,13 @@ class OverviewPanel(BoundaryModel):
     evidence: dict[str, object]
 
 
+class OverviewSynthesis(BoundaryModel):
+    """Pinned confirmation inference, separate from saved prediction tables."""
+
+    path: Path
+    expected_hash: ArtifactHash
+
+
 class OverviewConfig(BoundaryModel):
     """Bounded offline inputs; structure embedding is optional and explicit."""
 
@@ -127,6 +134,7 @@ class OverviewConfig(BoundaryModel):
     max_input_bytes: int = Field(default=1_073_741_824, gt=0, strict=True)
     structure_config: Path | None = None
     mvp_root: Path | None = None
+    confirmation_summary: OverviewSynthesis | None = None
 
 
 def file_hash(path: Path) -> str:
@@ -309,6 +317,10 @@ def _probability(source: OverviewSource, config: OverviewConfig) -> list[Overvie
                     "split_hash": summary["split_hash"],
                     "config_hash": summary["config_hash"],
                     "sample_origin": sample.origin,
+                    "task": summary.get("task"),
+                    "deviations": summary.get("deviations", []),
+                    "training_dataset": summary.get("training_dataset"),
+                    "evaluation_dataset": summary.get("evaluation_dataset"),
                 },
             )
         )
@@ -658,6 +670,7 @@ def _generate_overview(
     """Atomically write embedded data and package-native HTML/JS, without models."""
     from html import escape
 
+    from md_forecast.evaluation.confirmation_view import render_confirmation
     from md_forecast.evaluation.structure_view import render_structure
 
     _protect_inputs(config, output)
@@ -673,6 +686,7 @@ def _generate_overview(
         "__TITLE__": escape(config.title),
         "__CONCLUSION__": escape(config.conclusion),
         "__DATA__": payload,
+        "__CONFIRMATION__": render_confirmation(config),
         "__SCRIPT__": (assets / "overview.js").read_text(),
         "__STRUCTURE__": render_structure(config.structure_config)
         if config.structure_config
