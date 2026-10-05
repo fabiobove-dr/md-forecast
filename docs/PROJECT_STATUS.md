@@ -77,7 +77,7 @@ hypothesis. Native MISATO/MDbind equivalence remains blocked.
 
 ## Prediction-quality follow-up
 
-The first two follow-up issues are complete; seven implementation/experiment
+The first three follow-up issues are complete; six implementation/experiment
 issues remain open. Their acceptance criteria
 are tracked in [roadmap #46](https://github.com/fabiobove-dr/md-forecast/issues/46).
 They do not change the completed MVP count or establish better predictions yet.
@@ -88,8 +88,10 @@ They do not change the completed MVP count or establish better predictions yet.
    260 native development systems and 48 seen-system external trajectories;
    reserve 100 native and 50 unseen external confirmation systems before
    decoding outcomes ([protocol and real QC](datasets/FOLLOWUP_COHORT.md)).
-3. [#39](https://github.com/fabiobove-dr/md-forecast/issues/39): diagnose forecast
-   flattening and choose development context/horizon grids.
+3. [#39](https://github.com/fabiobove-dr/md-forecast/issues/39), complete: measure
+   forecast spread separately from error, estimate system-level development
+   dependence, and freeze the feasible 20/40 × 5/10 frame grid
+   ([matched results](models/FORECAST_DIAGNOSTICS.md)).
 4. [#40](https://github.com/fabiobove-dr/md-forecast/issues/40): validation-select
    regularized compact/statistical baselines using existing implementations.
 5. [#41](https://github.com/fabiobove-dr/md-forecast/issues/41): run meaningful
