@@ -1,0 +1,137 @@
+{
+  "audit_date": "2026-10-05",
+  "scope": "follow-up admission decision; not full-corpus QC or independent forecast confirmation",
+  "source_contracts": {
+    "misato-record": {
+      "url": "https://zenodo.org/api/records/7711953",
+      "sha256": "9719f14edaeff56cdc7befe430bb6ca6e0587face907b48dfac143a5513a2c92",
+      "bytes": 8080,
+      "license": {
+        "id": "cc-by-4.0"
+      },
+      "artifact_count": 7
+    },
+    "mdbind-record": {
+      "url": "https://zenodo.org/api/records/10390550",
+      "sha256": "9fb3554668baa2276b792b090caa0cb69b20fc07e0192133c47e44385818dbaf",
+      "bytes": 16640,
+      "license": {
+        "id": "etalab-2.0"
+      },
+      "artifact_count": 33
+    },
+    "misato-preprocessing": {
+      "url": "https://raw.githubusercontent.com/t7morgen/misato-dataset/7b06d532e2ed0719411fcc1b3ac39743db4ca10d/src/data/processing/preprocessing_db.py",
+      "sha256": "eefd0719946ad55801cac384e7e152922c817faa830223379c89b1d1c6fab737",
+      "bytes": 18850
+    },
+    "misato-export": {
+      "url": "https://raw.githubusercontent.com/t7morgen/misato-dataset/7b06d532e2ed0719411fcc1b3ac39743db4ca10d/src/data/processing/h5_to_traj.py",
+      "sha256": "c7aac60bb0a6ccdf9bd7105597aa1fef9d3a830cf9a9b19a663f7525ec8d3e8e",
+      "bytes": 4358
+    },
+    "misato-imaging-issue": {
+      "url": "https://api.github.com/repos/t7morgen/misato-dataset/issues/24",
+      "sha256": "10e6629e9dbe12205b5ea1c759360ef79dd4ada2fafa7a4b8d8084675bdd7bc0",
+      "bytes": 3391
+    },
+    "misato-imaging-comments": {
+      "url": "https://api.github.com/repos/t7morgen/misato-dataset/issues/24/comments",
+      "sha256": "5342d7999b4bf5c8ba716a2b91ce324125c510253b9c60053e00883d4b9fa271",
+      "bytes": 5939
+    },
+    "mdbind-generator": {
+      "url": "https://raw.githubusercontent.com/ICOA-SBC/MD_DL_BA/227f8d7ef6f719695ecd23a7d787be06249bb464/datasets/spatio-temporal_learning_dataset.py",
+      "sha256": "dc231405781d6ff37eb85a33458e064f71cdee1e4a2bdefb17c4cc12f2e59cf9",
+      "bytes": 11816
+    }
+  },
+  "structural_config_hash": "sha256:5241af016ec40156f857d6524db008531b9c5c3bec7915c5d3f08558380e79e8",
+  "mdbind_source_hash": "sha256:06f82bc820959ef238b7d24e1c1fa041cdc816ced58f5265ef266b44d3255f8f",
+  "region_manifest_hash": "sha256:5fc231b7559c0dad9b42a67db03e0ebf3cc524ed145ea64b7f1aca3c896b3f21",
+  "features": [
+    {
+      "status": "admitted-raw-dry-geometry",
+      "definition": {
+        "feature_id": "protein_ligand_contact_count",
+        "unit": "count",
+        "description": "Heavy-atom pair contact count",
+        "definition": "Count receptor-ligand heavy atom pairs at distance <= 4.5 Angstrom. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+      },
+      "reference_scope": "first retained frame of each trajectory, observed before its forecast future",
+      "sampling": "MISATO: frame index only; MDbind: measured 200 ps spacing"
+    },
+    {
+      "status": "admitted-raw-dry-geometry",
+      "definition": {
+        "feature_id": "fraction_reference_contacts",
+        "unit": "dimensionless",
+        "description": "Initial contact retention",
+        "definition": "Fraction of first-retained-frame heavy atom-pair contacts remaining at distance <= 4.5 Angstrom; reject zero reference contacts. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+      },
+      "reference_scope": "first retained frame of each trajectory, observed before its forecast future",
+      "sampling": "MISATO: frame index only; MDbind: measured 200 ps spacing"
+    },
+    {
+      "status": "admitted-raw-dry-geometry",
+      "definition": {
+        "feature_id": "minimum_protein_ligand_heavy_distance",
+        "unit": "angstrom",
+        "description": "Minimum heavy-atom distance",
+        "definition": "Minimum receptor-ligand heavy atom-pair distance. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+      },
+      "reference_scope": "first retained frame of each trajectory, observed before its forecast future",
+      "sampling": "MISATO: frame index only; MDbind: measured 200 ps spacing"
+    },
+    {
+      "status": "admitted-mdbind-only-geometric-proxy",
+      "definition": {
+        "feature_id": "distal_rg",
+        "unit": "angstrom",
+        "description": "Unweighted distal C-alpha radius of gyration",
+        "definition": "sqrt(mean_i ||x_i - mean_j x_j||^2), raw Cartesian Angstrom coordinates without PBC repair; protein C-alpha indices frozen from replica-one source PDB using residue minimum heavy-atom distance to the reviewed ligand. Region manifest sha256:5fc231b7559c0dad9b42a67db03e0ebf3cc524ed145ea64b7f1aca3c896b3f21."
+      },
+      "reference_scope": "frozen replica-one PDB atom membership from TRAIN",
+      "sampling": "measured 200 ps MDbind XTC spacing"
+    },
+    {
+      "status": "admitted-mdbind-only-geometric-proxy",
+      "definition": {
+        "feature_id": "pocket_rg",
+        "unit": "angstrom",
+        "description": "Unweighted pocket C-alpha radius of gyration",
+        "definition": "sqrt(mean_i ||x_i - mean_j x_j||^2), raw Cartesian Angstrom coordinates without PBC repair; protein C-alpha indices frozen from replica-one source PDB using residue minimum heavy-atom distance to the reviewed ligand. Region manifest sha256:5fc231b7559c0dad9b42a67db03e0ebf3cc524ed145ea64b7f1aca3c896b3f21."
+      },
+      "reference_scope": "frozen replica-one PDB atom membership from TRAIN",
+      "sampling": "measured 200 ps MDbind XTC spacing"
+    }
+  ],
+  "misato_sample": {
+    "groups": 20,
+    "groups_with_time_or_box_fields": [],
+    "metadata_attributes": 0
+  },
+  "periodic_geometry_diagnostic": {
+    "replicas": 60,
+    "frames": 3000,
+    "count_different_frames": 0,
+    "fraction_different_frames": 0,
+    "max_min_distance_difference_angstrom": 0.0
+  },
+  "diagnostic_kernel": "MDTraj 1.11.1.post2 float32 distances, periodic=False versus periodic=True on identical coordinates; canonical raw extraction remains float64 Angstrom",
+  "exclusions": [
+    "Native protein-aligned ligand RMSD: source reference/fit masks unresolved",
+    "Native COM/SASA/energy cross-dataset equivalence: mass/mask/probe/energy conventions unresolved",
+    "MISATO physical-time mapping: no verified source timestamps/export cadence",
+    "MISATO periodic repair: box metadata absent; no assumed cell",
+    "Cross-dataset region equivalence: MISATO lacks admitted protein residue/CA identity",
+    "General physical-contact or allostery claim: raw geometric definitions do not establish those interpretations"
+  ],
+  "followup_requirements": [
+    "Every new source must pass topology/selection/checksum/time verification before extraction",
+    "Preserve the raw-Cartesian feature version; any imaging change gets a new definition and experiment",
+    "Compare source cadence in separate grids; do not convert MISATO frame counts to invented ps",
+    "Keep original cohorts as development evidence and reserve new confirmation systems",
+    "Source coordinate/trajectory bytes and full acquired metadata stay ignored; constituent redistribution rights are not inferred from record licenses"
+  ]
+}
