@@ -577,6 +577,7 @@ def train_chronos(
     if digest != manifest.input_hash:
         raise ForecastError("training input values differ from the frozen hash")
     _resume(manifest, output_dir, resume_from_checkpoint)
+    initial_step = _resume_step(resume_from_checkpoint)
     try:
         adapter = Chronos2Adapter(manifest.settings, cache_dir=cache_dir)
         _check_native(manifest, adapter)
@@ -600,7 +601,7 @@ def train_chronos(
         runtime = adapter._runtime(start)
         if trainer.state.global_step != manifest.training.num_steps:
             return None
-        result = _result(manifest, trainer, runtime, resume_from_checkpoint)
+        result = _result(manifest, trainer, runtime, initial_step)
         write_metadata(output_dir / "result.json", result)
         return result
     except (ImportError, OSError, ValueError, TypeError, RuntimeError) as error:
@@ -614,6 +615,11 @@ def _check_stop(manifest: FineTuneManifest, step: int | None) -> None:
         or step % manifest.training.checkpoint_steps
     ):
         raise ForecastError("pause step must be an intermediate checkpoint")
+
+
+def _resume_step(checkpoint: Path | None) -> int:
+    """Capture the trusted start step before HF retention may remove its directory."""
+    return read_checkpoint(checkpoint).step if checkpoint else 0
 
 
 def _check_native(manifest: FineTuneManifest, adapter: Chronos2Adapter) -> None:
@@ -677,13 +683,12 @@ def _check_training_device(torch: Any, manifest: FineTuneManifest) -> None:
 
 
 def _result(
-    manifest: FineTuneManifest, trainer: Any, runtime: RuntimeStats, resume: Path | None
+    manifest: FineTuneManifest, trainer: Any, runtime: RuntimeStats, initial_step: int
 ) -> FineTuneResult:
     selected = read_checkpoint(Path(trainer.state.best_model_checkpoint))
     loss = float(trainer.state.best_metric)
     if not math.isfinite(loss):
         raise ForecastError("selected validation loss must be finite")
-    initial = read_checkpoint(resume).step if resume else 0
     return FineTuneResult(
         manifest_hash=metadata_hash(manifest),
         selected_checkpoint_hash=metadata_hash(selected),
@@ -691,7 +696,7 @@ def _result(
         completed_steps=trainer.state.global_step,
         validation_loss=loss,
         runtime=runtime,
-        optimizer_steps_per_second=(trainer.state.global_step - initial)
+        optimizer_steps_per_second=(trainer.state.global_step - initial_step)
         / runtime.seconds,
     )
 

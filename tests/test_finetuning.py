@@ -383,7 +383,7 @@ def test_local_model_rejects_wrong_revision_and_protocol(
             frozen,
             factory.return_value,
             RuntimeStats(seconds=1, peak_allocated_bytes=0, peak_reserved_bytes=0),
-            None,
+            0,
         )
 
 
@@ -444,3 +444,40 @@ def test_exposure_forward_failure_is_not_counted() -> None:
     with pytest.raises(RuntimeError):
         trainer.compute_loss(None, dataset._build_batch([0]))
     assert sum(counter.snapshot().window_counts) == 0
+
+
+def test_resumed_completion_survives_pruning_of_initial_checkpoint(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    import shutil
+
+    _, factory = backend(monkeypatch)
+    frozen = manifest()
+    arrays = series(frozen.split)
+    run = tmp_path / "run"
+    ft._resume(frozen, run, None)
+    checkpoint(run / "checkpoint-4", frozen)
+    trainer = factory.return_value
+    trainer.state.global_step = 8
+
+    def complete(**kwargs: Any) -> None:
+        checkpoint(run / "checkpoint-8", frozen, 8)
+        cfg = factory.call_args.kwargs
+        cfg["callbacks"][0].on_save(cfg["args"], trainer.state, SimpleNamespace())
+        trainer.state.best_model_checkpoint = str(run / "checkpoint-8")
+        trainer.state.best_metric = 0.25
+        shutil.rmtree(run / "checkpoint-4")
+
+    trainer.train.side_effect = complete
+    result = ft.train_chronos(
+        frozen,
+        lambda r: arrays[r.trajectory_id],
+        output_dir=run,
+        cache_dir=tmp_path,
+        resume_from_checkpoint=run / "checkpoint-4",
+    )
+    assert result is not None and result.completed_steps == 8
+    assert result.optimizer_steps_per_second == pytest.approx(
+        4 / result.runtime.seconds
+    )
+    assert (run / "result.json").exists() and not (run / "checkpoint-4").exists()
