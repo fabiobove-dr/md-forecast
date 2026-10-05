@@ -12,13 +12,15 @@ import numpy as np
 import pyarrow.parquet as pq
 from pydantic import Field, model_validator
 
+from md_forecast.core.constants import SamplingStatus
 from md_forecast.core.exceptions import DataContractError
 from md_forecast.data.artifacts import metadata_hash, read_metadata
 from md_forecast.data.registry import atomic_output
 from md_forecast.data.schemas import ArtifactHash, BoundaryModel, DatasetConfig
+from md_forecast.data.splits import SplitManifest
 from md_forecast.evaluation.benchmark import CellManifest, _expected_windows
 from md_forecast.evaluation.mvp import read_mvp
-from md_forecast.evaluation.report import _horizon_axis, read_benchmark
+from md_forecast.evaluation.report import _horizon_axis, _interval_axis, read_benchmark
 from md_forecast.models.residuals import ResidualState
 
 
@@ -289,6 +291,7 @@ def _probability(source: OverviewSource, config: OverviewConfig) -> list[Overvie
     assert source.dataset is not None
     definitions = _definitions(source.dataset)
     _followup_definitions(source, summary)
+    lead_interval, lead_unit = _followup_axis(source, summary)
     panels = []
     for cell, feature, models in _result_cells(summary["results"]):
         definition = definitions[feature]
@@ -308,6 +311,8 @@ def _probability(source: OverviewSource, config: OverviewConfig) -> list[Overvie
                 context_frames=int(raw["context_frames"]),
                 horizon_frames=int(raw["horizon_frames"]),
                 models={m: m for m in models},
+                lead_interval=lead_interval,
+                lead_unit=lead_unit,
                 statistical_reference=_followup_reference(models),
                 windows=_match(tables, int(raw["horizon_frames"])),
                 metrics=_followup_metrics(models),
@@ -325,6 +330,21 @@ def _probability(source: OverviewSource, config: OverviewConfig) -> list[Overvie
             )
         )
     return panels
+
+
+def _followup_axis(
+    source: OverviewSource, summary: dict[str, Any]
+) -> tuple[float, str]:
+    if "split.json" not in summary["file_sha256"]:
+        return _interval_axis(None)
+    split = read_metadata(source.root / "split.json", SplitManifest)
+    _same(metadata_hash(split), summary["split_hash"], "confirmation split hash")
+    _same(split.registry.dataset, source.dataset, "confirmation split dataset")
+    records = split.registry.trajectories
+    if not all(record.sampling_status == SamplingStatus.VERIFIED for record in records):
+        return _interval_axis(None)
+    intervals = {record.frame_interval_ps for record in records}
+    return _interval_axis(intervals.pop() if len(intervals) == 1 else None)
 
 
 def _followup_reference(models: dict[str, Any]) -> str | None:
