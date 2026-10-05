@@ -461,6 +461,12 @@ def score(args: argparse.Namespace) -> None:
             json.dumps(
                 {
                     "plan_hash": metadata_hash(plan),
+                    "evaluation_code_commit": subprocess.check_output(
+                        ["git", "rev-parse", "HEAD"], text=True
+                    ).strip(),
+                    "lockfile_sha256": hashlib.sha256(
+                        Path("uv.lock").read_bytes()
+                    ).hexdigest(),
                     "results": results,
                     "paired_effects": effects,
                     "selected_inputs": choices,
