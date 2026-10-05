@@ -24,6 +24,7 @@ nav:
       - Chronos-2 fine-tuning: models/FINETUNING.md
       - Benchmark and metrics: models/BENCHMARK.md
       - Forecast diagnostics: models/FORECAST_DIAGNOSTICS.md
+      - Follow-up baseline selection: models/FOLLOWUP_BASELINES.md
       - Input ablations: models/INPUT_ABLATIONS.md
       - External validation: models/EXTERNAL_VALIDATION.md
       - MVP report: models/MVP_REPORT.md

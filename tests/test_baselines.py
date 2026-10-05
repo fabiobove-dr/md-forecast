@@ -630,3 +630,43 @@ def test_variable_grid_batches() -> None:
             StatisticalBaseline(config(ModelId.PERSISTENCE)).predict(batch).shape
             == labels.shape
         )
+
+
+def test_normalized_selection_uses_equal_groups_and_native_unit_scales() -> None:
+    from md_forecast.evaluation.baselines import GroupMAE, normalized_group_mae
+
+    result = evaluate_baselines(
+        (StatisticalBaseline(config(ModelId.PERSISTENCE)),), pairs(Split.VALIDATION)
+    )
+    score = result.scores[0].model_copy(
+        update={
+            "groups": (
+                GroupMAE(
+                    group_id="a", mae=(2.0, 8.0), trajectory_count=1, window_count=100
+                ),
+                GroupMAE(
+                    group_id="b", mae=(6.0, 0.0), trajectory_count=5, window_count=5
+                ),
+            )
+        }
+    )
+    evaluation = BaselineEvaluation.model_validate(
+        result.model_dump() | {"scores": (score,)}
+    )
+    np.testing.assert_allclose(
+        normalized_group_mae(evaluation, np.array([2.0, 4.0])), [1.5]
+    )
+    for scale in (
+        np.array([0.0, 1.0]),
+        np.array([1.0, -1.0]),
+        np.array([np.nan, 1.0]),
+        np.array([1.0]),
+    ):
+        with pytest.raises((DataContractError, ForecastError)):
+            normalized_group_mae(evaluation, scale)
+
+
+def test_regularized_rank_deficient_design_preserves_constant_intercept() -> None:
+    weights = ridge_fit(np.ones((4, 3)), np.full((4, 1), 7.0), 10.0)
+    np.testing.assert_allclose(weights[:, 0], [0.0, 0.0, 7.0], atol=1e-12)
+    np.testing.assert_allclose(np.ones((2, 3)) @ weights, 7.0)

@@ -66,6 +66,27 @@ class BaselineEvaluation(BoundaryModel):
         return self
 
 
+def normalized_group_mae(
+    evaluation: BaselineEvaluation, training_scale: FloatArray
+) -> FloatArray:
+    """Score each candidate with equal-system MAE divided by TRAIN feature scales.
+
+    The caller supplies verified training-only scale provenance. This shared
+    score averages native-unit ratios across features, never mixes raw units
+    or treats dependent windows as independent selection observations.
+    """
+    validate_array(training_scale, (len(evaluation.spec.feature_ids),))
+    if np.any(training_scale <= 0):
+        raise ForecastError("selection scales must be positive and fitted on TRAIN")
+    return np.asarray(
+        [
+            np.mean(np.asarray([group.mae for group in score.groups]) / training_scale)
+            for score in evaluation.scores
+        ],
+        dtype=np.float64,
+    )
+
+
 def _validate_evaluation_reference(result: BaselineEvaluation) -> None:
     configs = tuple(score.config for score in result.scores)
     keys = tuple(score.config_hash for score in result.scores)

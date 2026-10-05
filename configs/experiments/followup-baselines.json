@@ -1,0 +1,191 @@
+{
+  "grid": {
+    "contexts": [
+      20.0,
+      40.0
+    ],
+    "horizons": [
+      5.0,
+      10.0
+    ],
+    "unit": "frame",
+    "stride_frames": 10
+  },
+  "training": {
+    "seed": 42,
+    "batch_size": 32,
+    "max_windows": 5000,
+    "max_design_bytes": 134217728
+  },
+  "statistics": [
+    {
+      "model_id": "persistence",
+      "seed": 42
+    },
+    {
+      "model_id": "context-mean",
+      "seed": 42
+    },
+    {
+      "model_id": "linear-extrapolation",
+      "seed": 42
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 0.0
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 0.1
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 1.0
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 10.0
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 100.0
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 0.0
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 0.1
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 1.0
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 10.0
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 100.0
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 0.0
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 0.1
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 1.0
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 10.0
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 100.0
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 0.0
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 0.1
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 1.0
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 10.0
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 100.0
+    }
+  ],
+  "compact": [
+    {
+      "model_id": "nlinear",
+      "seed": 42,
+      "ridge": 0.0
+    },
+    {
+      "model_id": "nlinear",
+      "seed": 42,
+      "ridge": 0.1
+    },
+    {
+      "model_id": "nlinear",
+      "seed": 42,
+      "ridge": 1.0
+    },
+    {
+      "model_id": "nlinear",
+      "seed": 42,
+      "ridge": 10.0
+    },
+    {
+      "model_id": "nlinear",
+      "seed": 42,
+      "ridge": 100.0
+    },
+    {
+      "model_id": "nlinear",
+      "seed": 42,
+      "ridge": 1000.0
+    },
+    {
+      "model_id": "nlinear",
+      "seed": 42,
+      "ridge": 10000.0
+    }
+  ]
+}
