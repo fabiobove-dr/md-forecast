@@ -36,7 +36,11 @@ from md_forecast.data.schemas import (
 from md_forecast.data.series import FloatArray
 from md_forecast.data.splits import SplitManifest
 from md_forecast.data.windows import WindowConfig, iter_windows
-from md_forecast.evaluation.baselines import BaselineEvaluation, evaluate_baselines
+from md_forecast.evaluation.baselines import (
+    BaselineEvaluation,
+    evaluate_baselines,
+    normalized_group_mae,
+)
 from md_forecast.models.base import ModelConfig
 from md_forecast.models.baselines import StatisticalBaseline, ridge_fit
 
@@ -370,10 +374,4 @@ def _require_validation(split: SplitManifest) -> None:
 
 def _selection_scores(result: BaselineEvaluation, scaler: ScalerMetadata) -> FloatArray:
     scale = np.asarray(scaler.scale, dtype=np.float64)
-    return np.array(
-        [
-            np.mean(np.asarray([group.mae for group in score.groups]) / scale)
-            for score in result.scores[1:]
-        ],
-        dtype=np.float64,
-    )
+    return normalized_group_mae(result, scale)[1:]
