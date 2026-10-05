@@ -48,7 +48,7 @@ def freeze(output: Path) -> None:
             Path("uv.lock"),
             Path("configs/experiments/followup-probability.json"),
             Path("configs/features/common-geometry.yaml"),
-            Path("configs/experiments/followup-admission.json"),
+            Path("configs/datasets/followup-admission.json"),
             Path("configs/datasets/followup-external-reserve80.json"),
             Path("configs/datasets/followup-external-reserve.json"),
             Path("configs/datasets/followup-external80-metadata.json"),
