@@ -10,6 +10,11 @@ import numpy as np
 from pydantic import Field
 
 from md_forecast.core.exceptions import DataContractError
+from md_forecast.data.cohort import (
+    PURPOSE_ROLES,
+    ExternalReserve,
+    permitted_external_sources,
+)
 from md_forecast.data.public.mdbind import (
     MDBindSubset,
     ReplicaSource,
@@ -70,14 +75,14 @@ def audit_replica(
         minimum_differences.append(
             float(abs(raw_distances.min() - periodic_distances.min()) * ANGSTROM_PER_NM)
         )
-    raw_contacts = np.asarray(raw_contacts)
-    periodic_contacts = np.asarray(periodic_contacts)
-    raw_reference = raw_contacts[0]
-    periodic_reference = periodic_contacts[0]
+    raw_matrix = np.asarray(raw_contacts)
+    periodic_matrix = np.asarray(periodic_contacts)
+    raw_reference = raw_matrix[0]
+    periodic_reference = periodic_matrix[0]
     if not raw_reference.any() or not periodic_reference.any():
         raise DataContractError(f"{source.accession}: undefined reference fraction")
-    raw_fraction = (raw_contacts & raw_reference).sum(axis=1) / raw_reference.sum()
-    periodic_fraction = (periodic_contacts & periodic_reference).sum(axis=1)
+    raw_fraction = (raw_matrix & raw_reference).sum(axis=1) / raw_reference.sum()
+    periodic_fraction = (periodic_matrix & periodic_reference).sum(axis=1)
     periodic_fraction = periodic_fraction / periodic_reference.sum()
     return {
         "accession": source.accession,
@@ -90,7 +95,7 @@ def audit_replica(
         "heavy_receptor": len(receptor),
         "heavy_ligand": len(ligand),
         "count_different_frames": int(
-            np.count_nonzero(raw_contacts.sum(axis=1) != periodic_contacts.sum(axis=1))
+            np.count_nonzero(raw_matrix.sum(axis=1) != periodic_matrix.sum(axis=1))
         ),
         "fraction_different_frames": int(
             np.count_nonzero(raw_fraction != periodic_fraction)
@@ -113,14 +118,20 @@ def main() -> None:
         "--geometry", type=Path, default=Path("configs/features/common-geometry.yaml")
     )
     parser.add_argument("output", type=Path)
+    parser.add_argument("--reserve", type=Path)
+    parser.add_argument("--purpose", choices=tuple(PURPOSE_ROLES), default="tuning")
     args = parser.parse_args()
     budget = AuditBudget(max_pairs=args.max_pairs)
     geometry = load_structural_config(args.geometry)
     validate_sasa_backend()
     subset = MDBindSubset.model_validate_json(args.source.read_text())
-    rows = [
-        audit_replica(args.raw, source, budget, geometry) for source in subset.replicas
-    ]
+    reserve = (
+        ExternalReserve.model_validate_json(args.reserve.read_text())
+        if args.reserve is not None
+        else None
+    )
+    sources = permitted_external_sources(subset, reserve, args.purpose)
+    rows = [audit_replica(args.raw, source, budget, geometry) for source in sources]
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(rows, indent=2), encoding="utf-8")
 

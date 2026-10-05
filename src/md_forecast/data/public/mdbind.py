@@ -13,6 +13,7 @@ from md_forecast.core.exceptions import AcquisitionError, DataContractError
 from md_forecast.data.acquisition import SourceArtifact, validate_artifact
 from md_forecast.data.artifacts import metadata_hash
 from md_forecast.data.schemas import (
+    ArtifactHash,
     BoundaryModel,
     DatasetConfig,
     FeatureDefinition,
@@ -353,6 +354,9 @@ class MDBindSubset(BoundaryModel):
 
     selection: SubsetSelection
     replicas: Annotated[tuple[ReplicaSource, ...], Field(min_length=1)]
+    reserve_hash: ArtifactHash | None = Field(
+        default=None, exclude_if=lambda value: value is None
+    )
 
     @model_validator(mode="after")
     def validate_cohort(self) -> Self:

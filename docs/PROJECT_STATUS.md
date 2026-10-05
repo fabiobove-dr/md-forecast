@@ -77,14 +77,17 @@ hypothesis. Native MISATO/MDbind equivalence remains blocked.
 
 ## Prediction-quality follow-up
 
-Nine new implementation/experiment issues are open; their acceptance criteria
+The first two follow-up issues are complete; seven implementation/experiment
+issues remain open. Their acceptance criteria
 are tracked in [roadmap #46](https://github.com/fabiobove-dr/md-forecast/issues/46).
 They do not change the completed MVP count or establish better predictions yet.
 
-1. [#37](https://github.com/fabiobove-dr/md-forecast/issues/37): admit follow-up
-   feature semantics, timing and structural preprocessing.
-2. [#38](https://github.com/fabiobove-dr/md-forecast/issues/38): expand development
-   cohorts and reserve genuinely untouched confirmation systems.
+1. [#37](https://github.com/fabiobove-dr/md-forecast/issues/37), complete: admit
+   follow-up feature semantics, timing and structural preprocessing.
+2. [#38](https://github.com/fabiobove-dr/md-forecast/issues/38), complete: prepare
+   260 native development systems and 48 seen-system external trajectories;
+   reserve 100 native and 50 unseen external confirmation systems before
+   decoding outcomes ([protocol and real QC](datasets/FOLLOWUP_COHORT.md)).
 3. [#39](https://github.com/fabiobove-dr/md-forecast/issues/39): diagnose forecast
    flattening and choose development context/horizon grids.
 4. [#40](https://github.com/fabiobove-dr/md-forecast/issues/40): validation-select
