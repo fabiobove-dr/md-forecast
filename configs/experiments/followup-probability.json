@@ -1,0 +1,70 @@
+{
+  "grid": {
+    "contexts": [
+      20.0,
+      40.0
+    ],
+    "horizons": [
+      5.0,
+      10.0
+    ],
+    "unit": "frame",
+    "stride_frames": 10
+  },
+  "primary": {
+    "contexts": [
+      40.0
+    ],
+    "horizons": [
+      10.0
+    ],
+    "unit": "frame",
+    "stride_frames": 10
+  },
+  "residuals": {
+    "levels": [
+      0.1,
+      0.5,
+      0.9
+    ],
+    "quantile_method": "linear",
+    "batch_size": 32,
+    "max_windows": 5000,
+    "max_residual_bytes": 134217728
+  },
+  "development": {
+    "seed": 42,
+    "bootstrap_samples": 2000,
+    "min_groups": 5,
+    "min_tail_samples": 10,
+    "comparison_family_size": 1,
+    "max_prediction_rows": 2000000,
+    "max_bootstrap_bytes": 67108864
+  },
+  "confirmation": {
+    "seed": 42,
+    "bootstrap_samples": 60000,
+    "min_groups": 20,
+    "min_tail_samples": 10,
+    "comparison_family_size": 126,
+    "max_prediction_rows": 2000000,
+    "max_bootstrap_bytes": 134217728
+  },
+  "comparison_counts": {
+    "point_error": 36,
+    "worthwhile_error": 36,
+    "mean_pinball": 24,
+    "width_vs_statistic": 12,
+    "coverage": 12,
+    "fine_vs_zero": 6
+  },
+  "expected_groups": {
+    "native": 100,
+    "external": 80,
+    "replica": 6
+  },
+  "coverage_tolerance": 0.05,
+  "worthwhile_reduction": 0.1,
+  "input_selection_sha256": "sha256:a979fad17edbaba7b4223f775727dddc3651536741e6528c1b241276a43f3b5f",
+  "baseline_provenance_sha256": "sha256:f0b833edcc5b91e223cd8d826db0f7eb891a7a286d15f58305920374096025bd"
+}
