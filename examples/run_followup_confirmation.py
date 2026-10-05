@@ -243,15 +243,23 @@ def run(args: argparse.Namespace) -> None:
                             window, lead = diagnostic_tables(
                                 batch, truth, points, model
                             )
+                            lead = lead.filter(pc.equal(lead["feature_id"], target))
                             if forecast is not None:
+                                feature_index = batch.spec.feature_ids.index(target)
+                                values_target = forecast.values[
+                                    :, :, feature_index : feature_index + 1, :
+                                ]
+                                truth_target = truth[
+                                    :, :, feature_index : feature_index + 1
+                                ]
                                 for i, level in enumerate(forecast.quantile_levels):
                                     lead = lead.append_column(
                                         f"quantile-{level}",
-                                        pa.array(forecast.values[..., i].ravel()),
+                                        pa.array(values_target[..., i].ravel()),
                                     )
                                 for (metric, lower, upper), values in quantile_losses(
-                                    forecast.values,
-                                    truth,
+                                    values_target,
+                                    truth_target,
                                     forecast.quantile_levels,
                                     ((0.1, 0.9),),
                                 ).items():
