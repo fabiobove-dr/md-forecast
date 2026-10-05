@@ -1,0 +1,121 @@
+{
+  "grid": {
+    "contexts": [
+      20.0,
+      40.0
+    ],
+    "horizons": [
+      5.0,
+      10.0
+    ],
+    "unit": "frame",
+    "stride_frames": 10
+  },
+  "max_lag_frames": 20,
+  "batch_size": 32,
+  "candidates": [
+    {
+      "model_id": "persistence",
+      "seed": 42
+    },
+    {
+      "model_id": "context-mean",
+      "seed": 42
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 0.1
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 1.0
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 10.0
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 0.1
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 1.0
+    },
+    {
+      "model_id": "autoregression",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 10.0
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 0.1
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 1.0
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 1,
+      "ridge": 10.0
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 0.1
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 1.0
+    },
+    {
+      "model_id": "var",
+      "seed": 42,
+      "lags": 3,
+      "ridge": 10.0
+    }
+  ],
+  "chronos": {
+    "model_name": "amazon/chronos-2",
+    "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+    "device": "cuda:0",
+    "dtype": "float32",
+    "seed": 42,
+    "batch_size": 32,
+    "quantile_levels": [
+      0.1,
+      0.5,
+      0.9
+    ],
+    "max_vram_bytes": 7516192768
+  },
+  "uncertainty": {
+    "seed": 42,
+    "bootstrap_samples": 2000,
+    "min_groups": 5,
+    "min_tail_samples": 10,
+    "comparison_family_size": 1,
+    "max_prediction_rows": 2000000,
+    "max_bootstrap_bytes": 67108864
+  }
+}
