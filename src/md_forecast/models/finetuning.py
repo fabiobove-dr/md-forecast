@@ -180,6 +180,74 @@ class FineTuneResult(BoundaryModel):
     optimizer_steps_per_second: Annotated[float, Field(gt=0)]
 
 
+class TrainingExposure(BoundaryModel):
+    """Actual forward-consumed training input counts, in frozen window order.
+
+    Prepared/prefetched batches are excluded until their forward succeeds.
+    Counts survive checkpoint resume; old checkpoints explicitly leave earlier
+    exposure unknown. Optimizer updates remain separate trainer telemetry.
+    """
+
+    input_hash: ArtifactHash
+    window_counts: tuple[Annotated[int, Field(strict=True, ge=0)], ...]
+    forward_batches: Annotated[int, Field(strict=True, ge=0)]
+    earlier_unknown_optimizer_steps: Annotated[int, Field(strict=True, ge=0)] = 0
+
+
+class _ExposureCounter:
+    def __init__(
+        self, manifest: FineTuneManifest, windows: int, resume: Path | None
+    ) -> None:
+        self.input_hash = manifest.input_hash
+        self.counts = [0] * windows
+        self.calls = 0
+        self.unknown_steps = 0 if resume is None else read_checkpoint(resume).step
+        if resume is not None and (resume / "exposure.json").exists():
+            self._restore(read_metadata(resume / "exposure.json", TrainingExposure))
+
+    def _restore(self, saved: TrainingExposure) -> None:
+        if saved.input_hash != self.input_hash or len(saved.window_counts) != len(
+            self.counts
+        ):
+            raise ForecastError("training exposure differs from frozen inputs")
+        self.counts = list(saved.window_counts)
+        self.calls = saved.forward_batches
+        self.unknown_steps = saved.earlier_unknown_optimizer_steps
+
+    def record(self, indices: list[int]) -> None:
+        for index in indices:
+            self.counts[index] += 1
+        self.calls += 1
+
+    def snapshot(self) -> TrainingExposure:
+        return TrainingExposure(
+            input_hash=self.input_hash,
+            window_counts=tuple(self.counts),
+            forward_batches=self.calls,
+            earlier_unknown_optimizer_steps=self.unknown_steps,
+        )
+
+
+def _track_exposure(dataset: Any, trainer: Any, counter: _ExposureCounter) -> None:
+    """Observe pinned upstream sampling without altering its RNG or input tensors."""
+    build, compute = dataset._build_batch, trainer.compute_loss
+
+    def build_batch(indices: list[int]) -> Any:
+        batch = build(indices)
+        batch["md_forecast_exposure_indices"] = list(indices)
+        return batch
+
+    def compute_loss(model: Any, inputs: Any, *args: Any, **kwargs: Any) -> Any:
+        indices = inputs.pop("md_forecast_exposure_indices", None)
+        result = compute(model, inputs, *args, **kwargs)
+        if indices is not None:
+            counter.record(indices)
+        return result
+
+    dataset._build_batch = build_batch
+    trainer.compute_loss = compute_loss
+
+
 def _check_grid(grid: WindowConfig) -> None:
     if (grid.unit, len(grid.contexts), len(grid.horizons)) != (TimeUnit.FRAME, 1, 1):
         raise ForecastError("fine-tune one explicit frame-grid cell at a time")
@@ -412,7 +480,10 @@ def _training_args(manifest: FineTuneManifest, output_dir: Path) -> dict[str, ob
 
 
 def _callback(
-    manifest: FineTuneManifest, torch: Any, stop_after_checkpoint: int | None
+    manifest: FineTuneManifest,
+    torch: Any,
+    stop_after_checkpoint: int | None,
+    exposure: _ExposureCounter | None = None,
 ) -> Any:
     backend = importlib.import_module("transformers.trainer_callback")
     callback_base: Any = backend.TrainerCallback
@@ -420,6 +491,8 @@ def _callback(
     class CheckpointProvenance(callback_base):  # type: ignore[misc]
         def on_save(self, args: Any, state: Any, control: Any, **kwargs: Any) -> Any:
             path = Path(args.output_dir) / f"checkpoint-{state.global_step}"
+            if exposure is not None:
+                write_metadata(path / "exposure.json", exposure.snapshot())
             files = {
                 file.name: _file_hash(file)
                 for file in path.iterdir()
@@ -504,11 +577,18 @@ def train_chronos(
     if digest != manifest.input_hash:
         raise ForecastError("training input values differ from the frozen hash")
     _resume(manifest, output_dir, resume_from_checkpoint)
+    initial_step = _resume_step(resume_from_checkpoint)
     try:
         adapter = Chronos2Adapter(manifest.settings, cache_dir=cache_dir)
         _check_native(manifest, adapter)
         trainer, torch = _trainer(
-            manifest, output_dir, adapter, inputs, validation, stop_after_checkpoint
+            manifest,
+            output_dir,
+            adapter,
+            inputs,
+            validation,
+            stop_after_checkpoint,
+            resume_from_checkpoint,
         )
         torch.cuda.synchronize(manifest.settings.device)
         torch.cuda.reset_peak_memory_stats(manifest.settings.device)
@@ -521,7 +601,7 @@ def train_chronos(
         runtime = adapter._runtime(start)
         if trainer.state.global_step != manifest.training.num_steps:
             return None
-        result = _result(manifest, trainer, runtime, resume_from_checkpoint)
+        result = _result(manifest, trainer, runtime, initial_step)
         write_metadata(output_dir / "result.json", result)
         return result
     except (ImportError, OSError, ValueError, TypeError, RuntimeError) as error:
@@ -535,6 +615,11 @@ def _check_stop(manifest: FineTuneManifest, step: int | None) -> None:
         or step % manifest.training.checkpoint_steps
     ):
         raise ForecastError("pause step must be an intermediate checkpoint")
+
+
+def _resume_step(checkpoint: Path | None) -> int:
+    """Capture the trusted start step before HF retention may remove its directory."""
+    return read_checkpoint(checkpoint).step if checkpoint else 0
 
 
 def _check_native(manifest: FineTuneManifest, adapter: Chronos2Adapter) -> None:
@@ -552,6 +637,7 @@ def _trainer(
     inputs: list[FloatArray],
     validation: list[FloatArray],
     stop: int | None,
+    resume: Path | None = None,
 ) -> tuple[Any, Any]:
     torch = adapter._torch
     dataset = importlib.import_module("chronos.chronos2.dataset")
@@ -570,17 +656,20 @@ def _trainer(
         output_patch_size=adapter._pipeline.model_output_patch_size,
         min_past=manifest.spec.context_frames,
     )
+    exposure = _ExposureCounter(manifest, len(inputs), resume)
+    training_dataset = dataset.Chronos2Dataset(
+        inputs=inputs, mode=dataset.DatasetMode.TRAIN, **common
+    )
     trainer = backend.Chronos2Trainer(
         model=adapter._pipeline.model,
         args=args,
-        train_dataset=dataset.Chronos2Dataset(
-            inputs=inputs, mode=dataset.DatasetMode.TRAIN, **common
-        ),
+        train_dataset=training_dataset,
         eval_dataset=dataset.Chronos2Dataset(
             inputs=validation, mode=dataset.DatasetMode.VALIDATION, **common
         ),
-        callbacks=[_callback(manifest, torch, stop)],
+        callbacks=[_callback(manifest, torch, stop, exposure)],
     )
+    _track_exposure(training_dataset, trainer, exposure)
     return trainer, torch
 
 
@@ -594,13 +683,12 @@ def _check_training_device(torch: Any, manifest: FineTuneManifest) -> None:
 
 
 def _result(
-    manifest: FineTuneManifest, trainer: Any, runtime: RuntimeStats, resume: Path | None
+    manifest: FineTuneManifest, trainer: Any, runtime: RuntimeStats, initial_step: int
 ) -> FineTuneResult:
     selected = read_checkpoint(Path(trainer.state.best_model_checkpoint))
     loss = float(trainer.state.best_metric)
     if not math.isfinite(loss):
         raise ForecastError("selected validation loss must be finite")
-    initial = read_checkpoint(resume).step if resume else 0
     return FineTuneResult(
         manifest_hash=metadata_hash(manifest),
         selected_checkpoint_hash=metadata_hash(selected),
@@ -608,7 +696,7 @@ def _result(
         completed_steps=trainer.state.global_step,
         validation_loss=loss,
         runtime=runtime,
-        optimizer_steps_per_second=(trainer.state.global_step - initial)
+        optimizer_steps_per_second=(trainer.state.global_step - initial_step)
         / runtime.seconds,
     )
 
