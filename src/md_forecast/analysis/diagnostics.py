@@ -42,8 +42,10 @@ def _forecast_summaries(
     origin: FloatArray, points: FloatArray, targets: FloatArray
 ) -> dict[str, FloatArray]:
     error = points - targets
-    predicted_std = points.std(axis=1, ddof=SPREAD_DDOF)
-    actual_std = targets.std(axis=1, ddof=SPREAD_DDOF)
+    # Subtract a retained value first: exact constants must have exactly zero
+    # spread even when a floating-point mean rounds differently from that value.
+    predicted_std = (points - points[:, :1]).std(axis=1, ddof=SPREAD_DDOF)
+    actual_std = (targets - targets[:, :1]).std(axis=1, ddof=SPREAD_DDOF)
     ratio = np.divide(
         predicted_std,
         actual_std,

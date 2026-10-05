@@ -9,6 +9,18 @@ from md_forecast.analysis.diagnostics import dependence_summary, forecast_diagno
 from md_forecast.core.exceptions import DataContractError, ForecastError
 
 
+def test_noninteger_constant_future_has_exactly_zero_spread() -> None:
+    batch, targets = pairs()[0]
+    assert targets is not None
+    targets[:] = 0.3
+    points = np.full_like(targets, 0.7)
+    rows = forecast_diagnostics(batch, points, targets)
+    assert np.isnan(rows["spread_ratio"]).all()
+    np.testing.assert_array_equal(rows["predicted_std"], 0)
+    np.testing.assert_array_equal(rows["actual_std"], 0)
+    np.testing.assert_allclose(rows["mae"], 0.4)
+
+
 def test_spread_is_descriptive_and_constants_are_undefined() -> None:
     batch, targets = pairs()[0]
     assert targets is not None
