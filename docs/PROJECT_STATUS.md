@@ -77,7 +77,7 @@ hypothesis. Native MISATO/MDbind equivalence remains blocked.
 
 ## Prediction-quality follow-up
 
-The first five follow-up issues are complete; four implementation/experiment
+The first six follow-up issues are complete; three implementation/experiment
 issues remain open. Their acceptance criteria
 are tracked in [roadmap #46](https://github.com/fabiobove-dr/md-forecast/issues/46).
 They do not change the completed MVP count or establish better predictions yet.
@@ -100,8 +100,10 @@ They do not change the completed MVP count or establish better predictions yet.
    six geometric fine-tuning trials and repeat matched zero-shot comparisons;
    representative normalized development MAE improves 1.29%, while compact
    references remain competitive ([evidence](models/FOLLOWUP_FINETUNING.md)).
-6. [#42](https://github.com/fabiobove-dr/md-forecast/issues/42): test added observed
-   inputs with lagged comparators and negative-input controls.
+6. [#42](https://github.com/fabiobove-dr/md-forecast/issues/42), complete: test
+   zero-shot and matched geometric fine-tuning under target-only/joint/shifted
+   histories with AR/VAR controls; added-input benefit remains inconclusive
+   ([all results](models/FOLLOWUP_INPUTS.md)).
 7. [#43](https://github.com/fabiobove-dr/md-forecast/issues/43): add probabilistic
    references and prospectively resolvable grouped uncertainty.
 8. [#44](https://github.com/fabiobove-dr/md-forecast/issues/44): package the offline

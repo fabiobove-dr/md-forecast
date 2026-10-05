@@ -1,12 +1,13 @@
 """Frozen input sets and paired common-target effects for controlled ablations."""
 
-from typing import Annotated, Self
+from typing import Annotated, Literal, Self
 
 import numpy as np
 import pyarrow as pa
 from pydantic import Field, model_validator
 
 from md_forecast.core.exceptions import DataContractError
+from md_forecast.data.forecast import ForecastBatch
 from md_forecast.data.schemas import BoundaryModel, Identifier
 from md_forecast.data.splits import SplitConfig
 from md_forecast.data.windows import WindowConfig
@@ -16,6 +17,42 @@ from md_forecast.evaluation.metrics import (
     interval_status,
 )
 from md_forecast.models.chronos import ChronosConfig
+
+
+def observed_input(
+    batch: ForecastBatch,
+    target: str,
+    condition: Literal["target-only", "joint", "shifted"],
+    *,
+    shift_frames: int,
+) -> ForecastBatch:
+    """Select inputs or shift auxiliary histories within the same observed window.
+
+    A circular shift is a negative alignment control, not a physically generated
+    trajectory. The target history and all window/group identities are preserved.
+    Future labels cannot enter this context-only API.
+    """
+    if target not in batch.spec.feature_ids:
+        raise DataContractError("input condition target is absent")
+    index = batch.spec.feature_ids.index(target)
+    if condition == "target-only":
+        spec = batch.spec.model_copy(update={"feature_ids": (target,)})
+        return ForecastBatch(
+            spec, batch.indices, batch.context[:, :, index : index + 1]
+        )
+    if condition == "joint":
+        return batch
+    _validate_control(batch, condition, shift_frames)
+    values = np.roll(batch.context, shift_frames, axis=1)
+    values[:, :, index] = batch.context[:, :, index]
+    return ForecastBatch(batch.spec, batch.indices, values)
+
+
+def _validate_control(batch: ForecastBatch, condition: str, shift_frames: int) -> None:
+    if condition != "shifted" or not 0 < shift_frames < batch.spec.context_frames:
+        raise DataContractError("negative control requires a nontrivial observed shift")
+    if len(batch.spec.feature_ids) < 2:
+        raise DataContractError("negative control requires auxiliary channels")
 
 
 class AblationConfig(BoundaryModel):

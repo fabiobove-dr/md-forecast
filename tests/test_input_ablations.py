@@ -106,3 +106,41 @@ def test_multiple_grid_cells_are_rejected() -> None:
     data["grid"]["contexts"] = (20.0, 40.0)
     with pytest.raises(ValidationError, match="one frozen"):
         AblationConfig.model_validate(data)
+
+
+def test_observed_control_preserves_target_groups_and_uses_no_future() -> None:
+    import numpy as np
+    from test_baselines import pairs
+
+    from md_forecast.data.forecast import ForecastBatch
+    from md_forecast.evaluation.ablations import observed_input
+
+    original, future = pairs()[0]
+    values = original.context.copy()
+    values[:, :, 1] = np.arange(values.shape[1])
+    batch = ForecastBatch(original.spec, original.indices, values)
+    shifted = observed_input(batch, "position", "shifted", shift_frames=3)
+    np.testing.assert_array_equal(shifted.context[:, :, 0], values[:, :, 0])
+    np.testing.assert_array_equal(
+        shifted.context[:, :, 1], np.roll(values[:, :, 1], 3, axis=1)
+    )
+    assert shifted.indices == batch.indices
+    np.testing.assert_array_equal(batch.context, values)
+    assert not shifted.context.flags.writeable
+    only = observed_input(batch, "position", "target-only", shift_frames=3)
+    assert only.spec.feature_ids == ("position",)
+    np.testing.assert_array_equal(only.context[:, :, 0], values[:, :, 0])
+    assert observed_input(batch, "position", "joint", shift_frames=3) is batch
+    assert future is not None
+    future[:] = 1e9
+    np.testing.assert_array_equal(
+        observed_input(batch, "position", "shifted", shift_frames=3).context,
+        shifted.context,
+    )
+    for shift in (0, 6):
+        with pytest.raises(DataContractError, match="shift"):
+            observed_input(batch, "position", "shifted", shift_frames=shift)
+    with pytest.raises(DataContractError, match="absent"):
+        observed_input(batch, "missing", "joint", shift_frames=3)
+    with pytest.raises(DataContractError, match="auxiliary"):
+        observed_input(only, "position", "shifted", shift_frames=3)
