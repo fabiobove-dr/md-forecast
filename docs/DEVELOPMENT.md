@@ -224,3 +224,11 @@ globally. Secrets, generated reports, and local environments stay untracked.
 Run `uv run --locked md-forecast report-mvp --help` for the immutable report
 command. The [MVP report workflow](models/MVP_REPORT.md) documents the exact
 one-command regeneration, frozen inputs, integrity checks and scientific limits.
+
+## Offline forecast overview
+
+Run `uv run --locked md-forecast report-forecast --help`. The
+[offline overview workflow](models/OFFLINE_OVERVIEW.md) reads checksum-verified
+saved results and writes standalone HTML with per-point errors, matched
+forecasts, native-unit tolerance rules and optional inline molecular reference.
+It requires no model inference, server or frontend dependencies.

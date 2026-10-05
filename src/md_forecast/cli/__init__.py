@@ -28,6 +28,7 @@ def main() -> None:
     _add_extraction_parser(commands)
     _add_qc_parser(commands)
     _add_report_parser(commands)
+    _add_overview_parser(commands)
     args = parser.parse_args()
     if args.command is None:
         parser.print_help()
@@ -38,6 +39,7 @@ def main() -> None:
             "qc-misato": _qc,
             "extract-misato": _extract,
             "report-mvp": _report,
+            "report-forecast": _overview,
         }
         handlers[args.command](args)
     except (MDForecastError, ValidationError) as error:
@@ -148,3 +150,24 @@ def _report(args: argparse.Namespace) -> None:
     logging.getLogger(__name__).info(
         "MVP snapshot %s written to %s", snapshot.artifact_id, args.output
     )
+
+
+def _add_overview_parser(
+    commands: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> None:
+    report = commands.add_parser(
+        "report-forecast", help="Create offline HTML from verified saved forecasts"
+    )
+    report.add_argument("--config", type=Path, required=True)
+    report.add_argument("--output", type=Path, required=True)
+
+
+def _overview(args: argparse.Namespace) -> None:
+    from md_forecast.core.exceptions import DataContractError
+    from md_forecast.evaluation.overview import OverviewConfig, generate_overview
+
+    try:
+        config = OverviewConfig.model_validate_json(args.config.read_text())
+        generate_overview(config, args.output)
+    except OSError as error:
+        raise DataContractError(f"cannot read or write overview: {error}") from error
