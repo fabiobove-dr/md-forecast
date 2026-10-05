@@ -17,6 +17,7 @@ from md_forecast.evaluation.metrics import (
     BenchmarkConfig,
     group_interval,
     interval_status,
+    quantile_losses,
 )
 from md_forecast.evaluation.overview import confined, file_hash
 from md_forecast.models.chronos import ChronosConfig
@@ -211,3 +212,41 @@ def confirmation_decision(
 def _width_not_worse(effect: dict[str, Any]) -> bool:
     upper = effect["ci"][1]
     return upper is not None and bool(upper <= 0)
+
+
+def append_probability(
+    table: pa.Table, levels: tuple[float, ...]
+) -> tuple[pa.Table, dict[str, Any]]:
+    """Keep crossed quantiles and all point errors; fail affected-cell uncertainty."""
+    values = np.column_stack(
+        [table[f"quantile-{level}"].to_numpy() for level in levels]
+    )
+    valid = np.all(np.diff(values, axis=-1) >= 0, axis=-1)
+    table = table.append_column("quantiles_valid", pa.array(valid))
+    status = _probability_status(table, valid)
+    if not status["valid"]:
+        return table, status
+    targets = table["target"].to_numpy().reshape(-1, 1, 1)
+    for (metric, lower, upper), losses in quantile_losses(
+        values.reshape(-1, 1, 1, len(levels)), targets, levels, ((0.1, 0.9),)
+    ).items():
+        table = table.append_column(
+            f"{metric}-{lower}-{upper}", pa.array(losses.ravel())
+        )
+    return table, status
+
+
+def _probability_status(table: pa.Table, valid: np.ndarray[Any, Any]) -> dict[str, Any]:
+    failed = table.filter(pa.array(~valid)).select(["trajectory_id", "start", "lead"])
+    windows = {(row["trajectory_id"], row["start"]) for row in failed.to_pylist()}
+    return {
+        "valid": bool(valid.all()),
+        "status": "ordered" if valid.all() else "invalid-crossing-quantiles",
+        "total_points": len(valid),
+        "crossing_points": int((~valid).sum()),
+        "affected_windows": len(windows),
+        "rule": (
+            "raw values retained; no sorting, clipping, refitting or point "
+            "exclusion; uncertainty unavailable for entire affected cell"
+        ),
+    }

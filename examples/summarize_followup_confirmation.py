@@ -44,26 +44,49 @@ def primary_effects(
             factor=1 - plan.worthwhile_reduction,
         )
     for reference in METHODS[:2]:
-        effect["pinball"][reference] = paired_effect(
-            groups[method], groups[reference], "mean-pinball", plan.inference
+        effect["pinball"][reference] = probability_effect(
+            groups, method, reference, "mean-pinball", plan
         )
-    effect["width"] = paired_effect(
-        groups[method], groups["selected-statistic"], "width-0.1-0.9", plan.inference
+    effect["width"] = probability_effect(
+        groups, method, "selected-statistic", "width-0.1-0.9", plan
     )
-    coverage = groups[method][1]["coverage-0.1-0.9"]
+    coverage = groups[method][1].get("coverage-0.1-0.9")
     effect["coverage"] = {
-        "mean": float(coverage.mean()),
-        "ci": group_interval(coverage, plan.inference, corrected=True),
-        "interval_status": interval_status(
-            len(coverage), plan.inference, corrected=True
-        ),
-        "independent_groups": len(coverage),
+        "mean": None if coverage is None else float(coverage.mean()),
+        "ci": (None, None)
+        if coverage is None
+        else group_interval(coverage, plan.inference, corrected=True),
+        "interval_status": "invalid-crossing-quantiles"
+        if coverage is None
+        else interval_status(len(coverage), plan.inference, corrected=True),
+        "independent_groups": len(groups[method][0]),
         "corrected": True,
     }
     effect["decision"] = confirmation_decision(
         effect, plan.nominal_coverage, plan.coverage_tolerance
     )
     return effect
+
+
+def probability_effect(
+    groups: dict[str, tuple[tuple[str, ...], dict[str, FloatArray]]],
+    method: str,
+    reference: str,
+    metric: str,
+    plan: ConfirmationPlan,
+) -> dict[str, Any]:
+    """A failed distribution never passes an uncertainty contrast."""
+    if metric not in groups[method][1] or metric not in groups[reference][1]:
+        return {
+            "metric": metric,
+            "reference_factor": 1.0,
+            "difference": None,
+            "ci": (None, None),
+            "independent_groups": len(groups[method][0]),
+            "interval_status": "invalid-crossing-quantiles",
+            "corrected": True,
+        }
+    return paired_effect(groups[method], groups[reference], metric, plan.inference)
 
 
 def summarize_task(root: Path, plan: ConfirmationPlan) -> dict[str, Any]:
@@ -109,6 +132,9 @@ def summarize_task(root: Path, plan: ConfirmationPlan) -> dict[str, Any]:
                         for reference in METHODS[:3]
                     },
                     "spread": features[feature][method]["spread"][0],
+                    "probability_status": features[feature][method].get(
+                        "probability_status", {"valid": True, "status": "ordered"}
+                    ),
                 }
             cells[cell][feature] = {"methods": descriptive, "primary": cell == primary}
             if cell == primary:
@@ -149,6 +175,19 @@ def summarize_task(root: Path, plan: ConfirmationPlan) -> dict[str, Any]:
         "primary_cell": primary,
         "decision": decision,
         "cells": cells,
+        "failed_probability_cells": [
+            {
+                "cell": cell,
+                "feature": feature,
+                "method": method,
+                **result["probability_status"],
+            }
+            for cell, features in summary["results"].items()
+            for feature, methods in features.items()
+            for method, result in methods.items()
+            if result.get("probability_status", {}).get("status")
+            == "invalid-crossing-quantiles"
+        ],
         "corrected_interval_status": interval_status(
             summary["independent_groups"], plan.inference, corrected=True
         ),

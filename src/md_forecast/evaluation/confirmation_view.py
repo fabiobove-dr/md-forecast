@@ -157,7 +157,7 @@ def _decision_rows(task: str, feature: str, data: dict[str, Any]) -> list[str]:
         row += _flag(decision["measurable_point_gain"]) + _flag(
             decision["worthwhile_point_gain"]
         )
-        row += "<td>" + escape(f"{100 * coverage['mean']:.1f}%; {interval}") + "</td>"
+        row += "<td>" + escape(_coverage_label(coverage, interval)) + "</td>"
         row += "".join(
             _flag(decision[key])
             for key in (
@@ -170,6 +170,12 @@ def _decision_rows(task: str, feature: str, data: dict[str, Any]) -> list[str]:
         row += _flag(decision["useful_minimum"]) + _flag(decision["useful_stronger"])
         rows.append(row + "</tr>")
     return rows
+
+
+def _coverage_label(coverage: dict[str, Any], interval: str) -> str:
+    if coverage["mean"] is None:
+        return "INVALID: crossing quantiles"
+    return f"{100 * coverage['mean']:.1f}%; {interval}"
 
 
 def _spread_cell(method: dict[str, Any]) -> str:

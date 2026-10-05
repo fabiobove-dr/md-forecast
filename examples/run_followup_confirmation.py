@@ -34,8 +34,11 @@ from md_forecast.data.schemas import TrajectoryManifest
 from md_forecast.data.series import read_series
 from md_forecast.data.splits import SplitConfig, SplitManifest, build_split
 from md_forecast.evaluation.ablations import observed_input
-from md_forecast.evaluation.confirmation import ConfirmationPlan, read_confirmation_plan
-from md_forecast.evaluation.metrics import quantile_losses
+from md_forecast.evaluation.confirmation import (
+    ConfirmationPlan,
+    append_probability,
+    read_confirmation_plan,
+)
 from md_forecast.evaluation.overview import confined, file_hash
 from md_forecast.features.structural import BASE_FEATURE_IDS
 from md_forecast.models.base import ModelConfig
@@ -249,23 +252,10 @@ def run(args: argparse.Namespace) -> None:
                                 values_target = forecast.values[
                                     :, :, feature_index : feature_index + 1, :
                                 ]
-                                truth_target = truth[
-                                    :, :, feature_index : feature_index + 1
-                                ]
                                 for i, level in enumerate(forecast.quantile_levels):
                                     lead = lead.append_column(
                                         f"quantile-{level}",
                                         pa.array(values_target[..., i].ravel()),
-                                    )
-                                for (metric, lower, upper), values in quantile_losses(
-                                    values_target,
-                                    truth_target,
-                                    forecast.quantile_levels,
-                                    ((0.1, 0.9),),
-                                ).items():
-                                    lead = lead.append_column(
-                                        f"{metric}-{lower}-{upper}",
-                                        pa.array(values.ravel()),
                                     )
                             window = window.filter(
                                 pc.equal(window["feature_id"], target)
@@ -285,6 +275,11 @@ def run(args: argparse.Namespace) -> None:
                             pa.concat_tables(windows),
                             pa.concat_tables(leads),
                         )
+                        probability_status = {"valid": False, "status": "point-only"}
+                        if forecast is not None:
+                            lead, probability_status = append_probability(
+                                lead, forecast.quantile_levels
+                            )
                         aligned = lead.select(
                             [
                                 "trajectory_id",
@@ -312,13 +307,14 @@ def run(args: argparse.Namespace) -> None:
                             "errors": error_summary(lead, leads=False),
                             "per_lead_error": error_summary(lead, leads=True),
                             "spread": spread_summary(window),
+                            "probability_status": probability_status,
                             "probability": []
-                            if method == "compact"
+                            if not probability_status["valid"]
                             else probabilistic_summary(
                                 lead, plan.descriptive, leads=False
                             ),
                             "per_lead_probability": []
-                            if method == "compact"
+                            if not probability_status["valid"]
                             else probabilistic_summary(
                                 lead, plan.descriptive, leads=True
                             ),

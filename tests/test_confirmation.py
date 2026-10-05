@@ -271,3 +271,58 @@ def test_confirmation_physical_lead_axis(tmp_path: Path) -> None:
     summary["split_hash"] = "sha256:" + "b" * 64
     with pytest.raises(DataContractError, match="split hash"):
         _followup_axis(source_config, summary)
+
+
+def test_crossed_quantiles_are_preserved_and_never_define_intervals() -> None:
+    """Keep all median errors and raw quantiles; a crossed cell has no calibration."""
+    from md_forecast.evaluation.confirmation import append_probability
+    from md_forecast.evaluation.overview import _match, _point
+
+    table = pa.table(
+        {
+            "trajectory_id": ["t", "t"],
+            "start": [0, 0],
+            "lead": [1, 2],
+            "target": [1.0, 1.0],
+            "point": [1.0, 1.0],
+            "quantile-0.1": [0.0, 2.0],
+            "quantile-0.5": [1.0, 1.0],
+            "quantile-0.9": [2.0, 3.0],
+        }
+    )
+    output, status = append_probability(table, (0.1, 0.5, 0.9))
+    assert output["point"].equals(table["point"])
+    assert output["quantile-0.1"].equals(table["quantile-0.1"])
+    assert output["quantiles_valid"].to_pylist() == [True, False]
+    assert status["crossing_points"] == 1
+    assert status["affected_windows"] == 1
+    assert not status["valid"]
+    assert not any(
+        name.startswith(("coverage-", "pinball-", "width-"))
+        for name in output.column_names
+    )
+    raw = {
+        "trajectory_id": "t",
+        "group_id": "g",
+        "start": 0,
+        "lead": 2,
+        "target": 1.0,
+        "point": 1.0,
+        "origin": 1.0,
+        "levels": (0.1, 0.5, 0.9),
+        "quantiles": (2.0, 1.0, 3.0),
+    }
+    with pytest.raises(DataContractError, match="cross"):
+        _point(raw)
+    failed = _point(raw | {"quantiles_valid": False})
+    good = _point(raw | {"lead": 1, "quantiles": (0.0, 1.0, 2.0)})
+    window = _match({"fine-tuned": [good, failed]}, 2)[0]
+    assert window.points["fine-tuned"] == (1.0, 1.0)
+    assert window.bands["fine-tuned"] == ()
+    assert window.quantile_failures["fine-tuned"] == {2: (2.0, 1.0, 3.0)}
+    with pytest.raises(DataContractError, match="failure tag"):
+        _point(raw | {"quantiles": (0.0, 1.0, 2.0), "quantiles_valid": False})
+    valid, valid_status = append_probability(table.slice(0, 1), (0.1, 0.5, 0.9))
+    assert valid_status["valid"]
+    assert valid["coverage-0.1-0.9"].to_pylist() == [1.0]
+    assert valid["width-0.1-0.9"].to_pylist() == [2.0]

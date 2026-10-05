@@ -62,31 +62,55 @@ class SavedPoint:
     origin: float | None = None
     quantiles: tuple[float, ...] = ()
     levels: tuple[float, ...] = ()
+    quantiles_valid: bool = True
 
 
 def _point(data: dict[str, Any]) -> SavedPoint:
     levels, quantiles = tuple(data["levels"]), tuple(data["quantiles"])
-    _validate_quantiles(levels, quantiles, data["point"])
+    valid = data.get("quantiles_valid", True)
+    if type(valid) is not bool:
+        raise DataContractError("saved quantile validity must be boolean")
+    _validate_quantiles(levels, quantiles, data["point"], valid=valid)
     return SavedPoint(**(data | {"levels": levels, "quantiles": quantiles}))
 
 
 def _validate_quantiles(
-    levels: tuple[float, ...], values: tuple[float, ...], point: float
+    levels: tuple[float, ...],
+    values: tuple[float, ...],
+    point: float,
+    *,
+    valid: bool = True,
 ) -> None:
     if len(levels) != len(values) or levels != tuple(sorted(set(levels))):
         raise DataContractError("saved quantile levels/values differ or repeat")
     if any(not 0 < level < 1 for level in levels):
         raise DataContractError("saved quantile levels outside (0,1)")
-    _validate_median(levels, values, point)
+    _validate_median(levels, values, point, valid=valid)
 
 
 def _validate_median(
-    levels: tuple[float, ...], values: tuple[float, ...], point: float
+    levels: tuple[float, ...],
+    values: tuple[float, ...],
+    point: float,
+    *,
+    valid: bool = True,
 ) -> None:
-    if not np.isfinite(values).all() or values != tuple(sorted(values)):
-        raise DataContractError("saved quantiles are nonfinite or cross")
+    _validate_order(values, valid)
     if 0.5 in levels and point != values[levels.index(0.5)]:
         raise DataContractError("saved median and point differ")
+
+
+def _validate_order(values: tuple[float, ...], valid: bool) -> None:
+    if not np.isfinite(values).all():
+        raise DataContractError("saved quantiles are nonfinite")
+    ordered = values == tuple(sorted(values))
+    if ordered != valid:
+        message = (
+            "saved quantiles cross without a failure tag"
+            if valid
+            else "saved quantile failure tag disagrees with raw values"
+        )
+        raise DataContractError(message)
 
 
 class OverviewWindow(BoundaryModel):
@@ -99,6 +123,9 @@ class OverviewWindow(BoundaryModel):
     target: tuple[float, ...]
     points: dict[str, tuple[float, ...]]
     bands: dict[str, tuple[tuple[float, float], ...]]
+    quantile_failures: dict[str, dict[int, tuple[float, ...]]] = Field(
+        default_factory=dict
+    )
 
 
 class OverviewPanel(BoundaryModel):
@@ -252,6 +279,7 @@ def _window(
         target=tuple(p.target for p in reference),
         points=_window_points(rows),
         bands=_window_bands(rows),
+        quantile_failures=_window_failures(rows),
     )
 
 
@@ -279,12 +307,33 @@ def _single(values: set[Any], label: str) -> Any:
 
 
 def _bands(points: list[SavedPoint]) -> tuple[tuple[float, float], ...]:
-    if not all(0.1 in p.levels and 0.9 in p.levels for p in points):
+    if not all(_has_interval(p) for p in points):
         return ()
     return tuple(
         (p.quantiles[p.levels.index(0.1)], p.quantiles[p.levels.index(0.9)])
         for p in points
     )
+
+
+def _has_interval(point: SavedPoint) -> bool:
+    return point.quantiles_valid and 0.1 in point.levels and 0.9 in point.levels
+
+
+def _window_failures(
+    rows: dict[str, list[SavedPoint]],
+) -> dict[str, dict[int, tuple[float, ...]]]:
+    result = {}
+    for model, points in rows.items():
+        failed = _failed_quantiles(points)
+        if failed:
+            result[model] = failed
+    return result
+
+
+def _failed_quantiles(points: list[SavedPoint]) -> dict[int, tuple[float, ...]]:
+    return {
+        point.lead: point.quantiles for point in points if not point.quantiles_valid
+    }
 
 
 def _probability(source: OverviewSource, config: OverviewConfig) -> list[OverviewPanel]:
@@ -462,6 +511,7 @@ def _followup_points(rows: list[dict[str, Any]], feature: str) -> list[SavedPoin
                             "origin",
                         )
                     },
+                    "quantiles_valid": row.get("quantiles_valid", True),
                     "levels": levels,
                     "quantiles": tuple(row[f"quantile-{q}"] for q in levels),
                 }
