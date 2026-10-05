@@ -12,6 +12,7 @@ nav:
       - MISATO audit: datasets/MISATO.md
       - MDbind audit: datasets/MDBIND.md
       - Follow-up admission: datasets/FOLLOWUP_ADMISSION.md
+      - Fresh cohort protocol: datasets/FOLLOWUP_COHORT.md
       - Canonical schema: datasets/CANONICAL_SCHEMA.md
       - MISATO adapter: datasets/MISATO_ADAPTER.md
       - Data preparation: datasets/PREPARATION.md

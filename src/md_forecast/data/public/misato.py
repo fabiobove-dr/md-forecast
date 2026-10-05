@@ -224,7 +224,8 @@ def _input_artifact(source: MisatoSource, kind: str) -> SourceArtifact:
         raise DataContractError("MISATO config lacks MD.hdf5 artifact") from error
 
 
-def _official_splits(source: MisatoSource, directory: Path) -> dict[str, Split]:
+def official_splits(source: MisatoSource, directory: Path) -> dict[str, Split]:
+    """Verify official list bytes and return disjoint, unreassigned source labels."""
     assignments: dict[str, Split] = {}
     for split, filename in SPLIT_FILES.items():
         path = directory / filename
@@ -407,7 +408,7 @@ def extract_misato(
     try:
         artifact = _input_artifact(source, config.artifact)
         validate_artifact(config.input_path, artifact)
-        splits = _official_splits(source, config.splits_dir)
+        splits = official_splits(source, config.splits_dir)
         provenance = Provenance(
             dataset_id=DatasetId.MISATO,
             dataset_version=source.dataset_version,

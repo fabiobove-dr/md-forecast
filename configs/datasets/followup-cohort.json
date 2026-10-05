@@ -1,0 +1,9 @@
+{
+  "seed": 42,
+  "counts": {
+    "train": 200,
+    "validation": 60,
+    "calibration": 40,
+    "confirmation": 100
+  }
+}

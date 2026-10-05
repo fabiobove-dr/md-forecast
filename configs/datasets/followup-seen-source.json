@@ -1,0 +1,2315 @@
+{
+  "selection": {
+    "selection_rule": "Unique uppercase PDB; exact overlap with any official MISATO ID or previous pilot excluded; ten replicas and catalog CC-BY-4.0; lexicographically first accession for duplicate PDB; SHA256 of 42|mdbind-unseen|PDB, ascending; first 50 reserved before decoding trajectories. Separate seen-replica task: next six source complexes.",
+    "catalog_sha256": "1b3e6e36cddf552bfbe550c774b02f59f8926d9c5b1051193e955034dfd373af",
+    "selected": [
+      [
+        "5YZD",
+        "MD-A005J9"
+      ],
+      [
+        "4ACG",
+        "MD-A006JJ"
+      ],
+      [
+        "4EUC",
+        "MD-A006S0"
+      ],
+      [
+        "2A29",
+        "MD-A005NO"
+      ],
+      [
+        "5L4H",
+        "MD-A005D8"
+      ],
+      [
+        "2OXX",
+        "MD-A003WE"
+      ]
+    ]
+  },
+  "replicas": [
+    {
+      "accession": "MD-A003WE",
+      "pdb_id": "2OXX",
+      "replica": 1,
+      "atoms": 5434,
+      "frames": 50,
+      "ligand_residue_index": 325,
+      "ligand_name": "K22",
+      "interaction_selection": "chain X",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE",
+          "size_bytes": 4664,
+          "checksum": "sha256:11f136c0411d499295fbfa08ff7128ab555840471a9d91b9a5ca7610f494c481"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE/files/structure.pdb",
+          "size_bytes": 440189,
+          "checksum": "sha256:7d3d348b6806798705a0267477ecfbea37536978f0ca3c97de6974294b117223"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE/files/topology.prmtop",
+          "size_bytes": 2356706,
+          "checksum": "sha256:29efb9e93b5cf842fd95992b51ffc90eb9090541118fac3c3b8e32cbf47664b0"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE/files/trajectory.xtc",
+          "size_bytes": 1035140,
+          "checksum": "sha256:1fd565cc5706cd0da418b30fcfcf39dde9d665197ea6c5da1877fb3727651e81"
+        }
+      }
+    },
+    {
+      "accession": "MD-A003WE.10",
+      "pdb_id": "2OXX",
+      "replica": 10,
+      "atoms": 5434,
+      "frames": 50,
+      "ligand_residue_index": 325,
+      "ligand_name": "K22",
+      "interaction_selection": "chain X",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.10",
+          "size_bytes": 4690,
+          "checksum": "sha256:013875a8f4c3341a971f5dc036f42e9f091996a889387fc98a1a4cf80df2c92c"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.10/files/structure.pdb",
+          "size_bytes": 440189,
+          "checksum": "sha256:270d0aa618b44b7ae0408d91da756f3c95bdc2954552a5a937209da66a0955f6"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.10/files/topology.prmtop",
+          "size_bytes": 2356706,
+          "checksum": "sha256:29efb9e93b5cf842fd95992b51ffc90eb9090541118fac3c3b8e32cbf47664b0"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.10/files/trajectory.xtc",
+          "size_bytes": 1036160,
+          "checksum": "sha256:f66a7c03957ea20fbb5501ba8952729972ac68d7729ee654411b4ec123b0e311"
+        }
+      }
+    },
+    {
+      "accession": "MD-A003WE.2",
+      "pdb_id": "2OXX",
+      "replica": 2,
+      "atoms": 5434,
+      "frames": 50,
+      "ligand_residue_index": 325,
+      "ligand_name": "K22",
+      "interaction_selection": "chain X",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.2",
+          "size_bytes": 4736,
+          "checksum": "sha256:955659a5ab05e512c1069a06c01a93afebd4065dbd4276d709421f185beb47bb"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.2/files/structure.pdb",
+          "size_bytes": 440189,
+          "checksum": "sha256:563df04cc0e016444bc8ba6a8ada04277519f9f897efa0b7685fc2dae396c5ad"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.2/files/topology.prmtop",
+          "size_bytes": 2356706,
+          "checksum": "sha256:29efb9e93b5cf842fd95992b51ffc90eb9090541118fac3c3b8e32cbf47664b0"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.2/files/trajectory.xtc",
+          "size_bytes": 1036764,
+          "checksum": "sha256:1feda5fe9717f8239e433dd63c2281c966ad9f8388e90546feb73d29af726863"
+        }
+      }
+    },
+    {
+      "accession": "MD-A003WE.3",
+      "pdb_id": "2OXX",
+      "replica": 3,
+      "atoms": 5434,
+      "frames": 50,
+      "ligand_residue_index": 325,
+      "ligand_name": "K22",
+      "interaction_selection": "chain X",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.3",
+          "size_bytes": 4712,
+          "checksum": "sha256:cbf436152fe3069e85dfcb17196aaee1e5e6f567a306e8de9bcdbf7cd23afab2"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.3/files/structure.pdb",
+          "size_bytes": 440189,
+          "checksum": "sha256:bcb097dda9c99660f0b7d30f409f1e0b918a0636294d1477b66a97245c832af3"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.3/files/topology.prmtop",
+          "size_bytes": 2356706,
+          "checksum": "sha256:29efb9e93b5cf842fd95992b51ffc90eb9090541118fac3c3b8e32cbf47664b0"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.3/files/trajectory.xtc",
+          "size_bytes": 1034592,
+          "checksum": "sha256:0e6c769ea4173380bd121fe22240aa62d2fbb64c51a2bf48dca8b33f4344f361"
+        }
+      }
+    },
+    {
+      "accession": "MD-A003WE.4",
+      "pdb_id": "2OXX",
+      "replica": 4,
+      "atoms": 5434,
+      "frames": 50,
+      "ligand_residue_index": 325,
+      "ligand_name": "K22",
+      "interaction_selection": "chain X",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.4",
+          "size_bytes": 4712,
+          "checksum": "sha256:c9c6df111cdf7d9086156babf7d2d2e488094867b4b355d6cee3a83e9b2857ed"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.4/files/structure.pdb",
+          "size_bytes": 440189,
+          "checksum": "sha256:bce17062247021ae1b728d5211d4de735b31d57350c86dbb31550dbd1476abfb"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.4/files/topology.prmtop",
+          "size_bytes": 2356706,
+          "checksum": "sha256:29efb9e93b5cf842fd95992b51ffc90eb9090541118fac3c3b8e32cbf47664b0"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.4/files/trajectory.xtc",
+          "size_bytes": 1035424,
+          "checksum": "sha256:d6cbfb7196bd025f2da3553c3da2b4f76a54abea8edb224765e01a10a0b360d3"
+        }
+      }
+    },
+    {
+      "accession": "MD-A003WE.5",
+      "pdb_id": "2OXX",
+      "replica": 5,
+      "atoms": 5434,
+      "frames": 50,
+      "ligand_residue_index": 325,
+      "ligand_name": "K22",
+      "interaction_selection": "chain X",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.5",
+          "size_bytes": 4736,
+          "checksum": "sha256:497b99d74c61f20e25a6fcf3771171a929cbc41af158373101145c065ed4acbe"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.5/files/structure.pdb",
+          "size_bytes": 440189,
+          "checksum": "sha256:59d1a24afb028a7d38e4694788367033e6970c480d758271d1d2958157ecafab"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.5/files/topology.prmtop",
+          "size_bytes": 2356706,
+          "checksum": "sha256:29efb9e93b5cf842fd95992b51ffc90eb9090541118fac3c3b8e32cbf47664b0"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.5/files/trajectory.xtc",
+          "size_bytes": 1035208,
+          "checksum": "sha256:9c45be1ced359bf3ca139fdbe1456a9eff58945b621753a06ff3471a34ba032e"
+        }
+      }
+    },
+    {
+      "accession": "MD-A003WE.6",
+      "pdb_id": "2OXX",
+      "replica": 6,
+      "atoms": 5434,
+      "frames": 50,
+      "ligand_residue_index": 325,
+      "ligand_name": "K22",
+      "interaction_selection": "chain X",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.6",
+          "size_bytes": 4736,
+          "checksum": "sha256:02d11a81e62e3bfedaef82bfea6a855c839735f9e303aa0fbe58e4961f143c56"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.6/files/structure.pdb",
+          "size_bytes": 440189,
+          "checksum": "sha256:51482156c0d622405a2effd8603940e89f5b182536f577a4c0beec069cbe2957"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.6/files/topology.prmtop",
+          "size_bytes": 2356706,
+          "checksum": "sha256:29efb9e93b5cf842fd95992b51ffc90eb9090541118fac3c3b8e32cbf47664b0"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.6/files/trajectory.xtc",
+          "size_bytes": 1034432,
+          "checksum": "sha256:587698869f9c77a631201b0423d2393e8be6aecab9b6a5e9eb6329271fcec6f3"
+        }
+      }
+    },
+    {
+      "accession": "MD-A003WE.7",
+      "pdb_id": "2OXX",
+      "replica": 7,
+      "atoms": 5434,
+      "frames": 50,
+      "ligand_residue_index": 325,
+      "ligand_name": "K22",
+      "interaction_selection": "chain X",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.7",
+          "size_bytes": 4640,
+          "checksum": "sha256:5651630caab52e7f4b837f12324ad69318375baa67302e08b3b733c26a2dc39a"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.7/files/structure.pdb",
+          "size_bytes": 440189,
+          "checksum": "sha256:d8ff4c4ec4a3e787bc4e94fbed617e79e43e0442bd5b21b79ce6ff7df2fcba42"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.7/files/topology.prmtop",
+          "size_bytes": 2356706,
+          "checksum": "sha256:29efb9e93b5cf842fd95992b51ffc90eb9090541118fac3c3b8e32cbf47664b0"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.7/files/trajectory.xtc",
+          "size_bytes": 1034672,
+          "checksum": "sha256:ed8bf407fcbdba036dc822cf67b810f3ab3c1cdf398a34ac70a754e65543b654"
+        }
+      }
+    },
+    {
+      "accession": "MD-A003WE.8",
+      "pdb_id": "2OXX",
+      "replica": 8,
+      "atoms": 5434,
+      "frames": 50,
+      "ligand_residue_index": 325,
+      "ligand_name": "K22",
+      "interaction_selection": "chain X",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.8",
+          "size_bytes": 4736,
+          "checksum": "sha256:2b1a8a759b1e3e0f8a899232c5925bc9927463a6a10caf90adc426d12b4b140e"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.8/files/structure.pdb",
+          "size_bytes": 440189,
+          "checksum": "sha256:8581ef834d0017b4abec75d5dff9f77918db5630f8925f3b9fb120963322967d"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.8/files/topology.prmtop",
+          "size_bytes": 2356706,
+          "checksum": "sha256:29efb9e93b5cf842fd95992b51ffc90eb9090541118fac3c3b8e32cbf47664b0"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.8/files/trajectory.xtc",
+          "size_bytes": 1034216,
+          "checksum": "sha256:255000346d51356cc4d3477ec95b20342a3dd61b2529f90b82ad01987983edd6"
+        }
+      }
+    },
+    {
+      "accession": "MD-A003WE.9",
+      "pdb_id": "2OXX",
+      "replica": 9,
+      "atoms": 5434,
+      "frames": 50,
+      "ligand_residue_index": 325,
+      "ligand_name": "K22",
+      "interaction_selection": "chain X",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.9",
+          "size_bytes": 4712,
+          "checksum": "sha256:4d228661f4c74d98a14e8a32fab79fb7461409a3a82721b6ecf0bb9bfbdab360"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.9/files/structure.pdb",
+          "size_bytes": 440189,
+          "checksum": "sha256:78fdc2a89f6618a7ce753c07adb1e92d29859b18b939a5bc09722ebda519789c"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.9/files/topology.prmtop",
+          "size_bytes": 2356706,
+          "checksum": "sha256:29efb9e93b5cf842fd95992b51ffc90eb9090541118fac3c3b8e32cbf47664b0"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE.9/files/trajectory.xtc",
+          "size_bytes": 1035908,
+          "checksum": "sha256:811b4627a41cdba90d1f4edcb2d8a5843ebe6d4430afa67d111866abd134d139"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005D8",
+      "pdb_id": "5L4H",
+      "replica": 1,
+      "atoms": 25290,
+      "frames": 50,
+      "ligand_residue_index": 1555,
+      "ligand_name": "6JW",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8",
+          "size_bytes": 4649,
+          "checksum": "sha256:4ecc40cbd6e8cd8ac644bc573e9756806bc18cdbc566bf98415b883b620371f5"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8/files/structure.pdb",
+          "size_bytes": 2048525,
+          "checksum": "sha256:a0a7b2201decad69edca7085f1eeb0f918aa5b74a116182c06fdc5264a856ac9"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8/files/topology.prmtop",
+          "size_bytes": 10945206,
+          "checksum": "sha256:3dd756127182fb15257d44a34c949f7e6f39eebee4859c8aac0b056034429a38"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8/files/trajectory.xtc",
+          "size_bytes": 4808880,
+          "checksum": "sha256:2fd9027705986e6e6ebd5612b1f20df9148d1a9cd0abfbebbed1872a95b79da0"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005D8.10",
+      "pdb_id": "5L4H",
+      "replica": 10,
+      "atoms": 25290,
+      "frames": 50,
+      "ligand_residue_index": 1555,
+      "ligand_name": "6JW",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.10",
+          "size_bytes": 4651,
+          "checksum": "sha256:1652a2173a291f25420393a1da3597198b2ee6293f390392c65eacf2d611036c"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.10/files/structure.pdb",
+          "size_bytes": 2048525,
+          "checksum": "sha256:6883495cda594d3519dbf1a276f906a34fa975d6f5072a7597872dc689b75fb1"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.10/files/topology.prmtop",
+          "size_bytes": 10945206,
+          "checksum": "sha256:3dd756127182fb15257d44a34c949f7e6f39eebee4859c8aac0b056034429a38"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.10/files/trajectory.xtc",
+          "size_bytes": 4815020,
+          "checksum": "sha256:f108561c7b81ab8fb8de9765db2e36961cf23165e2744be3254c294b4afedcc6"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005D8.2",
+      "pdb_id": "5L4H",
+      "replica": 2,
+      "atoms": 25290,
+      "frames": 50,
+      "ligand_residue_index": 1555,
+      "ligand_name": "6JW",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.2",
+          "size_bytes": 4745,
+          "checksum": "sha256:c696da317ceafec3c1fb79f478095427d5afb24e14ece9c5b58e06567c5e7fcd"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.2/files/structure.pdb",
+          "size_bytes": 2048525,
+          "checksum": "sha256:3f2da561849e7a4f128383c7032b1567b8f2bcd2b5f1fd72110fd5bcf9602ff2"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.2/files/topology.prmtop",
+          "size_bytes": 10945206,
+          "checksum": "sha256:3dd756127182fb15257d44a34c949f7e6f39eebee4859c8aac0b056034429a38"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.2/files/trajectory.xtc",
+          "size_bytes": 4791528,
+          "checksum": "sha256:7772a7cafe200c32b05056a3927811e9dafd83b3e99fcfaef104e06906bfcb72"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005D8.3",
+      "pdb_id": "5L4H",
+      "replica": 3,
+      "atoms": 25290,
+      "frames": 50,
+      "ligand_residue_index": 1555,
+      "ligand_name": "6JW",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.3",
+          "size_bytes": 4769,
+          "checksum": "sha256:965e09d442988e28f77f45f42f11d30dad6e09355cf1656dcb2ac90c134a1a98"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.3/files/structure.pdb",
+          "size_bytes": 2048525,
+          "checksum": "sha256:4c22e6695e0e758b27999a374b0c90fc2a1f9ce4deedaca5df81a2bb3aadfdd1"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.3/files/topology.prmtop",
+          "size_bytes": 10945206,
+          "checksum": "sha256:3dd756127182fb15257d44a34c949f7e6f39eebee4859c8aac0b056034429a38"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.3/files/trajectory.xtc",
+          "size_bytes": 4808908,
+          "checksum": "sha256:3023cc76b3f9d3575c8f8328d3dd7e649ef1272f6e41d447d928c882de18006f"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005D8.4",
+      "pdb_id": "5L4H",
+      "replica": 4,
+      "atoms": 25290,
+      "frames": 50,
+      "ligand_residue_index": 1555,
+      "ligand_name": "6JW",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.4",
+          "size_bytes": 4793,
+          "checksum": "sha256:cc9b9086c098e4b8b57504d3aa18eaa402e67b56dc97b3db0cd7e37c197dd37b"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.4/files/structure.pdb",
+          "size_bytes": 2048525,
+          "checksum": "sha256:fa0f0ba3fecb71da36e31b0c410fbdf6a8b5b5f9898856086ca1de6fb55ae52c"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.4/files/topology.prmtop",
+          "size_bytes": 10945206,
+          "checksum": "sha256:3dd756127182fb15257d44a34c949f7e6f39eebee4859c8aac0b056034429a38"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.4/files/trajectory.xtc",
+          "size_bytes": 4791824,
+          "checksum": "sha256:c13b9ab6b5138da0400eb8cb936042472a8a88251012e56e4818a9ab92bc2f3a"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005D8.5",
+      "pdb_id": "5L4H",
+      "replica": 5,
+      "atoms": 25290,
+      "frames": 50,
+      "ligand_residue_index": 1555,
+      "ligand_name": "6JW",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.5",
+          "size_bytes": 4745,
+          "checksum": "sha256:dec9a922d816d617cc89980f860b641edc32e4dba815dd15d7e71e19b0ed54e2"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.5/files/structure.pdb",
+          "size_bytes": 2048525,
+          "checksum": "sha256:f2bdcf3c853d871b702b8d7ba7b2770a62a36794d2933eb5d8ef18680427117c"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.5/files/topology.prmtop",
+          "size_bytes": 10945206,
+          "checksum": "sha256:3dd756127182fb15257d44a34c949f7e6f39eebee4859c8aac0b056034429a38"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.5/files/trajectory.xtc",
+          "size_bytes": 4806520,
+          "checksum": "sha256:0816bdfbb61fd652a304074e378c67bb0af36335c9c2c5416ce96b5089ce1346"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005D8.6",
+      "pdb_id": "5L4H",
+      "replica": 6,
+      "atoms": 25290,
+      "frames": 50,
+      "ligand_residue_index": 1555,
+      "ligand_name": "6JW",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.6",
+          "size_bytes": 4769,
+          "checksum": "sha256:517137c82302055c8ca52b32cc581dcd653762d9d0109ed79407f296de920304"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.6/files/structure.pdb",
+          "size_bytes": 2048525,
+          "checksum": "sha256:7134ff57c24b578a37072458eff1bb3ec976d4e0f10a53b25e8ba3630d0151c3"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.6/files/topology.prmtop",
+          "size_bytes": 10945206,
+          "checksum": "sha256:3dd756127182fb15257d44a34c949f7e6f39eebee4859c8aac0b056034429a38"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.6/files/trajectory.xtc",
+          "size_bytes": 4813432,
+          "checksum": "sha256:aa80d634b0b71dba0ae34c51acced7d1b9cecf02bad612412e4934aa62d31d15"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005D8.7",
+      "pdb_id": "5L4H",
+      "replica": 7,
+      "atoms": 25290,
+      "frames": 50,
+      "ligand_residue_index": 1555,
+      "ligand_name": "6JW",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.7",
+          "size_bytes": 4745,
+          "checksum": "sha256:7cfba73da32c844aaa2b13d56b63c9dffe50c4565b32055cb08f834cc2a944d8"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.7/files/structure.pdb",
+          "size_bytes": 2048525,
+          "checksum": "sha256:e52546ce1f2702985fe64969e7366b758b4b2fbcc8518f5a2b509f9ca433ceb0"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.7/files/topology.prmtop",
+          "size_bytes": 10945206,
+          "checksum": "sha256:3dd756127182fb15257d44a34c949f7e6f39eebee4859c8aac0b056034429a38"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.7/files/trajectory.xtc",
+          "size_bytes": 4818012,
+          "checksum": "sha256:4f950bf8e0e9c324c4ae95f982335ee699b82ff2d424293a75661c41f8c51ec5"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005D8.8",
+      "pdb_id": "5L4H",
+      "replica": 8,
+      "atoms": 25290,
+      "frames": 50,
+      "ligand_residue_index": 1555,
+      "ligand_name": "6JW",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.8",
+          "size_bytes": 4817,
+          "checksum": "sha256:a232ddb35fc83436382fbe318dccd4bd661afc022aeb014ca10756982028ac7f"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.8/files/structure.pdb",
+          "size_bytes": 2048525,
+          "checksum": "sha256:0b9e6536f9b11853da93476f2c419dbf6717bff64babb14d43de7ed2c6f11a7f"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.8/files/topology.prmtop",
+          "size_bytes": 10945206,
+          "checksum": "sha256:3dd756127182fb15257d44a34c949f7e6f39eebee4859c8aac0b056034429a38"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.8/files/trajectory.xtc",
+          "size_bytes": 4807112,
+          "checksum": "sha256:e0c1c24d93e2c855cb6ccc52e5d439c2e66c2ee61cee4cd308ef95fd1556eed2"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005D8.9",
+      "pdb_id": "5L4H",
+      "replica": 9,
+      "atoms": 25290,
+      "frames": 50,
+      "ligand_residue_index": 1555,
+      "ligand_name": "6JW",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.9",
+          "size_bytes": 4769,
+          "checksum": "sha256:06c1194adf660a65098cfdfad388c8c3deed8b47793225f33caa628e505b4459"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.9/files/structure.pdb",
+          "size_bytes": 2048525,
+          "checksum": "sha256:26a5edc8ee5e79c39a720c6b19a8e94be267f5972dea7ad23acb4f39a9bc446a"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.9/files/topology.prmtop",
+          "size_bytes": 10945206,
+          "checksum": "sha256:3dd756127182fb15257d44a34c949f7e6f39eebee4859c8aac0b056034429a38"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8.9/files/trajectory.xtc",
+          "size_bytes": 4807844,
+          "checksum": "sha256:337f26026c83e75b087bd0a62e341e93e9366fd791b7d3772027676a0e95d37f"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005J9",
+      "pdb_id": "5YZD",
+      "replica": 1,
+      "atoms": 16799,
+      "frames": 50,
+      "ligand_residue_index": 1101,
+      "ligand_name": "PHQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9",
+          "size_bytes": 4942,
+          "checksum": "sha256:367c5072768e8718e48d494716bc800f688af6b1eb5ea167e2184c43191b7fc4"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9/files/structure.pdb",
+          "size_bytes": 1360754,
+          "checksum": "sha256:61dd4a0a3731939900a9410e812bbfc1a2c00bd53e0d4abc220dd3ae47d57e7d"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9/files/topology.prmtop",
+          "size_bytes": 7275009,
+          "checksum": "sha256:ad40df910ac39d87697f61b7120151dc0e4c1287786f29ae063756edfd7a4d3a"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9/files/trajectory.xtc",
+          "size_bytes": 3199592,
+          "checksum": "sha256:407bc976d405d0315d2db159d442c6ceae6b62a9e33a7649d0b07b15dc8e0446"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005J9.10",
+      "pdb_id": "5YZD",
+      "replica": 10,
+      "atoms": 16799,
+      "frames": 50,
+      "ligand_residue_index": 1101,
+      "ligand_name": "PHQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.10",
+          "size_bytes": 4920,
+          "checksum": "sha256:a86918721822183865f8af54d29ae41c509c9aab9ef4d817c0ecb5a1bed684c4"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.10/files/structure.pdb",
+          "size_bytes": 1360754,
+          "checksum": "sha256:e17cb5fd7b01998200154c75f4d1acfe96a9f1b521052a0b5089198c158b3dc3"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.10/files/topology.prmtop",
+          "size_bytes": 7275009,
+          "checksum": "sha256:ad40df910ac39d87697f61b7120151dc0e4c1287786f29ae063756edfd7a4d3a"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.10/files/trajectory.xtc",
+          "size_bytes": 3193860,
+          "checksum": "sha256:73e4d9433c5a3e4e368778256c0aa1c4723c208f140906190ac2d1e530bca347"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005J9.2",
+      "pdb_id": "5YZD",
+      "replica": 2,
+      "atoms": 16799,
+      "frames": 50,
+      "ligand_residue_index": 1101,
+      "ligand_name": "PHQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.2",
+          "size_bytes": 4990,
+          "checksum": "sha256:7754567b6c0446261f8b5bae2eba5c6a60197941fffdd47be867f02c43e812c7"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.2/files/structure.pdb",
+          "size_bytes": 1360754,
+          "checksum": "sha256:72465e4a51e691ef00ba41f0aa05354ae9ae1a4d014455605aa06853ea2c6cd1"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.2/files/topology.prmtop",
+          "size_bytes": 7275009,
+          "checksum": "sha256:ad40df910ac39d87697f61b7120151dc0e4c1287786f29ae063756edfd7a4d3a"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.2/files/trajectory.xtc",
+          "size_bytes": 3195836,
+          "checksum": "sha256:e2131fa3324ea1d567d475622330d3570b99a7a44eafae0e3a11ecc78eff2c19"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005J9.3",
+      "pdb_id": "5YZD",
+      "replica": 3,
+      "atoms": 16799,
+      "frames": 50,
+      "ligand_residue_index": 1101,
+      "ligand_name": "PHQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.3",
+          "size_bytes": 4966,
+          "checksum": "sha256:45cd1cafd517dcfdb00c1d48ec7a22154c0e94f3325bb5eb35e7a9978c216367"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.3/files/structure.pdb",
+          "size_bytes": 1360754,
+          "checksum": "sha256:81f6d28757c03ee283838d00223b8d67d3c985576642d0a2fb254dc81ee744a7"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.3/files/topology.prmtop",
+          "size_bytes": 7275009,
+          "checksum": "sha256:ad40df910ac39d87697f61b7120151dc0e4c1287786f29ae063756edfd7a4d3a"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.3/files/trajectory.xtc",
+          "size_bytes": 3189764,
+          "checksum": "sha256:17580976ce117ce891188cda45c19a3be9cd85b4559ce688d9d27f65b57de399"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005J9.4",
+      "pdb_id": "5YZD",
+      "replica": 4,
+      "atoms": 16799,
+      "frames": 50,
+      "ligand_residue_index": 1101,
+      "ligand_name": "PHQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.4",
+          "size_bytes": 4942,
+          "checksum": "sha256:f051cee214c50067df8652ff8a98f0f5b0d96933fd1273008d91ae09bd97076f"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.4/files/structure.pdb",
+          "size_bytes": 1360754,
+          "checksum": "sha256:bd0f5a230049489ae9a638ce66d1d832cbf7eb53b5726246d1b4bbaf44a5423d"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.4/files/topology.prmtop",
+          "size_bytes": 7275009,
+          "checksum": "sha256:ad40df910ac39d87697f61b7120151dc0e4c1287786f29ae063756edfd7a4d3a"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.4/files/trajectory.xtc",
+          "size_bytes": 3187184,
+          "checksum": "sha256:aa21302a804df243f0a7a47a426a0bafb7389bea8d53acb712044781e546d8eb"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005J9.5",
+      "pdb_id": "5YZD",
+      "replica": 5,
+      "atoms": 16799,
+      "frames": 50,
+      "ligand_residue_index": 1101,
+      "ligand_name": "PHQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.5",
+          "size_bytes": 4942,
+          "checksum": "sha256:2bed673a62dda510a8e6a5fb7d1e9ece7ca4ca20943b228140e020066e1d3816"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.5/files/structure.pdb",
+          "size_bytes": 1360754,
+          "checksum": "sha256:3f4d04c6ba6d00236756fd90837ac36b3f93d77a2b6d9c403073b46911ad48df"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.5/files/topology.prmtop",
+          "size_bytes": 7275009,
+          "checksum": "sha256:ad40df910ac39d87697f61b7120151dc0e4c1287786f29ae063756edfd7a4d3a"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.5/files/trajectory.xtc",
+          "size_bytes": 3198936,
+          "checksum": "sha256:0453f69c950ced8a785c49040a4966b422267d12c2f3caeb17c966d8ae5b75cf"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005J9.6",
+      "pdb_id": "5YZD",
+      "replica": 6,
+      "atoms": 16799,
+      "frames": 50,
+      "ligand_residue_index": 1101,
+      "ligand_name": "PHQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.6",
+          "size_bytes": 4918,
+          "checksum": "sha256:5d198e342e4f304dbe7345a9215e63c23744425edb28fea62e82d0f52117114a"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.6/files/structure.pdb",
+          "size_bytes": 1360754,
+          "checksum": "sha256:40422b44b19defe788339393552dba3bbdb795422393c412c1724bd1a576af67"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.6/files/topology.prmtop",
+          "size_bytes": 7275009,
+          "checksum": "sha256:ad40df910ac39d87697f61b7120151dc0e4c1287786f29ae063756edfd7a4d3a"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.6/files/trajectory.xtc",
+          "size_bytes": 3190808,
+          "checksum": "sha256:32872127090d8abb4ee099ba2783718c4666d4bb944ca1a1ec29590b98a8eed5"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005J9.7",
+      "pdb_id": "5YZD",
+      "replica": 7,
+      "atoms": 16799,
+      "frames": 50,
+      "ligand_residue_index": 1101,
+      "ligand_name": "PHQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.7",
+          "size_bytes": 4942,
+          "checksum": "sha256:b4ef76864cbde324463135ccacc5a2fcf48a0528de84e54cbae2367e846cfd2a"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.7/files/structure.pdb",
+          "size_bytes": 1360754,
+          "checksum": "sha256:002e4e2b68e46700fb1b197db1b5eba8b74faa4e092b0343239d9014f86ae148"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.7/files/topology.prmtop",
+          "size_bytes": 7275009,
+          "checksum": "sha256:ad40df910ac39d87697f61b7120151dc0e4c1287786f29ae063756edfd7a4d3a"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.7/files/trajectory.xtc",
+          "size_bytes": 3187744,
+          "checksum": "sha256:16d44d55c6202701aceda2f3becd1e3e353ff9faaa58d8da2fb560366e28eace"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005J9.8",
+      "pdb_id": "5YZD",
+      "replica": 8,
+      "atoms": 16799,
+      "frames": 50,
+      "ligand_residue_index": 1101,
+      "ligand_name": "PHQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.8",
+          "size_bytes": 4966,
+          "checksum": "sha256:66cc6e054e4057f0a3ced0369bba76899e04bf4f7ead2beff4adc0a7999754e9"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.8/files/structure.pdb",
+          "size_bytes": 1360754,
+          "checksum": "sha256:853b0e0f969cac93e7dd919d1e2660560e5c2195dda072e9aaf4aac6435c3967"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.8/files/topology.prmtop",
+          "size_bytes": 7275009,
+          "checksum": "sha256:ad40df910ac39d87697f61b7120151dc0e4c1287786f29ae063756edfd7a4d3a"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.8/files/trajectory.xtc",
+          "size_bytes": 3201500,
+          "checksum": "sha256:73a540b47327766e8cde01318d2156a1ac58337e383ea3815ae133fe310dbd8c"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005J9.9",
+      "pdb_id": "5YZD",
+      "replica": 9,
+      "atoms": 16799,
+      "frames": 50,
+      "ligand_residue_index": 1101,
+      "ligand_name": "PHQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.9",
+          "size_bytes": 4966,
+          "checksum": "sha256:7f648ec82b5bf009f64dd8c7baac90023a648b24f51ec8438c3de5cc56fb821c"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.9/files/structure.pdb",
+          "size_bytes": 1360754,
+          "checksum": "sha256:9346e919c8fa0a5b4cc0d6fdc00783685e6ff61278c03f0b3758a53c513fc7d6"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.9/files/topology.prmtop",
+          "size_bytes": 7275009,
+          "checksum": "sha256:ad40df910ac39d87697f61b7120151dc0e4c1287786f29ae063756edfd7a4d3a"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9.9/files/trajectory.xtc",
+          "size_bytes": 3200972,
+          "checksum": "sha256:ae567e856cdfb1c602fd54fad2748a2e589969121c110bb37e2e109b455bdb36"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005NO",
+      "pdb_id": "2A29",
+      "replica": 1,
+      "atoms": 2144,
+      "frames": 50,
+      "ligand_residue_index": 136,
+      "ligand_name": "ANP",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO",
+          "size_bytes": 4330,
+          "checksum": "sha256:2d31b163cedae041df93e9b59e7e4e3367caa69f9858203011330f455bf7f8f7"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO/files/structure.pdb",
+          "size_bytes": 173699,
+          "checksum": "sha256:cb73f5b1dd8b6d674df909d7c084ae005392110c54ec3d80bdc9bb415b436ca3"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO/files/topology.prmtop",
+          "size_bytes": 951660,
+          "checksum": "sha256:aa536fffb0723975ce790319c5b29e7af048fc74f0f3622946a96346bcc81d6e"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO/files/trajectory.xtc",
+          "size_bytes": 409812,
+          "checksum": "sha256:27801844c59888a0ad010b434dd1506ff14643eabefc6e776b3e80988b38cf2c"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005NO.10",
+      "pdb_id": "2A29",
+      "replica": 10,
+      "atoms": 2144,
+      "frames": 50,
+      "ligand_residue_index": 136,
+      "ligand_name": "ANP",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.10",
+          "size_bytes": 4404,
+          "checksum": "sha256:c5286489fcb0b84cc050af700537c71e65bb6244fa9117705b7f21948e6ea611"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.10/files/structure.pdb",
+          "size_bytes": 173699,
+          "checksum": "sha256:66642836f42ed453bd39456b164a65c3484f290704551436e668f3d269a94182"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.10/files/topology.prmtop",
+          "size_bytes": 951660,
+          "checksum": "sha256:aa536fffb0723975ce790319c5b29e7af048fc74f0f3622946a96346bcc81d6e"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.10/files/trajectory.xtc",
+          "size_bytes": 410120,
+          "checksum": "sha256:64d306e913025d29b9782af8cbad1ea7b77b5cc9d6fc93d1fa45d8b1fb600eb1"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005NO.2",
+      "pdb_id": "2A29",
+      "replica": 2,
+      "atoms": 2144,
+      "frames": 50,
+      "ligand_residue_index": 136,
+      "ligand_name": "ANP",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.2",
+          "size_bytes": 4362,
+          "checksum": "sha256:456810bfd3f0594bfed80e953ce51df963393ef45531133bdc8bb5248a108e27"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.2/files/structure.pdb",
+          "size_bytes": 173699,
+          "checksum": "sha256:11e390e7d279ad76ae001c3bfa4d080cee19ea12bd5481e159e6e09b32d15eac"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.2/files/topology.prmtop",
+          "size_bytes": 951660,
+          "checksum": "sha256:aa536fffb0723975ce790319c5b29e7af048fc74f0f3622946a96346bcc81d6e"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.2/files/trajectory.xtc",
+          "size_bytes": 409824,
+          "checksum": "sha256:d4f1ae84434c8edbfd36a1e59719e8289c14b331814c89c44ad13ec96c6ed1e4"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005NO.3",
+      "pdb_id": "2A29",
+      "replica": 3,
+      "atoms": 2144,
+      "frames": 50,
+      "ligand_residue_index": 136,
+      "ligand_name": "ANP",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.3",
+          "size_bytes": 4346,
+          "checksum": "sha256:f7f660819da526fd506c1f10d43138fcc52f729c10f7ed55533d9ba37b60a0bd"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.3/files/structure.pdb",
+          "size_bytes": 173699,
+          "checksum": "sha256:93aba30543d3be5c4e11e2eff617048e64c544095b4fa154ea338953b04df78e"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.3/files/topology.prmtop",
+          "size_bytes": 951660,
+          "checksum": "sha256:aa536fffb0723975ce790319c5b29e7af048fc74f0f3622946a96346bcc81d6e"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.3/files/trajectory.xtc",
+          "size_bytes": 409492,
+          "checksum": "sha256:4b9771494def991e115118d5f2dfa6ab9aca4a9d21c01e3e1746f63898b91cdb"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005NO.4",
+      "pdb_id": "2A29",
+      "replica": 4,
+      "atoms": 2144,
+      "frames": 50,
+      "ligand_residue_index": 136,
+      "ligand_name": "ANP",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.4",
+          "size_bytes": 4442,
+          "checksum": "sha256:27dd575608a57dcd958520edc349563fac5f4c7b8cc6195eddbf058536abfa23"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.4/files/structure.pdb",
+          "size_bytes": 173699,
+          "checksum": "sha256:0d9737ec934021fd5bd2b7c9de268d80cf0d928e670aef9a090a42346c2ac3f9"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.4/files/topology.prmtop",
+          "size_bytes": 951660,
+          "checksum": "sha256:aa536fffb0723975ce790319c5b29e7af048fc74f0f3622946a96346bcc81d6e"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.4/files/trajectory.xtc",
+          "size_bytes": 410136,
+          "checksum": "sha256:28c7b080eb4c0bd360df44feaba695321fc3ec0e4eddc29e41e2b6a9fbe67dd0"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005NO.5",
+      "pdb_id": "2A29",
+      "replica": 5,
+      "atoms": 2144,
+      "frames": 50,
+      "ligand_residue_index": 136,
+      "ligand_name": "ANP",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.5",
+          "size_bytes": 4330,
+          "checksum": "sha256:1e6ba00e3f74d72857cc9ef6a3b31d1922dc444ecc733d98fab073aef364a453"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.5/files/structure.pdb",
+          "size_bytes": 173699,
+          "checksum": "sha256:dbae2e3e55f543d058e497c2074cc8cb84e3e09e948cb42ae0d53a12579e93c1"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.5/files/topology.prmtop",
+          "size_bytes": 951660,
+          "checksum": "sha256:aa536fffb0723975ce790319c5b29e7af048fc74f0f3622946a96346bcc81d6e"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.5/files/trajectory.xtc",
+          "size_bytes": 410132,
+          "checksum": "sha256:5e5dbbb0509a99d048dcbfb5c0a0eb958a740c77352c8975a9852aea42258ca4"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005NO.6",
+      "pdb_id": "2A29",
+      "replica": 6,
+      "atoms": 2144,
+      "frames": 50,
+      "ligand_residue_index": 136,
+      "ligand_name": "ANP",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.6",
+          "size_bytes": 4394,
+          "checksum": "sha256:501fcee01527fe93f9040f8a5f1903fdf387bfd4e0e9508d756f894b0dd3cef7"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.6/files/structure.pdb",
+          "size_bytes": 173699,
+          "checksum": "sha256:abae55b4e6884b288675d71fe5f4a84c60366929805e701856b35dff2164b014"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.6/files/topology.prmtop",
+          "size_bytes": 951660,
+          "checksum": "sha256:aa536fffb0723975ce790319c5b29e7af048fc74f0f3622946a96346bcc81d6e"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.6/files/trajectory.xtc",
+          "size_bytes": 409712,
+          "checksum": "sha256:7f7bac2e33828df82480962a54805940f25a022049570ad27730599d40ae702d"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005NO.7",
+      "pdb_id": "2A29",
+      "replica": 7,
+      "atoms": 2144,
+      "frames": 50,
+      "ligand_residue_index": 136,
+      "ligand_name": "ANP",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.7",
+          "size_bytes": 4410,
+          "checksum": "sha256:cdfd0aed8d162e34acc8f056eebfc2c1de0d460c3fe70e9f53d4a4cfc84b2f03"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.7/files/structure.pdb",
+          "size_bytes": 173699,
+          "checksum": "sha256:d23d42ebd5dab9c1463919b2dc8bd9654f497f4c834519f83effeca26a903721"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.7/files/topology.prmtop",
+          "size_bytes": 951660,
+          "checksum": "sha256:aa536fffb0723975ce790319c5b29e7af048fc74f0f3622946a96346bcc81d6e"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.7/files/trajectory.xtc",
+          "size_bytes": 409816,
+          "checksum": "sha256:35644bcb9fe4e6da31568af98b0ac09af8483af029b60fc2f89f9981d65831da"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005NO.8",
+      "pdb_id": "2A29",
+      "replica": 8,
+      "atoms": 2144,
+      "frames": 50,
+      "ligand_residue_index": 136,
+      "ligand_name": "ANP",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.8",
+          "size_bytes": 4306,
+          "checksum": "sha256:8c9497810f95d01ba8c8a64a4f6c3a8aedc7ff0843be1ef97e1dc19279d04617"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.8/files/structure.pdb",
+          "size_bytes": 173699,
+          "checksum": "sha256:de87c8fc16bf9168e9e7fb493897451d0e0d8333d0d5571bf93a8e4500077432"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.8/files/topology.prmtop",
+          "size_bytes": 951660,
+          "checksum": "sha256:aa536fffb0723975ce790319c5b29e7af048fc74f0f3622946a96346bcc81d6e"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.8/files/trajectory.xtc",
+          "size_bytes": 410196,
+          "checksum": "sha256:8c7ca28fd6bf77e4b64cf026e854257c4f8183f77dddeeac9b2ceef7998fffe7"
+        }
+      }
+    },
+    {
+      "accession": "MD-A005NO.9",
+      "pdb_id": "2A29",
+      "replica": 9,
+      "atoms": 2144,
+      "frames": 50,
+      "ligand_residue_index": 136,
+      "ligand_name": "ANP",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.9",
+          "size_bytes": 4338,
+          "checksum": "sha256:9f389fddb8902099b86ed3e1758a85a684b1968dbe684625c2c0669fa6448f1b"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.9/files/structure.pdb",
+          "size_bytes": 173699,
+          "checksum": "sha256:4d99bfac572d56dfe76d29245ac612eb6fe4194b1a7131603883a25e5ad64966"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.9/files/topology.prmtop",
+          "size_bytes": 951660,
+          "checksum": "sha256:aa536fffb0723975ce790319c5b29e7af048fc74f0f3622946a96346bcc81d6e"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO.9/files/trajectory.xtc",
+          "size_bytes": 410232,
+          "checksum": "sha256:52f22a998d94b18e37f2dabd6611b0bac776148a197e49e8366aff9ca306d18a"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006JJ",
+      "pdb_id": "4ACG",
+      "replica": 1,
+      "atoms": 11387,
+      "frames": 50,
+      "ligand_residue_index": 702,
+      "ligand_name": "6LQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ",
+          "size_bytes": 5094,
+          "checksum": "sha256:1eb999105a8ff6bb50db7aa6cc72941162ef2724760177dabd949ec591b52058"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ/files/structure.pdb",
+          "size_bytes": 922382,
+          "checksum": "sha256:2a94901459ff721f504a3b1f40c9b02ab41fce81f0dffe497be8b77629ec4b36"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ/files/topology.prmtop",
+          "size_bytes": 4933332,
+          "checksum": "sha256:2a99b3f8fe498d25e02ede2b459f0bb06f9125a3e2c250a89f096379d7485f3b"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ/files/trajectory.xtc",
+          "size_bytes": 2172196,
+          "checksum": "sha256:bb5ddc55c244f02966c0732b33015a1bd6b4c9fdc01648ec9a6ea6b0df29c814"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006JJ.10",
+      "pdb_id": "4ACG",
+      "replica": 10,
+      "atoms": 11387,
+      "frames": 50,
+      "ligand_residue_index": 702,
+      "ligand_name": "6LQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.10",
+          "size_bytes": 5072,
+          "checksum": "sha256:b2a91bc04ab807e486c90c586a4da8809363002b18b429c48462e8f8460fb570"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.10/files/structure.pdb",
+          "size_bytes": 922382,
+          "checksum": "sha256:bcb9b754f1abd5406ea2bea0d15f9bd3de6d7aff38c799f5a558bc9a0ee36f94"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.10/files/topology.prmtop",
+          "size_bytes": 4933332,
+          "checksum": "sha256:2a99b3f8fe498d25e02ede2b459f0bb06f9125a3e2c250a89f096379d7485f3b"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.10/files/trajectory.xtc",
+          "size_bytes": 2152000,
+          "checksum": "sha256:8b8dec96f46f0fa59abcc03d5e7519952a65166de9acf1edbb868db697acfbb3"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006JJ.2",
+      "pdb_id": "4ACG",
+      "replica": 2,
+      "atoms": 11387,
+      "frames": 50,
+      "ligand_residue_index": 702,
+      "ligand_name": "6LQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.2",
+          "size_bytes": 4998,
+          "checksum": "sha256:8ae3f0058b379b2ddfc845c67ec51e2fa47e63d0d574c787cfee05d457560d8f"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.2/files/structure.pdb",
+          "size_bytes": 922382,
+          "checksum": "sha256:17def7d6a30572491646d6a480eed2c97de339e9ac14eadc561c6e576d67e584"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.2/files/topology.prmtop",
+          "size_bytes": 4933332,
+          "checksum": "sha256:2a99b3f8fe498d25e02ede2b459f0bb06f9125a3e2c250a89f096379d7485f3b"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.2/files/trajectory.xtc",
+          "size_bytes": 2163268,
+          "checksum": "sha256:bed102735646956d97c91660c63f7ba804a1b7904f0e55d25c8332065da46b8a"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006JJ.3",
+      "pdb_id": "4ACG",
+      "replica": 3,
+      "atoms": 11387,
+      "frames": 50,
+      "ligand_residue_index": 702,
+      "ligand_name": "6LQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.3",
+          "size_bytes": 4974,
+          "checksum": "sha256:77c7d127032b579b9e94d55527ce7cedd0ac45a205342f1844e3af4e06ea103f"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.3/files/structure.pdb",
+          "size_bytes": 922382,
+          "checksum": "sha256:7ecc949d031f32255ae40b24dd502708b942c940be56461333e7354beed68754"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.3/files/topology.prmtop",
+          "size_bytes": 4933332,
+          "checksum": "sha256:2a99b3f8fe498d25e02ede2b459f0bb06f9125a3e2c250a89f096379d7485f3b"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.3/files/trajectory.xtc",
+          "size_bytes": 2171388,
+          "checksum": "sha256:8989599b719099f6a096e68072a1a9458ea658b196fbc41c84a9d0e6f302af6f"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006JJ.4",
+      "pdb_id": "4ACG",
+      "replica": 4,
+      "atoms": 11387,
+      "frames": 50,
+      "ligand_residue_index": 702,
+      "ligand_name": "6LQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.4",
+          "size_bytes": 5094,
+          "checksum": "sha256:81ce60599d1238bb288d4e360e561c93d6a47ddcd75b25770da3576fb7c83951"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.4/files/structure.pdb",
+          "size_bytes": 922382,
+          "checksum": "sha256:22895920a88a48297ddb3dfbac1aef9747b00cd0cee100037b741f8f28cbfb82"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.4/files/topology.prmtop",
+          "size_bytes": 4933332,
+          "checksum": "sha256:2a99b3f8fe498d25e02ede2b459f0bb06f9125a3e2c250a89f096379d7485f3b"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.4/files/trajectory.xtc",
+          "size_bytes": 2166960,
+          "checksum": "sha256:2fc44681aeaec3d2451b0321679ee1385ab9250466dc85f817ea17ad5a592969"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006JJ.5",
+      "pdb_id": "4ACG",
+      "replica": 5,
+      "atoms": 11387,
+      "frames": 50,
+      "ligand_residue_index": 702,
+      "ligand_name": "6LQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.5",
+          "size_bytes": 5022,
+          "checksum": "sha256:9d8611a7ad61f67b57eaaf455f6b169856b4383286d861f7d7efa13071c0b0c6"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.5/files/structure.pdb",
+          "size_bytes": 922382,
+          "checksum": "sha256:9bdc8b4291da17be8e7b7a309b26af3a279d2342f272221aeb5b8b7f9332887e"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.5/files/topology.prmtop",
+          "size_bytes": 4933332,
+          "checksum": "sha256:2a99b3f8fe498d25e02ede2b459f0bb06f9125a3e2c250a89f096379d7485f3b"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.5/files/trajectory.xtc",
+          "size_bytes": 2159720,
+          "checksum": "sha256:1ad9f85303bbe6f74c26c452376e413a85369044fdf3d63e8114395e7b8b8bc6"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006JJ.6",
+      "pdb_id": "4ACG",
+      "replica": 6,
+      "atoms": 11387,
+      "frames": 50,
+      "ligand_residue_index": 702,
+      "ligand_name": "6LQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.6",
+          "size_bytes": 5046,
+          "checksum": "sha256:5e267ea592f8cce026157e60a3f17d02d5d0993f76720f13a6cc1c45098996a1"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.6/files/structure.pdb",
+          "size_bytes": 922382,
+          "checksum": "sha256:041272642ef54a61d0a20df254e9e3f4f9497d188cbb897d5a5e53c27c6012ae"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.6/files/topology.prmtop",
+          "size_bytes": 4933332,
+          "checksum": "sha256:2a99b3f8fe498d25e02ede2b459f0bb06f9125a3e2c250a89f096379d7485f3b"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.6/files/trajectory.xtc",
+          "size_bytes": 2166316,
+          "checksum": "sha256:8bdb9cdc60b57ad7dda0709724634e7b54e56015635cf0cac1b367a0334f009f"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006JJ.7",
+      "pdb_id": "4ACG",
+      "replica": 7,
+      "atoms": 11387,
+      "frames": 50,
+      "ligand_residue_index": 702,
+      "ligand_name": "6LQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.7",
+          "size_bytes": 5046,
+          "checksum": "sha256:cda8da69159988a276d93fae3f734e47e267456c7683777a2f59895dff706efd"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.7/files/structure.pdb",
+          "size_bytes": 922382,
+          "checksum": "sha256:3f6d3aa56ca86a644ac9208ca542713f9f7220bd399292f84eb79f1461e4e49e"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.7/files/topology.prmtop",
+          "size_bytes": 4933332,
+          "checksum": "sha256:2a99b3f8fe498d25e02ede2b459f0bb06f9125a3e2c250a89f096379d7485f3b"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.7/files/trajectory.xtc",
+          "size_bytes": 2171744,
+          "checksum": "sha256:748a7bc7464933bf6264e0f59060a7ff5a93bd6fae041d54f77b469229bae823"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006JJ.8",
+      "pdb_id": "4ACG",
+      "replica": 8,
+      "atoms": 11387,
+      "frames": 50,
+      "ligand_residue_index": 702,
+      "ligand_name": "6LQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.8",
+          "size_bytes": 5022,
+          "checksum": "sha256:fd8c7f86345821ae3abba0f5ac46cbafe62dd1b4b7e4158cd2a7dc21f3c1aa1a"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.8/files/structure.pdb",
+          "size_bytes": 922382,
+          "checksum": "sha256:b4945c1f9f3633435c26e8dcb1601688905b9d4367f58b569b91940c560614fe"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.8/files/topology.prmtop",
+          "size_bytes": 4933332,
+          "checksum": "sha256:2a99b3f8fe498d25e02ede2b459f0bb06f9125a3e2c250a89f096379d7485f3b"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.8/files/trajectory.xtc",
+          "size_bytes": 2166932,
+          "checksum": "sha256:93f2a50b8a770861e490c9d952e0cd807a7f1245a79aadb17beb7e840a388c27"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006JJ.9",
+      "pdb_id": "4ACG",
+      "replica": 9,
+      "atoms": 11387,
+      "frames": 50,
+      "ligand_residue_index": 702,
+      "ligand_name": "6LQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.9",
+          "size_bytes": 5094,
+          "checksum": "sha256:0b1526d9528b1bfd5ea941a2f32ee225330cd90a87ac06b184121eac5276fe85"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.9/files/structure.pdb",
+          "size_bytes": 922382,
+          "checksum": "sha256:bc229870f2973cdff99f6e6fa11bbcba0ffac6d07ea2e9868bbb2ca0d3874dbd"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.9/files/topology.prmtop",
+          "size_bytes": 4933332,
+          "checksum": "sha256:2a99b3f8fe498d25e02ede2b459f0bb06f9125a3e2c250a89f096379d7485f3b"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ.9/files/trajectory.xtc",
+          "size_bytes": 2167128,
+          "checksum": "sha256:8077503f82f0bf7734224d70e5ecd964861d5750fa5e428e61c2c348abf96c33"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006S0",
+      "pdb_id": "4EUC",
+      "replica": 1,
+      "atoms": 15391,
+      "frames": 50,
+      "ligand_residue_index": 1008,
+      "ligand_name": "0RQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0",
+          "size_bytes": 5492,
+          "checksum": "sha256:724812e0f9a5edd3e3027a8adf92a1d1c9f1dd5cdca5e7b4cdb9204ba2656d6b"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0/files/structure.pdb",
+          "size_bytes": 1246706,
+          "checksum": "sha256:9d65da3f6c0095f0f5d822a21f2716637e0983a6dfcaf67853f42c58c606e7cf"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0/files/topology.prmtop",
+          "size_bytes": 6638229,
+          "checksum": "sha256:ddff29f5fe3837db23c9affab82508220d5052f6c2bd213ae152e01c1372bad6"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0/files/trajectory.xtc",
+          "size_bytes": 2929316,
+          "checksum": "sha256:adebe84d35077b41cf643da7a83398ad8267977219575be98e092addefdbf6c3"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006S0.10",
+      "pdb_id": "4EUC",
+      "replica": 10,
+      "atoms": 15391,
+      "frames": 50,
+      "ligand_residue_index": 1008,
+      "ligand_name": "0RQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.10",
+          "size_bytes": 5566,
+          "checksum": "sha256:aaa8fac4f6dbafb549c3d2afc110355d0665917c01f4ba226ca61b5c9b061888"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.10/files/structure.pdb",
+          "size_bytes": 1246706,
+          "checksum": "sha256:983a972a89e86edf2bafe99aac354cc4fe47cecd6911aee425dacf5fc3d64253"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.10/files/topology.prmtop",
+          "size_bytes": 6638229,
+          "checksum": "sha256:ddff29f5fe3837db23c9affab82508220d5052f6c2bd213ae152e01c1372bad6"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.10/files/trajectory.xtc",
+          "size_bytes": 2920696,
+          "checksum": "sha256:0ee8eeff22316be39c288b1f266dc75543159c5136d0d7672785eca2cdde8b96"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006S0.2",
+      "pdb_id": "4EUC",
+      "replica": 2,
+      "atoms": 15391,
+      "frames": 50,
+      "ligand_residue_index": 1008,
+      "ligand_name": "0RQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.2",
+          "size_bytes": 5612,
+          "checksum": "sha256:f9fc30cd43bf5dd970e5f6b0287ed6122e00b91aaa141135606ad3c32a7067a1"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.2/files/structure.pdb",
+          "size_bytes": 1246706,
+          "checksum": "sha256:e3cb8dbab76b3a89dd4952f8291c2a3e00f5e3071332c685bd03f3a3c9fe8067"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.2/files/topology.prmtop",
+          "size_bytes": 6638229,
+          "checksum": "sha256:ddff29f5fe3837db23c9affab82508220d5052f6c2bd213ae152e01c1372bad6"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.2/files/trajectory.xtc",
+          "size_bytes": 2930300,
+          "checksum": "sha256:e91f763edf2ad0728e36ef3e955d55662e5ce9505fc9f70777f5dccb692fd01b"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006S0.3",
+      "pdb_id": "4EUC",
+      "replica": 3,
+      "atoms": 15391,
+      "frames": 50,
+      "ligand_residue_index": 1008,
+      "ligand_name": "0RQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.3",
+          "size_bytes": 5612,
+          "checksum": "sha256:f0e165fe8f8a1678719d848b9ae4a8e95b44b5042c57a789b060c0ebc65ff4f5"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.3/files/structure.pdb",
+          "size_bytes": 1246706,
+          "checksum": "sha256:c0f6ed2a69bfeb9572b7d866de1d0168edcba8429ef0954bc028a9d7b9f7271b"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.3/files/topology.prmtop",
+          "size_bytes": 6638229,
+          "checksum": "sha256:ddff29f5fe3837db23c9affab82508220d5052f6c2bd213ae152e01c1372bad6"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.3/files/trajectory.xtc",
+          "size_bytes": 2927740,
+          "checksum": "sha256:cc6058b4f793d61503e03ee95e532ad253ff418f60b149bde54061b397b58872"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006S0.4",
+      "pdb_id": "4EUC",
+      "replica": 4,
+      "atoms": 15391,
+      "frames": 50,
+      "ligand_residue_index": 1008,
+      "ligand_name": "0RQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.4",
+          "size_bytes": 5612,
+          "checksum": "sha256:33c42514f75ece80799b8783cea0b5d3567db91bae0a678e13b0abbd1a6afe45"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.4/files/structure.pdb",
+          "size_bytes": 1246706,
+          "checksum": "sha256:d111e2a42f6dc99182d60952aff37bc01f47baf8e16b03cc56626513694d02cc"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.4/files/topology.prmtop",
+          "size_bytes": 6638229,
+          "checksum": "sha256:ddff29f5fe3837db23c9affab82508220d5052f6c2bd213ae152e01c1372bad6"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.4/files/trajectory.xtc",
+          "size_bytes": 2926644,
+          "checksum": "sha256:ce35bfb7d9f23723ddeafa2b3d41813d55d4ba2dd2e1f0d17e3f6308dc027dcd"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006S0.5",
+      "pdb_id": "4EUC",
+      "replica": 5,
+      "atoms": 15391,
+      "frames": 50,
+      "ligand_residue_index": 1008,
+      "ligand_name": "0RQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.5",
+          "size_bytes": 5540,
+          "checksum": "sha256:95deb30f8b7ef54f8c68b6031a43dccf6213d9b40768e4d28bf46bfb447b9891"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.5/files/structure.pdb",
+          "size_bytes": 1246706,
+          "checksum": "sha256:6a694264c006e88e34f1579695cf15f82a467afc5235ffb959159dc3a4d957a8"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.5/files/topology.prmtop",
+          "size_bytes": 6638229,
+          "checksum": "sha256:ddff29f5fe3837db23c9affab82508220d5052f6c2bd213ae152e01c1372bad6"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.5/files/trajectory.xtc",
+          "size_bytes": 2924552,
+          "checksum": "sha256:5f1bcfa41e3e930ace13f034bf2159c7e9ea744d63bb66350b1a70b76550a95f"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006S0.6",
+      "pdb_id": "4EUC",
+      "replica": 6,
+      "atoms": 15391,
+      "frames": 50,
+      "ligand_residue_index": 1008,
+      "ligand_name": "0RQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.6",
+          "size_bytes": 5612,
+          "checksum": "sha256:9047b2f2efafdefb303ad8cf32094b49d08024b6c072b202135506a16a1a344d"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.6/files/structure.pdb",
+          "size_bytes": 1246706,
+          "checksum": "sha256:bfeb08eb056be359f03866cc6b24e7998f8888e030f459707d82258131ce76f6"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.6/files/topology.prmtop",
+          "size_bytes": 6638229,
+          "checksum": "sha256:ddff29f5fe3837db23c9affab82508220d5052f6c2bd213ae152e01c1372bad6"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.6/files/trajectory.xtc",
+          "size_bytes": 2924440,
+          "checksum": "sha256:8f779755b1a9c86e6dd69d2cfd26a6bbb18f1c95fe9bbb297bb6e2fbdfd46bf9"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006S0.7",
+      "pdb_id": "4EUC",
+      "replica": 7,
+      "atoms": 15391,
+      "frames": 50,
+      "ligand_residue_index": 1008,
+      "ligand_name": "0RQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.7",
+          "size_bytes": 5612,
+          "checksum": "sha256:5a79d7b627fedcf35f0dcc55e136ec8e1d0dc363edb6149de8fa1fc86b811fe5"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.7/files/structure.pdb",
+          "size_bytes": 1246706,
+          "checksum": "sha256:fb2889d586188d3cdfc674befd75411bee5ebafc5498bf2d351d9098b464ec81"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.7/files/topology.prmtop",
+          "size_bytes": 6638229,
+          "checksum": "sha256:ddff29f5fe3837db23c9affab82508220d5052f6c2bd213ae152e01c1372bad6"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.7/files/trajectory.xtc",
+          "size_bytes": 2928196,
+          "checksum": "sha256:6b1995a55d2a178d87988c382a07106d22384bb61985f2113b94777c9534a25a"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006S0.8",
+      "pdb_id": "4EUC",
+      "replica": 8,
+      "atoms": 15391,
+      "frames": 50,
+      "ligand_residue_index": 1008,
+      "ligand_name": "0RQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.8",
+          "size_bytes": 5564,
+          "checksum": "sha256:1459b2e2155077e0fe2627fd87e149c05131fda0019cd3d1269b608772419673"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.8/files/structure.pdb",
+          "size_bytes": 1246706,
+          "checksum": "sha256:d12ae9fa5fada3b305952219940fa494d1ef6c420952c9232a583246f4707708"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.8/files/topology.prmtop",
+          "size_bytes": 6638229,
+          "checksum": "sha256:ddff29f5fe3837db23c9affab82508220d5052f6c2bd213ae152e01c1372bad6"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.8/files/trajectory.xtc",
+          "size_bytes": 2924344,
+          "checksum": "sha256:194945826f656ec52a2ec6ea901347a52b403a854c9f66125cdc8d4f913fce5d"
+        }
+      }
+    },
+    {
+      "accession": "MD-A006S0.9",
+      "pdb_id": "4EUC",
+      "replica": 9,
+      "atoms": 15391,
+      "frames": 50,
+      "ligand_residue_index": 1008,
+      "ligand_name": "0RQ",
+      "interaction_selection": "chain X H M",
+      "license_id": "CC-BY-4.0",
+      "frame_interval_ps": 200.0,
+      "files": {
+        "record.json": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.9",
+          "size_bytes": 5660,
+          "checksum": "sha256:9a565b8650bd8c0fe4a5f9bb2dd3615855a09c4edf0f0e2396eda4170edcc126"
+        },
+        "structure.pdb": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.9/files/structure.pdb",
+          "size_bytes": 1246706,
+          "checksum": "sha256:d69e38ea263d6737ec62c4f72cd839a3f384ea796a6586bd2dd8009e355eb250"
+        },
+        "topology.prmtop": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.9/files/topology.prmtop",
+          "size_bytes": 6638229,
+          "checksum": "sha256:ddff29f5fe3837db23c9affab82508220d5052f6c2bd213ae152e01c1372bad6"
+        },
+        "trajectory.xtc": {
+          "mode": "metadata",
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0.9/files/trajectory.xtc",
+          "size_bytes": 2928016,
+          "checksum": "sha256:4a816b569578018170ae9bdc99cf2299bb0aed9e61683b9a7cf5bffdf050f945"
+        }
+      }
+    }
+  ],
+  "reserve_hash": "sha256:86a7d96d59cbe5775b4f45c714289126f31587328d121e7c91fa4a0718de77aa"
+}

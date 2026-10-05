@@ -1,0 +1,1753 @@
+{
+  "sources": [
+    {
+      "pdb_id": "1EBG",
+      "accession": "MD-A006I0",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006I0",
+      "record_sha256": "bde8902cfe56cfc5154a11bb3c1e0d60eac63de50fb74c34dbfbded7a8a06585",
+      "record_bytes": 5005,
+      "atoms": 13203,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:29b8648010ea949a2e05f59657ff4113146b1a6728ee44b22cf66a744428da04"
+      ],
+      "inchikeys": [
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N",
+        "LDKRAXXVBWHMRH-UHFFFAOYSA-L"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not resid 877",
+          "agent_2": "ligand",
+          "selection_2": "resid 877",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM",
+      "record_sha256": "a61c221eaa490ab8f7c19ba127c99e9eaa199a6949e4dc26e78c0f7f76b6d2bb",
+      "record_bytes": 4936,
+      "atoms": 2602,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:41d32cbef0564f4e6085196b0f0b0a87241055f9c2ee636e664d41c53f5ce59b"
+      ],
+      "inchikeys": [
+        "FYYHWMGAXLPEAU-UHFFFAOYSA-N",
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not resid 160",
+          "agent_2": "ligand",
+          "selection_2": "resid 160",
+          "type": "carbohydrate-protein"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "1FPY",
+      "accession": "MD-A006I9",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006I9",
+      "record_sha256": "5ff115ebfee25abbac7d3cb76caf4ef24969da7cb9657235282c2aabb019086e",
+      "record_bytes": 4828,
+      "atoms": 21571,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:d71e453d56a62a425d81cc3d1e29d9f61da61a3d37f43b8a487e31ea070f20a0"
+      ],
+      "inchikeys": [
+        "IAJOBQBIJHVGMQ-BYPYZUCNSA-M",
+        "PWHULOQIROXLJO-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": true,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not resid 1411",
+          "agent_2": "ligand",
+          "selection_2": "resid 1411",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "1GT5",
+      "accession": "MD-A003R8",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003R8",
+      "record_sha256": "0e4549e5c1958661b86dc44b7c648423b9205ad9ea61c3d450d20ab2b988ffbf",
+      "record_bytes": 4551,
+      "atoms": 5100,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:e0898cc643259d6554380a98d0f581246312e3542d338f841ac805fa0e0e31f9",
+        "sha256:e1e35026aca650160294145b659454d5be596a41593573870e36c603fc522f54"
+      ],
+      "inchikeys": [
+        "QILSFLSDHQAZET-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not resid 316",
+          "agent_2": "ligand",
+          "selection_2": "resid 316",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "1H27",
+      "accession": "MD-A0078Q",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0078Q",
+      "record_sha256": "d7beb0e73ceb5aeb437f6ca70465c96fd1d912ad805ca348e81a8c7528647a20",
+      "record_bytes": 5202,
+      "atoms": 9138,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:5165d9bb5f866eba3d92c81ffcb6f2af1f955e33298bb9a37237085fda33ccda",
+        "sha256:21f0deb44504b06d40a46d503ca85fc63b17ab34aa18812f7379c7055d5df32e"
+      ],
+      "inchikeys": [
+        "NDRNZUNQVRJHNT-LSBAASHUSA-O"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not resid 557",
+          "agent_2": "ligand",
+          "selection_2": "resid 557",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "1M1B",
+      "accession": "MD-A003SP",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003SP",
+      "record_sha256": "565727ad08e8d26de1cae86f80f5b5545695b921b43b7dab0cc8020a247a6fe4",
+      "record_bytes": 5135,
+      "atoms": 18136,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:fadf245bf4624ee725a35d4e8726f5bd87be0809d72075743df8bb088a56ad5d",
+        "sha256:65a4b4234091316a6e194ec217289225482d531f1e12665168b7439c42d7aebb"
+      ],
+      "inchikeys": [
+        "BUTHMSUEBYPMKJ-UHFFFAOYSA-L",
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not resid 1165",
+          "agent_2": "ligand",
+          "selection_2": "resid 1165",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "1PX4",
+      "accession": "MD-A00652",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00652",
+      "record_sha256": "a35816a6e81b3fb8ebbdbf5f81bb5200d928bdf6d21dd1d97ac47a73b14d78e5",
+      "record_bytes": 5762,
+      "atoms": 63441,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:97fadd033cc5f8550d5cedc6d2fae5aa63bc40f08035efe01ee5047e923d0f27"
+      ],
+      "inchikeys": [
+        "BPHPUYQFMNQIOC-NXRLNHOXSA-N",
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653",
+      "record_sha256": "5dcb75a7dc9ca24871b1ea850a7179b1a465bd61970a94cb8eae667e8124d055",
+      "record_bytes": 7280,
+      "atoms": 65976,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:5021725e7b349c6dae84114c9abb7cace6fa50f5c3c43158ec46b3017baf73bb",
+        "sha256:0b535adaddc8b521fee93071167036a8d1a53c422ad798cf0b8e9224369a64b9",
+        "sha256:62b21c454730c42ab4404fc05e5bb2496247569cab61ac03788c2ad44f78f30f",
+        "sha256:b9373b6616e38d3519e7d20fe216cd8d1f6518e7bcc11b42cf1aaf243d7224de",
+        "sha256:cd0313151269ac12bf5f3f4a622cc0fbaec065b273543c61886516ac93d305d2",
+        "sha256:75bad2518ff1e11de70177d14eb14ba73219e0a84bd0b91230a3ad2541960cdc",
+        "sha256:a45d1b3e152216725d0ef0cc9c85853121482bc95ab85e8231616eb7c5920a54",
+        "sha256:3ef5e25794d51e24d3ca8b0c9de54defcd34a78375041da65314c9052839a471",
+        "sha256:d93e252c9d333ebeedda4c0da43a7592b5b9e80f5cef5484cfdbbf6db1606267",
+        "sha256:296386fb95676cc5acf174f50f176928fd8c23a76dc5c0f0f40942dd639537dd",
+        "sha256:62bef8e38d1f316f74c512d0a7bfa8ce1ef397b9e90dd5bddbe8cd47752e9d28"
+      ],
+      "inchikeys": [
+        "VEJCBCPEURAYAS-MEAXDALNSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "1TJP",
+      "accession": "MD-A005NA",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NA",
+      "record_sha256": "5e3717f307125987e867617127b081d3cdb2a2e2896365c142291abece518f1f",
+      "record_bytes": 5218,
+      "atoms": 19992,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:dc73566ae522f94e18228a252b0539800a05718b49b56d087c368cc0a5ce19a3",
+        "sha256:9392bf7c4200e598adc52f67b5f20bfc9fad5f2dd955490c8bba5efe5b19ff63"
+      ],
+      "inchikeys": [
+        "SPOVITMZOKMJPQ-RKDXNWHRSA-L"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "1TKC",
+      "accession": "MD-A004AU",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004AU",
+      "record_sha256": "3529a468b264554267c7bf5b273449f1749faa4ec64331ac0939d9c3f83505c4",
+      "record_bytes": 5590,
+      "atoms": 20727,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:e091f6292145b15fe83ee83d58c52b90d49ceb3a409d0262cc63c197fd694ce6"
+      ],
+      "inchikeys": [
+        "BHPQYMZQTOCNFJ-UHFFFAOYSA-N",
+        "XTYXJYCWAJSHCY-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": true,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "1YID",
+      "accession": "MD-A004BY",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004BY",
+      "record_sha256": "9766ede4c9c523d588ab38ef66c3ad62f9a9cb76a333b1efb879a43841661e15",
+      "record_bytes": 4723,
+      "atoms": 10274,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:4423d0e95ca52fb2aec6a392195e2ec512e788a57e76410a51715dac52718d10"
+      ],
+      "inchikeys": [
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N",
+        "ZKHQWZAMYRWXGA-KQYNXXCUSA-J"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655",
+      "record_sha256": "87ebbdb4ae62602386664f5fa8f06971c175aec00cf12cc6268ce83e3c068e14",
+      "record_bytes": 5049,
+      "atoms": 2039,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:8c2f02140ad227a9a489aee9e616f51d9ecf68ab2ccee4fb2a39e27934c88940"
+      ],
+      "inchikeys": [
+        "KEAYESYHFKHZAL-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "other-protein"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "2CLV",
+      "accession": "MD-A005ZA",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005ZA",
+      "record_sha256": "a9b753abec3886945d06e01b766afdd4464d5ae06228feb046c497ebcdd243af",
+      "record_bytes": 5411,
+      "atoms": 6177,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:05bd23445078790a5b084403d86e543ee10aa2179be400df619f1c6448d557bc",
+        "sha256:d65ae8b6f1bc753b094585a6aa3212f9d7f9dd6c41a13cc3dc271091dde8ceb3"
+      ],
+      "inchikeys": [
+        "LPOKUYGNWKIPJK-QSVFAHTRSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not resid 379",
+          "agent_2": "ligand",
+          "selection_2": "resid 379",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "2F89",
+      "accession": "MD-A004D1",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004D1",
+      "record_sha256": "a8ab78d7df15f84ae72089fa8f805bc73a5442a9edddaf33482fefce8d1f8762",
+      "record_bytes": 4720,
+      "atoms": 11227,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:5d5483f72fedecba3adf2a327cfc755d352d1bc9867737230fc95bb51bdd6633"
+      ],
+      "inchikeys": [
+        "PWHULOQIROXLJO-UHFFFAOYSA-N",
+        "WRUUGTRCQOWXEG-UHFFFAOYSA-K"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": true,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "2FYV",
+      "accession": "MD-A004D5",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004D5",
+      "record_sha256": "9ac7fd61437d5e42f6162cb57a5dfea31c9bcf08ef7330cfbc975aa6f204acb9",
+      "record_bytes": 5805,
+      "atoms": 16200,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:a2860071227de1e1351b5f56c082ff4964a22413b1d688bd2884b8004393b342"
+      ],
+      "inchikeys": [
+        "PTFCDOFLOPIGGS-UHFFFAOYSA-N",
+        "ULVYPTHABPSARY-ZUKYLOAXSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC",
+      "record_sha256": "d63884f0eef4f9ea2b89c1a619a40f3bc65dc8c04ab36bc3dee552062c5df76e",
+      "record_bytes": 4806,
+      "atoms": 6184,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:5659b26ba79429403ca89302425e6c3e4e81173d4b0c68e82ab98f00f9dcfb61",
+        "sha256:53b1ec1238dac9d76243d6401a7e7ce9dd32b1ac6f5f6044b2b45649f4cda54b",
+        "sha256:7f647b7028a5ddb4bd8fad9e9450099309169d80b7a19a94e9e7777ef5b30273"
+      ],
+      "inchikeys": [
+        "BHPQYMZQTOCNFJ-UHFFFAOYSA-N",
+        "OYPRJOBELJOOCE-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": true,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not resid 397",
+          "agent_2": "ligand",
+          "selection_2": "resid 397",
+          "type": "other-protein"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI",
+      "record_sha256": "730b59bd9fd1243dcd6b63cc43f177a9dbccc543d2504894d34a78bd318e6b09",
+      "record_bytes": 4841,
+      "atoms": 1454,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:abc796cd6eb2b4d48612755c9e8bd9d6547a50eacc93543e67a279b94f10e194",
+        "sha256:2da6eac89ed235abc8102536299472b0318386278105bd0014268abf1caaafe0"
+      ],
+      "inchikeys": [
+        "HCHKCACWOHOZIP-UHFFFAOYSA-N",
+        "PTFCDOFLOPIGGS-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X",
+          "agent_2": "ligand",
+          "selection_2": "chain X",
+          "type": "other-protein"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602",
+      "record_sha256": "787db2963aacad9be1e5906307c668b6ebf5cdc4605282b7f3226e1880ce9fb4",
+      "record_bytes": 4476,
+      "atoms": 66499,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:d97e5343ffff0f4df051fb910560b58126a187d845a814afc8fca433376fbaf3"
+      ],
+      "inchikeys": [
+        "RFNSOGBPEIEMLJ-QMMMGPOBSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "2WK6",
+      "accession": "MD-A0046K",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0046K",
+      "record_sha256": "a0b4c9fed5ad410a796ec5adf89bfb956c58ad0477c3794780f5a47b975c37df",
+      "record_bytes": 4419,
+      "atoms": 13264,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:8d02bc6baf33906512688e2811e368974376795d1d1ef3cf45d86fb2d2749233"
+      ],
+      "inchikeys": [
+        "XXQHLZYQOKPGEY-UWTATZPHSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE",
+      "record_sha256": "d0f0071f96d25a6e7d7a11293673ecf715815f087624797236e4a6f3c51636b8",
+      "record_bytes": 5507,
+      "atoms": 40381,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:c98d72203216604562e57479098920b5b09249db489b90dbfc9bceac5b7aef17"
+      ],
+      "inchikeys": [
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N",
+        "VCVNVMMBOYEYKV-ZCFIWIBFSA-M"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "2XN7",
+      "accession": "MD-A00472",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00472",
+      "record_sha256": "2c9c20ba53e9e6f0998b75666cfcc9d033bc3ce74f4c5cd13c1521e0b5691f92",
+      "record_bytes": 5280,
+      "atoms": 5989,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:5dc847826bd7af44b3f253ecb54864f453c8ec76a788546543c688ed55a22abe",
+        "sha256:00cacc1dc77a0662ec5ef330585586902fe22c4346d02aceaf7d39ce7c1fb1f8"
+      ],
+      "inchikeys": [
+        "BHPQYMZQTOCNFJ-UHFFFAOYSA-N",
+        "KCHFMVRUNDATDD-NDEPHWFRSA-M"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": true,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "3AT1",
+      "accession": "MD-A00607",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00607",
+      "record_sha256": "47955e28ac1bf6da152cbc9c43d97b153cfc004921fe8f6c19741ca0200a87f3",
+      "record_bytes": 4780,
+      "atoms": 42834,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:c65152196165b301eed33c6a410191fbb14f768c4884cec2df428c0567bab814",
+        "sha256:ffeea7670fa89b993cf8daf211f9b0e2cfed396ce4568554438288026acd5508"
+      ],
+      "inchikeys": [
+        "AKVIWWJLBFWFLM-UHFFFAOYSA-L",
+        "PTFCDOFLOPIGGS-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not resid 2743",
+          "agent_2": "ligand",
+          "selection_2": "resid 2743",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "3DXJ",
+      "accession": "MD-A00657",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00657",
+      "record_sha256": "21ca4b38decbcc498c183c47e0f4c8d16f80e1493984680395194a4a68ad75f1",
+      "record_bytes": 8499,
+      "atoms": 56634,
+      "declared_frames": 14,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:5a74937c6de8243f0460f15a18f27e579eb1bf40b690e68e96ca775d1e700f01",
+        "sha256:299c2bb6a2315d221df286e45d70e4e21b94a8b052331dc21189dff9507530cc",
+        "sha256:22629977c83ee87a3f0736c3a046a076b057fcd5b0702811456a4fa2d9399f35",
+        "sha256:6f9e002959bdcb2e341ffac55ce655524127f693d7a3f81f9662f419362045fd",
+        "sha256:f7cb9f6b1f02a17ddd54ae18b8b2c9c50ebc972ee3b131bafa8447270cb2b955",
+        "sha256:eb976d862615595bad7d20bc61d98083b4162e92d756ff170b2033fbcda17a2e"
+      ],
+      "inchikeys": [
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N",
+        "PTFCDOFLOPIGGS-UHFFFAOYSA-N",
+        "UQFNCSLGZUJVQP-JNZIYJEQSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "3HFZ",
+      "accession": "MD-A0067X",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0067X",
+      "record_sha256": "b6d3a0e1491724d6a7b02373d12587238745f52e1ac9103c6b9b49b5fd06ab06",
+      "record_bytes": 5354,
+      "atoms": 33040,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:d6acce1439672d7b024063e4e218b87c17fe8396066de51ffb677afb511704d1",
+        "sha256:1fd379a9d1fcdbcf7e606b50b6337f6fdf23b60961e556bc952cf1bbb7136f30"
+      ],
+      "inchikeys": [
+        "JZKXXXDKRQWDET-QMMMGPOBSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "3I06",
+      "accession": "MD-A003XX",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003XX",
+      "record_sha256": "779baf0bd11027c04ad653dbf5ce52c647ac8885ca2e62ee36e2e203d03c34aa",
+      "record_bytes": 4717,
+      "atoms": 3117,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:3fa19e1589e246b3031544df06fa6fa0cfe9296f6f30392614af0d8de95b53d7"
+      ],
+      "inchikeys": [
+        "OHGFQVKQISBZDO-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X",
+          "agent_2": "ligand",
+          "selection_2": "chain X",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "3I3D",
+      "accession": "MD-A00687",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00687",
+      "record_sha256": "68c42b48653cae1765fd696180c2cc9181a61ded83ee801976d66e4afec8aeac",
+      "record_bytes": 5680,
+      "atoms": 63398,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:9095b929cf0beb97a731aefe05fc68fc5cad0668acd6a30302a2b1eebae863e8"
+      ],
+      "inchikeys": [
+        "BPHPUYQFMNQIOC-NXRLNHOXSA-N",
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "3QXD",
+      "accession": "MD-A0065T",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0065T",
+      "record_sha256": "4a757d643433bbb53786639616ec3be30b90a90cf768d83518d73172b9405cd5",
+      "record_bytes": 6159,
+      "atoms": 6132,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:60a0eb84b12730c2d9cc07919b24fbb8fb90fb4fabdb1abbb80007304553f185",
+        "sha256:8b36923a20c8b7860a11bd864d5320d72e2a9978962b49eed156e89cabc3343b"
+      ],
+      "inchikeys": [
+        "PYWSAHSYKGZTHP-NIWBDXQXSA-P"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "3T0D",
+      "accession": "MD-A00681",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00681",
+      "record_sha256": "a515b911bb8306757efe2e7e767adb3989f69f2742b50b9c094fdb43f4465e0f",
+      "record_bytes": 5680,
+      "atoms": 63695,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:ef5a0eab583ee6f67712d913f83ec2ac52d4ba1f709fa6426966e2823cbce402"
+      ],
+      "inchikeys": [
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N",
+        "PHOQVHQSTUBQQK-MGCNEYSASA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "3VJK",
+      "accession": "MD-A003ZN",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003ZN",
+      "record_sha256": "08e2e2073364f2017ced144db85f98364708e1b40740574c94f3689c8458b5d9",
+      "record_bytes": 5396,
+      "atoms": 23390,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:033bf49b6a7f4a3b85a3db05f9da83deb50d8d7df0adb5ae73b1a531d3c3d977"
+      ],
+      "inchikeys": [
+        "WGRQANOPCQRCME-PMACEKPBSA-P"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "4A16",
+      "accession": "MD-A004RU",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RU",
+      "record_sha256": "2e396a26f6c4ea630bde0f9e870f505fe58eaeff36a5c6f7790f84ba7941f9d4",
+      "record_bytes": 4965,
+      "atoms": 16666,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:9159562951181f967bf75fad81c2045cac518d3a2110b5c8f1406f78ffc0a270"
+      ],
+      "inchikeys": [
+        "MHMXFYDLGYPRNA-JKSUJKDBSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "4AYX",
+      "accession": "MD-A006JO",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JO",
+      "record_sha256": "d5d7f5115af3e8fa4da3efc758c4b7e1e4201e14625b91fa74aceaddfd98e19b",
+      "record_bytes": 5181,
+      "atoms": 17733,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:6a44918a710986e188f1fe0efa9aadabeb81bee4217439df9b317e745b539a7e"
+      ],
+      "inchikeys": [
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N",
+        "UFZTZBNSLXELAL-IOSLPCCCSA-J"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "4KO8",
+      "accession": "MD-A005XS",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005XS",
+      "record_sha256": "faae8cb0cd101fa85072ba722103fd7f6f255f27afd089fa3ac6877f31520f41",
+      "record_bytes": 5387,
+      "atoms": 42728,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:98f0ea681f5ba35ed2bd73f417730259150a0a3d0c34f69c379da39656eac506",
+        "sha256:c9a36354f76be89a6a519115e31484f1ce07a746b163a767fec278ed4625aaa7"
+      ],
+      "inchikeys": [
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N",
+        "NLTUCYMLOPLUHL-KQYNXXCUSA-K"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "4KOD",
+      "accession": "MD-A007C2",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007C2",
+      "record_sha256": "de7b9a719588de670aca247b1be01e61213bd09bca3005aca486bab234ecf9a3",
+      "record_bytes": 6667,
+      "atoms": 41535,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:d608bbb5cda696ddc15166cca51fcfece24d21bc87214f0aea5d1bf2e0d07900",
+        "sha256:d5c08e3036abfa2acb6edcdddf30184564cfef1ccf7da3b70cca7bba83571cd7",
+        "sha256:333dbc5d89d9dec0aa56d5669038a34ce42edda756fa7d3e7bc3c065c128f268",
+        "sha256:5e12e7ba1ab76445fd09d8861aa29a60679c149c68889ef2dcaa0ea5176b3de6",
+        "sha256:da0a6f52fafcba32674d7c15c2fadbeb12eb92aa93efce2270857d163b4a0541"
+      ],
+      "inchikeys": [
+        "XTWYTFMLZFPYCI-KQYNXXCUSA-K"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "4MS0",
+      "accession": "MD-A006LS",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006LS",
+      "record_sha256": "040a91b51445e94a25ff8976dc8a123935eefe9653e2c59e5c6a0e2f1e014753",
+      "record_bytes": 4598,
+      "atoms": 5315,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:7ca3a444f07918b54897694f3dac18fab67be572be5a39a3716ece01385386ac"
+      ],
+      "inchikeys": [
+        "PXHVJJICTQNCMI-UHFFFAOYSA-N",
+        "QJIUMVUZDYPQRT-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "4OCK",
+      "accession": "MD-A006M5",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006M5",
+      "record_sha256": "14c3364360ae5620982a6717d2c1b57757977b508040131ef3fc68a980fefff4",
+      "record_bytes": 4914,
+      "atoms": 5506,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:028d0efd768bd0ca436945189ab8aa2a979edc7b39f6d42142789f62b12e6398"
+      ],
+      "inchikeys": [
+        "PVKSNHVPLWYQGJ-KQYNXXCUSA-J"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": true,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "4OCP",
+      "accession": "MD-A006BM",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006BM",
+      "record_sha256": "fa97ce326273800e8eb921bac9891bcf5c8018118accfe85b8c69ad0f13482aa",
+      "record_bytes": 5024,
+      "atoms": 5502,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:028d0efd768bd0ca436945189ab8aa2a979edc7b39f6d42142789f62b12e6398"
+      ],
+      "inchikeys": [
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N",
+        "XTWYTFMLZFPYCI-KQYNXXCUSA-K"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "4RLK",
+      "accession": "MD-A0051P",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0051P",
+      "record_sha256": "f77b25416e972a364a18dc6d0bf45722c93850a3a9862d538841051b433dfe28",
+      "record_bytes": 4908,
+      "atoms": 5481,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:2e2ca6008b62b1f7dfdc9cfe0b2a22c7925ae2d9bf7dfdf1de9b4cb14e6bb437"
+      ],
+      "inchikeys": [
+        "UDYNXPSETJWNEU-LPYMAVHISA-M"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "4UND",
+      "accession": "MD-A0052P",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0052P",
+      "record_sha256": "8e0eda99475187258da3442b1176df2e600d7ef62e6d8446a57a62ab9d563afa",
+      "record_bytes": 4782,
+      "atoms": 5693,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:0d71d24bebcb9e6f551a376f165e5242c41b7818f563eed03a2fb17d7870aa2c"
+      ],
+      "inchikeys": [
+        "HWGQMRYQVZSGDQ-HZPDHXFCSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "4XTT",
+      "accession": "MD-A0053P",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0053P",
+      "record_sha256": "ed290257dc27b5884e7e88d8f24442ff62a305f62dbe6331ed3d2e208ca2d6ca",
+      "record_bytes": 4531,
+      "atoms": 2758,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:53b6b4b9a8690ce7ad3569ae67719d7367ea6b01b838c1db30a97990a3f2f8ed"
+      ],
+      "inchikeys": [
+        "PDXMFTWFFKBFIN-XPWFQUROSA-L"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "5ABP",
+      "accession": "MD-A0055E",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0055E",
+      "record_sha256": "3a5eaa878a2fdf7392e0e12069afa8f1b870aec67c55c6bb098a03e6c4e3e1ab",
+      "record_bytes": 4764,
+      "atoms": 4696,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:7f58f7a2381d7653b49248819b4d1ca8bc631640f09de6350aba35fd64eb3acf"
+      ],
+      "inchikeys": [
+        "WQZGKKKJIJFFOK-PHYPRBDBSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "5AJO",
+      "accession": "MD-A0062R",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0062R",
+      "record_sha256": "f380981b8cf49241d97f9cd5ea5d4bb9818abd038eb72305f585dd9e2bbd28cf",
+      "record_bytes": 5794,
+      "atoms": 8062,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:f71f739a01ddb84e31042486f024013edc3614d727b38242bda03246e56dcef5"
+      ],
+      "inchikeys": [
+        "JMWTVSHXWHUARW-SPOXUYRYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "5EXX",
+      "accession": "MD-A00592",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00592",
+      "record_sha256": "d70297014a8157110af5259aebc17820483baf2212659dff6588e6e428ea05f6",
+      "record_bytes": 4733,
+      "atoms": 12349,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:734b512504d73ed29c4cf6909fc83cd349f12f4f325f134b9c22062d0e8c4c9b"
+      ],
+      "inchikeys": [
+        "PKFDLKSEZWEFGL-MHARETSRSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "5JHD",
+      "accession": "MD-A0066T",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0066T",
+      "record_sha256": "1390f7726547a65b8dcc0ab12ef81bf9c5c8d4b5e2bd6089af581fc2cadcb918",
+      "record_bytes": 5171,
+      "atoms": 5516,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:cf37e911e638539c2ee22e4cab5756d38b4e5f9bf5dce956b50d6e6e39d2cd61",
+        "sha256:e92bf108e2abfa0fc43ccdf0684d41b023e4368eb04b185c4578cda6a492fb46"
+      ],
+      "inchikeys": [
+        "NBDRFCQNHCTWII-CXECYRLYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "5KS7",
+      "accession": "MD-A005D2",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D2",
+      "record_sha256": "910ad3ac546a7e219d96053af4bf9a75cb77f4cf9efec914d87cf7f48953dd57",
+      "record_bytes": 4716,
+      "atoms": 4070,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:e6a33f8939cfba6d092e1e5c7f6754e3e49b79c88009ec437cbf54e0fd0e3882",
+        "sha256:0b42c9830a5eda18d21d7071f2e0edf1284bafda1fef0f5f2faaf146829bdb63"
+      ],
+      "inchikeys": [
+        "PDXMFTWFFKBFIN-XPWFQUROSA-L"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "5MYO",
+      "accession": "MD-A007KA",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007KA",
+      "record_sha256": "42ebac2e7cb654f0d652bf00cb695ac9483f2898a33eb43630753fd18ece289c",
+      "record_bytes": 5572,
+      "atoms": 6846,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:698c803163e561d8b9316616b914de9f298137984383d0cf38587053b53c635f",
+        "sha256:ab4e7e9a00b4197d534cadada2f81f46a24018eb580ee2177777ca6d35a7cca8"
+      ],
+      "inchikeys": [
+        "SMXWIWOZZPJMBG-FJMHUFKWSA-L"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not resid 1089",
+          "agent_2": "ligand",
+          "selection_2": "resid 1089",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "5NZ2",
+      "accession": "MD-A005FG",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005FG",
+      "record_sha256": "e9818e5329d9442f98f275943a4e18e0eb85d215d862434c509de9652f537e1f",
+      "record_bytes": 4776,
+      "atoms": 7534,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:3708952e58448c5a09f73fcf8f8494350e4a148ff6f1040ba75c577a07c8d771"
+      ],
+      "inchikeys": [
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N",
+        "XZLLMTSKYYYJLH-SHYZEUOFSA-J"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "5TYR",
+      "accession": "MD-A004QZ",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004QZ",
+      "record_sha256": "9fd99a0cf0720ece9275a484870cf0be85b5b0621beea18aeeb672e8783b4808",
+      "record_bytes": 4814,
+      "atoms": 3218,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:7933b1f14c15eaf02d7380194e89894e342895cbb65aa13d9f7f9172072c23f6"
+      ],
+      "inchikeys": [
+        "WCDGHAQQNDCCHV-YRLNHPJPSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "5X9H",
+      "accession": "MD-A005IA",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005IA",
+      "record_sha256": "a70cdfcd074e977c71d2214b9870752d93c63968766409c5da73b558bb80b9f4",
+      "record_bytes": 5422,
+      "atoms": 13670,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:ff229681fb730d9d69834246b9022a6b5db3c228c43708593c0b58ce289d426c",
+        "sha256:52770096cb26334d056106bd4e8f54401758d1a079f55ed85a352c67246abc49"
+      ],
+      "inchikeys": [
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N",
+        "ZKHQWZAMYRWXGA-KQYNXXCUSA-J"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not resid 867",
+          "agent_2": "ligand",
+          "selection_2": "resid 867",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "5YJI",
+      "accession": "MD-A005J0",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J0",
+      "record_sha256": "b2ee9ab4eb6e9c25c8c5bdab21834ba44f83898d413f8911090c5c37a877deea",
+      "record_bytes": 4797,
+      "atoms": 4059,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:552bc256a670f949250a2bdb77c7592126ada22220260ce22507f93cc59ef69e"
+      ],
+      "inchikeys": [
+        "DRFRNESCSMHEQV-UHFFFAOYSA-O"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "5Z68",
+      "accession": "MD-A005JA",
+      "role": "confirmation",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005JA",
+      "record_sha256": "bb3b8d32c3b66da4bf36ed6d539196c3f2962f72b92e2f23577c9df6904d8d55",
+      "record_bytes": 5185,
+      "atoms": 12225,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:4f0fe63df1c07d42118900d211daf6502af1f170b7de922f4656572042b5b8f0",
+        "sha256:f242f46e9c61524db52fb7ff1b217bab335fabf37d122ab69d7c22966159e52b"
+      ],
+      "inchikeys": [
+        "JLVVSXFLKOJNIY-UHFFFAOYSA-N",
+        "ZKHQWZAMYRWXGA-KQYNXXCUSA-J"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "2A29",
+      "accession": "MD-A005NO",
+      "role": "development_seen_replica",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005NO",
+      "record_sha256": "2d31b163cedae041df93e9b59e7e4e3367caa69f9858203011330f455bf7f8f7",
+      "record_bytes": 4330,
+      "atoms": 2144,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:64e3a4631df4518c8be87b46fa95f8c8a0ae3c5c8c8bd9a64bdfe27c9c52afba"
+      ],
+      "inchikeys": [
+        "PVKSNHVPLWYQGJ-KQYNXXCUSA-J"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": true,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "2OXX",
+      "accession": "MD-A003WE",
+      "role": "development_seen_replica",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WE",
+      "record_sha256": "11f136c0411d499295fbfa08ff7128ab555840471a9d91b9a5ca7610f494c481",
+      "record_bytes": 4664,
+      "atoms": 5434,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:ca8a248f7f8eceba2d8b44a6ff0869d6d7d1e86b35ff5d6e39e3a73e8637fa28"
+      ],
+      "inchikeys": [
+        "GYVCACUYQFXPLN-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X",
+          "agent_2": "ligand",
+          "selection_2": "chain X",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "4ACG",
+      "accession": "MD-A006JJ",
+      "role": "development_seen_replica",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006JJ",
+      "record_sha256": "1eb999105a8ff6bb50db7aa6cc72941162ef2724760177dabd949ec591b52058",
+      "record_bytes": 5094,
+      "atoms": 11387,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:a44690562dc8527db8484fdfbf1a9f9fc97a3d603fedbe19466e1d4608d03aa2"
+      ],
+      "inchikeys": [
+        "CWMNDXXSBKRROR-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "4EUC",
+      "accession": "MD-A006S0",
+      "role": "development_seen_replica",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006S0",
+      "record_sha256": "724812e0f9a5edd3e3027a8adf92a1d1c9f1dd5cdca5e7b4cdb9204ba2656d6b",
+      "record_bytes": 5492,
+      "atoms": 15391,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:210d51c1b9c1e082a6c82aec859ee9186a1717410854270e7e017a138c881d83"
+      ],
+      "inchikeys": [
+        "ZYXBXYCDXPIBJY-NDZSKPAWSA-J"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "5L4H",
+      "accession": "MD-A005D8",
+      "role": "development_seen_replica",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005D8",
+      "record_sha256": "4ecc40cbd6e8cd8ac644bc573e9756806bc18cdbc566bf98415b883b620371f5",
+      "record_bytes": 4649,
+      "atoms": 25290,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:b253b3afe83ccfcdbda1442da4ac0dabf42ed3db2a4501746c9a7e9d2fc7792d"
+      ],
+      "inchikeys": [
+        "LJVTYPFTOBMROG-UHFFFAOYSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    },
+    {
+      "pdb_id": "5YZD",
+      "accession": "MD-A005J9",
+      "role": "development_seen_replica",
+      "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005J9",
+      "record_sha256": "367c5072768e8718e48d494716bc800f688af6b1eb5ea167e2184c43191b7fc4",
+      "record_bytes": 4942,
+      "atoms": 16799,
+      "declared_frames": 50,
+      "declared_frame_step_ns": 0.2,
+      "protein_sequence_hashes": [
+        "sha256:a3d7cbd8b28327ba810db2bbb08f8caa7190637015163c62b20dfbd017879d7f"
+      ],
+      "inchikeys": [
+        "ZSOSVHOISBSKID-BJKOFHAPSA-N"
+      ],
+      "exact_sequence_overlap_previous_raw_pilot": false,
+      "exact_inchikey_overlap_previous_raw_pilot": false,
+      "interactions": [
+        {
+          "name": "protein-ligand interaction",
+          "agent_1": "protein",
+          "selection_1": "protein and not chain X H M",
+          "agent_2": "ligand",
+          "selection_2": "chain X H M",
+          "type": "protein-ligand"
+        }
+      ],
+      "xtc_status": "not downloaded or decoded"
+    }
+  ],
+  "exact_sequence_overlap_previous_raw_pilot": 0,
+  "exact_inchikey_overlap_previous_raw_pilot": 7,
+  "confirmation_exact_sequence_overlap_new_seen_development": [],
+  "confirmation_exact_inchikey_overlap_new_seen_development": [
+    "4OCK"
+  ],
+  "unknown": "MISATO target/ligand metadata, sequence-similarity and chemotype thresholds, upstream pretraining overlap; exact identity disjointness is not target/chemotype independence."
+}

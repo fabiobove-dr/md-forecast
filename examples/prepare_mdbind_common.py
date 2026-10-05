@@ -10,6 +10,12 @@ from md_forecast.core.config import DownloadSettings
 from md_forecast.core.exceptions import DataContractError
 from md_forecast.data.acquisition import AcquisitionSource, acquire
 from md_forecast.data.artifacts import write_metadata
+from md_forecast.data.cohort import (
+    PURPOSE_ROLES,
+    CohortPurpose,
+    ExternalReserve,
+    permitted_external_sources,
+)
 from md_forecast.data.public.mdbind import MDBindSubset, ReplicaSource, extract_replica
 from md_forecast.data.registry import Registry, write_registry
 from md_forecast.data.series import series_metadata, write_series
@@ -36,17 +42,25 @@ async def download(subset: MDBindSubset, raw: Path) -> None:
     await asyncio.gather(*(replica(source) for source in subset.replicas))
 
 
-def prepare(subset: MDBindSubset, raw: Path, geometry: Path, output: Path) -> None:
+def prepare(
+    subset: MDBindSubset,
+    raw: Path,
+    geometry: Path,
+    output: Path,
+    reserve: ExternalReserve | None = None,
+    purpose: CohortPurpose = "tuning",
+) -> None:
     """Reject partial cohorts; commit the complete registry and exports together."""
     if output.exists():
         raise DataContractError("output exists; choose a fresh directory")
     config = load_structural_config(geometry)
+    sources = permitted_external_sources(subset, reserve, purpose)
     output.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(dir=output.parent, prefix=".mdbind-") as temporary:
         staging = Path(temporary) / "complete"
         staging.mkdir()
         records, exports = [], {}
-        for source in subset.replicas:
+        for source in sources:
             table = extract_replica(raw / source.accession, source, config)
             registry = series_metadata(table)
             record = registry.trajectories[0]
@@ -60,6 +74,8 @@ def prepare(subset: MDBindSubset, raw: Path, geometry: Path, output: Path) -> No
         )
         write_metadata(staging / "source.json", subset)
         write_metadata(staging / "geometry.json", config)
+        if reserve is not None:
+            write_metadata(staging / "reserve.json", reserve)
         (staging / "qc.json").write_text(
             json.dumps({"exported": exports}, indent=2) + "\n"
         )
@@ -82,11 +98,18 @@ def main() -> None:
         "--output", type=Path, default=Path("data/processed/mdbind-common-geometry")
     )
     parser.add_argument("--download", action="store_true")
+    parser.add_argument("--reserve", type=Path)
+    parser.add_argument("--purpose", choices=tuple(PURPOSE_ROLES), default="tuning")
     args = parser.parse_args()
     subset = MDBindSubset.model_validate_json(args.source.read_text())
     if args.download:
         asyncio.run(download(subset, args.raw))
-    prepare(subset, args.raw, args.geometry, args.output)
+    reserve = (
+        ExternalReserve.model_validate_json(args.reserve.read_text())
+        if args.reserve is not None
+        else None
+    )
+    prepare(subset, args.raw, args.geometry, args.output, reserve, args.purpose)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,7 @@
+{
+  "confidence": 0.95,
+  "power": 0.8,
+  "comparisons": 4,
+  "worthwhile_mae_reduction_fraction": 0.1,
+  "paired_sd_inflation": 3.0
+}
