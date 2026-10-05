@@ -62,6 +62,27 @@ def downloads(page: Page, destination: Path) -> None:
     assert rows[0]["point_assessment"] == "UNRATED"
 
 
+def check_failed_quantiles(page: Page) -> int:
+    """Explicitly failed distributions remain visible, never plausible shaded bands."""
+    failed = page.evaluate("""() => {
+      const result=[];
+      DATA.forEach((p,i)=>p.windows.forEach((w,j)=>
+        Object.entries(w.quantile_failures??{}).forEach(([m,leads])=>
+          result.push({panel:i,window:j,model:m,leads:Object.keys(leads)}))));
+      return result;
+    }""")
+    if failed:
+        first = failed[0]
+        page.select_option("#panel", str(first["panel"]))
+        page.select_option("#window", str(first["window"]))
+        page.select_option("#model", first["model"])
+        assert (
+            "INVALID: crossing quantiles" in page.locator("#point-errors").inner_text()
+        )
+        assert "uncertainty band is suppressed" in page.locator("#overlay").inner_text()
+    return sum(len(row["leads"]) for row in failed)
+
+
 def main() -> None:
     """Read an HTML artifact only; no model or data-acquisition dependency."""
     parser = argparse.ArgumentParser(description=__doc__)
@@ -102,6 +123,7 @@ def main() -> None:
             page.select_option("#panel", str(i))
             assert page.locator("#scores tr").count() > 0
             assert page.locator("#point-errors tr").count() > 0
+        crossed = check_failed_quantiles(page)
         if len(page.frames) > 1:
             frame = page.frames[1]
             frame.wait_for_function(
@@ -153,6 +175,7 @@ def main() -> None:
                 "mobile_width": 390,
                 "downloads": "CSV, SVG; PNG when a structure is supplied",
                 "webgl_fallback": True,
+                "explicit_crossed_quantile_points": crossed,
             },
             indent=2,
         )
