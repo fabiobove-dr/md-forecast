@@ -1,0 +1,70 @@
+{
+  "training_grid": {
+    "contexts": [
+      40.0
+    ],
+    "horizons": [
+      10.0
+    ],
+    "unit": "frame",
+    "stride_frames": 10
+  },
+  "evaluation_grid": {
+    "contexts": [
+      20.0,
+      40.0
+    ],
+    "horizons": [
+      5.0,
+      10.0
+    ],
+    "unit": "frame",
+    "stride_frames": 10
+  },
+  "settings": {
+    "model_name": "amazon/chronos-2",
+    "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+    "device": "cuda:0",
+    "dtype": "float32",
+    "seed": 42,
+    "batch_size": 32,
+    "quantile_levels": [
+      0.1,
+      0.5,
+      0.9
+    ],
+    "max_vram_bytes": 7516192768
+  },
+  "training": {
+    "num_steps": 512,
+    "batch_size": 12,
+    "learning_rate": 1e-06,
+    "weight_decay": 0.0,
+    "adam_beta1": 0.9,
+    "adam_beta2": 0.999,
+    "adam_epsilon": 1e-08,
+    "max_grad_norm": 1.0,
+    "warmup_steps": 16,
+    "gradient_accumulation_steps": 1,
+    "precision": "bfloat16",
+    "full_determinism": true,
+    "checkpoint_steps": 128,
+    "save_total_limit": 2,
+    "max_windows": 5000,
+    "max_input_bytes": 134217728
+  },
+  "learning_rates": [
+    1e-06,
+    1e-05
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "representative_seed": 42,
+  "lr_selection": "mean-normalized-group-mae-all-cells-features-seeds",
+  "checkpoint_selection": "minimum-upstream-validation-loss",
+  "stopping": "complete-fixed-updates",
+  "tie_break": "lower-learning-rate"
+}

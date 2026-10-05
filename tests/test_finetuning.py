@@ -385,3 +385,62 @@ def test_local_model_rejects_wrong_revision_and_protocol(
             RuntimeStats(seconds=1, peak_allocated_bytes=0, peak_reserved_bytes=0),
             None,
         )
+
+
+def test_exposure_counts_forward_consumption_and_resume(tmp_path: Path) -> None:
+    frozen = manifest()
+    counter = ft._ExposureCounter(frozen, 15, None)
+    dataset = SimpleNamespace(
+        _build_batch=lambda indices: {"future_target": tuple(indices)}
+    )
+    seen = []
+
+    def compute(model: Any, inputs: Any, **kwargs: Any) -> float:
+        assert "md_forecast_exposure_indices" not in inputs
+        seen.append(inputs["future_target"])
+        return 1.0
+
+    trainer = SimpleNamespace(compute_loss=compute)
+    ft._track_exposure(dataset, trainer, counter)
+    batch = dataset._build_batch([0, 0, 2])
+    dataset._build_batch([5])  # Prepared but never consumed: no exposure.
+    assert counter.snapshot().forward_batches == 0
+    trainer.compute_loss(None, batch)
+    trainer.compute_loss(None, {"future_target": "validation"})
+    logged = counter.snapshot()
+    assert logged.window_counts[:3] == (2, 0, 1)
+    assert logged.window_counts[5] == 0 and logged.forward_batches == 1
+    assert len(seen) == 2
+    run = tmp_path / "checkpoint-4"
+    saved = checkpoint(run, frozen)
+    write_metadata(run / "exposure.json", logged)
+    # Bind the new telemetry to the same checkpoint integrity manifest.
+    write_metadata(
+        run / "provenance.json",
+        saved.model_copy(
+            update={
+                "files": saved.files
+                | {"exposure.json": ft._file_hash(run / "exposure.json")}
+            }
+        ),
+    )
+    restored = ft._ExposureCounter(frozen, 15, run)
+    assert restored.snapshot() == logged
+    with pytest.raises(ForecastError, match="exposure differs"):
+        ft._ExposureCounter(frozen, 14, run)
+    old = tmp_path / "old-checkpoint-4"
+    checkpoint(old, frozen)
+    unknown = ft._ExposureCounter(frozen, 15, old)
+    assert unknown.snapshot().earlier_unknown_optimizer_steps == 4
+
+
+def test_exposure_forward_failure_is_not_counted() -> None:
+    counter = ft._ExposureCounter(manifest(), 15, None)
+    dataset = SimpleNamespace(_build_batch=lambda indices: {})
+    trainer = SimpleNamespace(
+        compute_loss=MagicMock(side_effect=RuntimeError("failed forward"))
+    )
+    ft._track_exposure(dataset, trainer, counter)
+    with pytest.raises(RuntimeError):
+        trainer.compute_loss(None, dataset._build_batch([0]))
+    assert sum(counter.snapshot().window_counts) == 0
