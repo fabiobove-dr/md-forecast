@@ -10,7 +10,7 @@ remains the completed historical record.
 
 **17 / 17 planned implementation issues complete (100%).**
 
-The foundational engineering and ML work is complete. The planned software and experiment deliverables are complete. Independent confirmation of the scientific hypothesis remains open.
+The foundational engineering and ML work is complete. All nine prediction-quality follow-up deliverables are also complete, including independent real-data confirmation. Engineering completion and practical scientific usefulness remain separate outcomes.
 
 ## Completed
 
@@ -57,30 +57,44 @@ The repository now supports:
 
 ## Current scientific status
 
-The software stack is mature enough to run the intended experiments, but the final scientific claim is **not yet established**.
+Independent confirmation is complete on **99 unseen native complexes**, **66
+untouched external complexes / 660 replicas**, and **six development-seen
+complexes with untouched replica 10**. Every model uses matched windows and
+frozen development choices. No fitting or recalibration occurred on TEST.
+See [the complete confirmation results](models/FOLLOWUP_CONFIRMATION.md) for
+all cells, corrected effects, failure evidence, provenance and measured costs.
 
-The common geometric MDbind benchmark is complete and reproducible on six exact
-PDB-disjoint complexes and 60 replicas. No lead beats both persistence and the
-MISATO-selected statistical baseline under the frozen corrected comparison
-policy. The replica task is separate, with its local baseline fit disclosed.
-See [external validation](models/EXTERNAL_VALIDATION.md) for the full negative /
-inconclusive result and sampling limits. The input ablation findings remain
-small-development evidence; larger independent confirmation is still needed.
+**No model satisfies all frozen practical-usefulness criteria:** a corrected
+10% MAE gain over both references plus useful uncertainty. Smaller measurable
+point gains do exist for contact count and retained fraction. Native zero-shot
+contacts meet the original contract's less demanding minimum (corrected gains
+and calibrated intervals with width/pinball reported), but the stronger
+compact-model claim and the follow-up practical-usefulness threshold do not
+pass. This is limited scalar-forecast skill, not an MD replacement.
 
-The predictive-coupling extension is also complete on independently frozen
-geometric regions and held-out replicas; added-region gain remains
-inconclusive for Chronos and its conventional autoregressive comparator.
+Fine-tuning is now genuinely measured against zero-shot. Native primary
+fine-tuned MAE is 11.47 atom-pair contacts, 0.0562 retained fraction (5.62
+percentage points) and 0.0816 Å. Native contact/fraction intervals under-cover;
+external fine-tuning worsens minimum-distance error. Seven crossed fine-tuned
+contact quantiles invalidate probability metrics for two external cells;
+all raw values and point errors remain included. Median curves still capture
+little future fluctuation amplitude. These findings do not prove intrinsic
+unpredictability.
 
-The final MVP report consolidates measured outcomes and unsupported claims
-without assuming that successful infrastructure proves the scientific
-hypothesis. Native MISATO/MDbind equivalence remains blocked.
+Native physical cadence remains unresolved; external horizons cover only
+1–2 ns. QC reduces the external cohort below its planned 80-system precision
+target; six seen systems cannot support corrected replica superiority. Target,
+chemotype and pretraining independence remain unknown. The older unresolved
+native observables stay separate from the newly equivalent raw geometric
+features. Historical MVP and predictive-coupling results remain unchanged;
+added-region benefit remains inconclusive.
 
 ## Prediction-quality follow-up
 
-The first seven follow-up issues are complete; two implementation/experiment
-issues remain open. Their acceptance criteria
-are tracked in [roadmap #46](https://github.com/fabiobove-dr/md-forecast/issues/46).
-They do not change the completed MVP count or establish better predictions yet.
+All nine follow-up issues have complete implementation and real-data evidence.
+Their acceptance criteria are tracked in [roadmap #46](https://github.com/fabiobove-dr/md-forecast/issues/46).
+They do not change the completed MVP count. Prediction improvements are limited
+to the measured effects above; practical usefulness remains unconfirmed.
 
 1. [#37](https://github.com/fabiobove-dr/md-forecast/issues/37), complete: admit
    follow-up feature semantics, timing and structural preprocessing.
@@ -111,11 +125,13 @@ They do not change the completed MVP count or establish better predictions yet.
 8. [#44](https://github.com/fabiobove-dr/md-forecast/issues/44), complete: package
    the checksum-verified offline HTML overview with per-point errors, explicit
    tolerance rules, matched curves and inline 3Dmol.js ([workflow](models/OFFLINE_OVERVIEW.md)).
-9. [#45](https://github.com/fabiobove-dr/md-forecast/issues/45): run the frozen
-   independent benchmark and publish a useful-skill decision.
+9. [#45](https://github.com/fabiobove-dr/md-forecast/issues/45), complete: score
+   all three frozen independent tasks and publish a negative/inconclusive
+   practical-usefulness decision with smaller measurable effects and preserved
+   failures ([full evidence](models/FOLLOWUP_CONFIRMATION.md)).
 
-Issue #44 can proceed independently. Model selection uses development only;
-confirmation follows the dependencies recorded in each issue. Smoother or
-noisier median curves alone do not determine accuracy. The existing eight-update
-native fine-tuning pilot is an integration result, not adequate evidence about
-the benefit of geometric domain adaptation.
+The standalone offline HTML overview includes the complete confirmation grid,
+matched fine-tuned/zero-shot/reference curves, errors, probability-invalid
+flags and the inline observed molecular reference. An application tolerance
+remains user-controlled and unset by default; it is separate from scientific
+acceptance. Smoother or noisier median curves alone do not determine accuracy.
