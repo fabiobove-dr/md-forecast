@@ -122,6 +122,12 @@ def _task_note(task: str, result: dict[str, Any], plan: ConfirmationPlan) -> str
         )
         or "none"
     )
+    inference = {
+        "descriptive-bootstrap": (
+            "group intervals available; correction for 126 comparisons"
+        ),
+        "insufficient-groups": "too few groups; adjusted intervals unavailable",
+    }.get(result["corrected_interval_status"], result["corrected_interval_status"])
     return (
         '<p class="callout"><b>'
         + escape(task)
@@ -130,7 +136,7 @@ def _task_note(task: str, result: dict[str, Any], plan: ConfirmationPlan) -> str
             f"{result['independent_groups']} independent groups "
             f"(planned {plan.expected_groups[task]}). {result['decision']}. "
             f"QC exclusions without replacement: {deviations}. "
-            f"Corrected inference: {result['corrected_interval_status']}."
+            f"Primary inference: {inference}."
         )
         + "</p>"
     )
