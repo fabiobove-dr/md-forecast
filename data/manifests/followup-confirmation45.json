@@ -1,0 +1,249 @@
+{
+  "checksum": "sha256:f08d48b26b0994069ddcc1a5fb96a5b8977918f75f0b455b2b132767ad0694bc",
+  "payload": {
+    "grid": {
+      "schema_version": 1,
+      "contexts": [
+        20.0,
+        40.0
+      ],
+      "horizons": [
+        5.0,
+        10.0
+      ],
+      "unit": "frame",
+      "stride_frames": 10,
+      "allow_assumed_time": false
+    },
+    "primary": {
+      "schema_version": 1,
+      "contexts": [
+        40.0
+      ],
+      "horizons": [
+        10.0
+      ],
+      "unit": "frame",
+      "stride_frames": 10,
+      "allow_assumed_time": false
+    },
+    "inference": {
+      "seed": 42,
+      "bootstrap_samples": 60000,
+      "confidence_level": 0.95,
+      "min_groups": 20,
+      "min_tail_samples": 10,
+      "bootstrap_unit": "split-group",
+      "correction": "bonferroni",
+      "comparison_family_size": 126,
+      "intervals": [
+        [
+          0.1,
+          0.9
+        ]
+      ],
+      "max_prediction_rows": 2000000,
+      "max_bootstrap_bytes": 134217728
+    },
+    "descriptive": {
+      "seed": 42,
+      "bootstrap_samples": 2000,
+      "confidence_level": 0.95,
+      "min_groups": 5,
+      "min_tail_samples": 10,
+      "bootstrap_unit": "split-group",
+      "correction": "bonferroni",
+      "comparison_family_size": 1,
+      "intervals": [
+        [
+          0.1,
+          0.9
+        ]
+      ],
+      "max_prediction_rows": 2000000,
+      "max_bootstrap_bytes": 67108864
+    },
+    "settings": {
+      "model_name": "amazon/chronos-2",
+      "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+      "device": "cuda:0",
+      "dtype": "float32",
+      "seed": 42,
+      "batch_size": 32,
+      "quantile_levels": [
+        0.1,
+        0.5,
+        0.9
+      ],
+      "max_vram_bytes": 7516192768
+    },
+    "training_dataset": {
+      "schema_version": 1,
+      "dataset_id": "misato",
+      "dataset_version": "1.0.0",
+      "feature_set_version": "common-dry-geometry-v1-5241af016ec40156f857d6524db008531b9c5c3bec7915c5d3f08558380e79e8",
+      "features": [
+        {
+          "feature_id": "protein_ligand_contact_count",
+          "unit": "count",
+          "description": "Heavy-atom pair contact count",
+          "definition": "Count receptor-ligand heavy atom pairs at distance <= 4.5 Angstrom. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+        },
+        {
+          "feature_id": "fraction_reference_contacts",
+          "unit": "dimensionless",
+          "description": "Initial contact retention",
+          "definition": "Fraction of first-retained-frame heavy atom-pair contacts remaining at distance <= 4.5 Angstrom; reject zero reference contacts. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+        },
+        {
+          "feature_id": "minimum_protein_ligand_heavy_distance",
+          "unit": "angstrom",
+          "description": "Minimum heavy-atom distance",
+          "definition": "Minimum receptor-ligand heavy atom-pair distance. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+        }
+      ]
+    },
+    "native_cohort_hash": "sha256:8a3d790129a1e6cb2538d7bfdeefbf7754e107949655aba18479c33fd8d0f9af",
+    "external_reserve_hash": "sha256:28a5b784ba62ec0ed7786fe4543cffebb0670245c59a8d1f8278c930aece8e9a",
+    "seen_reserve_hash": "sha256:86a7d96d59cbe5775b4f45c714289126f31587328d121e7c91fa4a0718de77aa",
+    "probability_config_hash": "sha256:1e42e59af9b1690511aeaaa2594865d449dde88329003c5a56f259316bbbe00f",
+    "input_conditions": {
+      "protein_ligand_contact_count": "joint",
+      "fraction_reference_contacts": "target-only",
+      "minimum_protein_ligand_heavy_distance": "target-only"
+    },
+    "fine_checkpoints": {
+      "protein_ligand_contact_count": "data/processed/followup-finetuning41-verified/runs/lr1e-05-s42/checkpoint-128",
+      "fraction_reference_contacts": "data/processed/followup-inputs42/runs/target1-s42/checkpoint-128",
+      "minimum_protein_ligand_heavy_distance": "data/processed/followup-inputs42/runs/target2-s42/checkpoint-128"
+    },
+    "compact_states": {
+      "c20-h5": "data/processed/followup-baselines40-expanded/c20-h5/compact-state.json",
+      "c20-h10": "data/processed/followup-baselines40-expanded/c20-h10/compact-state.json",
+      "c40-h5": "data/processed/followup-baselines40-expanded/c40-h5/compact-state.json",
+      "c40-h10": "data/processed/followup-baselines40-expanded/c40-h10/compact-state.json"
+    },
+    "residual_states": {
+      "c20-h5": {
+        "sha256:38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f": "data/reports/followup-probability43-validation/c20-h5/38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f.json",
+        "sha256:5cc2d253e98a714f33f159ea19ff4d25538f0b14fa751be3a279e3dc7bc5fb87": "data/reports/followup-probability43-validation/c20-h5/5cc2d253e98a714f33f159ea19ff4d25538f0b14fa751be3a279e3dc7bc5fb87.json",
+        "sha256:c7eb998fb0153d01062219d5acbe3b93ab9a4cf9600564a83327c0b0245d810e": "data/reports/followup-probability43-validation/c20-h5/c7eb998fb0153d01062219d5acbe3b93ab9a4cf9600564a83327c0b0245d810e.json",
+        "sha256:40e34631f024a25bce881e0e743a82d9fb7397d4d903eeb74612d301e805e5f8": "data/reports/followup-probability43-validation/c20-h5/40e34631f024a25bce881e0e743a82d9fb7397d4d903eeb74612d301e805e5f8.json"
+      },
+      "c20-h10": {
+        "sha256:38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f": "data/reports/followup-probability43-validation/c20-h10/38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f.json",
+        "sha256:c843fae05f1dd5a3ac29cf3e78de7f520668440101ed1530ed6d71fd7650a591": "data/reports/followup-probability43-validation/c20-h10/c843fae05f1dd5a3ac29cf3e78de7f520668440101ed1530ed6d71fd7650a591.json",
+        "sha256:c7eb998fb0153d01062219d5acbe3b93ab9a4cf9600564a83327c0b0245d810e": "data/reports/followup-probability43-validation/c20-h10/c7eb998fb0153d01062219d5acbe3b93ab9a4cf9600564a83327c0b0245d810e.json",
+        "sha256:893fbb3b322fce405ca36197874b2d7aca0154946c98869dc5ec0212d7e556fe": "data/reports/followup-probability43-validation/c20-h10/893fbb3b322fce405ca36197874b2d7aca0154946c98869dc5ec0212d7e556fe.json"
+      },
+      "c40-h5": {
+        "sha256:38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f": "data/reports/followup-probability43-validation/c40-h5/38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f.json",
+        "sha256:61e2bb12a9419b76488c1a95180154396829e46af8fd5b73ff99b29217417ad5": "data/reports/followup-probability43-validation/c40-h5/61e2bb12a9419b76488c1a95180154396829e46af8fd5b73ff99b29217417ad5.json",
+        "sha256:bfef414a963bb55499f7548eb7bbf39a3ddfc3930a19b227007b8fc4d2c049f1": "data/reports/followup-probability43-validation/c40-h5/bfef414a963bb55499f7548eb7bbf39a3ddfc3930a19b227007b8fc4d2c049f1.json",
+        "sha256:1b7d884bb1e7037859ac662200c92ff437a707eac4b92c3ec49a621f43a2e511": "data/reports/followup-probability43-validation/c40-h5/1b7d884bb1e7037859ac662200c92ff437a707eac4b92c3ec49a621f43a2e511.json"
+      },
+      "c40-h10": {
+        "sha256:38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f": "data/reports/followup-probability43-validation/c40-h10/38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f.json",
+        "sha256:61e2bb12a9419b76488c1a95180154396829e46af8fd5b73ff99b29217417ad5": "data/reports/followup-probability43-validation/c40-h10/61e2bb12a9419b76488c1a95180154396829e46af8fd5b73ff99b29217417ad5.json",
+        "sha256:bfef414a963bb55499f7548eb7bbf39a3ddfc3930a19b227007b8fc4d2c049f1": "data/reports/followup-probability43-validation/c40-h10/bfef414a963bb55499f7548eb7bbf39a3ddfc3930a19b227007b8fc4d2c049f1.json",
+        "sha256:1b7d884bb1e7037859ac662200c92ff437a707eac4b92c3ec49a621f43a2e511": "data/reports/followup-probability43-validation/c40-h10/1b7d884bb1e7037859ac662200c92ff437a707eac4b92c3ec49a621f43a2e511.json"
+      }
+    },
+    "statistical_choices": {
+      "c20-h5": {
+        "protein_ligand_contact_count": "sha256:c7eb998fb0153d01062219d5acbe3b93ab9a4cf9600564a83327c0b0245d810e",
+        "fraction_reference_contacts": "sha256:5cc2d253e98a714f33f159ea19ff4d25538f0b14fa751be3a279e3dc7bc5fb87",
+        "minimum_protein_ligand_heavy_distance": "sha256:40e34631f024a25bce881e0e743a82d9fb7397d4d903eeb74612d301e805e5f8"
+      },
+      "c20-h10": {
+        "protein_ligand_contact_count": "sha256:c7eb998fb0153d01062219d5acbe3b93ab9a4cf9600564a83327c0b0245d810e",
+        "fraction_reference_contacts": "sha256:893fbb3b322fce405ca36197874b2d7aca0154946c98869dc5ec0212d7e556fe",
+        "minimum_protein_ligand_heavy_distance": "sha256:c843fae05f1dd5a3ac29cf3e78de7f520668440101ed1530ed6d71fd7650a591"
+      },
+      "c40-h5": {
+        "protein_ligand_contact_count": "sha256:1b7d884bb1e7037859ac662200c92ff437a707eac4b92c3ec49a621f43a2e511",
+        "fraction_reference_contacts": "sha256:61e2bb12a9419b76488c1a95180154396829e46af8fd5b73ff99b29217417ad5",
+        "minimum_protein_ligand_heavy_distance": "sha256:bfef414a963bb55499f7548eb7bbf39a3ddfc3930a19b227007b8fc4d2c049f1"
+      },
+      "c40-h10": {
+        "protein_ligand_contact_count": "sha256:1b7d884bb1e7037859ac662200c92ff437a707eac4b92c3ec49a621f43a2e511",
+        "fraction_reference_contacts": "sha256:61e2bb12a9419b76488c1a95180154396829e46af8fd5b73ff99b29217417ad5",
+        "minimum_protein_ligand_heavy_distance": "sha256:bfef414a963bb55499f7548eb7bbf39a3ddfc3930a19b227007b8fc4d2c049f1"
+      }
+    },
+    "source_files": {
+      "data/reports/followup-inputs42-validation/selection.json": "sha256:a979fad17edbaba7b4223f775727dddc3651536741e6528c1b241276a43f3b5f",
+      "data/processed/followup-baselines40-expanded/provenance.json": "sha256:f0b833edcc5b91e223cd8d826db0f7eb891a7a286d15f58305920374096025bd",
+      "data/reports/followup-probability43-validation/summary.json": "sha256:aa7f100de32e61f18b62bc40633ae1185285024a009e069305a6ca326945f830",
+      "uv.lock": "sha256:6114c9b8d23e5e8b2bf890dcedacfca4d5569bb9d1e6958a498d29d10d40681b",
+      "configs/experiments/followup-probability.json": "sha256:85dad2e147b9bfd5566c489248f57092eccc0a9b13ecad0d8cdfc6b8f532744d",
+      "configs/features/common-geometry.yaml": "sha256:4bc0c4e487f56b99073ba5415c8604a07bd1ecf04e071230ed668e5b503e88e6",
+      "configs/datasets/followup-admission.json": "sha256:970509c7c68da331f5ef22127c75cd1dab7415b8d4d5790fae4913cf5fc09e5c",
+      "configs/datasets/followup-external-reserve80.json": "sha256:2116415e9d40905098d10ed6dd8dc60bdaac1abf608fd3abdb048866e3f55c67",
+      "configs/datasets/followup-external-reserve.json": "sha256:5a86fb6406a590d4259ce8a1131c96e94eb0e57fc8e5b17fd5d354b92f3913e3",
+      "configs/datasets/followup-external80-metadata.json": "sha256:9ce460637e56708874b139ef98f68ba45b7ed58b3b9a4f0e33cab3bdba235296",
+      "data/manifests/followup-cohort.json": "sha256:4f94b25681c8bd962c63853150b985d5674a8697c04c8c959f4ec63c4ed8e4cd",
+      "data/processed/followup-finetuning41-verified/runs/lr1e-05-s42/checkpoint-128/provenance.json": "sha256:e3ee1c634ba446bbf3ee280e152991467d10005c2ca92536de0db30db5d03d3c",
+      "data/processed/followup-finetuning41-verified/runs/lr1e-05-s42/checkpoint-128/trainer_state.json": "sha256:1e3e898e5ddca97f429df090c568a25eac5bb1a938478e873cc52af2ee2cf0f6",
+      "data/processed/followup-finetuning41-verified/runs/lr1e-05-s42/checkpoint-128/model.safetensors": "sha256:ad8ba423bdc0b1582c6e9a42e7495e3998f97615c34080d4bf589909fb23951f",
+      "data/processed/followup-finetuning41-verified/runs/lr1e-05-s42/checkpoint-128/rng_state.pth": "sha256:9d722562ef1c60fec5ee4822bfc88d6f45704f98410a816c80885a5e53ca00c1",
+      "data/processed/followup-finetuning41-verified/runs/lr1e-05-s42/checkpoint-128/config.json": "sha256:5a5397579c6ff782426bb3d3d2f909f4d2951e525c1f625f0882454b54961d31",
+      "data/processed/followup-finetuning41-verified/runs/lr1e-05-s42/checkpoint-128/exposure.json": "sha256:1d137ceef1e582cf70ecc6ab0557b61050e1bf8320f5d5cbd1d50ecac7f39d18",
+      "data/processed/followup-finetuning41-verified/runs/lr1e-05-s42/checkpoint-128/optimizer.pt": "sha256:384bfa86be52b715473d1158f81054a7ec672d48071b14b43a77189dd9862abe",
+      "data/processed/followup-finetuning41-verified/runs/lr1e-05-s42/checkpoint-128/scheduler.pt": "sha256:88fdb6e55390f82ed2870c9aa1389e88094781899963e9e9cd9b809e82fcbc83",
+      "data/processed/followup-finetuning41-verified/runs/lr1e-05-s42/checkpoint-128/training_args.bin": "sha256:58f5095202218e65ccfaf3d489f924cd3192cd172e31731658b8d89f17a3cf24",
+      "data/processed/followup-finetuning41-verified/runs/lr1e-05-s42/result.json": "sha256:47c31c294f841d106cd8b8257fa4029ad70d687b1b63271e04f598b95267995d",
+      "data/processed/followup-inputs42/runs/target1-s42/checkpoint-128/provenance.json": "sha256:4f128d0c4bb3d9c4686a5d5f4a3c05c3d91ec8b60affc21b1c00050ba7154ca9",
+      "data/processed/followup-inputs42/runs/target1-s42/checkpoint-128/trainer_state.json": "sha256:d0b2ef8b9a722c17b8e0a67a34dd269a6cb04ac20e006e8c523f6462433363f9",
+      "data/processed/followup-inputs42/runs/target1-s42/checkpoint-128/model.safetensors": "sha256:9c6ad0821721c448b1688fc21265d2199505619353931f51072a3a4f4b4c271d",
+      "data/processed/followup-inputs42/runs/target1-s42/checkpoint-128/rng_state.pth": "sha256:da0fa23666dde5471a59ffb3f0b80cf9f714bab5278fdd3d4c21bbc3ad99b38c",
+      "data/processed/followup-inputs42/runs/target1-s42/checkpoint-128/config.json": "sha256:5a5397579c6ff782426bb3d3d2f909f4d2951e525c1f625f0882454b54961d31",
+      "data/processed/followup-inputs42/runs/target1-s42/checkpoint-128/exposure.json": "sha256:ca0ac4ed784835d73288001c063c098a1970efc4cfcbc02d7301d1b1797b623c",
+      "data/processed/followup-inputs42/runs/target1-s42/checkpoint-128/optimizer.pt": "sha256:5a22717107021005a823ab3234e303ec96d4aa866be0435ebbde3a3f7c8b1225",
+      "data/processed/followup-inputs42/runs/target1-s42/checkpoint-128/scheduler.pt": "sha256:88fdb6e55390f82ed2870c9aa1389e88094781899963e9e9cd9b809e82fcbc83",
+      "data/processed/followup-inputs42/runs/target1-s42/checkpoint-128/training_args.bin": "sha256:52140a22d790e60e316d5d347f1e7910712e4dad8a56f60c962b0da719d74606",
+      "data/processed/followup-inputs42/runs/target1-s42/result.json": "sha256:26db6df029788fe6483f2f0687f305929607469553a7465d2bc413d103a9d772",
+      "data/processed/followup-inputs42/runs/target2-s42/checkpoint-128/provenance.json": "sha256:d42933fe66bcbdc2a2bb3df17a3b2f029fce837857ce483c7477965f402fe348",
+      "data/processed/followup-inputs42/runs/target2-s42/checkpoint-128/trainer_state.json": "sha256:e61ed59372c8e36c2999b523d5fab14425b0f17b0b075bdd05e1259fa28f280b",
+      "data/processed/followup-inputs42/runs/target2-s42/checkpoint-128/model.safetensors": "sha256:84fd1376429e2360fbde487151ef694e4738f0b9a60e71a6d72933f50a1989ad",
+      "data/processed/followup-inputs42/runs/target2-s42/checkpoint-128/rng_state.pth": "sha256:da0fa23666dde5471a59ffb3f0b80cf9f714bab5278fdd3d4c21bbc3ad99b38c",
+      "data/processed/followup-inputs42/runs/target2-s42/checkpoint-128/config.json": "sha256:5a5397579c6ff782426bb3d3d2f909f4d2951e525c1f625f0882454b54961d31",
+      "data/processed/followup-inputs42/runs/target2-s42/checkpoint-128/exposure.json": "sha256:632a39bac32edca3a860abaad151d711e1d5cc880eb799414192af68bf60af3d",
+      "data/processed/followup-inputs42/runs/target2-s42/checkpoint-128/optimizer.pt": "sha256:bab5697a91e70c5c55de621b7c2267a0bf1946bd9bb6c8edc6f37399073fed10",
+      "data/processed/followup-inputs42/runs/target2-s42/checkpoint-128/scheduler.pt": "sha256:88fdb6e55390f82ed2870c9aa1389e88094781899963e9e9cd9b809e82fcbc83",
+      "data/processed/followup-inputs42/runs/target2-s42/checkpoint-128/training_args.bin": "sha256:be92e83036ca0808d24e85b3a8d4083756e2036aeb52ebe1b62a4af17f742672",
+      "data/processed/followup-inputs42/runs/target2-s42/result.json": "sha256:39984ee6dbdbb67f57c21ae03cbf6f881d144bec965bbea93d6e75d332dfb6ff",
+      "data/processed/followup-baselines40-expanded/c20-h5/compact-state.json": "sha256:8e0817414f8871381410a0aa303fe1ee7305c8d1f50fd549a7d4085871ba84cd",
+      "data/reports/followup-probability43-validation/c20-h5/38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f.json": "sha256:e260e8f1e3ad32d3cb821bf760230a7bcc934357194dd1f765aa455093c71437",
+      "data/reports/followup-probability43-validation/c20-h5/5cc2d253e98a714f33f159ea19ff4d25538f0b14fa751be3a279e3dc7bc5fb87.json": "sha256:808160a724d684b491892908e8e7edc3118f32daacd01415519972faea19e875",
+      "data/reports/followup-probability43-validation/c20-h5/c7eb998fb0153d01062219d5acbe3b93ab9a4cf9600564a83327c0b0245d810e.json": "sha256:a2c6f9bb719eeefe487b44bec514cd2ea19bbbe483ef0f09e273b67a03a093a1",
+      "data/reports/followup-probability43-validation/c20-h5/40e34631f024a25bce881e0e743a82d9fb7397d4d903eeb74612d301e805e5f8.json": "sha256:fbb8b36813aa86aa852c30306a6cb947009a5b405eb39d5ebc750731f56b5c52",
+      "data/processed/followup-baselines40-expanded/c20-h10/compact-state.json": "sha256:14864360ff90fdffcc1917514375524320862bba0dc9c5d90f6b23db80cddd9d",
+      "data/reports/followup-probability43-validation/c20-h10/38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f.json": "sha256:132fafb846071648a16bdc4ee0ae4929f204c63dd25a65716d71ccc12efc1677",
+      "data/reports/followup-probability43-validation/c20-h10/c843fae05f1dd5a3ac29cf3e78de7f520668440101ed1530ed6d71fd7650a591.json": "sha256:7e84f18a135be1e8dfb3b93f8217ebfd715051511848cf39aa146c7f322312e9",
+      "data/reports/followup-probability43-validation/c20-h10/c7eb998fb0153d01062219d5acbe3b93ab9a4cf9600564a83327c0b0245d810e.json": "sha256:43a89af6701183dde2ae3104539e575bd762ef2b87e93655333cd9a7f55c7110",
+      "data/reports/followup-probability43-validation/c20-h10/893fbb3b322fce405ca36197874b2d7aca0154946c98869dc5ec0212d7e556fe.json": "sha256:93dd87c55a2ef9f23ac7dec4fbe7cdd186d9dc53897582e79f51e2c3d36340f6",
+      "data/processed/followup-baselines40-expanded/c40-h5/compact-state.json": "sha256:03114df4f08357b13e34cb016615773193f644d239506909e604733f43ebdc97",
+      "data/reports/followup-probability43-validation/c40-h5/38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f.json": "sha256:6753ceed9a1e73e071ffd6aa6e23a7201b0dd1179de68327e25aa674932e1d5f",
+      "data/reports/followup-probability43-validation/c40-h5/61e2bb12a9419b76488c1a95180154396829e46af8fd5b73ff99b29217417ad5.json": "sha256:99bc5e52738065493885f256d426f6407bde95855c0694bfcfd571c8dd5e1c2f",
+      "data/reports/followup-probability43-validation/c40-h5/bfef414a963bb55499f7548eb7bbf39a3ddfc3930a19b227007b8fc4d2c049f1.json": "sha256:a005c1927c471b9b433fe56b2e97ad83adbe4f95df94a792ea6ea7f0be365de6",
+      "data/reports/followup-probability43-validation/c40-h5/1b7d884bb1e7037859ac662200c92ff437a707eac4b92c3ec49a621f43a2e511.json": "sha256:61aba5077ba14a514caf9343b3e1b7097ff0af53d921c904d19a13464fcd1a66",
+      "data/processed/followup-baselines40-expanded/c40-h10/compact-state.json": "sha256:16a8778dcfdab9c62cc02c054b43a4c0ea6c98b29388f642e4e1b286daf96266",
+      "data/reports/followup-probability43-validation/c40-h10/38d7d2ea57e9dc60061d15ea6fc9efb7bda9796368bcb21e216b58ef2fe41b8f.json": "sha256:a99a53a13b1b0d9e330102d614c67e7862b2632e318da8c571bdeca70dd17573",
+      "data/reports/followup-probability43-validation/c40-h10/61e2bb12a9419b76488c1a95180154396829e46af8fd5b73ff99b29217417ad5.json": "sha256:72f030b59edebc1de9aa24f08f8723fe7cef49a1f7038cf3d238459270339a74",
+      "data/reports/followup-probability43-validation/c40-h10/bfef414a963bb55499f7548eb7bbf39a3ddfc3930a19b227007b8fc4d2c049f1.json": "sha256:54fdb19322be8c9086a80b0dcb41ed1c9b4f75d7b153d1a71411502f2dbebce7",
+      "data/reports/followup-probability43-validation/c40-h10/1b7d884bb1e7037859ac662200c92ff437a707eac4b92c3ec49a621f43a2e511.json": "sha256:560a2b47f40577b3b13f83f31745c92ee71c7f4cdb2053dd40a82be2989ff110"
+    },
+    "expected_groups": {
+      "native": 100,
+      "external": 80,
+      "replica": 6
+    },
+    "worthwhile_reduction": 0.1,
+    "nominal_coverage": 0.8,
+    "coverage_tolerance": 0.05,
+    "calibration_scope": "TRAIN-residuals-only; no confirmation refitting",
+    "confirmation_state": "no reserved outcomes decoded",
+    "code_commit": "8e1f5780738cbb119dd3c3e42f88719e47c4c404"
+  }
+}

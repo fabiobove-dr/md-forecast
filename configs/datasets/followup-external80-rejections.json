@@ -1,0 +1,3248 @@
+{
+  "source_qc_sha256": "sha256:a41a160e8d657684b12416825ab37fdea50fd1099fbf3b37a33293e46b129ece",
+  "reserve_hash": "sha256:28a5b784ba62ec0ed7786fe4543cffebb0670245c59a8d1f8278c930aece8e9a",
+  "plan_hash": "sha256:f08d48b26b0994069ddcc1a5fb96a5b8977918f75f0b455b2b132767ad0694bc",
+  "review": "existing static selection contract; trajectories remained opaque during admission",
+  "rejections": [
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653",
+          "size_bytes": 7280,
+          "checksum": "sha256:5dcb75a7dc9ca24871b1ea850a7179b1a465bd61970a94cb8eae667e8124d055"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653/files/structure.pdb",
+          "size_bytes": 5344091,
+          "checksum": "sha256:89ee99ac784edd1a184ac9159826e161d4f51a81ad884f3575512f2f8611a5c4"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653/files/topology.prmtop",
+          "size_bytes": 28317405,
+          "checksum": "sha256:af45f19eee2ae24f5ed0b053828d3a9eacf11f2508c12ad3853573201d3a90e7"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653/files/trajectory.xtc",
+          "size_bytes": 12506736,
+          "checksum": "sha256:0c15be0e653aaf641234ed7b54fa042a36d2148465c9d6ec04a0905970586107"
+        }
+      }
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.3",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.3",
+          "size_bytes": 7232,
+          "checksum": "sha256:af06b0d5de616a90c0897bc20d6b40213ab6c3fa74327f187051602911c203b1"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.3/files/structure.pdb",
+          "size_bytes": 5344091,
+          "checksum": "sha256:f122f39fb627fc2a64b83d7e787942c223d8b975b18e9ccaaa6f97c2f83948b4"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.3/files/topology.prmtop",
+          "size_bytes": 28317405,
+          "checksum": "sha256:af45f19eee2ae24f5ed0b053828d3a9eacf11f2508c12ad3853573201d3a90e7"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.3/files/trajectory.xtc",
+          "size_bytes": 12517900,
+          "checksum": "sha256:32726cfaaf91673c2f582e04a36830adc958e5c38085e426a8374039247c089d"
+        }
+      }
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.2",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.2",
+          "size_bytes": 7256,
+          "checksum": "sha256:d55f6b497b440b329f32f46572d91e476e4bb18015a9b936131116c3990601e0"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.2/files/structure.pdb",
+          "size_bytes": 5344091,
+          "checksum": "sha256:6e8e2da7ba6a1106c18fbebedaa8e5810d3065092d3643739bbb8277bb8c407e"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.2/files/topology.prmtop",
+          "size_bytes": 28317405,
+          "checksum": "sha256:af45f19eee2ae24f5ed0b053828d3a9eacf11f2508c12ad3853573201d3a90e7"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.2/files/trajectory.xtc",
+          "size_bytes": 12517912,
+          "checksum": "sha256:c646a1cebc9010a9ffd72cbff3ce4af226bd5fc615c2d0e3fc50d43b402c7ea0"
+        }
+      }
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.4",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.4",
+          "size_bytes": 7304,
+          "checksum": "sha256:1ed2666f17ea3af5730c735164943925f1242e7d21b7945c622ba11b94cdecc4"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.4/files/structure.pdb",
+          "size_bytes": 5344091,
+          "checksum": "sha256:a81eb754d96ea728d279fe1ddbd2ab4a45c384be9c1533ade0ff7f0ef5c79880"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.4/files/topology.prmtop",
+          "size_bytes": 28317405,
+          "checksum": "sha256:af45f19eee2ae24f5ed0b053828d3a9eacf11f2508c12ad3853573201d3a90e7"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.4/files/trajectory.xtc",
+          "size_bytes": 12512816,
+          "checksum": "sha256:73586c5b36f168cc9f299e0feff297735c92f965347e16e241181ec6480dff91"
+        }
+      }
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.6",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.6",
+          "size_bytes": 7208,
+          "checksum": "sha256:061af61fc4b686a65a4f1a154652fd45d311cb261ae9006940e177d3319cb603"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.6/files/structure.pdb",
+          "size_bytes": 5344091,
+          "checksum": "sha256:58410fe8c7dd4019dec389cd703e921f1cda3dba994066a23fe045c14ee48ec9"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.6/files/topology.prmtop",
+          "size_bytes": 28317405,
+          "checksum": "sha256:af45f19eee2ae24f5ed0b053828d3a9eacf11f2508c12ad3853573201d3a90e7"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.6/files/trajectory.xtc",
+          "size_bytes": 12517372,
+          "checksum": "sha256:2507f72c25e8d6ba69058b674d3a822732e06bbd217e5aa942dc9324827208b3"
+        }
+      }
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.5",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.5",
+          "size_bytes": 7304,
+          "checksum": "sha256:56aa66ec6f9b02c8895ca4bfd849987a79e5ccaa0ec1d66ecc0f0a80c5c775b6"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.5/files/structure.pdb",
+          "size_bytes": 5344091,
+          "checksum": "sha256:894127b8ad7b76cb1986f5665aa39a8bbb24943a53dc0e495db6649db499a46a"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.5/files/topology.prmtop",
+          "size_bytes": 28317405,
+          "checksum": "sha256:af45f19eee2ae24f5ed0b053828d3a9eacf11f2508c12ad3853573201d3a90e7"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.5/files/trajectory.xtc",
+          "size_bytes": 12528784,
+          "checksum": "sha256:4df8fcb688d7933e13802c290f7983df03369e1b1e039b0d39442cc7e7eb4f6b"
+        }
+      }
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.7",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.7",
+          "size_bytes": 7256,
+          "checksum": "sha256:95e6b7ced3322d03af3f7425d54554b7b487a0e79f909f9194f602d5f6d3eb61"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.7/files/structure.pdb",
+          "size_bytes": 5344091,
+          "checksum": "sha256:cdca04cc63e516338dd986ffe7f1ccc946e8a1761af256883ef85dd377b29369"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.7/files/topology.prmtop",
+          "size_bytes": 28317405,
+          "checksum": "sha256:af45f19eee2ae24f5ed0b053828d3a9eacf11f2508c12ad3853573201d3a90e7"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.7/files/trajectory.xtc",
+          "size_bytes": 12528612,
+          "checksum": "sha256:6484353a6c7a7ef4a21f4812cf4f335a18651ddeb48d46d9876dc016ed0f80ea"
+        }
+      }
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.8",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.8",
+          "size_bytes": 7280,
+          "checksum": "sha256:d11829260ebfff6ff3739c1f0ffc0eb8f7ffc1e141bff367d822a82ff8256adc"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.8/files/structure.pdb",
+          "size_bytes": 5344091,
+          "checksum": "sha256:7877074ef3b082e947f0469a8231d2ef1e38d96ca1c8144bae7920f459603fc7"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.8/files/topology.prmtop",
+          "size_bytes": 28317405,
+          "checksum": "sha256:af45f19eee2ae24f5ed0b053828d3a9eacf11f2508c12ad3853573201d3a90e7"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.8/files/trajectory.xtc",
+          "size_bytes": 12507436,
+          "checksum": "sha256:a464f2769996c98b0222f68e2421e21a287ce495a6c654830f827d63ff6af5a3"
+        }
+      }
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.9",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.9",
+          "size_bytes": 7256,
+          "checksum": "sha256:f648392b01b93022638ef712570f6b6f3477c5169a596492086ba05854de4115"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.9/files/structure.pdb",
+          "size_bytes": 5344091,
+          "checksum": "sha256:8998b9cd84c1316ee657df26da524808c8607396cc93e37c427f3a7333be95bc"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.9/files/topology.prmtop",
+          "size_bytes": 28317405,
+          "checksum": "sha256:af45f19eee2ae24f5ed0b053828d3a9eacf11f2508c12ad3853573201d3a90e7"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.9/files/trajectory.xtc",
+          "size_bytes": 12512588,
+          "checksum": "sha256:f669f036e8af9a21c05faa20006b602fe1c2e8f94e4307b03380d0b8aead64f8"
+        }
+      }
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.10",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.10",
+          "size_bytes": 7306,
+          "checksum": "sha256:ae04ec6c9eaa1fe5d72b271638b23123e708ad9bcab146b09387f4b27f459592"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.10/files/structure.pdb",
+          "size_bytes": 5344091,
+          "checksum": "sha256:30ca252ea8dd193d6344d8942eec35a5fba7cba7a5f866ff36c26535abce5d93"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.10/files/topology.prmtop",
+          "size_bytes": 28317405,
+          "checksum": "sha256:af45f19eee2ae24f5ed0b053828d3a9eacf11f2508c12ad3853573201d3a90e7"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00653.10/files/trajectory.xtc",
+          "size_bytes": 12507416,
+          "checksum": "sha256:34fc995cb2ea0811a028d891f0badab16c0774e81ed02f7a04eefdedec813a8c"
+        }
+      }
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655",
+          "size_bytes": 5049,
+          "checksum": "sha256:87ebbdb4ae62602386664f5fa8f06971c175aec00cf12cc6268ce83e3c068e14"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655/files/structure.pdb",
+          "size_bytes": 165194,
+          "checksum": "sha256:32082ba9c2ea1aa84f025a877e83b849468457aa62b5224462367250cb30cbf5"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655/files/topology.prmtop",
+          "size_bytes": 900704,
+          "checksum": "sha256:ad580b3c9eada36f4cb79b300fdda2e26101926dcf4cb8a9f9b7623424bb96f0"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655/files/trajectory.xtc",
+          "size_bytes": 391188,
+          "checksum": "sha256:2ba277779df77821dff36c34c33c229cc938d0ad2e1d58ba8b776d97fe59e427"
+        }
+      }
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.2",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.2",
+          "size_bytes": 5073,
+          "checksum": "sha256:25d37fe207f2c16ce80c26805bc55edbc5fd066cf48d90420f9907bce1e62518"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.2/files/structure.pdb",
+          "size_bytes": 165194,
+          "checksum": "sha256:b9fb7414352a0a4bf43351b93989abddfa88e1164de34c15be92a4145f19c6fc"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.2/files/topology.prmtop",
+          "size_bytes": 900704,
+          "checksum": "sha256:ad580b3c9eada36f4cb79b300fdda2e26101926dcf4cb8a9f9b7623424bb96f0"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.2/files/trajectory.xtc",
+          "size_bytes": 390876,
+          "checksum": "sha256:a39e7d34bfb8061dad15a38476970a4c0ed3d84c753d15f767e590a3a809db61"
+        }
+      }
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.3",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.3",
+          "size_bytes": 5097,
+          "checksum": "sha256:3305756ba8931b8e9646b6e92096f55bdab9c17e5533b2e8ca28eb69e26b2297"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.3/files/structure.pdb",
+          "size_bytes": 165194,
+          "checksum": "sha256:cb6f05a980a9a82d64f956c66c6797caed80bcfc2edff665ac008def5acc138f"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.3/files/topology.prmtop",
+          "size_bytes": 900704,
+          "checksum": "sha256:ad580b3c9eada36f4cb79b300fdda2e26101926dcf4cb8a9f9b7623424bb96f0"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.3/files/trajectory.xtc",
+          "size_bytes": 390856,
+          "checksum": "sha256:e884efa08d4ccf7e6eaa4f7a87861d37bb6f42796a63d54af8dbb261de6dbb9f"
+        }
+      }
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.4",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.4",
+          "size_bytes": 5145,
+          "checksum": "sha256:3d50cd077ed6daf2ab4be48f09231f035fd50c8a44224795e3d8cbfeb3dd72c5"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.4/files/structure.pdb",
+          "size_bytes": 165194,
+          "checksum": "sha256:f8f522b7a956b97adbb69d5568ea67fc66add8333335523de8ddfad9fb91aea1"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.4/files/topology.prmtop",
+          "size_bytes": 900704,
+          "checksum": "sha256:ad580b3c9eada36f4cb79b300fdda2e26101926dcf4cb8a9f9b7623424bb96f0"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.4/files/trajectory.xtc",
+          "size_bytes": 391172,
+          "checksum": "sha256:8456e1ef02639b9bd51fdc125e264bc075453c940ad8cc9a3ed90df59884dfe8"
+        }
+      }
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.5",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.5",
+          "size_bytes": 5121,
+          "checksum": "sha256:023c8589f42ae68c6c77e8ded60482faeeff93c430b713044c93aeb8b9f89610"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.5/files/structure.pdb",
+          "size_bytes": 165194,
+          "checksum": "sha256:744c1b1f84cb46be4620b5524e80aeb793b17a505251e123110227e4a92b3f9d"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.5/files/topology.prmtop",
+          "size_bytes": 900704,
+          "checksum": "sha256:ad580b3c9eada36f4cb79b300fdda2e26101926dcf4cb8a9f9b7623424bb96f0"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.5/files/trajectory.xtc",
+          "size_bytes": 391028,
+          "checksum": "sha256:79081ae093f39bfb4c3751230f9dab597f7f84acd1e80f3760b9a9ee60086fde"
+        }
+      }
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.6",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.6",
+          "size_bytes": 5137,
+          "checksum": "sha256:95f68a9e42e363f872f4717c3a2e06771a5a75fbe5e5dbd7fce3d57418104411"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.6/files/structure.pdb",
+          "size_bytes": 165194,
+          "checksum": "sha256:6e1d6e82e991ee9f0fa89008033e5eadd9a1cd1e60430075b843a838e4ec60cd"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.6/files/topology.prmtop",
+          "size_bytes": 900704,
+          "checksum": "sha256:ad580b3c9eada36f4cb79b300fdda2e26101926dcf4cb8a9f9b7623424bb96f0"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.6/files/trajectory.xtc",
+          "size_bytes": 391348,
+          "checksum": "sha256:2e104a52ebed1a4908cbb005dda45699af2bb2d99f233a88e14c870da20c3660"
+        }
+      }
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.7",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.7",
+          "size_bytes": 5089,
+          "checksum": "sha256:b56a2a493e058da048d1453597f5be5bb3a0a9695f9d6766093f8764ac3eacea"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.7/files/structure.pdb",
+          "size_bytes": 165194,
+          "checksum": "sha256:fa0fc468fda7ec0ba61c2b1dfb50f765f9a3987196aa349b7fe2e47b96a48122"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.7/files/topology.prmtop",
+          "size_bytes": 900704,
+          "checksum": "sha256:ad580b3c9eada36f4cb79b300fdda2e26101926dcf4cb8a9f9b7623424bb96f0"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.7/files/trajectory.xtc",
+          "size_bytes": 391076,
+          "checksum": "sha256:d22e8fa60b7077acba84089d2b56cbed7a56cac1c8f3cd8abd44afdedc539505"
+        }
+      }
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.8",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.8",
+          "size_bytes": 5177,
+          "checksum": "sha256:f1955069acf3969eb60c8f505dae2b263de559093cc8c862c346223e2b4fd0a1"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.8/files/structure.pdb",
+          "size_bytes": 165194,
+          "checksum": "sha256:5576a57b7bd57e6892630c58dca095124c80fc2931ac82a8aeb30d2e54175dc7"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.8/files/topology.prmtop",
+          "size_bytes": 900704,
+          "checksum": "sha256:ad580b3c9eada36f4cb79b300fdda2e26101926dcf4cb8a9f9b7623424bb96f0"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.8/files/trajectory.xtc",
+          "size_bytes": 390916,
+          "checksum": "sha256:da9f6d191e012a8dd72cea6c4c4ed39d6cb00ba720561af2431e214534ae6005"
+        }
+      }
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.9",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.9",
+          "size_bytes": 5121,
+          "checksum": "sha256:157670fc991f4d81c326a7dbf63008e5a2e29895ac27ca767eef4e2871bb3984"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.9/files/structure.pdb",
+          "size_bytes": 165194,
+          "checksum": "sha256:cf14f783dc9a0e940448203acab5bcaadc54de0598b981f649561466fdaf8ee3"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.9/files/topology.prmtop",
+          "size_bytes": 900704,
+          "checksum": "sha256:ad580b3c9eada36f4cb79b300fdda2e26101926dcf4cb8a9f9b7623424bb96f0"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.9/files/trajectory.xtc",
+          "size_bytes": 391128,
+          "checksum": "sha256:71f3d953c6a56b8b78ad5009fcd6f12ce6d400fc78a4d003cab0500eefd2c729"
+        }
+      }
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.10",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.10",
+          "size_bytes": 5163,
+          "checksum": "sha256:a22cbb9a459fbce62ad7cea698e0abd133f93975c32a847198824454b3680fb3"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.10/files/structure.pdb",
+          "size_bytes": 165194,
+          "checksum": "sha256:5f268868bc30b177ffe4db68e89be47a5208876dcaf8e9bb67738e7b5455ba3d"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.10/files/topology.prmtop",
+          "size_bytes": 900704,
+          "checksum": "sha256:ad580b3c9eada36f4cb79b300fdda2e26101926dcf4cb8a9f9b7623424bb96f0"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00655.10/files/trajectory.xtc",
+          "size_bytes": 391276,
+          "checksum": "sha256:82cd9cfb68bc945d5327cb0976d7e78f2ea9e190d60d31e071f683f8579d7538"
+        }
+      }
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI",
+          "size_bytes": 4841,
+          "checksum": "sha256:730b59bd9fd1243dcd6b63cc43f177a9dbccc543d2504894d34a78bd318e6b09"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI/files/structure.pdb",
+          "size_bytes": 117809,
+          "checksum": "sha256:71dffa7d65bc638431c35f699d4324c687a5dcde8d60e8b94fd7d9155b8f22bd"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI/files/topology.prmtop",
+          "size_bytes": 655503,
+          "checksum": "sha256:b0f2c53cdcd8b6a81ec4718b16c9efdcd9fdf014a717c980495d8a8cd550f6a8"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI/files/trajectory.xtc",
+          "size_bytes": 279036,
+          "checksum": "sha256:015ac62bcfe41ba0a1f52807ab706d2aabe3104053033b0a8f430f341c7542ce"
+        }
+      }
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.2",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.2",
+          "size_bytes": 4889,
+          "checksum": "sha256:844732519dd4c49122d79f2904a8e2d7978e9fe53f1fbbac5eb2bfb5371bcb15"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.2/files/structure.pdb",
+          "size_bytes": 117809,
+          "checksum": "sha256:12cc29cd2e96a9d720424c66efbd050ec02629b70798d4d6cc4c73816e35c881"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.2/files/topology.prmtop",
+          "size_bytes": 655503,
+          "checksum": "sha256:b0f2c53cdcd8b6a81ec4718b16c9efdcd9fdf014a717c980495d8a8cd550f6a8"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.2/files/trajectory.xtc",
+          "size_bytes": 279552,
+          "checksum": "sha256:562a51663beef312706b376b8cf6d969cda0b4749a576e90fa3a4615298ee426"
+        }
+      }
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.3",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.3",
+          "size_bytes": 4865,
+          "checksum": "sha256:8ce69a8dbba36c15d4ae4a5dfd3ea3d52b73d50642e0d56308f424895c4dad60"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.3/files/structure.pdb",
+          "size_bytes": 117809,
+          "checksum": "sha256:dd69e36ce87c003a8a4ad21e92d3a425ccb1d8266dd6ac1341daa91c1094dd52"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.3/files/topology.prmtop",
+          "size_bytes": 655503,
+          "checksum": "sha256:b0f2c53cdcd8b6a81ec4718b16c9efdcd9fdf014a717c980495d8a8cd550f6a8"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.3/files/trajectory.xtc",
+          "size_bytes": 279440,
+          "checksum": "sha256:fd808b9c0c9b7e1ec83247410eab68aac0addeac20164c07e315fc3b83ef4afb"
+        }
+      }
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.4",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.4",
+          "size_bytes": 4873,
+          "checksum": "sha256:7efb7b107d1e82d03c9c65eea3bad48cabbb20e29770457e1c893091fc47526d"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.4/files/structure.pdb",
+          "size_bytes": 117809,
+          "checksum": "sha256:45a084c47e01bd349cac65ade5434c5e3a8b39c0baafbd319ccf194f8d3535c3"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.4/files/topology.prmtop",
+          "size_bytes": 655503,
+          "checksum": "sha256:b0f2c53cdcd8b6a81ec4718b16c9efdcd9fdf014a717c980495d8a8cd550f6a8"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.4/files/trajectory.xtc",
+          "size_bytes": 279616,
+          "checksum": "sha256:be4483011cf661a2a84c7149e618a3fcf71dd96812a37119c1207c6f69650dfe"
+        }
+      }
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.6",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.6",
+          "size_bytes": 4921,
+          "checksum": "sha256:0b0e1d39e7317c83015a3418705364df5009e79fe799d26183e679dae239c6da"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.6/files/structure.pdb",
+          "size_bytes": 117809,
+          "checksum": "sha256:0b7c4b72b2079c3a0c4202685398bcd36ea729bb699ed6b2c3a0cb9d02055309"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.6/files/topology.prmtop",
+          "size_bytes": 655503,
+          "checksum": "sha256:b0f2c53cdcd8b6a81ec4718b16c9efdcd9fdf014a717c980495d8a8cd550f6a8"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.6/files/trajectory.xtc",
+          "size_bytes": 278912,
+          "checksum": "sha256:836cb1f37969f3550a839b3947240f2da88fc6be9f102e994f5c2acac0688d32"
+        }
+      }
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.5",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.5",
+          "size_bytes": 4801,
+          "checksum": "sha256:e818c52aa748615634df43da5967e3380e6e89190cb15e2cbafab554f9da8371"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.5/files/structure.pdb",
+          "size_bytes": 117809,
+          "checksum": "sha256:0051f9e42bd7f466c542f4d1a26a7709fe03835b2d5fcb16f7b763666d3542d7"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.5/files/topology.prmtop",
+          "size_bytes": 655503,
+          "checksum": "sha256:b0f2c53cdcd8b6a81ec4718b16c9efdcd9fdf014a717c980495d8a8cd550f6a8"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.5/files/trajectory.xtc",
+          "size_bytes": 279404,
+          "checksum": "sha256:4a5e9396638a6f539d7085a3e62f9f243f7ec237cd17d357e9a471b061f8f35c"
+        }
+      }
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.7",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.7",
+          "size_bytes": 4841,
+          "checksum": "sha256:733eae5c1f3bf48dd901caa71a515c1ee19f5fc470c5ab4f102397347f8c0776"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.7/files/structure.pdb",
+          "size_bytes": 117809,
+          "checksum": "sha256:0de708097d6b9addce2cd8b1c64580e4fe3aae74fcdd2465642b37ae2f29d101"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.7/files/topology.prmtop",
+          "size_bytes": 655503,
+          "checksum": "sha256:b0f2c53cdcd8b6a81ec4718b16c9efdcd9fdf014a717c980495d8a8cd550f6a8"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.7/files/trajectory.xtc",
+          "size_bytes": 279572,
+          "checksum": "sha256:a5dac8208f631cd544df5bedd5ced8d43994907d4273b11cc9e459903ef7b10d"
+        }
+      }
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.8",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.8",
+          "size_bytes": 4825,
+          "checksum": "sha256:c200ed9d775c3847751026cee3bb4a4824f6cba6daf80cd80d7a414b403c801d"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.8/files/structure.pdb",
+          "size_bytes": 117809,
+          "checksum": "sha256:0b527b536a383a57a7303fbb407e421534a7d1bcd5121c7f754cf264b462dd6e"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.8/files/topology.prmtop",
+          "size_bytes": 655503,
+          "checksum": "sha256:b0f2c53cdcd8b6a81ec4718b16c9efdcd9fdf014a717c980495d8a8cd550f6a8"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.8/files/trajectory.xtc",
+          "size_bytes": 279068,
+          "checksum": "sha256:6157a01fa0843b8a1c07843aadcbb132d31dd845271b8eca8d521b0d185ba41c"
+        }
+      }
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.9",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.9",
+          "size_bytes": 4905,
+          "checksum": "sha256:edb66edc3a45a1539bca806d98eed00de0c7ced7b3476cf9023e652dbd5d2a2b"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.9/files/structure.pdb",
+          "size_bytes": 117809,
+          "checksum": "sha256:7bd07349515ed3b52c86adc8200c82b1c15ffc1168e1fa930833957fd027d655"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.9/files/topology.prmtop",
+          "size_bytes": 655503,
+          "checksum": "sha256:b0f2c53cdcd8b6a81ec4718b16c9efdcd9fdf014a717c980495d8a8cd550f6a8"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.9/files/trajectory.xtc",
+          "size_bytes": 279096,
+          "checksum": "sha256:98337643e0015ba25e099092a9314064a3c92e047fbd441164d8fef6e6215f11"
+        }
+      }
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.10",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.10",
+          "size_bytes": 4819,
+          "checksum": "sha256:7de1af251e22525c01974a72c753503cc438be85cc29f2173585bffac144ea4b"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.10/files/structure.pdb",
+          "size_bytes": 117809,
+          "checksum": "sha256:3bdf334049515fab008e6cd7b6e9f2df91ef77289f17a8c248936d6a67b37226"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.10/files/topology.prmtop",
+          "size_bytes": 655503,
+          "checksum": "sha256:b0f2c53cdcd8b6a81ec4718b16c9efdcd9fdf014a717c980495d8a8cd550f6a8"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005YI.10/files/trajectory.xtc",
+          "size_bytes": 279480,
+          "checksum": "sha256:eeae7d2e6fa494f98509cae49bc277e51b841a6c3727767b3b27ad2a23b239f6"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE",
+          "size_bytes": 5507,
+          "checksum": "sha256:d0f0071f96d25a6e7d7a11293673ecf715815f087624797236e4a6f3c51636b8"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE/files/structure.pdb",
+          "size_bytes": 3270896,
+          "checksum": "sha256:5be2aa8df278c5bbf8885364020f4451dc0cb5d89b8ebd93e44b5de1049ce869"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE/files/topology.prmtop",
+          "size_bytes": 17317979,
+          "checksum": "sha256:3c2c4e13fb02a63e77c9788904eb53d8b7326f1b9f95b16ca892452250b40400"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE/files/trajectory.xtc",
+          "size_bytes": 7623148,
+          "checksum": "sha256:457012296b4ad1fe8c17aaffb4e98ba432c3eff9fcb5ce88bb6c2571309a96ef"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.4",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.4",
+          "size_bytes": 5603,
+          "checksum": "sha256:7082496f2df87ef915a2453e074153062f0e689673288f1fd0205c1447a894ed"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.4/files/structure.pdb",
+          "size_bytes": 3270896,
+          "checksum": "sha256:756ba7693d1ca887d43772696eb495268d1d3d6676bc6274fced4a5276b667fc"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.4/files/topology.prmtop",
+          "size_bytes": 17317979,
+          "checksum": "sha256:3c2c4e13fb02a63e77c9788904eb53d8b7326f1b9f95b16ca892452250b40400"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.4/files/trajectory.xtc",
+          "size_bytes": 7642032,
+          "checksum": "sha256:f2f27bdf818503729ea6ad6098bf3d1293fa38ec27f0201b4e7102a24650d511"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.3",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.3",
+          "size_bytes": 5675,
+          "checksum": "sha256:11e6b06b1d7059a60f2902561c8abbdcfcc36f21011232fce10091061a114aa6"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.3/files/structure.pdb",
+          "size_bytes": 3270896,
+          "checksum": "sha256:005a1658568afc22fb7d5775cd9b3e59ddd79609fb989b422829d38ec340881e"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.3/files/topology.prmtop",
+          "size_bytes": 17317979,
+          "checksum": "sha256:3c2c4e13fb02a63e77c9788904eb53d8b7326f1b9f95b16ca892452250b40400"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.3/files/trajectory.xtc",
+          "size_bytes": 7629448,
+          "checksum": "sha256:a283127f4cd494fc469033e59cc07098b285363935a8fc067f20c986c8fe8135"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.2",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.2",
+          "size_bytes": 5627,
+          "checksum": "sha256:54212c0bc1dd0580a8560d3cedd6850333766a4a92c8dc074951323ba80d54c0"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.2/files/structure.pdb",
+          "size_bytes": 3270896,
+          "checksum": "sha256:194431e5defde4064fe5a251d73cba4d55baed59f0f4acc2bf03fe67afaeada9"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.2/files/topology.prmtop",
+          "size_bytes": 17317979,
+          "checksum": "sha256:3c2c4e13fb02a63e77c9788904eb53d8b7326f1b9f95b16ca892452250b40400"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.2/files/trajectory.xtc",
+          "size_bytes": 7619484,
+          "checksum": "sha256:029887c40fa92f26f1df0c1495b51c0e8784e6a5e80b65abfc0868279bbbb16e"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.6",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.6",
+          "size_bytes": 5507,
+          "checksum": "sha256:003d159cf02a83f7e7c74d7b35b986fde0f6db8fc0e6ef4236ffd8f041585170"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.6/files/structure.pdb",
+          "size_bytes": 3270896,
+          "checksum": "sha256:24dd67717cabd27bd6073bbb09d1d4867367d4c2794ceebaaf1968a706081e68"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.6/files/topology.prmtop",
+          "size_bytes": 17317979,
+          "checksum": "sha256:3c2c4e13fb02a63e77c9788904eb53d8b7326f1b9f95b16ca892452250b40400"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.6/files/trajectory.xtc",
+          "size_bytes": 7635776,
+          "checksum": "sha256:14fc898fbfbc9a582ad3c717ed0977e8fef601bb81511b82fc633b802d9ebdab"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.5",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.5",
+          "size_bytes": 5627,
+          "checksum": "sha256:b4a2ccc8d85193c965d2ed6a3e45e8dda019ebeb95e0861c17c8acfedefb131a"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.5/files/structure.pdb",
+          "size_bytes": 3270896,
+          "checksum": "sha256:d846ff6b0ef945d8fa0e89d0a1e97217a3fac535519a12ae7899cc14bc6f95d4"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.5/files/topology.prmtop",
+          "size_bytes": 17317979,
+          "checksum": "sha256:3c2c4e13fb02a63e77c9788904eb53d8b7326f1b9f95b16ca892452250b40400"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.5/files/trajectory.xtc",
+          "size_bytes": 7625916,
+          "checksum": "sha256:1ec82981b3369b943d02bb5b67ce00e0c3b5c3b79a6f3c297ff452288fb91751"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.7",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.7",
+          "size_bytes": 5603,
+          "checksum": "sha256:344a3842446b30176e0e155bef1f7d047ef922fedab2f53987206a81d1de7452"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.7/files/structure.pdb",
+          "size_bytes": 3270896,
+          "checksum": "sha256:bdd0d1220cf67a7dd168a7e88b5ff60cdc300c05b0e13532c4a81048c7630e5a"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.7/files/topology.prmtop",
+          "size_bytes": 17317979,
+          "checksum": "sha256:3c2c4e13fb02a63e77c9788904eb53d8b7326f1b9f95b16ca892452250b40400"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.7/files/trajectory.xtc",
+          "size_bytes": 7629616,
+          "checksum": "sha256:45bd984d64abc8064b0dae9bb35b28a4d38ee84451b415409534e5e36582b067"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.8",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.8",
+          "size_bytes": 5627,
+          "checksum": "sha256:c30a69db08d517e5689b94a93b6767a5b84e9e910c484e77d7dd239420866511"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.8/files/structure.pdb",
+          "size_bytes": 3270896,
+          "checksum": "sha256:ef5b2ffba59c7e6f274e657e1247f6338fbd283a0e1c53beb76e6dd92af5c45d"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.8/files/topology.prmtop",
+          "size_bytes": 17317979,
+          "checksum": "sha256:3c2c4e13fb02a63e77c9788904eb53d8b7326f1b9f95b16ca892452250b40400"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.8/files/trajectory.xtc",
+          "size_bytes": 7632396,
+          "checksum": "sha256:130147ce8ac0e9f20b87c377c96c6d75fbf578aacaaf3ccb02e20f052211a1e6"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.9",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.9",
+          "size_bytes": 5627,
+          "checksum": "sha256:425ea2a154ec0a38177dcf94bb6e2c5ab85042d122c67e9c3189e6d2dbbf295d"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.9/files/structure.pdb",
+          "size_bytes": 3270896,
+          "checksum": "sha256:ae4ece46d40db05467c21eec7ecd06cae197de5838d96c159d71cf270e27466d"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.9/files/topology.prmtop",
+          "size_bytes": 17317979,
+          "checksum": "sha256:3c2c4e13fb02a63e77c9788904eb53d8b7326f1b9f95b16ca892452250b40400"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.9/files/trajectory.xtc",
+          "size_bytes": 7632168,
+          "checksum": "sha256:0fb0b620afe22fdd057022dc03fd00e14da5701c406a7cbd9e6a1fbdff01c809"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.10",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.10",
+          "size_bytes": 5605,
+          "checksum": "sha256:d55b8fddbe74a589bebccf08c76059f9050b6eebca6813921053ba3f8334bc79"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.10/files/structure.pdb",
+          "size_bytes": 3270896,
+          "checksum": "sha256:14d6dd152f75b0e291dd15763c3007235668d956caa92dd74aa9810597c3a467"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.10/files/topology.prmtop",
+          "size_bytes": 17317979,
+          "checksum": "sha256:3c2c4e13fb02a63e77c9788904eb53d8b7326f1b9f95b16ca892452250b40400"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A007IE.10/files/trajectory.xtc",
+          "size_bytes": 7635692,
+          "checksum": "sha256:b482a56e288403e7a6247d6e5622c719507f35e266f6adfe15a02d9fd16b9d6b"
+        }
+      }
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM",
+          "size_bytes": 4936,
+          "checksum": "sha256:a61c221eaa490ab8f7c19ba127c99e9eaa199a6949e4dc26e78c0f7f76b6d2bb"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM/files/structure.pdb",
+          "size_bytes": 210797,
+          "checksum": "sha256:934f6371442ea740bdb04cd6424b8ef662213b073ee5c1abf76517821d155983"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM/files/topology.prmtop",
+          "size_bytes": 1155940,
+          "checksum": "sha256:cf165123f6da2dc88b4664935cab8dd1a49766c4e8fc12976b01d95a63e37a4f"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM/files/trajectory.xtc",
+          "size_bytes": 496612,
+          "checksum": "sha256:fb14ac2c39ba2380e5513fa2c7d936035d7c7976fcedfaf7106a6d1e5f180e08"
+        }
+      }
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.2",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.2",
+          "size_bytes": 4848,
+          "checksum": "sha256:10b2a692aa638690f718c602ddb831b0043b060d1c801eedfef5fa1fd6e944f7"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.2/files/structure.pdb",
+          "size_bytes": 210797,
+          "checksum": "sha256:9cd2a6708071650db7837091eefc03167df25a319e2a571c6b80566c44533a37"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.2/files/topology.prmtop",
+          "size_bytes": 1155940,
+          "checksum": "sha256:cf165123f6da2dc88b4664935cab8dd1a49766c4e8fc12976b01d95a63e37a4f"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.2/files/trajectory.xtc",
+          "size_bytes": 495716,
+          "checksum": "sha256:3da448f33c12ba5411e0850b8fa8f35c222a8a7970b3baa803cd35c65523df8c"
+        }
+      }
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.4",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.4",
+          "size_bytes": 4832,
+          "checksum": "sha256:768c3c86dc7e9a409374ba0d444baea1f67304c73544de52547727cf1526efa7"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.4/files/structure.pdb",
+          "size_bytes": 210797,
+          "checksum": "sha256:54dd208422657e513692bfdcb34e21b6c4a87f16a94e036fb22848eebebf7307"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.4/files/topology.prmtop",
+          "size_bytes": 1155940,
+          "checksum": "sha256:cf165123f6da2dc88b4664935cab8dd1a49766c4e8fc12976b01d95a63e37a4f"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.4/files/trajectory.xtc",
+          "size_bytes": 495764,
+          "checksum": "sha256:7ae5ebee171c5f1a64c51a73c2c6f1d32235d67473f827702abd406cde43524e"
+        }
+      }
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.3",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.3",
+          "size_bytes": 4952,
+          "checksum": "sha256:096b9758c35a2443cc091ba1dffd037a1168f2de0ae577f1f525631027db5b6d"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.3/files/structure.pdb",
+          "size_bytes": 210797,
+          "checksum": "sha256:23e8eedfb4123a22d56cfeb6c1d947099eb0579b5513a2cb064acb08aa5d5ecc"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.3/files/topology.prmtop",
+          "size_bytes": 1155940,
+          "checksum": "sha256:cf165123f6da2dc88b4664935cab8dd1a49766c4e8fc12976b01d95a63e37a4f"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.3/files/trajectory.xtc",
+          "size_bytes": 497560,
+          "checksum": "sha256:8c0a4fb670736178f8a80deeb077cd1c62d259abcec33a2d92b8155741c276ec"
+        }
+      }
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.5",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.5",
+          "size_bytes": 4920,
+          "checksum": "sha256:aa8028f7464aece72cd08df53da16435d6fab5b19fa101bfaba6847345fcdf58"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.5/files/structure.pdb",
+          "size_bytes": 210797,
+          "checksum": "sha256:aca25530fe7a4535ac217b634686aa0c6a97522e2dc5bbec63ba20919d1beaa4"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.5/files/topology.prmtop",
+          "size_bytes": 1155940,
+          "checksum": "sha256:cf165123f6da2dc88b4664935cab8dd1a49766c4e8fc12976b01d95a63e37a4f"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.5/files/trajectory.xtc",
+          "size_bytes": 495788,
+          "checksum": "sha256:5f9878736bde79a333dbd5eab845ca71430a0a05a45197434fe6bd6dcfd26fa6"
+        }
+      }
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.6",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.6",
+          "size_bytes": 4944,
+          "checksum": "sha256:6840bf2eb12ff55603aecf93548b0f145364540885abd4c5874a0003033478c5"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.6/files/structure.pdb",
+          "size_bytes": 210797,
+          "checksum": "sha256:0515c331c0d7b4e8ae241f9b4f341368c1393aee85ef6e08635a1344553ef10c"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.6/files/topology.prmtop",
+          "size_bytes": 1155940,
+          "checksum": "sha256:cf165123f6da2dc88b4664935cab8dd1a49766c4e8fc12976b01d95a63e37a4f"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.6/files/trajectory.xtc",
+          "size_bytes": 495980,
+          "checksum": "sha256:596080215462d7b37a30272c829003ae5bd51a5db915587d795320987553ca9a"
+        }
+      }
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.7",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.7",
+          "size_bytes": 4888,
+          "checksum": "sha256:24c7efe532fbff77c5aa8031c46f6f1168190e5d7d8b8addbd3d5f3eb1b7fce9"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.7/files/structure.pdb",
+          "size_bytes": 210797,
+          "checksum": "sha256:cb588c19f2890ee3413a43d510df773ebe1fa061e3b2fa01c425297fa0c45786"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.7/files/topology.prmtop",
+          "size_bytes": 1155940,
+          "checksum": "sha256:cf165123f6da2dc88b4664935cab8dd1a49766c4e8fc12976b01d95a63e37a4f"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.7/files/trajectory.xtc",
+          "size_bytes": 496524,
+          "checksum": "sha256:995d570c2342b90161ca4ca58cca5fc267207cc010be01b977e39b81297e405c"
+        }
+      }
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.8",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.8",
+          "size_bytes": 4952,
+          "checksum": "sha256:a5fa74a80bb5ba5d997e12a1d93da14fc5d44697acad2087846ea1ba967780e7"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.8/files/structure.pdb",
+          "size_bytes": 210797,
+          "checksum": "sha256:8222928611a7704131aedbb3b9b24b80d7c5e50bd36550b41fd0d144bec4a94b"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.8/files/topology.prmtop",
+          "size_bytes": 1155940,
+          "checksum": "sha256:cf165123f6da2dc88b4664935cab8dd1a49766c4e8fc12976b01d95a63e37a4f"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.8/files/trajectory.xtc",
+          "size_bytes": 495844,
+          "checksum": "sha256:660a00bddfaa481748ec5e1c087e30bd5ebf96edbe617ecabade7b8e0f5f506b"
+        }
+      }
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.9",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.9",
+          "size_bytes": 4936,
+          "checksum": "sha256:c17355af207c2684641b8cd4e6bd0aae9b52342e60149074eef74f1306f12f09"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.9/files/structure.pdb",
+          "size_bytes": 210797,
+          "checksum": "sha256:e7e88a7d7bda5a8142d6cc741af57d887bc59234a7f0a85ff3b3b140ab7a5856"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.9/files/topology.prmtop",
+          "size_bytes": 1155940,
+          "checksum": "sha256:cf165123f6da2dc88b4664935cab8dd1a49766c4e8fc12976b01d95a63e37a4f"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.9/files/trajectory.xtc",
+          "size_bytes": 496152,
+          "checksum": "sha256:928c7fe52b40d95e7695198d40b82da08751c39b11167b9727ef0f9b44b19b47"
+        }
+      }
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.10",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.10",
+          "size_bytes": 4842,
+          "checksum": "sha256:229d19e1227e815a3a7e9f300b68b324cc565884c6f3c35a070ed14f18c25263"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.10/files/structure.pdb",
+          "size_bytes": 210797,
+          "checksum": "sha256:fd35414ab3c58d5ec1a47c2e89adb03e6c62f058c0bbfd7cbf036a2c7cd4c680"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.10/files/topology.prmtop",
+          "size_bytes": 1155940,
+          "checksum": "sha256:cf165123f6da2dc88b4664935cab8dd1a49766c4e8fc12976b01d95a63e37a4f"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003QM.10/files/trajectory.xtc",
+          "size_bytes": 495608,
+          "checksum": "sha256:9450c02fac432e6cfbb43c73ecba8df0c36cfa01ae5df609fc4fb0c873dd1346"
+        }
+      }
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC",
+          "size_bytes": 4806,
+          "checksum": "sha256:d63884f0eef4f9ea2b89c1a619a40f3bc65dc8c04ab36bc3dee552062c5df76e"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC/files/structure.pdb",
+          "size_bytes": 500939,
+          "checksum": "sha256:ac6c142d0c7e7387e47020a75c49bf44895d99714d337e01966b1e1665688416"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC/files/topology.prmtop",
+          "size_bytes": 2701217,
+          "checksum": "sha256:5e13d17175896b4e4ea418754160271cf29aa6f42bba427db01b47e036e7ad97"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC/files/trajectory.xtc",
+          "size_bytes": 1174968,
+          "checksum": "sha256:33e7b78bb7d0480f2365d78ed272c342895499162dab1bd4401759f7393627e9"
+        }
+      }
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.2",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.2",
+          "size_bytes": 4974,
+          "checksum": "sha256:f1cfcedd1e3377e79049b444b40c39de15f3029a108a489ca8d2da29451bc0db"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.2/files/structure.pdb",
+          "size_bytes": 500939,
+          "checksum": "sha256:c540fc429d135bc1aba68b6499d7987d1bce54b4349a3e194e5c5fa8f1364586"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.2/files/topology.prmtop",
+          "size_bytes": 2701217,
+          "checksum": "sha256:5e13d17175896b4e4ea418754160271cf29aa6f42bba427db01b47e036e7ad97"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.2/files/trajectory.xtc",
+          "size_bytes": 1176356,
+          "checksum": "sha256:e267c63bb9d23b40b3874f451373b2f1a5a16117dc8f022598af8d12bbe1d25a"
+        }
+      }
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.3",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.3",
+          "size_bytes": 4782,
+          "checksum": "sha256:f67780cae4dac7b4908759d74bc8a6a19c038a574dac9c43edf14013dd85b32f"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.3/files/structure.pdb",
+          "size_bytes": 500939,
+          "checksum": "sha256:b1931e886784755bf5d9861978e21a54f2b9f6d64c6c4a62e9d0f73619c476d0"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.3/files/topology.prmtop",
+          "size_bytes": 2701217,
+          "checksum": "sha256:5e13d17175896b4e4ea418754160271cf29aa6f42bba427db01b47e036e7ad97"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.3/files/trajectory.xtc",
+          "size_bytes": 1172072,
+          "checksum": "sha256:13b8ddef5f4e5ccc6a57f95cb13bf7a4cd3da7bacb50b45b189dd3b6df2c2f8e"
+        }
+      }
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.4",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.4",
+          "size_bytes": 4494,
+          "checksum": "sha256:050d26bc1b7d270f795765ff732fd94c49c3d744314f976bb2927d5bab8364ea"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.4/files/structure.pdb",
+          "size_bytes": 500939,
+          "checksum": "sha256:a8b98d89f4650e9e13c3e585dbb65db0119ad6bde21e80fef721fa2b85b73ad9"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.4/files/topology.prmtop",
+          "size_bytes": 2701217,
+          "checksum": "sha256:5e13d17175896b4e4ea418754160271cf29aa6f42bba427db01b47e036e7ad97"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.4/files/trajectory.xtc",
+          "size_bytes": 1175516,
+          "checksum": "sha256:6c73bc29167c0af95f7bf71e97ff4e7475d42c74b08b361b6312af8f713d94f1"
+        }
+      }
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.5",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.5",
+          "size_bytes": 4367,
+          "checksum": "sha256:b55f315192d44cc44f06d98eca133d4d94be1cdcaa31439751f7563cc933e203"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.5/files/structure.pdb",
+          "size_bytes": 500939,
+          "checksum": "sha256:80d035e9ae21c06c306a8ae7015e79f78c77918df85e1a86ddab26d89b33c242"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.5/files/topology.prmtop",
+          "size_bytes": 2701217,
+          "checksum": "sha256:5e13d17175896b4e4ea418754160271cf29aa6f42bba427db01b47e036e7ad97"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.5/files/trajectory.xtc",
+          "size_bytes": 1179228,
+          "checksum": "sha256:32cf697872d41b267cff4f6a398f81a54f685cb709955d7a1004e7dd449e0665"
+        }
+      }
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.6",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.6",
+          "size_bytes": 4645,
+          "checksum": "sha256:5c83e337f4a97b071de4c9ffab376d8b3db77aa3b8468218d0524c90a9cf6fec"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.6/files/structure.pdb",
+          "size_bytes": 500939,
+          "checksum": "sha256:beaf5d909d216682b49a8838d86ba29dcad18b27fa90bba6a6436aac2ab407bf"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.6/files/topology.prmtop",
+          "size_bytes": 2701217,
+          "checksum": "sha256:5e13d17175896b4e4ea418754160271cf29aa6f42bba427db01b47e036e7ad97"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.6/files/trajectory.xtc",
+          "size_bytes": 1178084,
+          "checksum": "sha256:283fe15492ae2b3b2eec9c892d05c46a41142524126f15eed81a2fd827ca61d0"
+        }
+      }
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.7",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.7",
+          "size_bytes": 4974,
+          "checksum": "sha256:270f0f5500b3203dce9dbc8b9c2a539394957914eccc0bd17e70b17031d303bf"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.7/files/structure.pdb",
+          "size_bytes": 500939,
+          "checksum": "sha256:152567222823f50be4e56bc880039c5866f91cdea12e6922863fe875616acf5a"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.7/files/topology.prmtop",
+          "size_bytes": 2701217,
+          "checksum": "sha256:5e13d17175896b4e4ea418754160271cf29aa6f42bba427db01b47e036e7ad97"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.7/files/trajectory.xtc",
+          "size_bytes": 1173304,
+          "checksum": "sha256:67a81349c88970c01d817d140160b32ba7f9c1abcde0a2c6e08b060557bb42bd"
+        }
+      }
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.8",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.8",
+          "size_bytes": 4429,
+          "checksum": "sha256:27da97f8db6a00ee104cb27acfae517f11f36ea867e24ad839e82abb26217724"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.8/files/structure.pdb",
+          "size_bytes": 500939,
+          "checksum": "sha256:be971193ef6fe6019b3ac8af4c54a6b9ea7ff2253321930dbfaa891353828e7c"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.8/files/topology.prmtop",
+          "size_bytes": 2701217,
+          "checksum": "sha256:5e13d17175896b4e4ea418754160271cf29aa6f42bba427db01b47e036e7ad97"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.8/files/trajectory.xtc",
+          "size_bytes": 1178056,
+          "checksum": "sha256:e9ab44a1615b39670bccf42f142bf6480f3577220be5d9ea65aec32f33e742d1"
+        }
+      }
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.9",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.9",
+          "size_bytes": 5070,
+          "checksum": "sha256:7ef435bc116bdf644e440b7a46f811625bc87399454b107c8f43a485c4407910"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.9/files/structure.pdb",
+          "size_bytes": 500939,
+          "checksum": "sha256:c77303730846dca28b6ba481918c4bd992ffb9e09437528675810bc296120d5e"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.9/files/topology.prmtop",
+          "size_bytes": 2701217,
+          "checksum": "sha256:5e13d17175896b4e4ea418754160271cf29aa6f42bba427db01b47e036e7ad97"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.9/files/trajectory.xtc",
+          "size_bytes": 1171020,
+          "checksum": "sha256:47e9010bbfb94147d9d1cc56e4dfc6fedd8ee044516651e9620a5e905f16e0d9"
+        }
+      }
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.10",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.10",
+          "size_bytes": 4904,
+          "checksum": "sha256:7f8bc47c426bb764ef8936b4af81972bfa0f0c3e423f8e3799038c9cd47a1dbb"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.10/files/structure.pdb",
+          "size_bytes": 500939,
+          "checksum": "sha256:cd97c18c0e9f318b45fe86514451cec738ea0678863e22cc2a273136058512f1"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.10/files/topology.prmtop",
+          "size_bytes": 2701217,
+          "checksum": "sha256:5e13d17175896b4e4ea418754160271cf29aa6f42bba427db01b47e036e7ad97"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A003WC.10/files/trajectory.xtc",
+          "size_bytes": 1173356,
+          "checksum": "sha256:904cdd69d0c12f1322eac37a59fe5b87fa8c5b98738f953515fd35396dcabace"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602",
+          "size_bytes": 4476,
+          "checksum": "sha256:787db2963aacad9be1e5906307c668b6ebf5cdc4605282b7f3226e1880ce9fb4"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602/files/structure.pdb",
+          "size_bytes": 5386454,
+          "checksum": "sha256:a412ded8114614fc41a97ecf10017a8ec0ae2d065918a87bd3dee57d944550b7"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602/files/topology.prmtop",
+          "size_bytes": 28651542,
+          "checksum": "sha256:fef9c08fa143f48a4b9123352ad26504c1e0ba4116355324d969395c1c805e33"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602/files/trajectory.xtc",
+          "size_bytes": 12619252,
+          "checksum": "sha256:88b88fe7cfcaaa566f4c9b11e005e842f52913b8d18893a4441496f5f452e033"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.3",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.3",
+          "size_bytes": 4380,
+          "checksum": "sha256:5dbfc4d824e273d01bf107e0a680a4763fd7f97867a97dbf4767f99df6e32556"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.3/files/structure.pdb",
+          "size_bytes": 5386454,
+          "checksum": "sha256:9a694b6d40599e6a5d1bd19e53a0cb68bce45c8b263df91350f3295a64ce4eef"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.3/files/topology.prmtop",
+          "size_bytes": 28651542,
+          "checksum": "sha256:fef9c08fa143f48a4b9123352ad26504c1e0ba4116355324d969395c1c805e33"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.3/files/trajectory.xtc",
+          "size_bytes": 12624372,
+          "checksum": "sha256:fe9ba190f23e1a1e05e9c55c966694cf11e141c06d53716076af63b8e88d255d"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.4",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.4",
+          "size_bytes": 4524,
+          "checksum": "sha256:272090ac32ec12bac2928afa5165dcd5525571d14880c81352e7a5dc018ddabb"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.4/files/structure.pdb",
+          "size_bytes": 5386454,
+          "checksum": "sha256:075125e2e1bfa24e0ff2395ce0d96321449e9ae1cc7d8599ddddf7127c6a053f"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.4/files/topology.prmtop",
+          "size_bytes": 28651542,
+          "checksum": "sha256:fef9c08fa143f48a4b9123352ad26504c1e0ba4116355324d969395c1c805e33"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.4/files/trajectory.xtc",
+          "size_bytes": 12588964,
+          "checksum": "sha256:c78d831cc391c384abd6d5a6c07a956efa8b60b87b65f6484d34dd54c391e58e"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.2",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.2",
+          "size_bytes": 4428,
+          "checksum": "sha256:3a1587d23930eede28d3defa73c443c866b8b9839555be43d63051ea6d6c17cf"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.2/files/structure.pdb",
+          "size_bytes": 5386454,
+          "checksum": "sha256:f6ce31792da4ab318b26082dc5c5652e771d915a2d7764bfc453d76806ebe08b"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.2/files/topology.prmtop",
+          "size_bytes": 28651542,
+          "checksum": "sha256:fef9c08fa143f48a4b9123352ad26504c1e0ba4116355324d969395c1c805e33"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.2/files/trajectory.xtc",
+          "size_bytes": 12612476,
+          "checksum": "sha256:6826f759e31fdd57a0cebe037810c75af94497ef7c1b125abb1c551f35ee1d42"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.5",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.5",
+          "size_bytes": 4501,
+          "checksum": "sha256:2b281b3e5ffdc94b9e276c33e50f66dccb1f033580235ab0db46de332cc2b307"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.5/files/structure.pdb",
+          "size_bytes": 5386454,
+          "checksum": "sha256:954a83ad1c596e5f21c5d32ccaafc2f4e506e4f5eeb0aec3fad238b113ea8fcd"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.5/files/topology.prmtop",
+          "size_bytes": 28651542,
+          "checksum": "sha256:fef9c08fa143f48a4b9123352ad26504c1e0ba4116355324d969395c1c805e33"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.5/files/trajectory.xtc",
+          "size_bytes": 12607004,
+          "checksum": "sha256:18396cc4782c8689eda12b7debaaed04a0851722cdd67c949bea1ad50c97dea4"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.7",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.7",
+          "size_bytes": 4452,
+          "checksum": "sha256:9361b3c071f185ff228de7221652cffc848c01064beb2d2748594480c3e2abdb"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.7/files/structure.pdb",
+          "size_bytes": 5386454,
+          "checksum": "sha256:a3970b7b483031d68741d30b06606d6dd152f77f5447d5475ad4e9898462f320"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.7/files/topology.prmtop",
+          "size_bytes": 28651542,
+          "checksum": "sha256:fef9c08fa143f48a4b9123352ad26504c1e0ba4116355324d969395c1c805e33"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.7/files/trajectory.xtc",
+          "size_bytes": 12627056,
+          "checksum": "sha256:ae2df77f56a0300f3b7e9caecf14a01bea8285af9b9028e7fe2f39707fced005"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.8",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.8",
+          "size_bytes": 4452,
+          "checksum": "sha256:b231a6d9aef43d350d25bf401fed969117ecdd9e5abe0159923292a78d4124c1"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.8/files/structure.pdb",
+          "size_bytes": 5386454,
+          "checksum": "sha256:b8dd4b61ad6dd51290f7c77386b5f04446338cafbffc9f22d66d60e98913f926"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.8/files/topology.prmtop",
+          "size_bytes": 28651542,
+          "checksum": "sha256:fef9c08fa143f48a4b9123352ad26504c1e0ba4116355324d969395c1c805e33"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.8/files/trajectory.xtc",
+          "size_bytes": 12649016,
+          "checksum": "sha256:3b475de2b808c4932b1f20b92ffd8c75257d139800e194b69ab957ff909ff8e9"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.6",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.6",
+          "size_bytes": 4404,
+          "checksum": "sha256:cb808bfecb338577e1633ad898d11cf235dc4bff8ab3d1a9b9c7147b153d2862"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.6/files/structure.pdb",
+          "size_bytes": 5386454,
+          "checksum": "sha256:bbb408e90badaf9928f207765a9722ad4e899d76f2d774f47fcab780463b083d"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.6/files/topology.prmtop",
+          "size_bytes": 28651542,
+          "checksum": "sha256:fef9c08fa143f48a4b9123352ad26504c1e0ba4116355324d969395c1c805e33"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.6/files/trajectory.xtc",
+          "size_bytes": 12611760,
+          "checksum": "sha256:4fe835067b53f6b86483cee4e26eaa45bcdb4b632232469257092896ce212328"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.9",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.9",
+          "size_bytes": 4356,
+          "checksum": "sha256:7cf4e24c9293cd27926776da667ffc036158bd14f47df8e998f2a72461888141"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.9/files/structure.pdb",
+          "size_bytes": 5386454,
+          "checksum": "sha256:0ac268827740c2c4a2af1ec98658ed2c96eceb6bd9447899d6ee991458f3423f"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.9/files/topology.prmtop",
+          "size_bytes": 28651542,
+          "checksum": "sha256:fef9c08fa143f48a4b9123352ad26504c1e0ba4116355324d969395c1c805e33"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.9/files/trajectory.xtc",
+          "size_bytes": 12646068,
+          "checksum": "sha256:eceea47bdd54951609ab5bbd6ab973dc0467bd9ad76386d9ca9bad0f759015d5"
+        }
+      }
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.10",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.10",
+          "size_bytes": 4526,
+          "checksum": "sha256:621f6df30727747b17586c47df3b7854ad405f27ca00e4181eb505f86e8ef5b0"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.10/files/structure.pdb",
+          "size_bytes": 5386454,
+          "checksum": "sha256:42311a5d3ceb2cb7dac7e44dca58b3a86b52edc27034016e0347fd368f7b9873"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.10/files/topology.prmtop",
+          "size_bytes": 28651542,
+          "checksum": "sha256:fef9c08fa143f48a4b9123352ad26504c1e0ba4116355324d969395c1c805e33"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A00602.10/files/trajectory.xtc",
+          "size_bytes": 12642088,
+          "checksum": "sha256:e807de600498b223452778d856d1310b7bd189198380a0cda3c23ddd648de110"
+        }
+      }
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN",
+          "size_bytes": 5378,
+          "checksum": "sha256:62416c7d0214a228494b4a0d11b5ab6172b7e8d0ff663679c9ebc44fd1c5b968"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN/files/structure.pdb",
+          "size_bytes": 1104956,
+          "checksum": "sha256:8667bee4f2f7d91e0701112d50e417060f5e4d62248a3e3c1056c2e37fb04dc8"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN/files/topology.prmtop",
+          "size_bytes": 5910850,
+          "checksum": "sha256:42ccf43823bdc9fb7bba272187f59beebd4a4d626c82af5b492d34776b23c688"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN/files/trajectory.xtc",
+          "size_bytes": 2575588,
+          "checksum": "sha256:4f76861e60f02cf8b1533f7f0749616fa5b2da075b9a7a23383990328720d443"
+        }
+      }
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.2",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.2",
+          "size_bytes": 5306,
+          "checksum": "sha256:3f301712b158f722504bc3875ca40c3950a5e94e25920fd21417ac3ba6816638"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.2/files/structure.pdb",
+          "size_bytes": 1104956,
+          "checksum": "sha256:5ce7cd9485d7bd96153287052421e31ac16e52e82d41746e268a8b398d63fcc5"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.2/files/topology.prmtop",
+          "size_bytes": 5910850,
+          "checksum": "sha256:42ccf43823bdc9fb7bba272187f59beebd4a4d626c82af5b492d34776b23c688"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.2/files/trajectory.xtc",
+          "size_bytes": 2593072,
+          "checksum": "sha256:747d4e1af48117e1f5ec6b1865f8eb406fbf15a291dff5c3f162dcdc3aafabf1"
+        }
+      }
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.4",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.4",
+          "size_bytes": 5402,
+          "checksum": "sha256:7e02a0c984371cd27d5d1510f87d4b675c6e8e98f71e70fb91787580e3c4a7ec"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.4/files/structure.pdb",
+          "size_bytes": 1104956,
+          "checksum": "sha256:856194436ffbbe2f6a262574f3e6cc3c8f4c0034927b40fbdcaa98711643341a"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.4/files/topology.prmtop",
+          "size_bytes": 5910850,
+          "checksum": "sha256:42ccf43823bdc9fb7bba272187f59beebd4a4d626c82af5b492d34776b23c688"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.4/files/trajectory.xtc",
+          "size_bytes": 2589764,
+          "checksum": "sha256:7e681bf6a0f2ca88f133c30580ec5e66c6f5db6328057e9f1271d6f0b565d4b8"
+        }
+      }
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.5",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.5",
+          "size_bytes": 5378,
+          "checksum": "sha256:6c287f5df4da1661e39d4952edfb7d965cd79f25a6522accf3a87b995d50df20"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.5/files/structure.pdb",
+          "size_bytes": 1104956,
+          "checksum": "sha256:f24181617405409f36be204fdbb8e036e2bf36ed47757d1050ec78acb7dfd8ab"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.5/files/topology.prmtop",
+          "size_bytes": 5910850,
+          "checksum": "sha256:42ccf43823bdc9fb7bba272187f59beebd4a4d626c82af5b492d34776b23c688"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.5/files/trajectory.xtc",
+          "size_bytes": 2584400,
+          "checksum": "sha256:c993cc665a481822b992c81f4024e1404b2331b64bcadc0de724b39ee5d46223"
+        }
+      }
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.3",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.3",
+          "size_bytes": 5426,
+          "checksum": "sha256:78012bfd21477e82bfdc9da798b58803350f6d9dacd6449daea950589cf8a38f"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.3/files/structure.pdb",
+          "size_bytes": 1104956,
+          "checksum": "sha256:0506756c1aed6517740e124baa8131ab086b0c53a061f75acd6db1b0dd3a5d24"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.3/files/topology.prmtop",
+          "size_bytes": 5910850,
+          "checksum": "sha256:42ccf43823bdc9fb7bba272187f59beebd4a4d626c82af5b492d34776b23c688"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.3/files/trajectory.xtc",
+          "size_bytes": 2583280,
+          "checksum": "sha256:6bde4d4c197416f5deece4de316e4481fcc9efb1392d2892198702895e1438b0"
+        }
+      }
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.6",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.6",
+          "size_bytes": 5255,
+          "checksum": "sha256:8ca29980b8281abe7e702dc567a8aeb0265a0f6954c70d2c3b7c51b17e300ade"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.6/files/structure.pdb",
+          "size_bytes": 1104956,
+          "checksum": "sha256:3f3834121e588026bed9d99e69e7422224ca4cd5653d587d98c3e69845ae61a3"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.6/files/topology.prmtop",
+          "size_bytes": 5910850,
+          "checksum": "sha256:42ccf43823bdc9fb7bba272187f59beebd4a4d626c82af5b492d34776b23c688"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.6/files/trajectory.xtc",
+          "size_bytes": 2588968,
+          "checksum": "sha256:9c888eb1f47566246566301f0c5d43132cfead80edc1b195806cb083591793e5"
+        }
+      }
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.8",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.8",
+          "size_bytes": 5402,
+          "checksum": "sha256:2b0c5b1489787c215ecdeb86e1bbfeec7f6209929063e417f71b12f5571cd0cd"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.8/files/structure.pdb",
+          "size_bytes": 1104956,
+          "checksum": "sha256:a2266b67f84c4836c6ff4f09758feb13d64c594ea7f10f17ccbaa3daf611c6b8"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.8/files/topology.prmtop",
+          "size_bytes": 5910850,
+          "checksum": "sha256:42ccf43823bdc9fb7bba272187f59beebd4a4d626c82af5b492d34776b23c688"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.8/files/trajectory.xtc",
+          "size_bytes": 2587080,
+          "checksum": "sha256:91257bbac7a7ef3502e9aaf3359babe29fdd0cbebe2d0467b196722dcbc06294"
+        }
+      }
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.7",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.7",
+          "size_bytes": 5450,
+          "checksum": "sha256:827a92b073e4a006701d4e9d52ebb77efd1113c451a7a421596b69a669822032"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.7/files/structure.pdb",
+          "size_bytes": 1104956,
+          "checksum": "sha256:4d81aa138371b177ea6858a65af272d09ff06dfc065287dade4efa898d76fbc3"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.7/files/topology.prmtop",
+          "size_bytes": 5910850,
+          "checksum": "sha256:42ccf43823bdc9fb7bba272187f59beebd4a4d626c82af5b492d34776b23c688"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.7/files/trajectory.xtc",
+          "size_bytes": 2594956,
+          "checksum": "sha256:ab5c4285ea6d85474547e43fab437996c052d8cfb3b41abd5458cb46db91ffcf"
+        }
+      }
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.9",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.9",
+          "size_bytes": 5450,
+          "checksum": "sha256:8a0035f24c2268219a25f7d0a113efdb60d4b2bbb80291137210f736347d8669"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.9/files/structure.pdb",
+          "size_bytes": 1104956,
+          "checksum": "sha256:a138a3c0ea1162f5cca0c222d8867753555742a44ad3456a8f1931c853aa8782"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.9/files/topology.prmtop",
+          "size_bytes": 5910850,
+          "checksum": "sha256:42ccf43823bdc9fb7bba272187f59beebd4a4d626c82af5b492d34776b23c688"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.9/files/trajectory.xtc",
+          "size_bytes": 2587336,
+          "checksum": "sha256:b3da225f7a39008ff7924913c729e94d6c5eac1b2324ba0f5b8ad09dee11b472"
+        }
+      }
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.10",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.10",
+          "size_bytes": 5308,
+          "checksum": "sha256:907e4e8fe14af3a6298bc7ed02af2ddcc7248ae053212e3a4b698be114018cb2"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.10/files/structure.pdb",
+          "size_bytes": 1104956,
+          "checksum": "sha256:00af1f10434c02fb626501061e8dc36ff90cf7a8010cc0be05e66716473cbda5"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.10/files/topology.prmtop",
+          "size_bytes": 5910850,
+          "checksum": "sha256:42ccf43823bdc9fb7bba272187f59beebd4a4d626c82af5b492d34776b23c688"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A005MN.10/files/trajectory.xtc",
+          "size_bytes": 2584716,
+          "checksum": "sha256:887347defca84057bace13a7f90ab27ebe54478ecb145ba00f095be37f52da30"
+        }
+      }
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.2",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.2",
+          "size_bytes": 5875,
+          "checksum": "sha256:d678edff47466cd2bc0b508723cc03d4771ec7c56ca038ffce28e6d8faf70294"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.2/files/structure.pdb",
+          "size_bytes": 1182959,
+          "checksum": "sha256:53a5032beac090f9c9279739835ad2b35a3cb1870f260a3d97a306f2b11827a6"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.2/files/topology.prmtop",
+          "size_bytes": 6308294,
+          "checksum": "sha256:eb4689b9788677e00ccad03c0b0cc4a4369dcf09c6a38604828672be63785a1e"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.2/files/trajectory.xtc",
+          "size_bytes": 2777764,
+          "checksum": "sha256:8c584cd11e1fae4dc76ad46350efa06e2b0fd467bc787b1bb0fb748e03969d51"
+        }
+      }
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG",
+          "size_bytes": 5827,
+          "checksum": "sha256:ff2e462ae71c8a3243a4c3cfce411bf07d50c7964b80e1eb13f3e19669ca50d4"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG/files/structure.pdb",
+          "size_bytes": 1182959,
+          "checksum": "sha256:84b729d60cad20d813548ad1c6f67c93fa4daff762338e985a95919df4373b83"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG/files/topology.prmtop",
+          "size_bytes": 6308294,
+          "checksum": "sha256:eb4689b9788677e00ccad03c0b0cc4a4369dcf09c6a38604828672be63785a1e"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG/files/trajectory.xtc",
+          "size_bytes": 2773516,
+          "checksum": "sha256:af685604a96912dfece9ac32999d348ab64a279906a8bc20b3d7d5673f33f119"
+        }
+      }
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.3",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.3",
+          "size_bytes": 5899,
+          "checksum": "sha256:90e2e14d5164edb6bd147946282dc1f205acd2cfecef8f27e87dcde91f8cd174"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.3/files/structure.pdb",
+          "size_bytes": 1182959,
+          "checksum": "sha256:a582098ac52f4e306b80048e06fc05dc0e15286bf9999d716bc0db77ad8a49f2"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.3/files/topology.prmtop",
+          "size_bytes": 6308294,
+          "checksum": "sha256:eb4689b9788677e00ccad03c0b0cc4a4369dcf09c6a38604828672be63785a1e"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.3/files/trajectory.xtc",
+          "size_bytes": 2782608,
+          "checksum": "sha256:eccb08ada13d789b07fb8b73f51b4cab0c8b445b79cdac706cf010959031a21d"
+        }
+      }
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.5",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.5",
+          "size_bytes": 5899,
+          "checksum": "sha256:f56268b6c8edfb66e42288f6908a6e71a78f7b008c432f6f11021e4a51993a4e"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.5/files/structure.pdb",
+          "size_bytes": 1182959,
+          "checksum": "sha256:267313693dbf43d60f82d1188adf8b6ba467351e716187ddf9de7757ed66e415"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.5/files/topology.prmtop",
+          "size_bytes": 6308294,
+          "checksum": "sha256:eb4689b9788677e00ccad03c0b0cc4a4369dcf09c6a38604828672be63785a1e"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.5/files/trajectory.xtc",
+          "size_bytes": 2780988,
+          "checksum": "sha256:10f5cdea8b11e3bee82cbf88cbb5e237697a4824100286d1942fa3dc9ccca35d"
+        }
+      }
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.4",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.4",
+          "size_bytes": 5923,
+          "checksum": "sha256:cf27e47e2b87e6be3f137f241d933e722fcc9101c9e738e827dc2eb0e1a5f124"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.4/files/structure.pdb",
+          "size_bytes": 1182959,
+          "checksum": "sha256:af928c3dfe830a32164dfe31c694376a044c7842633e262c9016ca86cf9a4d2d"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.4/files/topology.prmtop",
+          "size_bytes": 6308294,
+          "checksum": "sha256:eb4689b9788677e00ccad03c0b0cc4a4369dcf09c6a38604828672be63785a1e"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.4/files/trajectory.xtc",
+          "size_bytes": 2777368,
+          "checksum": "sha256:4b36a60e8bd1a21e35c3ebf4ea5262b0ac34b62248e6642479f0e9d9576c0fb6"
+        }
+      }
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.6",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.6",
+          "size_bytes": 5851,
+          "checksum": "sha256:1c4b8f38b5e12f6ddf1376f0866ef43ec71bf9e39a25bce55cb66aadcef13ed5"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.6/files/structure.pdb",
+          "size_bytes": 1182959,
+          "checksum": "sha256:80c1d8da87dae7c9ea7432d714e2ae1c5e9529c2698b95010f65fa8ab2510b56"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.6/files/topology.prmtop",
+          "size_bytes": 6308294,
+          "checksum": "sha256:eb4689b9788677e00ccad03c0b0cc4a4369dcf09c6a38604828672be63785a1e"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.6/files/trajectory.xtc",
+          "size_bytes": 2771608,
+          "checksum": "sha256:98c95d609f659204537037789c0d0f1dbb0b9f83a7b8b3976d59acfceec9ccb6"
+        }
+      }
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.8",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.8",
+          "size_bytes": 5923,
+          "checksum": "sha256:258fb616eb4d8e2fb4f7c33e26e94b2c19911ff11fe8021b5054c845eba5c5fc"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.8/files/structure.pdb",
+          "size_bytes": 1182959,
+          "checksum": "sha256:0b357402289e7543a1775866e616d5d51904bf04c1b37d7e98bf968a01bd7f22"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.8/files/topology.prmtop",
+          "size_bytes": 6308294,
+          "checksum": "sha256:eb4689b9788677e00ccad03c0b0cc4a4369dcf09c6a38604828672be63785a1e"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.8/files/trajectory.xtc",
+          "size_bytes": 2774716,
+          "checksum": "sha256:b25bc462812a5a8723b2db6fbac6855fdb6d5c26a4c803ac7594c5ec3f6a69e4"
+        }
+      }
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.9",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.9",
+          "size_bytes": 5923,
+          "checksum": "sha256:6119e658b444f51f1e62e8a933f0a9b0a55ca21fd20e2d443633547e1edc65e1"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.9/files/structure.pdb",
+          "size_bytes": 1182959,
+          "checksum": "sha256:9f717a05c61892b862e5ec5f380f6876e655812693ff32175f41cff29df60326"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.9/files/topology.prmtop",
+          "size_bytes": 6308294,
+          "checksum": "sha256:eb4689b9788677e00ccad03c0b0cc4a4369dcf09c6a38604828672be63785a1e"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.9/files/trajectory.xtc",
+          "size_bytes": 2782756,
+          "checksum": "sha256:73945b154d095c621a332719d09521cdb5ce75ef6fc4ee6f1531a07dd49b617b"
+        }
+      }
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.7",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.7",
+          "size_bytes": 5923,
+          "checksum": "sha256:671a6a7c358eb15c693d1af0f2cc6b7caf0e26b3ff946019f1bca72f4c0ac2d5"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.7/files/structure.pdb",
+          "size_bytes": 1182959,
+          "checksum": "sha256:8a7d7d52e7215b3573ddef7e21df57515d6f38ae00aebd9c6848ebaca9c2022b"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.7/files/topology.prmtop",
+          "size_bytes": 6308294,
+          "checksum": "sha256:eb4689b9788677e00ccad03c0b0cc4a4369dcf09c6a38604828672be63785a1e"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.7/files/trajectory.xtc",
+          "size_bytes": 2782272,
+          "checksum": "sha256:65529c2856c7315f1deebd5ae41178e1089bf83cad10f000b8368d9b1dba5d71"
+        }
+      }
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.10",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.10",
+          "size_bytes": 5853,
+          "checksum": "sha256:a62d7f76671bce71c253312e94a62e78c296a43b0f1b7426183e319cb70c3232"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.10/files/structure.pdb",
+          "size_bytes": 1182959,
+          "checksum": "sha256:63cc12213ff814d50067ac39368d22c09ed858fa5b9b75f13e0ff59080cb70e0"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.10/files/topology.prmtop",
+          "size_bytes": 6308294,
+          "checksum": "sha256:eb4689b9788677e00ccad03c0b0cc4a4369dcf09c6a38604828672be63785a1e"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A004RG.10/files/trajectory.xtc",
+          "size_bytes": 2779732,
+          "checksum": "sha256:b7fb85ab1b0f07204b6973c178fedb90973651c375a12ee45b57c9917e17e54e"
+        }
+      }
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW",
+          "size_bytes": 6184,
+          "checksum": "sha256:09d770b3f8175d0c14987438ce1ce99bbc5b0966437c84f4e37db4977bc48f7f"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW/files/structure.pdb",
+          "size_bytes": 1618496,
+          "checksum": "sha256:2a9669663384ee012e96d030fcaa7867e538fea74d59e675fc963bed0107ae82"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW/files/topology.prmtop",
+          "size_bytes": 8617459,
+          "checksum": "sha256:62a8368c3010b941f24a68165f0dd9c980b625dd7538639cec71f03255c0ba7a"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW/files/trajectory.xtc",
+          "size_bytes": 3772052,
+          "checksum": "sha256:91aaeba32e326b63f1cfdf6095a1f4c78c2ff3cec7c578a95a868c2f1ebeb39b"
+        }
+      }
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.2",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.2",
+          "size_bytes": 6208,
+          "checksum": "sha256:91bcc60c7ca1123e2975c1170094f0cb0b9cabe846212e980047621ea311daf0"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.2/files/structure.pdb",
+          "size_bytes": 1618496,
+          "checksum": "sha256:cfc10e6b275116d58fa8a07c80a3d2fef855cd1729ac7c5336ff2a858d5fd67a"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.2/files/topology.prmtop",
+          "size_bytes": 8617459,
+          "checksum": "sha256:62a8368c3010b941f24a68165f0dd9c980b625dd7538639cec71f03255c0ba7a"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.2/files/trajectory.xtc",
+          "size_bytes": 3770484,
+          "checksum": "sha256:559ffdd3e0336d5f346090fc924ebac6c57d7c490afbc96d9e11ce506e3a9da7"
+        }
+      }
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.4",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.4",
+          "size_bytes": 6232,
+          "checksum": "sha256:e0b819242c1c0288fad625037b0e39c830a0425c5636c5b8e682a62e69d8f63f"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.4/files/structure.pdb",
+          "size_bytes": 1618496,
+          "checksum": "sha256:12f9e4e3e6e9cce3da83cfac1c560c585afb90ea09a603bde946270661d2bc8d"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.4/files/topology.prmtop",
+          "size_bytes": 8617459,
+          "checksum": "sha256:62a8368c3010b941f24a68165f0dd9c980b625dd7538639cec71f03255c0ba7a"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.4/files/trajectory.xtc",
+          "size_bytes": 3765664,
+          "checksum": "sha256:8b7a775f09ca0b2be7271650c59d75fb4da078ec856b0bbf993a50ac9f9f2a4f"
+        }
+      }
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.3",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.3",
+          "size_bytes": 6280,
+          "checksum": "sha256:b1a05c7801370ee8c91b3c654c7e25bcd9c738ddfe1e46ef52c623097db8f7b0"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.3/files/structure.pdb",
+          "size_bytes": 1618496,
+          "checksum": "sha256:572073cb5d2677c193959e3ce5203d1f8154bb8547b791a51184320afb29f28c"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.3/files/topology.prmtop",
+          "size_bytes": 8617459,
+          "checksum": "sha256:62a8368c3010b941f24a68165f0dd9c980b625dd7538639cec71f03255c0ba7a"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.3/files/trajectory.xtc",
+          "size_bytes": 3769040,
+          "checksum": "sha256:30feb9837a51105540ff34cbf09accda7a8c123b446548dd0d16b0e1789afb5b"
+        }
+      }
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.5",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.5",
+          "size_bytes": 6256,
+          "checksum": "sha256:2ce6be1ee59c3cdb795b5ecbf42656b1d766076e909cc4a2dda8b1c2c22a52c1"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.5/files/structure.pdb",
+          "size_bytes": 1618496,
+          "checksum": "sha256:84f1491ed129f914299d78c3ea7ba60c93f73124c26e0ecbd3dfde3ea992af5f"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.5/files/topology.prmtop",
+          "size_bytes": 8617459,
+          "checksum": "sha256:62a8368c3010b941f24a68165f0dd9c980b625dd7538639cec71f03255c0ba7a"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.5/files/trajectory.xtc",
+          "size_bytes": 3774968,
+          "checksum": "sha256:6ff68c7809df3dcc93de21c038aa58998f8060adde4dbe3a7cfc54fcfe875f61"
+        }
+      }
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.7",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.7",
+          "size_bytes": 6280,
+          "checksum": "sha256:58869ef9bf36b995bc4468a9ae38e22bfa472422bccd63c8d328d48a7b404d6a"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.7/files/structure.pdb",
+          "size_bytes": 1618496,
+          "checksum": "sha256:bd35514138ddc59f177dc79bc75bbb826942dedc5985e85cdb299a3cd42eb14c"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.7/files/topology.prmtop",
+          "size_bytes": 8617459,
+          "checksum": "sha256:62a8368c3010b941f24a68165f0dd9c980b625dd7538639cec71f03255c0ba7a"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.7/files/trajectory.xtc",
+          "size_bytes": 3778104,
+          "checksum": "sha256:49497400b8fe16cddfeed04fd2d3fcb2d849ac02e0ac50c307fa9224847ff78d"
+        }
+      }
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.6",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.6",
+          "size_bytes": 6304,
+          "checksum": "sha256:d7c4e53d3d3873ff74c7505819b38521e046fb0471c09300048dd107f6595617"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.6/files/structure.pdb",
+          "size_bytes": 1618496,
+          "checksum": "sha256:ee821c506023425eb4bf489586b7744545a8649f076bed92eec32efc9da3e539"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.6/files/topology.prmtop",
+          "size_bytes": 8617459,
+          "checksum": "sha256:62a8368c3010b941f24a68165f0dd9c980b625dd7538639cec71f03255c0ba7a"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.6/files/trajectory.xtc",
+          "size_bytes": 3770676,
+          "checksum": "sha256:882881ffafcca6afadaca68b25afadd06b5a6966fd2cd9e0d8c873ed1cb7805b"
+        }
+      }
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.8",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.8",
+          "size_bytes": 6256,
+          "checksum": "sha256:080a8cc5609769f812dad04aee7aefbdbfbbd4f4f5890c59c3f6f1f690591e30"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.8/files/structure.pdb",
+          "size_bytes": 1618496,
+          "checksum": "sha256:3846cbc9ff46ff8d6a367bdc6bc6a8cce752c22d19c115946fcc993fd29cd629"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.8/files/topology.prmtop",
+          "size_bytes": 8617459,
+          "checksum": "sha256:62a8368c3010b941f24a68165f0dd9c980b625dd7538639cec71f03255c0ba7a"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.8/files/trajectory.xtc",
+          "size_bytes": 3769068,
+          "checksum": "sha256:0e23f69655655bf412fcfeeaa632b664dc9e70d0772dbcb116035da074907cb9"
+        }
+      }
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.9",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.9",
+          "size_bytes": 6304,
+          "checksum": "sha256:cffc006cd7925037a5a24f202e5950242bc54f82f9af5896a13805a0c5db403a"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.9/files/structure.pdb",
+          "size_bytes": 1618496,
+          "checksum": "sha256:d9bf867e0b649004aef78d68570eead959d4df1a369527f5472610ec9aee9493"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.9/files/topology.prmtop",
+          "size_bytes": 8617459,
+          "checksum": "sha256:62a8368c3010b941f24a68165f0dd9c980b625dd7538639cec71f03255c0ba7a"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.9/files/trajectory.xtc",
+          "size_bytes": 3768668,
+          "checksum": "sha256:dbd32635aa1a32abcc4398fe77ac3f3c9e2ad70dc51fe73a8ee6a2897c8e6921"
+        }
+      }
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.10",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.10",
+          "size_bytes": 6186,
+          "checksum": "sha256:6eb179772ac7656cdc78605922b4c0374eee37764586095c73c6475133b9762b"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.10/files/structure.pdb",
+          "size_bytes": 1618496,
+          "checksum": "sha256:0d3ef1c2661184a6a45b7ce082e05de1893f88e74206e7e5d702f607d9a5fcf3"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.10/files/topology.prmtop",
+          "size_bytes": 8617459,
+          "checksum": "sha256:62a8368c3010b941f24a68165f0dd9c980b625dd7538639cec71f03255c0ba7a"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006UW.10/files/trajectory.xtc",
+          "size_bytes": 3764864,
+          "checksum": "sha256:5de7a72d5168b0085b21b604e2233ec1de10fbe10446c0ebe7df12deafe73a55"
+        }
+      }
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q",
+          "size_bytes": 5183,
+          "checksum": "sha256:6a3fc8ec49688230748e9209976211c5a3c35b28103d4c170673d3e8b29dfe0f"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q/files/structure.pdb",
+          "size_bytes": 204560,
+          "checksum": "sha256:49d00d5318089b4fc7ec410a545aa999fac5209e82f342df57a192ec4b70dbe6"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q/files/topology.prmtop",
+          "size_bytes": 1136037,
+          "checksum": "sha256:fdceedda3fc8a3820b2284197c7fb8ea7ea925f7ed66f66eccff91ca411a8085"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q/files/trajectory.xtc",
+          "size_bytes": 482712,
+          "checksum": "sha256:620d7af8ea89073a8f790c20ef14fb91a37781985c3895d981b36a373409135b"
+        }
+      }
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.3",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.3",
+          "size_bytes": 5111,
+          "checksum": "sha256:0a7bea17418772c33d51f10f9d794c65c06392bc82f85255ee21118c621700ae"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.3/files/structure.pdb",
+          "size_bytes": 204560,
+          "checksum": "sha256:57e9e142217f1073381e79093be0fe017cc78c202627540dc46c5fcf13ee895b"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.3/files/topology.prmtop",
+          "size_bytes": 1136037,
+          "checksum": "sha256:fdceedda3fc8a3820b2284197c7fb8ea7ea925f7ed66f66eccff91ca411a8085"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.3/files/trajectory.xtc",
+          "size_bytes": 482040,
+          "checksum": "sha256:3be71310a6c191ee15ba6c5a4162027d82068a1a2165a26f6f45918f315e475f"
+        }
+      }
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.2",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.2",
+          "size_bytes": 5239,
+          "checksum": "sha256:21240fc36e91cd73e604a52141c119942dbd5cd8ca474dc0e79f2fc7a769b814"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.2/files/structure.pdb",
+          "size_bytes": 204560,
+          "checksum": "sha256:a45ca3d5712b966979cb05b1acca66ca37d2026ae42eab16483f8773b40cbcec"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.2/files/topology.prmtop",
+          "size_bytes": 1136037,
+          "checksum": "sha256:fdceedda3fc8a3820b2284197c7fb8ea7ea925f7ed66f66eccff91ca411a8085"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.2/files/trajectory.xtc",
+          "size_bytes": 482524,
+          "checksum": "sha256:612856bc81fae5332c6c0fd047c4fcc83a20bf66134c49a72f7cb000c8bc829e"
+        }
+      }
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.4",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.4",
+          "size_bytes": 5175,
+          "checksum": "sha256:a51a0bead5aa7e0f7c970ec0366a96f21cbf29bc8a2b6fa9485d18c9c26b64a6"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.4/files/structure.pdb",
+          "size_bytes": 204560,
+          "checksum": "sha256:2cfebcaaaaaf75a90105458299d0b7821d62c689c3da326f964c845ba21dcdf8"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.4/files/topology.prmtop",
+          "size_bytes": 1136037,
+          "checksum": "sha256:fdceedda3fc8a3820b2284197c7fb8ea7ea925f7ed66f66eccff91ca411a8085"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.4/files/trajectory.xtc",
+          "size_bytes": 482168,
+          "checksum": "sha256:dec24b2e5274ef1970f8e84286735a857de44656529eea0fe45606b780dc633d"
+        }
+      }
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.6",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.6",
+          "size_bytes": 5199,
+          "checksum": "sha256:15dab6855940be18197d57e637e8314b8fea815398e91db6df84829f9c3add0c"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.6/files/structure.pdb",
+          "size_bytes": 204560,
+          "checksum": "sha256:65be952be024e553a32acf6c5243883d5f1727ff05ec1f74fc4ae61bdadf948f"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.6/files/topology.prmtop",
+          "size_bytes": 1136037,
+          "checksum": "sha256:fdceedda3fc8a3820b2284197c7fb8ea7ea925f7ed66f66eccff91ca411a8085"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.6/files/trajectory.xtc",
+          "size_bytes": 483640,
+          "checksum": "sha256:08c163fb1f19ea2a986f30056350a8a54e53691a44f63a3a72b0f698747a2d56"
+        }
+      }
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.5",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.5",
+          "size_bytes": 5175,
+          "checksum": "sha256:6e3d36d1f828a6da7642e850991cc995b856ea96b084c88acd2a022855425db8"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.5/files/structure.pdb",
+          "size_bytes": 204560,
+          "checksum": "sha256:f211e5ad10b812dc24eaf35d5f01d1cfe32e705a4ca74ae5c7ad4f84ccb08ac5"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.5/files/topology.prmtop",
+          "size_bytes": 1136037,
+          "checksum": "sha256:fdceedda3fc8a3820b2284197c7fb8ea7ea925f7ed66f66eccff91ca411a8085"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.5/files/trajectory.xtc",
+          "size_bytes": 482752,
+          "checksum": "sha256:0f8bf7ba797e802cdf243d0507f2069c27144375fb1aaa6ccda9640ecd90e16f"
+        }
+      }
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.7",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.7",
+          "size_bytes": 5079,
+          "checksum": "sha256:e0f55678c4cc275425228e7a517c4b0dceb83a4025450f59af2c46514e9ede25"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.7/files/structure.pdb",
+          "size_bytes": 204560,
+          "checksum": "sha256:ae375db75a41b109e421dec285faf738905f1e263f703bc33165f6062265d288"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.7/files/topology.prmtop",
+          "size_bytes": 1136037,
+          "checksum": "sha256:fdceedda3fc8a3820b2284197c7fb8ea7ea925f7ed66f66eccff91ca411a8085"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.7/files/trajectory.xtc",
+          "size_bytes": 483568,
+          "checksum": "sha256:86811bbf11a87e1c35457092dc53a87a8733928a578cfd84bedebf75dc0782b7"
+        }
+      }
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.8",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.8",
+          "size_bytes": 5103,
+          "checksum": "sha256:ff6d77c4abbf711a47fe4cb59488540d99eddd415fcd751fc3e68163b0dc7eaa"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.8/files/structure.pdb",
+          "size_bytes": 204560,
+          "checksum": "sha256:a42c79b381431c1180bb9f54ee108ac85433dfc476342e7965ed89c2883dfdd0"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.8/files/topology.prmtop",
+          "size_bytes": 1136037,
+          "checksum": "sha256:fdceedda3fc8a3820b2284197c7fb8ea7ea925f7ed66f66eccff91ca411a8085"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.8/files/trajectory.xtc",
+          "size_bytes": 483076,
+          "checksum": "sha256:081f3ce293d373b7e9d84b2afcef3782cc3999a495f7c527ffd66f94ce00910b"
+        }
+      }
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.9",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.9",
+          "size_bytes": 5143,
+          "checksum": "sha256:7308c5c0ee2cbeefc80920846bc2639a2f32f7a1ca2ba5b150992f362a5deb1d"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.9/files/structure.pdb",
+          "size_bytes": 204560,
+          "checksum": "sha256:ac5556cdca6ac359a8c8ba7ab29bfa21c973ec8afe809b46d07bd7230bc8aafa"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.9/files/topology.prmtop",
+          "size_bytes": 1136037,
+          "checksum": "sha256:fdceedda3fc8a3820b2284197c7fb8ea7ea925f7ed66f66eccff91ca411a8085"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.9/files/trajectory.xtc",
+          "size_bytes": 483632,
+          "checksum": "sha256:81475c1ba2e48a9b5c6cda3ca80e62517dcd8f440866417606c34ac4345fc6dc"
+        }
+      }
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.10",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.10",
+          "size_bytes": 5145,
+          "checksum": "sha256:c77eedda495664ff6ce57afe5f71f1581a5eb8dd54f36983660ad489bf9adfbf"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.10/files/structure.pdb",
+          "size_bytes": 204560,
+          "checksum": "sha256:fe63f604da4b56d63283e6673854fb9d342d5d0ce28b0f1b298f39ffeba9c908"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.10/files/topology.prmtop",
+          "size_bytes": 1136037,
+          "checksum": "sha256:fdceedda3fc8a3820b2284197c7fb8ea7ea925f7ed66f66eccff91ca411a8085"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A0068Q.10/files/trajectory.xtc",
+          "size_bytes": 482876,
+          "checksum": "sha256:672ba005f1950f552bf1d8b9a3e66519c7553ef9c36a8292d06fcb269860e3a6"
+        }
+      }
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA",
+          "size_bytes": 4660,
+          "checksum": "sha256:bb425ceff4b875d95b8f31fef23d2b5998d8551172f8e9f7aad45b3d2fe685bb"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA/files/structure.pdb",
+          "size_bytes": 529451,
+          "checksum": "sha256:613e3639d983bec16af91e1330d1a82c5f1c36e0496a61e7d1c2b3ad13f78e08"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA/files/topology.prmtop",
+          "size_bytes": 2857348,
+          "checksum": "sha256:e9338386e0393053e0dd61e90e26c437abc832b2a7356d4f0ea8dbb7fe33a051"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA/files/trajectory.xtc",
+          "size_bytes": 1243100,
+          "checksum": "sha256:f74a0d46a20fa80f1e0cf0e89f81f0a5886768d63ce1cad36870b0b0ac24bb2e"
+        }
+      }
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.2",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.2",
+          "size_bytes": 4684,
+          "checksum": "sha256:3e31a730aefa46db89c121a7034fc77fa580457cb5b2623b30cf6ca074833ca8"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.2/files/structure.pdb",
+          "size_bytes": 529451,
+          "checksum": "sha256:60601469e01938d7eafb4004a10fdecae28248e0de34fd0dc6efd812c7d02a23"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.2/files/topology.prmtop",
+          "size_bytes": 2857348,
+          "checksum": "sha256:e9338386e0393053e0dd61e90e26c437abc832b2a7356d4f0ea8dbb7fe33a051"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.2/files/trajectory.xtc",
+          "size_bytes": 1243604,
+          "checksum": "sha256:553b561c01c57381ba51aca9b1874d1b4653f9f2358f738a46e6cf922524741f"
+        }
+      }
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.3",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.3",
+          "size_bytes": 4500,
+          "checksum": "sha256:384205143ebe255e36dacd63fce8d064c393cef42f3d24b6dd91ce950be97ec3"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.3/files/structure.pdb",
+          "size_bytes": 529451,
+          "checksum": "sha256:cac48b537b684fb67fc11e263803be3db3122951a1fecf052e29b65474958dfd"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.3/files/topology.prmtop",
+          "size_bytes": 2857348,
+          "checksum": "sha256:e9338386e0393053e0dd61e90e26c437abc832b2a7356d4f0ea8dbb7fe33a051"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.3/files/trajectory.xtc",
+          "size_bytes": 1236932,
+          "checksum": "sha256:ff2b360ca61a00db8716d16aba3557bb30bbde630f597f3471cac5ba678cda26"
+        }
+      }
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.4",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.4",
+          "size_bytes": 4756,
+          "checksum": "sha256:67c5e5d46da61ef57e10859ecde7e73c425f1d564ab56c92fc744772f2dc684a"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.4/files/structure.pdb",
+          "size_bytes": 529451,
+          "checksum": "sha256:d785cd964064e8911c253128936040f7398059d1ee0fe495a2605df57bc77fe8"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.4/files/topology.prmtop",
+          "size_bytes": 2857348,
+          "checksum": "sha256:e9338386e0393053e0dd61e90e26c437abc832b2a7356d4f0ea8dbb7fe33a051"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.4/files/trajectory.xtc",
+          "size_bytes": 1243984,
+          "checksum": "sha256:effdce5808738ed1dbfb0e8655f658b041f3290520742e4663e884660375ae17"
+        }
+      }
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.5",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.5",
+          "size_bytes": 4684,
+          "checksum": "sha256:d0cc306d7deef2226acea1e0773d1f9f2a60e68f4a277b0bc8396b862e9a743d"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.5/files/structure.pdb",
+          "size_bytes": 529451,
+          "checksum": "sha256:38cad216395a16fadf7eeced6c61a8f1365d84d21f32ab3f197657afb1279e16"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.5/files/topology.prmtop",
+          "size_bytes": 2857348,
+          "checksum": "sha256:e9338386e0393053e0dd61e90e26c437abc832b2a7356d4f0ea8dbb7fe33a051"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.5/files/trajectory.xtc",
+          "size_bytes": 1240808,
+          "checksum": "sha256:ecc3d856dc2d367b383942765017236cbc7f163379e2d59617aafd420f775fad"
+        }
+      }
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.6",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.6",
+          "size_bytes": 4724,
+          "checksum": "sha256:6f6131610700510636f9f289e0a433098cef40fcee40d763bd4e5210ea7dd574"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.6/files/structure.pdb",
+          "size_bytes": 529451,
+          "checksum": "sha256:aa8b8112ea7685e183b6734508a92551d236d8422a522d617161294909d691ea"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.6/files/topology.prmtop",
+          "size_bytes": 2857348,
+          "checksum": "sha256:e9338386e0393053e0dd61e90e26c437abc832b2a7356d4f0ea8dbb7fe33a051"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.6/files/trajectory.xtc",
+          "size_bytes": 1239920,
+          "checksum": "sha256:04d37fb93fd06bb64b04dbb199a20265542469b5374cb3143b89f63154be552b"
+        }
+      }
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.7",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.7",
+          "size_bytes": 4652,
+          "checksum": "sha256:36b62361ea68bf4e5742ce6ad5e3eaf8417a4937ea3a9d55d1aa6834db95dcbf"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.7/files/structure.pdb",
+          "size_bytes": 529451,
+          "checksum": "sha256:2996d1d205be864b683091a6c9a920928f7a7272a5cdd69ec51d0ef386ba1a4a"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.7/files/topology.prmtop",
+          "size_bytes": 2857348,
+          "checksum": "sha256:e9338386e0393053e0dd61e90e26c437abc832b2a7356d4f0ea8dbb7fe33a051"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.7/files/trajectory.xtc",
+          "size_bytes": 1243932,
+          "checksum": "sha256:2fbc5882f06a51ff29bb59c3ffa388f8ff305ba3e43bf2f51dc3960cfbd7698c"
+        }
+      }
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.8",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.8",
+          "size_bytes": 4644,
+          "checksum": "sha256:cbea7ac14f6a0d7634ca7bb8f5b6b6c17a53cc9a0833a97fcebe103e4dd8e516"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.8/files/structure.pdb",
+          "size_bytes": 529451,
+          "checksum": "sha256:9e2970c40e866f9dbf8041996177966f2da80ab755377ff3b96aeadd228ade0c"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.8/files/topology.prmtop",
+          "size_bytes": 2857348,
+          "checksum": "sha256:e9338386e0393053e0dd61e90e26c437abc832b2a7356d4f0ea8dbb7fe33a051"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.8/files/trajectory.xtc",
+          "size_bytes": 1239724,
+          "checksum": "sha256:f4d0587248902324996d5297ad658d6e1062cf2be8b00ceb6b36cccac7389efe"
+        }
+      }
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.9",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.9",
+          "size_bytes": 4732,
+          "checksum": "sha256:19f4c7a7768fd90e272b2c1328b41d494ca4f550cced414f4cfcf5d46de212a1"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.9/files/structure.pdb",
+          "size_bytes": 529451,
+          "checksum": "sha256:168c48a3871d70443f65ae47303d902fc2e29b655f223b5f1ed1815ea437ef9e"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.9/files/topology.prmtop",
+          "size_bytes": 2857348,
+          "checksum": "sha256:e9338386e0393053e0dd61e90e26c437abc832b2a7356d4f0ea8dbb7fe33a051"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.9/files/trajectory.xtc",
+          "size_bytes": 1237008,
+          "checksum": "sha256:0462f1ec3f59dee3d89e028259011a4d0ed50c5aa6b7cfc4448b5f19f11f6dd5"
+        }
+      }
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.10",
+      "reason": "external selection requires one protein-ligand interaction",
+      "files": {
+        "record.json": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.10",
+          "size_bytes": 4710,
+          "checksum": "sha256:8b64d697b52c510117f2a101e04eaa1baba68599910e6aee44fe320a24d1848f"
+        },
+        "structure.pdb": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.10/files/structure.pdb",
+          "size_bytes": 529451,
+          "checksum": "sha256:b85a3ff62e75d359d43d34333b39c315007934fa8399158e5e2f9db6495ce2a8"
+        },
+        "topology.prmtop": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.10/files/topology.prmtop",
+          "size_bytes": 2857348,
+          "checksum": "sha256:e9338386e0393053e0dd61e90e26c437abc832b2a7356d4f0ea8dbb7fe33a051"
+        },
+        "trajectory.xtc": {
+          "url": "https://mdposit.mddbr.eu/api/rest/current/projects/MD-A006EA.10/files/trajectory.xtc",
+          "size_bytes": 1241580,
+          "checksum": "sha256:b7ed3eda860d6b9eb3e30c0c527814c0ece597c857c7167162d7adc3c804b1ca"
+        }
+      }
+    }
+  ]
+}

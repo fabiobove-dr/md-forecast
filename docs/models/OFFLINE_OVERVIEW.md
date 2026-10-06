@@ -156,3 +156,24 @@ exports the molecular PNG, checks a 390 px mobile viewport, then tests a
 WebGL-disabled static fallback. The real review used Chrome with software
 WebGL: zero page errors and zero remote requests. Installed-wheel generation
 outside the source checkout also verifies that HTML/JS templates are packaged.
+
+## Independent confirmation synthesis
+
+The optional `confirmation_summary` object pins `path` and `expected_hash`
+(SHA-256). It supplies the three-task frozen inference produced by
+[the confirmation workflow](FOLLOWUP_CONFIRMATION.md). The renderer checks
+the synthesis checksum, frozen family and source-summary hashes against
+configured probability sources before adding criterion decisions, native-unit
+MAE comparisons, descriptive uncertainty whiskers and all-grid inference
+evidence. The saved prediction bundles retain their original identities.
+
+Three-observable QC failures exclude an entire complex without ID replacement;
+actual group counts and reasons remain visible. Development and historical
+results remain separate from the independent confirmation panels.
+
+Explicitly tagged crossed quantiles are retained as failed scientific output.
+A tag must agree with the raw ordering; untagged crossings still fail loading.
+Affected windows have no shaded interval, and exact leads show raw failed
+quantiles. Error CSV downloads distinguish `INVALID_CROSSING` from the separate
+user tolerance rule. Entire affected-cell probabilistic scores remain
+unavailable; median point errors retain every window.

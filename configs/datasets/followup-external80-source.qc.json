@@ -1,0 +1,623 @@
+{
+  "plan_hash": "sha256:f08d48b26b0994069ddcc1a5fb96a5b8977918f75f0b455b2b132767ad0694bc",
+  "reserve_hash": "sha256:28a5b784ba62ec0ed7786fe4543cffebb0670245c59a8d1f8278c930aece8e9a",
+  "selected_groups": 80,
+  "admitted_groups": 68,
+  "excluded_pdb_ids": [
+    "1EX8",
+    "1GUI",
+    "1SQQ",
+    "2BZ8",
+    "2JG8",
+    "2VPG",
+    "2WIJ",
+    "2WOQ",
+    "4ORY",
+    "5MB1",
+    "6EE3",
+    "6G46"
+  ],
+  "failures": [
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.3",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.2",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.4",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.6",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.5",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.7",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.8",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.9",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "1SQQ",
+      "accession": "MD-A00653.10",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.2",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.3",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.4",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.5",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.6",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.7",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.8",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.9",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2BZ8",
+      "accession": "MD-A00655.10",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.2",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.3",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.4",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.6",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.5",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.7",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.8",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.9",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2VPG",
+      "accession": "MD-A005YI.10",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.4",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.3",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.2",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.6",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.5",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.7",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.8",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.9",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WOQ",
+      "accession": "MD-A007IE.10",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.2",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.4",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.3",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.5",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.6",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.7",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.8",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.9",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1EX8",
+      "accession": "MD-A003QM.10",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.2",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.3",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.4",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.5",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.6",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.7",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.8",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.9",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2JG8",
+      "accession": "MD-A003WC.10",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.3",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.4",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.2",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.5",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.7",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.8",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.6",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.9",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "2WIJ",
+      "accession": "MD-A00602.10",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.2",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.4",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.5",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.3",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.6",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.8",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.7",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.9",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6G46",
+      "accession": "MD-A005MN.10",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.2",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.3",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.5",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.4",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.6",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.8",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.9",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.7",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "6EE3",
+      "accession": "MD-A004RG.10",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.2",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.4",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.3",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.5",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.7",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.6",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.8",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.9",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "4ORY",
+      "accession": "MD-A006UW.10",
+      "reason": "MDbind source selection must identify exactly the reviewed ligand"
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.3",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.2",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.4",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.6",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.5",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.7",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.8",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.9",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "1GUI",
+      "accession": "MD-A0068Q.10",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.2",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.3",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.4",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.5",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.6",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.7",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.8",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.9",
+      "reason": "external selection requires one protein-ligand interaction"
+    },
+    {
+      "pdb_id": "5MB1",
+      "accession": "MD-A006EA.10",
+      "reason": "external selection requires one protein-ligand interaction"
+    }
+  ],
+  "rule": "existing static selection contract; reject entire complex if any replica fails; no replacement"
+}

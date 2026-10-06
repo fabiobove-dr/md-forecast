@@ -17,6 +17,7 @@ from md_forecast.data.artifacts import metadata_hash
 from md_forecast.data.forecast import (
     ForecastBatch,
     ForecastSpec,
+    bind_evaluation_spec,
     iter_forecasts,
     validate_array,
 )
@@ -125,6 +126,7 @@ class NLinearModel:
     """Independent single-layer temporal mappings fitted with deterministic ridge LS."""
 
     state: NLinearState
+    evaluation_spec: ForecastSpec | None = None
 
     def __post_init__(self) -> None:
         """Revalidate loaded or copied states at the adapter boundary."""
@@ -133,6 +135,17 @@ class NLinearModel:
             "state",
             NLinearState.model_validate_json(self.state.model_dump_json()),
         )
+        self._bind_evaluation()
+
+    def _bind_evaluation(self) -> None:
+        if self.evaluation_spec is not None:
+            object.__setattr__(
+                self,
+                "evaluation_spec",
+                bind_evaluation_spec(
+                    self.state.spec, self.evaluation_spec, fixed_grid=True
+                ),
+            )
 
     @property
     def config(self) -> ModelConfig:
@@ -146,7 +159,7 @@ class NLinearModel:
 
     def predict(self, batch: ForecastBatch) -> FloatArray:
         """Map last-level-centered contexts to H steps and restore native units."""
-        if batch.spec != self.state.spec:
+        if batch.spec != (self.evaluation_spec or self.state.spec):
             raise ForecastError(
                 "NLinear batch differs from fitted source/features/grid cell"
             )

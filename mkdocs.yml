@@ -32,4 +32,5 @@ nav:
       - External validation: models/EXTERNAL_VALIDATION.md
       - MVP report: models/MVP_REPORT.md
       - Offline forecast overview: models/OFFLINE_OVERVIEW.md
+      - Independent confirmation: models/FOLLOWUP_CONFIRMATION.md
       - Predictive coupling: models/PREDICTIVE_COUPLING.md

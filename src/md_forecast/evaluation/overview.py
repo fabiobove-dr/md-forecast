@@ -16,9 +16,15 @@ from md_forecast.core.exceptions import DataContractError
 from md_forecast.data.artifacts import metadata_hash, read_metadata
 from md_forecast.data.registry import atomic_output
 from md_forecast.data.schemas import ArtifactHash, BoundaryModel, DatasetConfig
+from md_forecast.data.splits import SplitManifest
 from md_forecast.evaluation.benchmark import CellManifest, _expected_windows
 from md_forecast.evaluation.mvp import read_mvp
-from md_forecast.evaluation.report import _horizon_axis, read_benchmark
+from md_forecast.evaluation.report import (
+    _horizon_axis,
+    _interval_axis,
+    _records_axis,
+    read_benchmark,
+)
 from md_forecast.models.residuals import ResidualState
 
 
@@ -56,31 +62,55 @@ class SavedPoint:
     origin: float | None = None
     quantiles: tuple[float, ...] = ()
     levels: tuple[float, ...] = ()
+    quantiles_valid: bool = True
 
 
 def _point(data: dict[str, Any]) -> SavedPoint:
     levels, quantiles = tuple(data["levels"]), tuple(data["quantiles"])
-    _validate_quantiles(levels, quantiles, data["point"])
+    valid = data.get("quantiles_valid", True)
+    if type(valid) is not bool:
+        raise DataContractError("saved quantile validity must be boolean")
+    _validate_quantiles(levels, quantiles, data["point"], valid=valid)
     return SavedPoint(**(data | {"levels": levels, "quantiles": quantiles}))
 
 
 def _validate_quantiles(
-    levels: tuple[float, ...], values: tuple[float, ...], point: float
+    levels: tuple[float, ...],
+    values: tuple[float, ...],
+    point: float,
+    *,
+    valid: bool = True,
 ) -> None:
     if len(levels) != len(values) or levels != tuple(sorted(set(levels))):
         raise DataContractError("saved quantile levels/values differ or repeat")
     if any(not 0 < level < 1 for level in levels):
         raise DataContractError("saved quantile levels outside (0,1)")
-    _validate_median(levels, values, point)
+    _validate_median(levels, values, point, valid=valid)
 
 
 def _validate_median(
-    levels: tuple[float, ...], values: tuple[float, ...], point: float
+    levels: tuple[float, ...],
+    values: tuple[float, ...],
+    point: float,
+    *,
+    valid: bool = True,
 ) -> None:
-    if not np.isfinite(values).all() or values != tuple(sorted(values)):
-        raise DataContractError("saved quantiles are nonfinite or cross")
+    _validate_order(values, valid)
     if 0.5 in levels and point != values[levels.index(0.5)]:
         raise DataContractError("saved median and point differ")
+
+
+def _validate_order(values: tuple[float, ...], valid: bool) -> None:
+    if not np.isfinite(values).all():
+        raise DataContractError("saved quantiles are nonfinite")
+    ordered = values == tuple(sorted(values))
+    if ordered != valid:
+        message = (
+            "saved quantiles cross without a failure tag"
+            if valid
+            else "saved quantile failure tag disagrees with raw values"
+        )
+        raise DataContractError(message)
 
 
 class OverviewWindow(BoundaryModel):
@@ -93,6 +123,9 @@ class OverviewWindow(BoundaryModel):
     target: tuple[float, ...]
     points: dict[str, tuple[float, ...]]
     bands: dict[str, tuple[tuple[float, float], ...]]
+    quantile_failures: dict[str, dict[int, tuple[float, ...]]] = Field(
+        default_factory=dict
+    )
 
 
 class OverviewPanel(BoundaryModel):
@@ -116,6 +149,13 @@ class OverviewPanel(BoundaryModel):
     evidence: dict[str, object]
 
 
+class OverviewSynthesis(BoundaryModel):
+    """Pinned confirmation inference, separate from saved prediction tables."""
+
+    path: Path
+    expected_hash: ArtifactHash
+
+
 class OverviewConfig(BoundaryModel):
     """Bounded offline inputs; structure embedding is optional and explicit."""
 
@@ -127,6 +167,7 @@ class OverviewConfig(BoundaryModel):
     max_input_bytes: int = Field(default=1_073_741_824, gt=0, strict=True)
     structure_config: Path | None = None
     mvp_root: Path | None = None
+    confirmation_summary: OverviewSynthesis | None = None
 
 
 def file_hash(path: Path) -> str:
@@ -238,6 +279,7 @@ def _window(
         target=tuple(p.target for p in reference),
         points=_window_points(rows),
         bands=_window_bands(rows),
+        quantile_failures=_window_failures(rows),
     )
 
 
@@ -265,12 +307,33 @@ def _single(values: set[Any], label: str) -> Any:
 
 
 def _bands(points: list[SavedPoint]) -> tuple[tuple[float, float], ...]:
-    if not all(0.1 in p.levels and 0.9 in p.levels for p in points):
+    if not all(_has_interval(p) for p in points):
         return ()
     return tuple(
         (p.quantiles[p.levels.index(0.1)], p.quantiles[p.levels.index(0.9)])
         for p in points
     )
+
+
+def _has_interval(point: SavedPoint) -> bool:
+    return point.quantiles_valid and 0.1 in point.levels and 0.9 in point.levels
+
+
+def _window_failures(
+    rows: dict[str, list[SavedPoint]],
+) -> dict[str, dict[int, tuple[float, ...]]]:
+    result = {}
+    for model, points in rows.items():
+        failed = _failed_quantiles(points)
+        if failed:
+            result[model] = failed
+    return result
+
+
+def _failed_quantiles(points: list[SavedPoint]) -> dict[int, tuple[float, ...]]:
+    return {
+        point.lead: point.quantiles for point in points if not point.quantiles_valid
+    }
 
 
 def _probability(source: OverviewSource, config: OverviewConfig) -> list[OverviewPanel]:
@@ -281,6 +344,7 @@ def _probability(source: OverviewSource, config: OverviewConfig) -> list[Overvie
     assert source.dataset is not None
     definitions = _definitions(source.dataset)
     _followup_definitions(source, summary)
+    lead_interval, lead_unit = _followup_axis(source, summary)
     panels = []
     for cell, feature, models in _result_cells(summary["results"]):
         definition = definitions[feature]
@@ -300,6 +364,8 @@ def _probability(source: OverviewSource, config: OverviewConfig) -> list[Overvie
                 context_frames=int(raw["context_frames"]),
                 horizon_frames=int(raw["horizon_frames"]),
                 models={m: m for m in models},
+                lead_interval=lead_interval,
+                lead_unit=lead_unit,
                 statistical_reference=_followup_reference(models),
                 windows=_match(tables, int(raw["horizon_frames"])),
                 metrics=_followup_metrics(models),
@@ -309,10 +375,25 @@ def _probability(source: OverviewSource, config: OverviewConfig) -> list[Overvie
                     "split_hash": summary["split_hash"],
                     "config_hash": summary["config_hash"],
                     "sample_origin": sample.origin,
+                    "task": summary.get("task"),
+                    "deviations": summary.get("deviations", []),
+                    "training_dataset": summary.get("training_dataset"),
+                    "evaluation_dataset": summary.get("evaluation_dataset"),
                 },
             )
         )
     return panels
+
+
+def _followup_axis(
+    source: OverviewSource, summary: dict[str, Any]
+) -> tuple[float, str]:
+    if "split.json" not in summary["file_sha256"]:
+        return _interval_axis(None)
+    split = read_metadata(source.root / "split.json", SplitManifest)
+    _same(metadata_hash(split), summary["split_hash"], "confirmation split hash")
+    _same(split.registry.dataset, source.dataset, "confirmation split dataset")
+    return _records_axis(split.registry.trajectories)
 
 
 def _followup_reference(models: dict[str, Any]) -> str | None:
@@ -332,6 +413,12 @@ def _result_cells(results: dict[str, Any]) -> list[tuple[str, str, dict[str, Any
 
 
 def _followup_definitions(source: OverviewSource, summary: dict[str, Any]) -> None:
+    if "evaluation_dataset" in summary:
+        _same(
+            DatasetConfig.model_validate(summary["evaluation_dataset"]),
+            source.dataset,
+            "confirmation evaluation dataset",
+        )
     # TRAIN residual states preserve the actual dataset semantics and full spec.
     for cell, states in summary.get("residual_state_hashes", {}).items():
         _state_definitions(source, cell, states, summary["file_sha256"])
@@ -424,6 +511,7 @@ def _followup_points(rows: list[dict[str, Any]], feature: str) -> list[SavedPoin
                             "origin",
                         )
                     },
+                    "quantiles_valid": row.get("quantiles_valid", True),
                     "levels": levels,
                     "quantiles": tuple(row[f"quantile-{q}"] for q in levels),
                 }
@@ -658,6 +746,7 @@ def _generate_overview(
     """Atomically write embedded data and package-native HTML/JS, without models."""
     from html import escape
 
+    from md_forecast.evaluation.confirmation_view import render_confirmation
     from md_forecast.evaluation.structure_view import render_structure
 
     _protect_inputs(config, output)
@@ -673,6 +762,7 @@ def _generate_overview(
         "__TITLE__": escape(config.title),
         "__CONCLUSION__": escape(config.conclusion),
         "__DATA__": payload,
+        "__CONFIRMATION__": render_confirmation(config),
         "__SCRIPT__": (assets / "overview.js").read_text(),
         "__STRUCTURE__": render_structure(config.structure_config)
         if config.structure_config

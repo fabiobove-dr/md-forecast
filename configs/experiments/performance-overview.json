@@ -1,11 +1,113 @@
 {
   "title": "MD Forecast Performance Overview",
-  "conclusion": "The larger development benchmark shows small point-error gains from fine-tuning, while forecasts remain almost flat. Its 80% intervals cover about 74% for contact count and retained fraction, and 80% for minimum distance. Added input channels have no demonstrated consistent advantage. Independent confirmation is still pending: these results support further controlled research, not practical deployment. Historical pilots below are kept separate.",
+  "conclusion": "Independent confirmation finds small measurable point-error gains for contact count and retained-contact fraction, but no model meets all frozen practical-usefulness criteria (at least 10% gain against both references plus useful uncertainty). Fine-tuning exists and is compared on identical windows. Native fine-tuned MAE at C40/H10 is 11.47 contact pairs, 0.0562 retained fraction (5.62 percentage points), and 0.0816 \u00c5. Contact/fraction intervals under-cover; external fine-tuning worsens minimum-distance error and produces seven crossed contact quantiles. Median curves remain almost flat. Native zero-shot contacts meet the original, smaller measurable-skill minimum; the stricter follow-up criterion remains unmet. This supports limited forecast-level skill and further controlled research, not replacement of MD or practical deployment; it does not prove these predictions are intrinsically impossible.",
   "sources": [
+    {
+      "title": "Independent native confirmation",
+      "role": "Untouched TEST \u2014 99 unseen MISATO complexes",
+      "note": "100 reserved; existing QC excludes 5SZC (zero initial contacts), no replacement. Native cadence remains unknown; axes are frames. Frozen choices are identical across tasks; no TEST fitting or recalibration. C40/H10 is primary, all four cells retained.",
+      "kind": "probability",
+      "root": "data/reports/followup-confirmation45-native",
+      "expected_hash": "sha256:489be74cd1c3d679fcad56bfbd02b0e928c2edc3186d2397e7181a7a6529ba8e",
+      "dataset": {
+        "schema_version": 1,
+        "dataset_id": "misato",
+        "dataset_version": "1.0.0",
+        "feature_set_version": "common-dry-geometry-v1-5241af016ec40156f857d6524db008531b9c5c3bec7915c5d3f08558380e79e8",
+        "features": [
+          {
+            "feature_id": "protein_ligand_contact_count",
+            "unit": "count",
+            "description": "Heavy-atom pair contact count",
+            "definition": "Count receptor-ligand heavy atom pairs at distance <= 4.5 Angstrom. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+          },
+          {
+            "feature_id": "fraction_reference_contacts",
+            "unit": "dimensionless",
+            "description": "Initial contact retention",
+            "definition": "Fraction of first-retained-frame heavy atom-pair contacts remaining at distance <= 4.5 Angstrom; reject zero reference contacts. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+          },
+          {
+            "feature_id": "minimum_protein_ligand_heavy_distance",
+            "unit": "angstrom",
+            "description": "Minimum heavy-atom distance",
+            "definition": "Minimum receptor-ligand heavy atom-pair distance. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Independent external confirmation",
+      "role": "Untouched external TEST \u2014 66 complexes, 660 replicas",
+      "note": "80 reserved; 12 static and 2 geometric QC exclusions, no replacement. Below the planned 80-group precision target. Verified 200 ps spacing. Fine-tuned contact quantiles cross at 7 points in two cells; raw values retained and affected-cell uncertainty INVALID. Frozen choices are identical across tasks; no TEST fitting or recalibration. C40/H10 is primary, all four cells retained.",
+      "kind": "probability",
+      "root": "data/reports/followup-confirmation45-external",
+      "expected_hash": "sha256:de57cc8a06f2b286c38c0ca98ad06e4395f3f6062eecb3216acd6852ca47bbc6",
+      "dataset": {
+        "schema_version": 1,
+        "dataset_id": "mdbind",
+        "dataset_version": "audited-2026-10-03",
+        "feature_set_version": "common-dry-geometry-v1-5241af016ec40156f857d6524db008531b9c5c3bec7915c5d3f08558380e79e8",
+        "features": [
+          {
+            "feature_id": "protein_ligand_contact_count",
+            "unit": "count",
+            "description": "Heavy-atom pair contact count",
+            "definition": "Count receptor-ligand heavy atom pairs at distance <= 4.5 Angstrom. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+          },
+          {
+            "feature_id": "fraction_reference_contacts",
+            "unit": "dimensionless",
+            "description": "Initial contact retention",
+            "definition": "Fraction of first-retained-frame heavy atom-pair contacts remaining at distance <= 4.5 Angstrom; reject zero reference contacts. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+          },
+          {
+            "feature_id": "minimum_protein_ligand_heavy_distance",
+            "unit": "angstrom",
+            "description": "Minimum heavy-atom distance",
+            "definition": "Minimum receptor-ligand heavy atom-pair distance. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+          }
+        ]
+      }
+    },
+    {
+      "title": "Seen-system unseen-replica confirmation",
+      "role": "Untouched replica 10 \u2014 six development-seen complexes",
+      "note": "Models and residuals remain fitted on native TRAIN. Six groups cannot support corrected inference; results are descriptive. Verified 200 ps spacing. Frozen choices are identical across tasks; no TEST fitting or recalibration. C40/H10 is primary, all four cells retained.",
+      "kind": "probability",
+      "root": "data/reports/followup-confirmation45-replica",
+      "expected_hash": "sha256:fa51684dec70dafdbc1f4e5f315a9bcf2f4baa33b02fe3073bf8fe2b791100c8",
+      "dataset": {
+        "schema_version": 1,
+        "dataset_id": "mdbind",
+        "dataset_version": "audited-2026-10-03",
+        "feature_set_version": "common-dry-geometry-v1-5241af016ec40156f857d6524db008531b9c5c3bec7915c5d3f08558380e79e8",
+        "features": [
+          {
+            "feature_id": "protein_ligand_contact_count",
+            "unit": "count",
+            "description": "Heavy-atom pair contact count",
+            "definition": "Count receptor-ligand heavy atom pairs at distance <= 4.5 Angstrom. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+          },
+          {
+            "feature_id": "fraction_reference_contacts",
+            "unit": "dimensionless",
+            "description": "Initial contact retention",
+            "definition": "Fraction of first-retained-frame heavy atom-pair contacts remaining at distance <= 4.5 Angstrom; reject zero reference contacts. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+          },
+          {
+            "feature_id": "minimum_protein_ligand_heavy_distance",
+            "unit": "angstrom",
+            "description": "Minimum heavy-atom distance",
+            "definition": "Minimum receptor-ligand heavy atom-pair distance. Receptor: all dry-source atoms before the final ligand segment, including retained ions/cofactors; ligand: the reviewed final segment. Heavy atoms have atomic number > 1. Raw Cartesian Angstrom distances; no PBC repair."
+          }
+        ]
+      }
+    },
     {
       "title": "Follow-up geometric validation",
       "role": "Development VAL \u2014 60 independent complexes",
-      "note": "Choices use validation; independent confirmation is pending. 512 training updates per trial; selected upstream quantile-loss checkpoints, fixed seed 42. Contacts use joint input; fraction and distance use target-only input. TRAIN-only residual references; native physical cadence remains unknown. Point improvement alone does not establish practical usefulness.",
+      "note": "Choices use validation; independent confirmation is reported separately above. 512 training updates per trial; selected upstream quantile-loss checkpoints, fixed seed 42. Contacts use joint input; fraction and distance use target-only input. TRAIN-only residual references; native physical cadence remains unknown. Point improvement alone does not establish practical usefulness.",
       "kind": "probability",
       "root": "data/reports/followup-probability43-validation",
       "expected_hash": "sha256:aa7f100de32e61f18b62bc40633ae1185285024a009e069305a6ca326945f830",
@@ -138,5 +240,9 @@
   ],
   "structure_config": "configs/experiments/overview-structure.json",
   "mvp_root": "data/reports/mvp-v1-frozen",
-  "default_panel": 9
+  "default_panel": 9,
+  "confirmation_summary": {
+    "path": "data/reports/followup-confirmation45-inference.json",
+    "expected_hash": "sha256:63f9be248faac769ec89b52d369fe01d9fbff1c2740c8972a9179415a480d1e8"
+  }
 }
